@@ -36,8 +36,10 @@ ACT(原版)+国服插件整合，自用
 
 ### 使用方式：
 
-请至[Releases](https://github.com/wjbsyc/ACT_CN_Bundle/releases) 页面下载，安装好ACT后，手动加载整合包内插件
-
+```bash
+git clone https://github.com/wjbsyc/ACT_CN_Bundle.git
+```
+安装好ACT后，手动加载整合包内插件
 
 
 ----
