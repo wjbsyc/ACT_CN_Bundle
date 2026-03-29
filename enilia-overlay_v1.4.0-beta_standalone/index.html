@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="enilia.overlay" ng-controller="overlayController">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" type="text/css" href="js/vendor/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+    <link rel="stylesheet" type="text/css" href="css/jobs.css" />
+    <script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="js/vendor/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/vendor/ngstorage/ngStorage.min.js"></script>
+    <script type="text/javascript" src="app/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/tpls.js"></script>
+    <script type="text/javascript" src="app/DpsMeter/DpsMeter.js"></script>
+    <script type="text/javascript" src="app/Config/Config.js"></script>
+    <script type="text/javascript" src="app/DBManager/DBManager.js"></script>
+    <script type="text/javascript">
+    function data_refresh(){
+            var encounter = {
+            "duration": 0,
+            }
+            encounter.encdps=0
+            document.dispatchEvent(
+            new CustomEvent('onOverlayDataUpdate', {
+                'detail': {
+                    "Encounter": encounter,
+                    "Combatant": null
+                }
+            })
+        );
+        };
+
+    $(function(){
+        $("#collapse_button").click(function(){
+            //得到自定义的custom
+            if($(this).attr("class") == 'glyphicon glyphicon-menu-up'){
+                $(this).attr("class",'glyphicon glyphicon-menu-down');
+                $("#combatants_table").addClass("collapsed");
+            }
+            else
+            {
+                 $(this).attr("class",'glyphicon glyphicon-menu-up');
+                  $("#combatants_table").removeClass("collapsed");
+            }
+            //console.log($(this).attr("class"))
+        })
+    })
+
+</script>
+</head>
+    <body ng-class="{resizable: !state.isLocked}">
+        <div id="container" ng-class="{expandFromBottom: expandFromBottom}">
+            <ng-view></ng-view>
+        </div>
+    </body>
+</html>
