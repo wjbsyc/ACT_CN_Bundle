@@ -26,6 +26,8 @@ ACT(原版)+国服插件整合，自用
 
 * [StarlightBreaker](https://github.com/Loskh/StarlightBreaker)
 
+* [Triggernometry](https://github.com/paissaheavyindustries/Triggernometry)
+
 * [enilia-overlay-kai](https://github.com/wjbsyc/enilia-overlay-kai)
 
 * [UWU_auto_support](https://github.com/wjbsyc/UWU_auto_support)
