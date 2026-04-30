@@ -65,7 +65,7 @@ _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].HolminsterSwitch */ .Z.Holmi
 // Dungeons (Endwalker)
 _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheTowerOfZot */ .Z.TheTowerOfZot, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheTowerOfBabil */ .Z.TheTowerOfBabil, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Vanaspati */ .Z.Vanaspati, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].KtisisHyperboreia */ .Z.KtisisHyperboreia, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheAitiascope */ .Z.TheAitiascope, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheDeadEnds */ .Z.TheDeadEnds, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Smileton */ .Z.Smileton, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheStigmaDreamscape */ .Z.TheStigmaDreamscape, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AlzadaalsLegacy */ .Z.AlzadaalsLegacy, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheFellCourtOfTroia */ .Z.TheFellCourtOfTroia, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].LapisManalis */ .Z.LapisManalis, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheAetherfont */ .Z.TheAetherfont, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheLunarSubterrane */ .Z.TheLunarSubterrane,
 // Dungeons (Dawntrail)
-_zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Ihuykatumu */ .Z.Ihuykatumu, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].WorqorZormor */ .Z.WorqorZormor, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheSkydeepCenote */ .Z.TheSkydeepCenote, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Vanguard */ .Z.Vanguard, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Origenics */ .Z.Origenics, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Alexandria */ .Z.Alexandria, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TenderValley */ .Z.TenderValley, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheStrayboroughDeadwalk */ .Z.TheStrayboroughDeadwalk, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].YuweyawataFieldStation */ .Z.YuweyawataFieldStation, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheUnderkeep */ .Z.TheUnderkeep, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheMesoTerminal */ .Z.TheMesoTerminal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Mistwake */ .Z.Mistwake,
+_zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Ihuykatumu */ .Z.Ihuykatumu, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].WorqorZormor */ .Z.WorqorZormor, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheSkydeepCenote */ .Z.TheSkydeepCenote, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Vanguard */ .Z.Vanguard, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Origenics */ .Z.Origenics, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Alexandria */ .Z.Alexandria, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TenderValley */ .Z.TenderValley, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheStrayboroughDeadwalk */ .Z.TheStrayboroughDeadwalk, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].YuweyawataFieldStation */ .Z.YuweyawataFieldStation, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheUnderkeep */ .Z.TheUnderkeep, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheMesoTerminal */ .Z.TheMesoTerminal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Mistwake */ .Z.Mistwake, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheClyteum */ .Z.TheClyteum,
 // Trials (A Realm Reborn)
 _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheBowlOfEmbers */ .Z.TheBowlOfEmbers, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheNavel */ .Z.TheNavel, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheHowlingEye */ .Z.TheHowlingEye, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].ThePortaDecumana */ .Z.ThePortaDecumana, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheChrysalis */ .Z.TheChrysalis, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].ARelicRebornTheChimera */ .Z.ARelicRebornTheChimera, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].ARelicRebornTheHydra */ .Z.ARelicRebornTheHydra, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].BattleOnTheBigBridge */ .Z.BattleOnTheBigBridge, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheDragonsNeck */ .Z.TheDragonsNeck, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].BattleInTheBigKeep */ .Z.BattleInTheBigKeep, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheBowlOfEmbersHard */ .Z.TheBowlOfEmbersHard, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheHowlingEyeHard */ .Z.TheHowlingEyeHard, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheNavelHard */ .Z.TheNavelHard, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].ThornmarchHard */ .Z.ThornmarchHard, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheWhorleaterHard */ .Z.TheWhorleaterHard, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheStrikingTreeHard */ .Z.TheStrikingTreeHard, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheAkhAfahAmphitheatreHard */ .Z.TheAkhAfahAmphitheatreHard, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].UrthsFount */ .Z.UrthsFount,
 // High-end Trials (A Realm Reborn)
@@ -87,9 +87,9 @@ _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheDarkInside */ .Z.TheDarkI
 // High-end Trials (Endwalker)
 _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheMinstrelsBalladZodiarksFall */ .Z.TheMinstrelsBalladZodiarksFall, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheMinstrelsBalladHydaelynsCall */ .Z.TheMinstrelsBalladHydaelynsCall, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheMinstrelsBalladEndsingersAria */ .Z.TheMinstrelsBalladEndsingersAria, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].StormsCrownExtreme */ .Z.StormsCrownExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].MountOrdealsExtreme */ .Z.MountOrdealsExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheVoidcastDaisExtreme */ .Z.TheVoidcastDaisExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheAbyssalFractureExtreme */ .Z.TheAbyssalFractureExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].UltimasBaneUnreal */ .Z.UltimasBaneUnreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].ContainmentBayS1T7Unreal */ .Z.ContainmentBayS1T7Unreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].ContainmentBayP1T6Unreal */ .Z.ContainmentBayP1T6Unreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].ContainmentBayZ1T9Unreal */ .Z.ContainmentBayZ1T9Unreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheSingularityReactorUnreal */ .Z.TheSingularityReactorUnreal,
 // Trials (Dawntrail)
-_zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].WorqorLarDor */ .Z.WorqorLarDor, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Everkeep */ .Z.Everkeep, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheInterphos */ .Z.TheInterphos, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Recollection */ .Z.Recollection, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheAgelessNecropolis */ .Z.TheAgelessNecropolis, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheWindwardWilds */ .Z.TheWindwardWilds, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].HellOnRails */ .Z.HellOnRails,
+_zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].WorqorLarDor */ .Z.WorqorLarDor, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Everkeep */ .Z.Everkeep, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheInterphos */ .Z.TheInterphos, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].Recollection */ .Z.Recollection, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheAgelessNecropolis */ .Z.TheAgelessNecropolis, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheWindwardWilds */ .Z.TheWindwardWilds, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].HellOnRails */ .Z.HellOnRails, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheUnmaking */ .Z.TheUnmaking,
 // High-end Trials (Dawntrail)
-_zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].WorqorLarDorExtreme */ .Z.WorqorLarDorExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].EverkeepExtreme */ .Z.EverkeepExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheMinstrelsBalladSphenesBurden */ .Z.TheMinstrelsBalladSphenesBurden, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].RecollectionExtreme */ .Z.RecollectionExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheMinstrelsBalladNecronsEmbrace */ .Z.TheMinstrelsBalladNecronsEmbrace, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheJadeStoaUnreal */ .Z.TheJadeStoaUnreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].HellsKierUnreal */ .Z.HellsKierUnreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheWreathOfSnakesUnreal */ .Z.TheWreathOfSnakesUnreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheWindwardWildsExtreme */ .Z.TheWindwardWildsExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].HellOnRailsExtreme */ .Z.HellOnRailsExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TsukuyomisPainUnreal */ .Z.TsukuyomisPainUnreal,
+_zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].WorqorLarDorExtreme */ .Z.WorqorLarDorExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].EverkeepExtreme */ .Z.EverkeepExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheMinstrelsBalladSphenesBurden */ .Z.TheMinstrelsBalladSphenesBurden, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].RecollectionExtreme */ .Z.RecollectionExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheMinstrelsBalladNecronsEmbrace */ .Z.TheMinstrelsBalladNecronsEmbrace, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheJadeStoaUnreal */ .Z.TheJadeStoaUnreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].HellsKierUnreal */ .Z.HellsKierUnreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheWreathOfSnakesUnreal */ .Z.TheWreathOfSnakesUnreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheWindwardWildsExtreme */ .Z.TheWindwardWildsExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].HellOnRailsExtreme */ .Z.HellOnRailsExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TsukuyomisPainUnreal */ .Z.TsukuyomisPainUnreal, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheUnmakingExtreme */ .Z.TheUnmakingExtreme, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].ShinryusDomainUnreal */ .Z.ShinryusDomainUnreal,
 // Alliance Raids (A Realm Reborn)
 _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheLabyrinthOfTheAncients */ .Z.TheLabyrinthOfTheAncients, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].SyrcusTower */ .Z.SyrcusTower, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheWorldOfDarkness */ .Z.TheWorldOfDarkness,
 // Raids (A Realm Reborn)
@@ -121,7 +121,7 @@ _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AsphodelosTheFirstCircle */ 
 // Savage Raids (Endwalker)
 _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AsphodelosTheFirstCircleSavage */ .Z.AsphodelosTheFirstCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AsphodelosTheSecondCircleSavage */ .Z.AsphodelosTheSecondCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AsphodelosTheThirdCircleSavage */ .Z.AsphodelosTheThirdCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AsphodelosTheFourthCircleSavage */ .Z.AsphodelosTheFourthCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AbyssosTheFifthCircleSavage */ .Z.AbyssosTheFifthCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AbyssosTheSixthCircleSavage */ .Z.AbyssosTheSixthCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AbyssosTheSeventhCircleSavage */ .Z.AbyssosTheSeventhCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AbyssosTheEighthCircleSavage */ .Z.AbyssosTheEighthCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AnabaseiosTheNinthCircleSavage */ .Z.AnabaseiosTheNinthCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AnabaseiosTheTenthCircleSavage */ .Z.AnabaseiosTheTenthCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AnabaseiosTheEleventhCircleSavage */ .Z.AnabaseiosTheEleventhCircleSavage, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AnabaseiosTheTwelfthCircleSavage */ .Z.AnabaseiosTheTwelfthCircleSavage,
 // Alliance Raids (Dawntrail)
-_zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].JeunoTheFirstWalk */ .Z.JeunoTheFirstWalk, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].SanDoriaTheSecondWalk */ .Z.SanDoriaTheSecondWalk,
+_zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].JeunoTheFirstWalk */ .Z.JeunoTheFirstWalk, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].SanDoriaTheSecondWalk */ .Z.SanDoriaTheSecondWalk, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].WindurstTheThirdWalk */ .Z.WindurstTheThirdWalk,
 // Normal Raids (Dawntrail)
 _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacLightHeavyweightM1 */ .Z.AacLightHeavyweightM1, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacLightHeavyweightM2 */ .Z.AacLightHeavyweightM2, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacLightHeavyweightM3 */ .Z.AacLightHeavyweightM3, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacLightHeavyweightM4 */ .Z.AacLightHeavyweightM4, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacCruiserweightM1 */ .Z.AacCruiserweightM1, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacCruiserweightM2 */ .Z.AacCruiserweightM2, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacCruiserweightM3 */ .Z.AacCruiserweightM3, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacCruiserweightM4 */ .Z.AacCruiserweightM4, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacHeavyweightM1 */ .Z.AacHeavyweightM1, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacHeavyweightM2 */ .Z.AacHeavyweightM2, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacHeavyweightM3 */ .Z.AacHeavyweightM3, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].AacHeavyweightM4 */ .Z.AacHeavyweightM4,
 // Savage Raids (Dawntrail)
@@ -6038,6 +6038,7 @@ const data = {
   'AnotherMountRokkonSavage': 1156,
   'AnotherSildihnSubterrane': 1075,
   'AnotherSildihnSubterraneSavage': 1076,
+  'ArcheiaHarmonias': 1357,
   'AsTheHeartBids': 894,
   'AsTheHeavensBurn': 1012,
   'AsphodelosTheFirstCircle': 1002,
@@ -6095,6 +6096,7 @@ const data = {
   'ContainmentBayZ1T9Unreal': 1157,
   'CopperbellMines': 1038,
   'CopperbellMinesHard': 349,
+  'CrystallineConflictCustomMatchArcheiaHarmonias': 1358,
   'CrystallineConflictCustomMatchCloudNine': 1060,
   'CrystallineConflictCustomMatchTheBaysideBattleground': 1294,
   'CrystallineConflictCustomMatchTheClockworkCastletown': 1117,
@@ -6313,7 +6315,9 @@ const data = {
   'SealRockSeize': 431,
   'Shaaloani': 1190,
   'ShadowAndClaw': 223,
-  'ShisuiOfTheVioletTides': 616,
+  'ShinryusDomainUnreal': 1372,
+  'ShisuiOfTheVioletTides': 1367,
+  'ShisuiOfTheVioletTides74': 616,
   'SigmascapeV10': 748,
   'SigmascapeV10Savage': 752,
   'SigmascapeV20': 749,
@@ -6387,6 +6391,7 @@ const data = {
   'TheCloudDeck': 950,
   'TheCloudDeckExtreme': 951,
   'TheCloudOfDarknessChaotic': 1241,
+  'TheClyteum': 1345,
   'TheCopiedFactory': 882,
   'TheCrownOfTheImmaculate': 846,
   'TheCrownOfTheImmaculateExtreme': 848,
@@ -6409,7 +6414,8 @@ const data = {
   'TheDrownedCityOfSkalla': 1172,
   'TheDrownedCityOfSkalla64': 731,
   'TheDungeonsOfLyheGhiah': 879,
-  'TheDuskVigil': 434,
+  'TheDuskVigil': 1366,
+  'TheDuskVigil74': 434,
   'TheDyingGasp': 847,
   'TheEpicOfAlexanderUltimate': 887,
   'TheExcitatron6000': 1000,
@@ -6577,6 +6583,8 @@ const data = {
   'TheTwinning': 840,
   'TheUnderkeep': 1266,
   'TheUnendingCoilOfBahamutUltimate': 733,
+  'TheUnmaking': 1361,
+  'TheUnmakingExtreme': 1362,
   'TheValentionesCeremony': 741,
   'TheVault': 1066,
   'TheVault61': 421,
@@ -6627,6 +6635,7 @@ const data = {
   'WhenClansCollide': 723,
   'WhereEverythingBegins': 1091,
   'WhereWeCallHome': 1328,
+  'WindurstTheThirdWalk': 1368,
   'WithHeartAndSteel': 707,
   'WolvesDenPier': 250,
   'WorqorChirtehTriumph': 1313,
@@ -8757,13 +8766,13 @@ const data = {
     'contentType': 2,
     'exVersion': 1,
     'name': {
-      'cn': '冰雪废堡暮卫塔',
-      'de': 'Abendrot-Wacht',
-      'en': 'The Dusk Vigil',
-      'fr': 'Le Vigile du Crépuscule',
-      'ja': '廃砦捜索 ダスクヴィジル',
-      'ko': '어스름 요새',
-      'tc': '冰雪廢堡暮衛塔'
+      'cn': '(7.4)冰雪废堡暮卫塔',
+      'de': '(7.4)Abendrot-Wacht',
+      'en': '(7.4)The Dusk Vigil',
+      'fr': '(7.4)Le Vigile du Crépuscule',
+      'ja': '(7.4)廃砦捜索 ダスクヴィジル',
+      'ko': '(7.4)어스름 요새',
+      'tc': '(7.4)冰雪廢堡暮衛塔'
     },
     'offsetX': 0,
     'offsetY': 0,
@@ -10463,13 +10472,13 @@ const data = {
     'contentType': 2,
     'exVersion': 2,
     'name': {
-      'cn': '海底宫殿紫水宫',
-      'de': 'Shisui',
-      'en': 'Shisui of the Violet Tides',
-      'fr': 'Le Palais aux Marées violettes',
-      'ja': '海底宮殿 紫水宮',
-      'ko': '시스이 궁',
-      'tc': '海底宮殿紫水宮'
+      'cn': '(7.4)海底宫殿紫水宫',
+      'de': '(7.4)Shisui',
+      'en': '(7.4)Shisui of the Violet Tides',
+      'fr': '(7.4)Le Palais aux Marées violettes',
+      'ja': '(7.4)海底宮殿 紫水宮',
+      'ko': '(7.4)시스이 궁',
+      'tc': '(7.4)海底宮殿紫水宮'
     },
     'offsetX': 0,
     'offsetY': 35,
@@ -11377,7 +11386,7 @@ const data = {
       'fr': 'La bataille des clans',
       'ja': '影隠忍法帖',
       'ko': '그림자 인법첩',
-      'tc': '影隱忍法貼'
+      'tc': '影隱忍法帖'
     },
     'offsetX': 0,
     'offsetY': 0,
@@ -17167,7 +17176,8 @@ const data = {
       'en': 'Cenote Ja Ja Gural',
       'fr': 'Cénote Ja Ja Gural',
       'ja': '宝物庫 セノーテ・ジャジャグラル',
-      'ko': '보물고 세노테 쟈쟈구랄'
+      'ko': '보물고 세노테 쟈쟈구랄',
+      'tc': '加加財富天坑'
     },
     'offsetX': 0,
     'offsetY': 0,
@@ -17353,7 +17363,8 @@ const data = {
       'en': 'AAC Light-heavyweight M1 (Savage)',
       'fr': 'Poids mi-lourds CCA - match 1 (sadique)',
       'ja': '至天の座アルカディア零式：ライトヘビー級1',
-      'ko': '아르카디아 선수권: 라이트헤비급(영웅) 1'
+      'ko': '아르카디아 선수권: 라이트헤비급(영웅) 1',
+      'tc': '阿卡狄亞零式登天鬥技場 輕量級1'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17386,7 +17397,8 @@ const data = {
       'en': 'AAC Light-heavyweight M2 (Savage)',
       'fr': 'Poids mi-lourds CCA - match 2 (sadique)',
       'ja': '至天の座アルカディア零式：ライトヘビー級2',
-      'ko': '아르카디아 선수권: 라이트헤비급(영웅) 2'
+      'ko': '아르카디아 선수권: 라이트헤비급(영웅) 2',
+      'tc': '阿卡狄亞零式登天鬥技場 輕量級2'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17419,7 +17431,8 @@ const data = {
       'en': 'AAC Light-heavyweight M3 (Savage)',
       'fr': 'Poids mi-lourds CCA - match 3 (sadique)',
       'ja': '至天の座アルカディア零式：ライトヘビー級3',
-      'ko': '아르카디아 선수권: 라이트헤비급(영웅) 3'
+      'ko': '아르카디아 선수권: 라이트헤비급(영웅) 3',
+      'tc': '阿卡狄亞零式登天鬥技場 輕量級3'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17452,7 +17465,8 @@ const data = {
       'en': 'AAC Light-heavyweight M4 (Savage)',
       'fr': 'Poids mi-lourds CCA - match 4 (sadique)',
       'ja': '至天の座アルカディア零式：ライトヘビー級4',
-      'ko': '아르카디아 선수권: 라이트헤비급(영웅) 4'
+      'ko': '아르카디아 선수권: 라이트헤비급(영웅) 4',
+      'tc': '阿卡狄亞零式登天鬥技場 輕量級4'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17584,7 +17598,8 @@ const data = {
       'en': 'Yuweyawata Field Station',
       'fr': 'Le centre de recherche de Yuweyawata',
       'ja': '廃地討究 ユウェヤーワータ',
-      'ko': '유웨야와타'
+      'ko': '유웨야와타',
+      'tc': '廢棄據點玉韋亞瓦塔實驗站'
     },
     'offsetX': -35,
     'offsetY': -398,
@@ -17600,7 +17615,8 @@ const data = {
       'en': 'The Minstrel\'s Ballad: Sphene\'s Burden',
       'fr': 'Interphos (extrême)',
       'ja': '極エターナルクイーン討滅戦',
-      'ko': '극 이터널 퀸 토벌전'
+      'ko': '극 이터널 퀸 토벌전',
+      'tc': '極 永恆女王殲滅戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17616,7 +17632,8 @@ const data = {
       'en': 'The Warmth of Family',
       'fr': 'La famille de l\'Aurarque',
       'ja': '王の家族',
-      'ko': '왕의 가족'
+      'ko': '왕의 가족',
+      'tc': '王的家人'
     },
     'offsetX': 0,
     'offsetY': 0,
@@ -17665,7 +17682,8 @@ const data = {
       'en': 'Jeuno: The First Walk',
       'fr': 'Jeuno - La première perambulation',
       'ja': 'ジュノ：ザ・ファーストウォーク',
-      'ko': '쥬노: 첫 번째 반향세계'
+      'ko': '쥬노: 첫 번째 반향세계',
+      'tc': '朱諾：第一巡行'
     },
     'offsetX': -800,
     'offsetY': -595,
@@ -18355,7 +18373,8 @@ const data = {
       'de': 'Des Händlers Liebesmüh',
       'en': 'The Merchant\'s Tale',
       'fr': 'Contes du Camelot - Donjon à embranchements',
-      'ja': 'ヴァリアントダンジョン 商客物語'
+      'ja': 'ヴァリアントダンジョン 商客物語',
+      'ko': '변형 던전: 상인 이야기'
     },
     'offsetX': 574,
     'offsetY': -666,
@@ -18370,7 +18389,8 @@ const data = {
       'de': 'Des Händlers Liebesmüh (fortgeschritten)',
       'en': 'The Merchant\'s Tale (Advanced)',
       'fr': 'Contes du Camelot - Donjon à embranchements (avancé)',
-      'ja': 'アドバンスド・ヴァリアントダンジョン 商客物語'
+      'ja': 'アドバンスド・ヴァリアントダンジョン 商客物語',
+      'ko': '상급 변형 던전: 상인 이야기'
     },
     'offsetX': 580,
     'offsetY': -750,
@@ -18385,7 +18405,8 @@ const data = {
       'de': 'Des Händlers kuriose Liebesmüh',
       'en': 'Another Merchant\'s Tale',
       'fr': 'Contes du Camelot annexes - Donjon alternatif',
-      'ja': 'アナザーダンジョン 異聞商客物語'
+      'ja': 'アナザーダンジョン 異聞商客物語',
+      'ko': '파생 던전: 번외 상인 이야기'
     },
     'offsetX': -375,
     'offsetY': -562,
@@ -18601,6 +18622,152 @@ const data = {
     'offsetY': 0,
     'sizeFactor': 100,
     'weatherRate': 149
+  },
+  1345: {
+    'contentType': 2,
+    'exVersion': 5,
+    'name': {
+      'cn': '军工要地克吕提俄斯魔导工厂',
+      'de': 'Das Klyteum',
+      'en': 'The Clyteum',
+      'fr': 'Le Clyteum',
+      'ja': '妖異侵攻 クルティウス魔導工廠',
+      'ko': '클리테우스 마도 공장'
+    },
+    'offsetX': 688,
+    'offsetY': -677,
+    'sizeFactor': 200,
+    'weatherRate': 27
+  },
+  1357: {
+    'contentType': 6,
+    'exVersion': 0,
+    'name': {
+      'cn': '休兵书库',
+      'de': 'Archeia Harmonias',
+      'en': 'Archeia Harmonias',
+      'fr': 'La Bibliothèque Harmonia',
+      'ja': 'ハルモニア戦争図書館',
+      'ko': '하르모니아 전쟁도서관'
+    },
+    'offsetX': -100,
+    'offsetY': -100,
+    'sizeFactor': 400,
+    'weatherRate': 0
+  },
+  1358: {
+    'contentType': 6,
+    'exVersion': 0,
+    'name': {
+      'cn': '水晶冲突（休兵书库：自定赛）',
+      'de': 'Crystalline Conflict: Archeia Harmonias (Schaukampf)',
+      'en': 'Crystalline Conflict (Custom Match - Archeia Harmonias)',
+      'fr': 'Crys. Conflict (partie perso. - La Bibliothèque Harmonia)',
+      'ja': 'クリスタルコンフリクト(ハルモニア戦争図書館：カスタムマッチ)',
+      'ko': '크리스탈라인 컨플릭트(하르모니아 전쟁도서관: 친선 경기)'
+    },
+    'offsetX': -100,
+    'offsetY': -100,
+    'sizeFactor': 400,
+    'weatherRate': 0
+  },
+  1361: {
+    'contentType': 4,
+    'exVersion': 5,
+    'name': {
+      'cn': '恩欧歼灭战',
+      'de': 'Zel Tajaal - Enuo',
+      'en': 'The Unmaking',
+      'fr': 'L\'Anticréation',
+      'ja': 'エヌオー討滅戦',
+      'ko': '에누오 토벌전'
+    },
+    'offsetX': -100,
+    'offsetY': -100,
+    'sizeFactor': 400,
+    'weatherRate': 149
+  },
+  1362: {
+    'contentType': 4,
+    'exVersion': 5,
+    'name': {
+      'cn': '恩欧歼殛战',
+      'de': 'Gok Tajaal - Enuo',
+      'en': 'The Unmaking (Extreme)',
+      'fr': 'L\'Anticréation (extrême)',
+      'ja': '極エヌオー討滅戦',
+      'ko': '극 에누오 토벌전'
+    },
+    'offsetX': -100,
+    'offsetY': -100,
+    'sizeFactor': 400,
+    'weatherRate': 149
+  },
+  1366: {
+    'contentType': 2,
+    'exVersion': 1,
+    'name': {
+      'cn': '冰雪废堡暮卫塔',
+      'de': 'Abendrot-Wacht',
+      'en': 'The Dusk Vigil',
+      'fr': 'Le Vigile du Crépuscule',
+      'ja': '廃砦捜索 ダスクヴィジル',
+      'ko': '어스름 요새',
+      'tc': '冰雪廢堡暮衛塔'
+    },
+    'offsetX': 0,
+    'offsetY': 0,
+    'sizeFactor': 200,
+    'weatherRate': 42
+  },
+  1367: {
+    'contentType': 2,
+    'exVersion': 2,
+    'name': {
+      'cn': '海底宫殿紫水宫',
+      'de': 'Shisui',
+      'en': 'Shisui of the Violet Tides',
+      'fr': 'Le Palais aux Marées violettes',
+      'ja': '海底宮殿 紫水宮',
+      'ko': '시스이 궁',
+      'tc': '海底宮殿紫水宮'
+    },
+    'offsetX': 0,
+    'offsetY': 35,
+    'sizeFactor': 200,
+    'weatherRate': 0
+  },
+  1368: {
+    'contentType': 5,
+    'exVersion': 5,
+    'name': {
+      'cn': '温达斯：第三巡行',
+      'de': 'Windurst: Die dritte Etappe',
+      'en': 'Windurst: The Third Walk',
+      'fr': 'Windurst - La troisième perambulation',
+      'ja': 'ウィンダス：ザ・サードウォーク',
+      'ko': '윈더스: 세 번째 반향세계'
+    },
+    'offsetX': 0,
+    'offsetY': 615,
+    'sizeFactor': 200,
+    'weatherRate': 150
+  },
+  1372: {
+    'contentType': 4,
+    'exVersion': 5,
+    'name': {
+      'cn': '神龙幻巧战',
+      'de': 'Traumprüfung - Heldenlied von Shinryu',
+      'en': 'Shinryu\'s Domain (Unreal)',
+      'fr': 'Le domaine de Shinryu (irréel)',
+      'ja': '幻神龍討滅戦',
+      'ko': '환 신룡 토벌전'
+    },
+    'offsetX': 0,
+    'offsetY': 0,
+    'sizeFactor': 400,
+    'weatherRate': 76
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (data);
@@ -22075,8 +22242,8 @@ const translateRegexBuildParamAnon = (anonParams, replaceLang, replacements) => 
     missingFields
   };
 };
-// EXTERNAL MODULE: ./ui/raidboss/data/raidboss_manifest.txt + 728 modules
-var raidboss_manifest = __webpack_require__(973);
+// EXTERNAL MODULE: ./ui/raidboss/data/raidboss_manifest.txt + 730 modules
+var raidboss_manifest = __webpack_require__(998);
 ;// CONCATENATED MODULE: ./ui/raidboss/raidboss_options.ts
 
 
