@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunkcactbot"] = self["webpackChunkcactbot"] || []).push([[890],{
 
-/***/ 998:
+/***/ 707:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -61881,23 +61881,14 @@ const trial_seiryu_namespaceObject = "### Seiryu Normal\r\n# -p 37FE:12.7 37C4:9
 
 
 
+
 // Shinryu Extreme
 const shinryu_ex_triggerSet = {
   id: 'TheMinstrelsBalladShinryusDomain',
   zoneId: zone_id/* default.TheMinstrelsBalladShinryusDomain */.Z.TheMinstrelsBalladShinryusDomain,
   timelineFile: 'shinryu-ex.txt',
   triggers: [{
-    id: 'ShinryuEx Heart Cleanup',
-    type: 'RemovedCombatant',
-    netRegex: {
-      name: 'Shinryu',
-      capture: false
-    },
-    run: data => {
-      // Explicitly clear so ugly heart message doesn't appear after wipe.
-      delete data.phase;
-    }
-  }, {
+    // Earthen Fury
     id: 'ShinryuEx Phase 1',
     type: 'StartsUsing',
     netRegex: {
@@ -61907,6 +61898,7 @@ const shinryu_ex_triggerSet = {
     },
     run: data => data.phase = 1
   }, {
+    // Dark Matter
     id: 'ShinryuEx Phase 2',
     type: 'StartsUsing',
     netRegex: {
@@ -61916,6 +61908,7 @@ const shinryu_ex_triggerSet = {
     },
     run: data => data.phase = 2
   }, {
+    // Protostar
     id: 'ShinryuEx Phase 3',
     type: 'StartsUsing',
     netRegex: {
@@ -61925,6 +61918,7 @@ const shinryu_ex_triggerSet = {
     },
     run: data => data.phase = 3
   }, {
+    // Tidal Wave enrage
     id: 'ShinryuEx Phase 4',
     type: 'StartsUsing',
     netRegex: {
@@ -61938,7 +61932,8 @@ const shinryu_ex_triggerSet = {
     type: 'StartsUsing',
     netRegex: {
       id: '25F3',
-      source: 'Shinryu'
+      source: 'Shinryu',
+      capture: true
     },
     alertText: (data, matches, output) => {
       if (matches.target === data.me) return output.akhMornOnYou();else if (data.role === 'tank') return output.akhMornOn({
@@ -61989,13 +61984,7 @@ const shinryu_ex_triggerSet = {
     infoText: (_data, _matches, output) => output.text(),
     outputStrings: {
       text: {
-        en: 'Ice: Stack and Stop',
-        de: 'Eis: Stack und Stehenbleiben',
-        fr: 'Glace : Packez-vous et arrêtez',
-        ja: '氷: スタック 動かない',
-        cn: '冰地面：集合停止移动',
-        ko: '얼음: 집합하고 이동하지 않기',
-        tc: '冰地面：集合停止移動'
+        en: 'Ice: Stack + don\'t move'
       }
     }
   }, {
@@ -62056,7 +62045,7 @@ const shinryu_ex_triggerSet = {
     },
     outputStrings: {
       stopToGetFrozen: {
-        en: 'stop to get frozen',
+        en: 'Stop + Get frozen',
         de: 'Stopp! Einfrieren lassen',
         fr: 'Arrêtez, laissez-vous geler',
         ja: '止まれ、凍結',
@@ -62086,7 +62075,7 @@ const shinryu_ex_triggerSet = {
     alertText: (_data, _matches, output) => output.text(),
     outputStrings: {
       text: {
-        en: 'out of water',
+        en: 'Out of water',
         de: 'Raus aus dem Wasser',
         fr: 'Sortez de l\'eau',
         ja: '水から離れ',
@@ -62111,7 +62100,7 @@ const shinryu_ex_triggerSet = {
     },
     outputStrings: {
       baitBoltKeepMoving: {
-        en: 'bait bolt, keep moving',
+        en: 'Bait bolt + keep moving',
         de: 'Blitz ködern, weiterbewegen',
         fr: 'Attirez la foudre, continuez à bouger',
         ja: '稲妻: 動き続ける',
@@ -62140,24 +62129,14 @@ const shinryu_ex_triggerSet = {
     },
     condition: data => data.phase === 3,
     delaySeconds: 9.5,
-    alarmText: (_data, _matches, output) => output.text(),
-    outputStrings: {
-      text: {
-        en: 'move away',
-        de: 'wegbewegen',
-        fr: 'Éloignez-vous',
-        ja: '移動',
-        cn: '躲开原地',
-        ko: '떨어지기',
-        tc: '躲開原地'
-      }
-    }
+    response: responses/* Responses.moveAway */.n3.moveAway('alarm')
   }, {
     id: 'ShinryuEx Icicle Left',
     type: 'Ability',
     netRegex: {
       id: '25EF',
-      source: 'Icicle'
+      source: 'Icicle',
+      capture: true
     },
     condition: (_data, matches) => {
       return Math.round(parseFloat(matches.x)) === -30 && Math.round(parseFloat(matches.y)) === -15;
@@ -62165,7 +62144,7 @@ const shinryu_ex_triggerSet = {
     alarmText: (_data, _matches, output) => output.text(),
     outputStrings: {
       text: {
-        en: 'icicle, lean west',
+        en: 'Icicle, lean west',
         de: 'Eiszapfen, nach westen',
         fr: 'Stalactite, penchez vers l\'ouest',
         ja: 'アイシクル: 西へ',
@@ -62187,7 +62166,7 @@ const shinryu_ex_triggerSet = {
     alarmText: (_data, _matches, output) => output.text(),
     outputStrings: {
       text: {
-        en: 'icicle, lean east',
+        en: 'Icicle, lean east',
         de: 'Eiszapfen, nach Osten',
         fr: 'Stalactite, penchez vers l\'est',
         ja: 'アイシクル: 東へ',
@@ -62206,18 +62185,7 @@ const shinryu_ex_triggerSet = {
     },
     delaySeconds: 3,
     durationSeconds: 5,
-    infoText: (_data, _matches, output) => output.text(),
-    outputStrings: {
-      text: {
-        en: 'Knockback, look for water',
-        de: 'Rückstoß, nach Wasser schauen',
-        fr: 'Poussée, cherchez l\'eau',
-        ja: 'ノックバック、水を探せ',
-        cn: '击退，确认水圈位置',
-        ko: '넉백, 물기둥 확인',
-        tc: '擊退，確認水圈位置'
-      }
-    }
+    response: responses/* Responses.knockback */.n3.knockback()
   }, {
     id: 'ShinryuEx Final Tidal Wave',
     type: 'StartsUsing',
@@ -62285,8 +62253,8 @@ const shinryu_ex_triggerSet = {
       }
     }
   }, {
-    // TODO: can't find the id of this, so using all of them.
-    id: 'ShinryuEx Divebomb',
+    // TODO: math out locations and call directions if we get a log containing any of these IDs.
+    id: 'ShinryuEx Gyre Charge',
     type: 'StartsUsing',
     netRegex: {
       id: ['1FA8', '1FF4', '2603'],
@@ -62296,7 +62264,7 @@ const shinryu_ex_triggerSet = {
     alarmText: (_data, _matches, output) => output.text(),
     outputStrings: {
       text: {
-        en: 'avoid divebomb',
+        en: 'Avoid divebomb',
         de: 'Divebomb ausweichen',
         fr: 'Évitez la bombe plongeante',
         ja: 'ダイブボムに避け',
@@ -62358,7 +62326,7 @@ const shinryu_ex_triggerSet = {
       source: 'Shinryu',
       capture: false
     },
-    response: responses/* Responses.getUnder */.n3.getUnder()
+    response: responses/* Responses.getUnder */.n3.getUnder('alert')
   }, {
     id: 'ShinryuEx Breath',
     type: 'StartsUsing',
@@ -62367,18 +62335,7 @@ const shinryu_ex_triggerSet = {
       source: 'Shinryu',
       capture: false
     },
-    alertText: (_data, _matches, output) => output.text(),
-    outputStrings: {
-      text: {
-        en: 'front cleave',
-        de: 'Frontalcleave',
-        fr: 'Cleave devant',
-        ja: '正面から離れ',
-        cn: '离开正面',
-        ko: '범위 밖으로',
-        tc: '離開正面'
-      }
-    }
+    response: responses/* Responses.awayFromFront */.n3.awayFromFront()
   }, {
     id: 'ShinryuEx Final Left Wing',
     type: 'StartsUsing',
@@ -62392,7 +62349,7 @@ const shinryu_ex_triggerSet = {
     run: data => data.finalWing = true,
     outputStrings: {
       text: {
-        en: 'kill left first',
+        en: 'Kill left first',
         de: 'linken Flügel zuerst',
         fr: 'Tuez l\'aile gauche d\'abord',
         ja: 'レフトウィングに攻撃',
@@ -62414,7 +62371,7 @@ const shinryu_ex_triggerSet = {
     run: data => data.finalWing = true,
     outputStrings: {
       text: {
-        en: 'kill right first',
+        en: 'Kill right first',
         de: 'rechten Flügel zuerst',
         fr: 'Tuez l\'aile droite d\'abord',
         ja: 'ライトウィングに攻撃',
@@ -62437,7 +62394,7 @@ const shinryu_ex_triggerSet = {
     },
     outputStrings: {
       breakTethersThenStack: {
-        en: 'break tethers then stack',
+        en: 'Break tethers => stack',
         de: 'Kette zerreissen, dann stack',
         fr: 'Cassez les liens, puis packez-vous',
         ja: '鎖を引き、集合',
@@ -62465,7 +62422,7 @@ const shinryu_ex_triggerSet = {
     alarmText: (_data, _matches, output) => output.text(),
     outputStrings: {
       text: {
-        en: 'tail marker on you',
+        en: 'Tail marker on YOU',
         de: 'Schweifmarker auf dir',
         fr: 'Marqueur Queue sur VOUS',
         ja: '自分にテイル',
@@ -62502,15 +62459,7 @@ const shinryu_ex_triggerSet = {
         ko: '어스 피하기',
         tc: '遠離大地動搖'
       },
-      earthshakerOnYou: {
-        en: 'earthshaker on you',
-        de: 'Erdstoss auf dir',
-        fr: 'Secousse sur VOUS',
-        ja: '自分にアースシェーカー',
-        cn: '大地动摇点名',
-        ko: '어스 대상자',
-        tc: '大地動搖點名'
-      }
+      earthshakerOnYou: outputs/* default.earthshakerOnYou */.Z.earthshakerOnYou
     }
   }, {
     id: 'ShinryuEx Cocoon Marker',
@@ -62523,6 +62472,7 @@ const shinryu_ex_triggerSet = {
   }],
   timelineReplace: [{
     'locale': 'de',
+    'missingTranslations': true,
     'replaceSync': {
       'Hakkinryu': 'Hakkinryu',
       'Left Wing': 'link(?:e|er|es|en) Schwinge',
@@ -62575,6 +62525,7 @@ const shinryu_ex_triggerSet = {
     }
   }, {
     'locale': 'fr',
+    'missingTranslations': true,
     'replaceSync': {
       'Hakkinryu': 'Hakkinryu',
       'Icicle': 'stalactite',
@@ -62679,6 +62630,7 @@ const shinryu_ex_triggerSet = {
     }
   }, {
     'locale': 'cn',
+    'missingTranslations': true,
     'replaceSync': {
       'Cocoon': '光茧',
       'Icicle': '冰柱',
@@ -62730,6 +62682,7 @@ const shinryu_ex_triggerSet = {
     }
   }, {
     'locale': 'tc',
+    'missingTranslations': true,
     'replaceSync': {
       'Cocoon': '光繭',
       'Icicle': '冰柱',
@@ -62781,6 +62734,7 @@ const shinryu_ex_triggerSet = {
     }
   }, {
     'locale': 'ko',
+    'missingTranslations': true,
     'replaceSync': {
       'Hakkinryu': '백금룡',
       'Left Wing': '왼쪽 날개',
@@ -62838,7 +62792,7 @@ const shinryu_ex_triggerSet = {
 };
 /* harmony default export */ const shinryu_ex = (shinryu_ex_triggerSet);
 ;// CONCATENATED MODULE: ./ui/raidboss/data/04-sb/trial/shinryu-ex.txt
-const trial_shinryu_ex_namespaceObject = "# Shinryu Ex\r\n# Text Guide: http://clees.me/guides/shinryu-ex/\r\n#\r\n# -p 25DE:21.3 25E7:503 25E4:806 264B:859.5\r\n# -it Shinryu\r\n# -ii 25FD 25DA 25E9 25EB 2611 25FF 2616 1DD1 2614 25DB 25F6 25F4 25F2 25DF 25ED 260E 25DD 260F 2608 2609 260A 260B 25E6 25E3 2618 25DC 1DD3 264D 2612 2725 25E0 25E1 2600 2601\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n# Heart add not listed here. Seems to be on an independent respawn timer.\r\n\r\n### PHASE 1: Elemental carousel\r\n###\r\n0.0 \"--sync--\" InCombat { inGameCombat: \"1\" } window 0,1\r\n11.3 \"--sync--\" StartsUsing { id: \"25FD\", source: \"Shinryu\" } window 20,20\r\n21.3 \"Earthen Fury\" Ability { id: \"25DE\", source: \"Shinryu\" }\r\n36.4 \"--Tethers--\" # Burning Chains (301) effect\r\n44.5 \"Tidal Wave\" Ability { id: \"25F9\", source: \"Shinryu\" }\r\n49.7 \"--Tail Marker (healer)--\" # 007E headmarker\r\n61.7 \"Summon Icicle\" Ability { id: \"25EE\", source: \"Left Wing\" }\r\n62.4 \"Icicle Impact\" Ability { id: \"25EF\", source: \"Icicle\" }\r\n67.0 \"Spikesicle\" Ability { id: \"25F0\", source: \"Icicle\" }\r\n67.9 \"Tail Slap\" Ability { id: \"25E2\", source: \"Tail\" }\r\n79.8 \"Hypernova / Levinbolt\" Ability { id: [\"25E8\", \"25EA\"], source: \"Right Wing\" }\r\n90.9 \"Dragonfist\" Ability { id: \"2610\", source: \"Shinryu\" }\r\n97.8 \"Ice Storm\" Ability { id: \"25F1\", source: \"Left Wing\" } # sometimes 3 seconds earlier?\r\n108.0 \"Akh Morn 1\" Ability { id: \"25F3\", source: \"Shinryu\" } duration 3.2\r\n110.1 \"Akh Rhai\" Ability { id: \"25F5\", source: \"Shinryu\" } duration 5.3\r\n116.3 \"Summon Icicle\" Ability { id: \"25EE\", source: \"Left Wing\" }\r\n116.9 \"Icicle Impact\" Ability { id: \"25EF\", source: \"Icicle\" }\r\n121.4 \"Spikesicle\" Ability { id: \"25F0\", source: \"Icicle\" }\r\n123.3 \"Judgment Bolt / Hellfire\" Ability { id: [\"25FA\", \"25DC\"], source: \"Shinryu\" }\r\n\r\n138.4 \"--Tail Marker (dps)--\"\r\n149.5 \"Levinbolt\" Ability { id: \"25EA\", source: \"Right Wing\" }\r\n156.6 \"Tail Slap\" Ability { id: \"25E2\", source: \"Tail\" }\r\n164.5 \"Ice Storm\" Ability { id: \"25F1\", source: \"Left Wing\" }\r\n171.8 \"--Tethers (T/H)--\"\r\n180.6 \"Earth Breath\" Ability { id: \"25EC\", source: \"Shinryu\" }\r\n188.0 \"Akh Morn 2\" Ability { id: \"25F3\", source: \"Shinryu\" } duration 3.2\r\n190.1 \"Akh Rhai\" Ability { id: \"25F5\", source: \"Shinryu\" } duration 5.3\r\n194.0 \"Ice Storm\" Ability { id: \"25F1\", source: \"Left Wing\" }\r\n206.6 \"--Tethers (healers)--\"\r\n208.2 \"Diamond Dust\" Ability { id: \"25FC\", source: \"Shinryu\" }\r\n224.9 \"--Reiryu Adds--\"\r\n\r\n233.3 \"--Tail Marker (tank)--\"\r\n251.5 \"Tail Slap\" Ability { id: \"260D\", source: \"Tail\" }\r\n268.5 \"Summon Icicle\" Ability { id: \"25EE\", source: \"Left Wing\" }\r\n269.1 \"Icicle Impact\" Ability { id: \"25EF\", source: \"Icicle\" }\r\n272.4 \"Akh Morn 3\" Ability { id: \"25F3\", source: \"Shinryu\" } duration 3.2\r\n273.6 \"Spikesicle\" Ability { id: \"25F0\", source: \"Icicle\" }\r\n274.5 \"Akh Rhai\" Ability { id: \"25F5\", source: \"Shinryu\" } duration 5.3\r\n285.3 \"Super Cyclone 1\" #Ability { id: \"260C\", source: \"Shinryu\" }\r\n287.4 \"Super Cyclone 2\" #Ability { id: \"260C\", source: \"Shinryu\" }\r\n289.5 \"Super Cyclone 3\" #Ability { id: \"260C\", source: \"Shinryu\" }\r\n291.7 \"Aerial Blast\" Ability { id: \"25FE\", source: \"Shinryu\" }\r\n292.7 \"--Tethers (dps)--\"\r\n318.9 \"Earth Breath\" Ability { id: \"25EC\", source: \"Shinryu\" }\r\n321.9 \"Ice Storm\" Ability { id: \"25F1\", source: \"Left Wing\" }\r\n\r\n325.3 \"--untargetable--\"\r\n334.7 \"--sync--\" Ability { id: \"25F7\", source: \"Shinryu\" }\r\n335.9 \"Gyre Charge\" Ability { id: \"2603\", source: \"Shinryu\" }\r\n341.8 \"--targetable--\"\r\n\r\n350.9 \"Hypernova\" Ability { id: \"25E8\", source: \"Right Wing\" }\r\n363.0 \"Akh Morn 4\" Ability { id: \"25F3\", source: \"Shinryu\" } duration 4.3\r\n365.1 \"Akh Rhai\" Ability { id: \"25F5\", source: \"Shinryu\" } duration 5.3\r\n378.3 \"Hypernova / Levinbolt\" Ability { id: [\"25E8\", \"25EA\"], source: \"Right Wing\" }\r\n384.3 \"Tidal Wave\" Ability { id: \"25F9\", source: \"Shinryu\" }\r\n387.4 \"--untargetable--\"\r\n394.8 \"Dark Matter\" #Ability { id: \"25E7\", source: \"Shinryu\" }\r\n\r\n\r\n### PHASE 2: Adds, explosions, dramatic tail climbing\r\n###\r\n500.0 \"--Phase 2--\" StartsUsing { id: \"25E7\", source: \"Shinryu\" } window 500,500\r\n503.0 \"Dark Matter\" Ability { id: \"25E7\", source: \"Shinryu\" }\r\n513.0 \"TAP BUTTON OR ELSE\" duration 5\r\n540.7 \"Touchdown\" Ability { id: \"2613\", source: \"Shinryu\" }\r\n545.2 \"--sync--\" Ability { id: \"25D9\", source: \"Shinryu\" }\r\n552.3 \"Meteor Impact 1\" Ability { id: \"25E5\", source: \"Cocoon\" }\r\n553.9 \"--sync--\" Ability { id: \"2605\", source: \"Cocoon\" }\r\n571.1 \"Meteor Impact 2\" Ability { id: \"25E5\", source: \"Cocoon\" }\r\n572.7 \"--sync--\" Ability { id: \"2605\", source: \"Cocoon\" }\r\n588.0 \"--Cocoon Markers--\"\r\n601.0 \"Meteor Impact 3\" Ability { id: \"25E5\", source: \"Cocoon\" }\r\n602.6 \"--sync--\" Ability { id: \"2605\", source: \"Cocoon\" }\r\n\r\n### PHASE 3: Anticlimax\r\n###\r\n800.0 \"--Phase 3--\" StartsUsing { id: \"25E4\", source: \"Shinryu\" } window 500,500\r\n806.0 \"Protostar\" Ability { id: \"25E4\", source: \"Shinryu\" }\r\n813.1 \"Tail Spit\" Ability { id: \"2615\", source: \"Shinryu\" }\r\n837.4 \"Shatter\" Ability { id: \"2617\", source: \"Shinryu\" } window 50,50\r\n843.4 \"--targetable--\"\r\n\r\n# Loop 1\r\n855.5 \"--sync--\" StartsUsing { id: \"264B\", source: \"Shinryu\" } window 20,20\r\n859.5 \"Tera Slash\" Ability { id: \"264B\", source: \"Shinryu\" }\r\n868.2 \"Atomic Ray\" Ability { id: \"264C\", source: \"Shinryu\" }\r\n885.9 \"Ice Storm\" Ability { id: \"2722\", source: \"Left Wing\" }\r\n889.9 \"Levinbolt / Hypernova\" Ability { id: [\"2720\", \"271F\"], source: \"Right Wing\" }\r\n897.9 \"Wormwail / Benighting Breath\" Ability { id: [\"2648\", \"2649\"], source: \"Shinryu\" }\r\n907.1 \"Tera Slash\" Ability { id: \"264B\", source: \"Shinryu\" }\r\n910.8 \"--Reiryu Adds--\"\r\n\r\n# Loop 2\r\n957.4 \"Tera Slash\" Ability { id: \"264B\", source: \"Shinryu\" } window 20,20\r\n966.1 \"Atomic Ray\" Ability { id: \"264C\", source: \"Shinryu\" }\r\n983.8 \"Ice Storm\" Ability { id: \"2722\", source: \"Left Wing\" }\r\n987.8 \"Levinbolt / Hypernova\" Ability { id: [\"2720\", \"271F\"], source: \"Right Wing\" }\r\n995.9 \"Wormwail / Benighting Breath\" Ability { id: [\"2648\", \"2649\"], source: \"Shinryu\" }\r\n1005.1 \"Tera Slash\" Ability { id: \"264B\", source: \"Shinryu\" }\r\n1009.1 \"--Reiryu Adds--\"\r\n\r\n### PHASE 4: Race to the finish!\r\n###\r\n1046.0 \"--sync--\" StartsUsing { id: \"264E\", source: \"Shinryu\" } window 300,300\r\n1085.0 \"First Wing\" # 35 second cast, starts 4 seconds later, 2718/2719\r\n1090.0 \"Second Wing\" # 35 second cast, starts 9 seconds later, 2719/2718\r\n1116.0 \"Tidal Wave\" Ability { id: \"264E\", source: \"Shinryu\" } # 70 second cast\r\n";
+const trial_shinryu_ex_namespaceObject = "# Shinryu Ex\r\n# Text Guide: http://clees.me/guides/shinryu-ex/\r\n#\r\n# -p 25DE:21.3 25E7:503 25E4:806 264B:859.5\r\n# -it Shinryu\r\n# -ii 25FD 25DA 25E9 25EB 2611 25FF 2616 1DD1 2614 25DB 25F6 25F4 25F2 25DF 25ED 260E 25DD 260F 2608 2609 260A 260B 25E6 25E3 2618 25DC 1DD3 264D 2612 2725 25E0 25E1 2600 2601\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n# Heart add not listed here. Seems to be on an independent respawn timer.\r\n\r\n### PHASE 1: Elemental carousel\r\n###\r\n0.0 \"--sync--\" InCombat { inGameCombat: \"1\" } window 0,1\r\n11.3 \"--sync--\" StartsUsing { id: \"25FD\", source: \"Shinryu\" } window 20,20\r\n21.3 \"Earthen Fury\" Ability { id: \"25DE\", source: \"Shinryu\" }\r\n36.4 \"--Tethers--\" # Burning Chains (301) effect\r\n44.5 \"Tidal Wave\" Ability { id: \"25F9\", source: \"Shinryu\" }\r\n49.7 \"--Tail Marker (healer)--\" # 007E headmarker\r\n61.7 \"Summon Icicle\" Ability { id: \"25EE\", source: \"Left Wing\" }\r\n62.4 \"Icicle Impact\" Ability { id: \"25EF\", source: \"Icicle\" }\r\n67.0 \"Spikesicle\" Ability { id: \"25F0\", source: \"Icicle\" }\r\n67.9 \"Tail Slap\" Ability { id: \"25E2\", source: \"Tail\" }\r\n79.8 \"Hypernova / Levinbolt\" Ability { id: [\"25E8\", \"25EA\"], source: \"Right Wing\" }\r\n90.9 \"Dragonfist\" Ability { id: \"2610\", source: \"Shinryu\" }\r\n94.8 \"Ice Storm\" Ability { id: \"25F1\", source: \"Left Wing\" }\r\n108.0 \"Akh Morn 1\" Ability { id: \"25F3\", source: \"Shinryu\" } duration 3.2\r\n110.1 \"Akh Rhai\" Ability { id: \"25F5\", source: \"Shinryu\" } duration 5.3\r\n116.3 \"Summon Icicle\" Ability { id: \"25EE\", source: \"Left Wing\" }\r\n116.9 \"Icicle Impact\" Ability { id: \"25EF\", source: \"Icicle\" }\r\n121.4 \"Spikesicle\" Ability { id: \"25F0\", source: \"Icicle\" }\r\n123.3 \"Judgment Bolt / Hellfire\" Ability { id: [\"25FA\", \"25DC\"], source: \"Shinryu\" }\r\n\r\n138.4 \"--Tail Marker (dps)--\"\r\n149.5 \"Levinbolt\" Ability { id: \"25EA\", source: \"Right Wing\" }\r\n156.6 \"Tail Slap\" Ability { id: \"25E2\", source: \"Tail\" }\r\n164.5 \"Ice Storm\" Ability { id: \"25F1\", source: \"Left Wing\" }\r\n171.8 \"--Tethers (T/H)--\"\r\n180.6 \"Earth Breath\" Ability { id: \"25EC\", source: \"Shinryu\" }\r\n188.0 \"Akh Morn 2\" Ability { id: \"25F3\", source: \"Shinryu\" } duration 3.2\r\n190.1 \"Akh Rhai\" Ability { id: \"25F5\", source: \"Shinryu\" } duration 5.3\r\n194.0 \"Ice Storm\" Ability { id: \"25F1\", source: \"Left Wing\" }\r\n206.6 \"--Tethers (healers)--\"\r\n208.2 \"Diamond Dust\" Ability { id: \"25FC\", source: \"Shinryu\" }\r\n224.9 \"--Reiryu Adds--\"\r\n\r\n# The timing on the Icicle here appears to be here or 3s later.\r\n# We leave the earlier visual in place to let players anticipate it.\r\n233.3 \"--Tail Marker (tank)--\"\r\n251.5 \"Tail Slap\" Ability { id: \"25E2\", source: \"Tail\" }\r\n268.5 \"Summon Icicle\" #Ability { id: \"25EE\", source: \"Left Wing\" }\r\n269.1 \"Icicle Impact\" #Ability { id: \"25EF\", source: \"Icicle\" }\r\n272.4 \"Akh Morn 3\" Ability { id: \"25F3\", source: \"Shinryu\" } duration 3.2\r\n273.6 \"Spikesicle\" #Ability { id: \"25F0\", source: \"Icicle\" }\r\n274.5 \"Akh Rhai\" Ability { id: \"25F5\", source: \"Shinryu\" } duration 5.3\r\n285.3 \"Super Cyclone 1\" #Ability { id: \"260C\", source: \"Shinryu\" }\r\n287.4 \"Super Cyclone 2\" #Ability { id: \"260C\", source: \"Shinryu\" }\r\n289.5 \"Super Cyclone 3\" #Ability { id: \"260C\", source: \"Shinryu\" }\r\n291.7 \"Aerial Blast\" Ability { id: \"25FE\", source: \"Shinryu\" }\r\n292.7 \"--Tethers (dps)--\"\r\n318.9 \"Earth Breath\" Ability { id: \"25EC\", source: \"Shinryu\" }\r\n321.9 \"Ice Storm\" Ability { id: \"25F1\", source: \"Left Wing\" }\r\n\r\n325.3 \"--untargetable--\"\r\n334.7 \"--sync--\" Ability { id: \"25F7\", source: \"Shinryu\" }\r\n335.9 \"Gyre Charge\" Ability { id: \"2603\", source: \"Shinryu\" }\r\n341.8 \"--targetable--\"\r\n\r\n350.9 \"Hypernova\" Ability { id: \"25E8\", source: \"Right Wing\" }\r\n363.0 \"Akh Morn 4\" Ability { id: \"25F3\", source: \"Shinryu\" } duration 4.3\r\n365.1 \"Akh Rhai\" Ability { id: \"25F5\", source: \"Shinryu\" } duration 5.3\r\n378.3 \"Hypernova / Levinbolt\" Ability { id: [\"25E8\", \"25EA\"], source: \"Right Wing\" }\r\n384.3 \"Tidal Wave\" Ability { id: \"25F9\", source: \"Shinryu\" }\r\n387.4 \"--untargetable--\"\r\n394.8 \"Dark Matter\" #Ability { id: \"25E7\", source: \"Shinryu\" }\r\n\r\n\r\n### PHASE 2: Adds, explosions, dramatic tail climbing\r\n###\r\n500.0 \"--Phase 2--\" StartsUsing { id: \"25E7\", source: \"Shinryu\" } window 500,500\r\n503.0 \"Dark Matter\" Ability { id: \"25E7\", source: \"Shinryu\" }\r\n513.0 \"TAP BUTTON OR ELSE\" duration 5\r\n540.7 \"Touchdown\" Ability { id: \"2613\", source: \"Shinryu\" }\r\n545.2 \"--sync--\" Ability { id: \"25D9\", source: \"Shinryu\" }\r\n552.3 \"Meteor Impact 1\" Ability { id: \"25E5\", source: \"Cocoon\" }\r\n553.9 \"--sync--\" Ability { id: \"2605\", source: \"Cocoon\" }\r\n571.1 \"Meteor Impact 2\" Ability { id: \"25E5\", source: \"Cocoon\" }\r\n572.7 \"--sync--\" Ability { id: \"2605\", source: \"Cocoon\" }\r\n588.0 \"--Cocoon Markers--\"\r\n601.0 \"Meteor Impact 3\" Ability { id: \"25E5\", source: \"Cocoon\" }\r\n602.6 \"--sync--\" Ability { id: \"2605\", source: \"Cocoon\" }\r\n\r\n### PHASE 3: Anticlimax\r\n###\r\n800.0 \"--Phase 3--\" StartsUsing { id: \"25E4\", source: \"Shinryu\" } window 500,500\r\n806.0 \"Protostar\" Ability { id: \"25E4\", source: \"Shinryu\" }\r\n813.1 \"Tail Spit\" Ability { id: \"2615\", source: \"Shinryu\" }\r\n837.4 \"Shatter\" Ability { id: \"2617\", source: \"Shinryu\" } window 50,50\r\n843.4 \"--targetable--\"\r\n\r\n# Loop 1\r\n855.5 \"--sync--\" StartsUsing { id: \"264B\", source: \"Shinryu\" } window 20,20\r\n859.5 \"Tera Slash\" Ability { id: \"264B\", source: \"Shinryu\" }\r\n868.2 \"Atomic Ray\" Ability { id: \"264C\", source: \"Shinryu\" }\r\n885.9 \"Ice Storm\" Ability { id: \"2722\", source: \"Left Wing\" }\r\n889.9 \"Levinbolt / Hypernova\" Ability { id: [\"2720\", \"271F\"], source: \"Right Wing\" }\r\n897.9 \"Wormwail / Benighting Breath\" Ability { id: [\"2648\", \"2649\"], source: \"Shinryu\" }\r\n907.1 \"Tera Slash\" Ability { id: \"264B\", source: \"Shinryu\" }\r\n910.8 \"--Reiryu Adds--\"\r\n\r\n# Loop 2\r\n957.4 \"Tera Slash\" Ability { id: \"264B\", source: \"Shinryu\" } window 20,20\r\n966.1 \"Atomic Ray\" Ability { id: \"264C\", source: \"Shinryu\" }\r\n983.8 \"Ice Storm\" Ability { id: \"2722\", source: \"Left Wing\" }\r\n987.8 \"Levinbolt / Hypernova\" Ability { id: [\"2720\", \"271F\"], source: \"Right Wing\" }\r\n995.9 \"Wormwail / Benighting Breath\" Ability { id: [\"2648\", \"2649\"], source: \"Shinryu\" }\r\n1005.1 \"Tera Slash\" Ability { id: \"264B\", source: \"Shinryu\" }\r\n1009.1 \"--Reiryu Adds--\"\r\n\r\n### PHASE 4: Race to the finish!\r\n###\r\n1046.0 \"--sync--\" StartsUsing { id: \"264E\", source: \"Shinryu\" } window 300,300\r\n1085.0 \"First Wing\" # 35 second cast, starts 4 seconds later, 2718/2719\r\n1090.0 \"Second Wing\" # 35 second cast, starts 9 seconds later, 2719/2718\r\n1116.0 \"Tidal Wave\" Ability { id: \"264E\", source: \"Shinryu\" } # 70 second cast\r\n";
 ;// CONCATENATED MODULE: ./ui/raidboss/data/04-sb/trial/shinryu.ts
 
 
@@ -270360,6 +270314,860 @@ const doomtrain_triggerSet = {
 /* harmony default export */ const doomtrain = (doomtrain_triggerSet);
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/doomtrain.txt
 const trial_doomtrain_namespaceObject = "### HELL ON RAILS\r\n# ZoneId: 1307\r\n\r\n# -ii B234 B236 B237 B239 B23A B23E B23F B240 B241 B24B B24E B250 B251 B255 B258 B259 B25C B25E B9A9\r\n# -it \"Doomtrain\" \"Aether\"\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n0.0 \"--Reset--\" ActorControl { command: \"4000000F\" } window 0,100000 jump 0\r\n\r\n# Car 1, KB/pull in tutorial\r\n0.0 \"--sync--\" InCombat { inGameCombat: \"1\" } window 0,1\r\n13.9 \"Lightning Burst\" Ability { id: \"B25D\", source: \"Doomtrain\" }\r\n22.5 \"Lightning Express\" Ability { id: \"B232\", source: \"Doomtrain\" }\r\n24.5 \"Plasma Beam\" Ability { id: \"B233\", source: \"Levin Signal\" }\r\n34.5 \"Windpipe\" Ability { id: \"B263\", source: \"Doomtrain\" }\r\n36.5 \"Blastpipe\" Ability { id: \"B23B\", source: \"Doomtrain\" }\r\n46.4 \"Unlimited Express\" Ability { id: \"B238\", source: \"Doomtrain\" }\r\n46.6 \"--untargetable--\"\r\n\r\n# Car 2, turret tutorial\r\n50.5 \"--sync--\" Ability { id: \"B249\", source: \"Doomtrain\" }\r\n52.5 \"--targetable--\"\r\n59.6 \"Turret Crossing\" Ability { id: \"B23C\", source: \"Doomtrain\" }\r\n70.8 \"Electray\" Ability { id: \"B23D\", source: \"Kinematic Turret\" }\r\n79.7 \"Lightning Express\" Ability { id: \"B232\", source: \"Doomtrain\" }\r\n81.7 \"Plasma Beam\" Ability { id: \"B233\", source: \"Levin Signal\" }\r\n84.8 \"Electray\" Ability { id: \"B23D\", source: \"Kinematic Turret\" }\r\n94.7 \"Windpipe\" Ability { id: \"B263\", source: \"Doomtrain\" }\r\n96.7 \"Blastpipe\" Ability { id: \"B23B\", source: \"Doomtrain\" }\r\n98.8 \"Electray\" Ability { id: \"B23D\", source: \"Kinematic Turret\" }\r\n106.2 \"Lightning Burst\" Ability { id: \"B25D\", source: \"Doomtrain\" }\r\n115.8 \"Unlimited Express\" Ability { id: \"B238\", source: \"Doomtrain\" }\r\n116.0 \"--untargetable--\"\r\n\r\n# Car 3, up/down tutorial\r\n119.9 \"--sync--\" Ability { id: \"B249\", source: \"Doomtrain\" }\r\n121.9 \"--targetable--\"\r\n134.0 \"Head-on Emission\" Ability { id: \"B242\", source: \"Doomtrain\" }\r\n135.0 \"Thunderous Breath\" Ability { id: \"B243\", source: \"Doomtrain\" }\r\n144.0 \"Head-on Emission\" Ability { id: \"B244\", source: \"Doomtrain\" }\r\n145.0 \"Headlight\" Ability { id: \"B245\", source: \"Doomtrain\" }\r\n154.0 \"Lightning Express\" Ability { id: \"B232\", source: \"Doomtrain\" }\r\n156.0 \"Plasma Beam\" Ability { id: \"B233\", source: \"Levin Signal\" }\r\n164.6 \"Lightning Burst\" Ability { id: \"B25D\", source: \"Doomtrain\" }\r\n174.3 \"Unlimited Express\" Ability { id: \"B238\", source: \"Doomtrain\" }\r\n174.5 \"--untargetable--\"\r\n\r\n# Car 4, but not really\r\n178.5 \"--sync--\" Ability { id: \"B249\", source: \"Doomtrain\" }\r\n180.5 \"--targetable--\"\r\n189.7 \"Runaway Train\" Ability { id: \"B246\", source: \"Doomtrain\" }\r\n192.9 \"Overdraught\" Ability { id: \"B247\", source: \"Aether\" }\r\n193.3 \"--untargetable--\"\r\n\r\n# Intermission\r\n# Duration and syncing are weird here because of the random length\r\n# of pauses between mechanics. Seems to be up to +-3s of drift.\r\n200.3 \"--targetable--\"\r\n205.6 \"--sync--\" StartsUsing { id: \"B24A\", source: \"Aether\" } window 5,5\r\n211.3 \"Aether Surge\" Ability { id: \"B24A\", source: \"Aether\" }\r\n213.0 \"Aetherial Ray\" Ability { id: \"B248\", source: \"Ghost Train\" }\r\n216.2 \"--sync--\" StartsUsing { id: \"B24A\", source: \"Aether\" } window 5,5\r\n221.9 \"Aether Surge\" Ability { id: \"B24A\", source: \"Aether\" }\r\n223.6 \"Aetherial Ray\" Ability { id: \"B248\", source: \"Ghost Train\" }\r\n225.5 \"--sync--\" StartsUsing { id: \"B24A\", source: \"Aether\" } window 5,5\r\n231.2 \"Aether Surge\" Ability { id: \"B24A\", source: \"Aether\" }\r\n232.9 \"Aetherial Ray\" Ability { id: \"B248\", source: \"Ghost Train\" }\r\n238.8 \"--sync--\" StartsUsing { id: \"B24A\", source: \"Aether\" } window 5,5\r\n244.5 \"Aether Surge\" Ability { id: \"B24A\", source: \"Aether\" }\r\n246.1 \"Aetherial Ray\" Ability { id: \"B248\", source: \"Ghost Train\" }\r\n249.8 \"--sync--\" StartsUsing { id: \"B24A\", source: \"Aether\" } window 5,5\r\n255.5 \"Aether Surge\" Ability { id: \"B24A\", source: \"Aether\" }\r\n257.2 \"Aetherial Ray\" Ability { id: \"B248\", source: \"Ghost Train\" }\r\n261.0 \"--untargetable--\" NameToggle { name: \"Aether\" } window 12,12 forcejump \"intermission-enrage\"\r\n\r\n# Sync to invisible cast that starts phase change animation\r\n500.0 \"--sync--\" Ability { id: \"B24C\", source: \"Doomtrain\" } window 500.0,0\r\n515.1 \"Runaway Train\" Ability { id: \"B24D\", source: \"Doomtrain\" }\r\n\r\n# Back to Car 4\r\n515.4 \"--targetable--\"\r\n533.2 \"Shockwave\" Ability { id: \"B24F\", source: \"Doomtrain\" }\r\n540.5 \"Arcane Revelation\" Ability { id: \"B9A7\", source: \"Doomtrain\" }\r\n554.6 \"Hail of Thunder\" Ability { id: \"B25B\", source: \"Doomtrain\" }\r\n568.7 \"Hail of Thunder\" Ability { id: \"B25B\", source: \"Doomtrain\" }\r\n578.8 \"Derailment Siege x3\" duration 1.4 #Ability { id: \"B252\", source: \"Doomtrain\" }\r\n591.7 \"Derail\" Ability { id: \"B256\", source: \"Doomtrain\" }\r\n\r\n# Car 5\r\n596.8 \"--sync--\" Ability { id: \"B257\", source: \"Doomtrain\" }\r\n603.5 label \"car5-loop\"\r\n604.9 \"Arcane Revelation\" Ability { id: \"B9A7\", source: \"Doomtrain\" }\r\n# Annoyingly, the timing of the `Hail of Thunder` snapshots can vary by up to 3s each direction\r\n# depending on if the AoE moves 2, 3, or 4 times. The timing below is for 3 => 2 moves which\r\n# seems to be the most common pattern, but I have seen it inverted.\r\n622.0 \"Hail of Thunder\" Ability { id: \"B25B\", source: \"Doomtrain\" } window 5,5\r\n633.0 \"Hail of Thunder\" Ability { id: \"B25B\", source: \"Doomtrain\" } window 5,5\r\n640.0 \"Turret Crossing\" Ability { id: \"B23C\", source: \"Doomtrain\" } window 5,5\r\n648.0 \"Head-on Emission\" Ability { id: \"B244\", source: \"Doomtrain\" }\r\n649.0 \"Headlight\" Ability { id: \"B245\", source: \"Doomtrain\" }\r\n652.2 \"Electray\" Ability { id: \"B23D\", source: \"Kinematic Turret\" }\r\n661.1 \"Head-on Emission\" Ability { id: \"B242\", source: \"Doomtrain\" }\r\n662.1 \"Thunderous Breath\" Ability { id: \"B243\", source: \"Doomtrain\" }\r\n665.2 \"Electray\" Ability { id: \"B23D\", source: \"Kinematic Turret\" }\r\n675.1 \"Windpipe/Lightning Express\" Ability { id: [\"B263\", \"B232\"], source: \"Doomtrain\" }\r\n677.1 \"Blastpipe/Plasma Beam\" Ability { id: [\"B23B\", \"B233\"], source: [\"Doomtrain\", \"Levin Signal\"] }\r\n679.2 \"Electray\" Ability { id: \"B23D\", source: \"Kinematic Turret\" }\r\n691.1 \"Battering Arms x3\" duration 2.4 #Ability { id: \"B884\", source: \"Doomtrain\" }\r\n701.6 \"Lightning Burst\" Ability { id: \"B25D\", source: \"Doomtrain\" }\r\n709.4 \"--sync--\" StartsUsing { id: \"B9A7\", source: \"Doomtrain\" } forcejump \"car5-loop\"\r\n\r\n# For sync reasons, intermission enrage is after end of fight timeline\r\n2000.0 label \"intermission-enrage\"\r\n2004.2 \"--sync--\" Ability { id: \"B24C\", source: \"Doomtrain\" }\r\n2019.3 \"Runaway Train (enrage)\" Ability { id: \"B24D\", source: \"Doomtrain\" }\r\n\r\n# IGNORED ABILITIES\r\n# B234 Plasma Beam: Extra casts\r\n# B236 Plasma Beam: Extra casts\r\n# B237 Unlimited Express: Boss castbar, not actual mechanic snapshot\r\n# B239 Windpipe: Boss castbar, not actual mechanic snapshot\r\n# B23A Blastpipe: Boss castbar, not actual mechanic snapshot\r\n# B23E Electray: Extra casts\r\n# B23F Electray: Extra casts\r\n# B240 Electray: Extra casts\r\n# B241 Electray: Extra casts\r\n# B24B Aether Surge: Extra cast\r\n# B24E Shockwave: VFX of arms growing\r\n# B250 Derailment Siege: VFX\r\n# B251 Derailment Siege: VFX\r\n# B255 Derail: VFX\r\n# B258 Hail of Thunder: VFX\r\n# B259 Hail of Thunder: VFX\r\n# B25C Lightning Burst: Boss castbar, not actual hit/snapshot\r\n# B25E --sync--: Autoattack\r\n# B9A9 Battering Arms: VFX\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# B232 Lightning Express\r\n# B233 Plasma Beam\r\n# B234 Plasma Beam\r\n# B236 Plasma Beam\r\n# B237 Unlimited Express\r\n# B238 Unlimited Express\r\n# B239 Windpipe\r\n# B23A Blastpipe\r\n# B23B Blastpipe\r\n# B23C Turret Crossing\r\n# B23D Electray\r\n# B23E Electray\r\n# B23F Electray\r\n# B240 Electray\r\n# B241 Electray\r\n# B242 Head-on Emission\r\n# B243 Thunderous Breath\r\n# B244 Head-on Emission\r\n# B245 Headlight\r\n# B246 Runaway Train\r\n# B247 Overdraught\r\n# B248 Aetherial Ray\r\n# B249 --sync--\r\n# B24A Aether Surge\r\n# B24B Aether Surge\r\n# B24C Runaway Train\r\n# B24D Runaway Train\r\n# B24E Shockwave\r\n# B24F Shockwave\r\n# B250 Derailment Siege\r\n# B251 Derailment Siege\r\n# B252 Derailment Siege\r\n# B253 Derailment Siege\r\n# B255 Derail\r\n# B256 Derail\r\n# B257 --sync--\r\n# B258 Hail of Thunder\r\n# B259 Hail of Thunder\r\n# B25B Hail of Thunder\r\n# B25C Lightning Burst\r\n# B25D Lightning Burst\r\n# B25E --sync--\r\n# B263 Windpipe\r\n# B884 Battering Arms\r\n# B885 Battering Arms\r\n# B9A7 Arcane Revelation\r\n# B9A9 Battering Arms\r\n";
+;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/enuo-ex.ts
+
+
+
+
+
+const enuo_ex_center = {
+  x: 100,
+  y: 100
+};
+
+// Get a sparsely populated array indicating the 16-dir positions for each mechanic in add phase
+const getEmptyAddPhaseData = () => {
+  const ret = [];
+  for (let i = 0; i < 8; ++i) {
+    ret[i] = 'empty';
+  }
+  return ret;
+};
+const adjustDirNum = (pos, by, max) => {
+  return (pos + max + by) % max;
+};
+const enuo_ex_triggerSet = {
+  id: 'TheUnmakingExtreme',
+  zoneId: zone_id/* default.TheUnmakingExtreme */.Z.TheUnmakingExtreme,
+  config: [{
+    id: 'gazeOrbStrat',
+    name: {
+      en: 'Gaze of the Void Strategy',
+      cn: '混沌激流策略'
+    },
+    comment: {
+      en: `Strategy for resolving Gaze of the Void orbs.
+
+             Tank: Call the tank direction only.
+             <number>: Call the specified number's priority, treating tank orb as north clockwise`,
+      cn: `处理混沌激流撞球的策略。
+
+             坦克: 仅播报坦克方向。
+             <数字>: 播报指定数字编号的优先级, 以坦克球为北顺时针排列`
+    },
+    type: 'select',
+    options: {
+      en: {
+        'Tank': 'tank',
+        // Originally I wrote code for "Role" as well, but given that it's possible to do triple ranged,
+        // that made determining which role partners to group together impossible.
+        '1 (tank)': '1',
+        '2 (healer)': '2',
+        '3 (melee)': '3',
+        '4 (ranged)': '4'
+      },
+      cn: {
+        '坦克': 'tank',
+        '1 (坦克)': '1',
+        '2 (治疗)': '2',
+        '3 (近战)': '3',
+        '4 (远程)': '4'
+      }
+    },
+    default: 'tank'
+  }, {
+    id: 'addPhaseStrat',
+    name: {
+      en: 'Add Phase Strategy',
+      cn: '小怪阶段策略'
+    },
+    comment: {
+      en: `Strategy for resolving towers and spreads in add phase.
+
+             None: Call tower or spread only.
+             <number>: Call the specified partner number's position. For example:
+             If following the "modified" raidplan (kgH6GJydOCbUs1L_), H1 should select "3" for S CW priority, T1 should select "4" for N CCW priority.
+             If following the "original" raidplan (z6hesq84t7ewujw9), H1 should select "2" as they are 2nd fill clockwise from N, T1 should select "1" as they are 1st fill clockwise from N.`,
+      cn: `小怪阶段处理踩塔与扇形分散的策略。
+
+             无: 仅播报踩塔或扇形分散。
+             <数字>: 播报指定搭档编号的位置。例如:
+             若遵循 "修改版" 攻略 (kgH6GJydOCbUs1L_), H1应选择 "3" 因为是从南开始顺时针第一顺位, MT应选择 "4" 因为是从北开始逆时针第一顺位。
+             若遵循 "初始版" 攻略 (z6hesq84t7ewujw9), H1应选择 "2" 因为是从北开始顺时针第二顺位, MT应选择 "1" 因为是从北开始顺时针第一顺位。`
+    },
+    type: 'select',
+    options: {
+      en: {
+        'None': 'none',
+        '1 (NE)': '1',
+        '2 (SE)': '2',
+        '3 (SW)': '3',
+        '4 (NW)': '4'
+      },
+      cn: {
+        '无': 'none',
+        '1 (右上)': '1',
+        '2 (右下)': '2',
+        '3 (左下)': '3',
+        '4 (左上)': '4'
+      }
+    },
+    default: 'none'
+  }],
+  timelineFile: 'enuo-ex.txt',
+  initData: () => ({
+    gazeDir: 'CW',
+    gazeOrbs: [],
+    returnToNothingType: 'unknown',
+    naughtGrowsPositions: [],
+    passageOfNaughtPositions: [],
+    passageOfNaughtCounter: 0,
+    flareTargets: [],
+    actorPositions: {},
+    addPhasePositions: getEmptyAddPhaseData(),
+    addPhaseConeTargets: []
+  }),
+  triggers: [{
+    id: 'EnuoEx AddedCombatant Tracker',
+    type: 'AddedCombatant',
+    netRegex: {
+      id: '4[0-9A-Fa-f]{7}',
+      capture: true
+    },
+    run: (data, matches) => data.actorPositions[matches.id] = {
+      x: parseFloat(matches.x),
+      y: parseFloat(matches.y)
+    }
+  }, {
+    id: 'EnuoEx Meteorain',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C381',
+      source: 'Enuo',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'EnuoEx Almagest',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C334',
+      source: 'Enuo',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'EnuoEx Lightless World',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C36D',
+      source: 'Enuo',
+      capture: false
+    },
+    response: responses/* Responses.bigAoe */.n3.bigAoe()
+  }, {
+    id: 'EnuoEx Naught Grows Collector',
+    type: 'StartsUsingExtra',
+    netRegex: {
+      id: ['C339', 'C33A', 'C33B', 'C33C'],
+      capture: true
+    },
+    preRun: (data, matches) => {
+      let dir;
+      const x = parseFloat(matches.x);
+      const y = parseFloat(matches.y);
+      const type = ['C339', 'C33B'].includes(matches.id) ? 'aoe' : 'donut';
+      if (Math.abs(x - enuo_ex_center.x) < 1 && Math.abs(y - enuo_ex_center.y) < 1) {
+        dir = 'middle';
+      } else {
+        dir = util/* Directions.xyTo8DirOutput */.Ns.xyTo8DirOutput(x, y, enuo_ex_center.x, enuo_ex_center.y);
+      }
+      data.naughtGrowsPositions.push({
+        pos: dir,
+        type: type
+      });
+    },
+    delaySeconds: 0.5,
+    durationSeconds: 6,
+    infoText: (data, _matches, output) => {
+      if (data.naughtGrowsPositions.length === 0) return;
+      const [pos1, pos2] = data.naughtGrowsPositions;
+      // Clear data here instead of in run due to variable count of entries
+      data.naughtGrowsPositions = [];
+      if (pos1 === undefined) return;
+      const mech = output[data.returnToNothingType]();
+
+      // Two possible patterns: Single, Under Boss, Under Void
+      // Single
+      if (pos2 === undefined) {
+        if (pos1.type === 'aoe') return output.awayFrom({
+          dir: output[pos1.pos](),
+          mech: mech
+        });
+        return output.under({
+          dir: output[pos1.pos](),
+          mech: mech
+        });
+      }
+      const middleDir = pos2.pos === 'middle' ? pos2 : pos1;
+      const voidDir = pos1.pos === 'middle' ? pos2 : pos1;
+      // Under Boss
+      if (middleDir.type === 'donut') {
+        return output.underBossAndAway({
+          dir: output[voidDir.pos](),
+          mech: mech
+        });
+      }
+      return output.underPortalAndAway({
+        dir: output[voidDir.pos](),
+        mech: mech
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings8Dir */.Ns.outputStrings8Dir,
+      middle: outputs/* default.middle */.Z.middle,
+      healerStacks: outputs/* default.healerGroups */.Z.healerGroups,
+      stack: outputs/* default.stackMarker */.Z.stackMarker,
+      awayFrom: {
+        en: 'Away from ${dir} + ${mech}',
+        cn: '远离 ${dir} + ${mech}'
+      },
+      under: {
+        en: '${dir} + ${mech}',
+        cn: '${dir} + ${mech}'
+      },
+      underBossAndAway: {
+        en: 'Under Boss + Away from ${dir} + ${mech}',
+        cn: 'Boss 脚下 + 远离 ${dir} + ${mech}'
+      },
+      underPortalAndAway: {
+        en: '${dir} + Away from Boss + ${mech}',
+        cn: '${dir} + 远离 Boss + ${mech}'
+      }
+    }
+  }, {
+    id: 'EnuoEx Return to Nothing Headmarker',
+    type: 'HeadMarker',
+    netRegex: {
+      id: '02BD',
+      capture: false
+    },
+    run: data => data.returnToNothingType = 'healerStacks'
+  }, {
+    id: 'EnuoEx Greater Return to Nothing Headmarker',
+    type: 'HeadMarker',
+    netRegex: {
+      id: '02BE',
+      capture: false
+    },
+    run: data => data.returnToNothingType = 'stack'
+  }, {
+    id: 'EnuoEx Meltdown',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C378',
+      source: 'Enuo',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Bait Puddles => Stop Moving => Spread',
+        cn: '引诱黄圈 => 停止移动 => 分散'
+      }
+    }
+  }, {
+    id: 'EnuoEx Meltdown Chains of Condemnation',
+    type: 'Ability',
+    netRegex: {
+      id: 'C378',
+      source: 'Enuo',
+      capture: false
+    },
+    durationSeconds: 5,
+    suppressSeconds: 5,
+    // 2 second debuff, then spread
+    countdownSeconds: 2,
+    alertText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Stop Moving => Spread',
+        cn: '停止移动 => 分散'
+      }
+    }
+  }, {
+    id: 'EnuoEx Airy Emptiness',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C370',
+      source: 'Enuo',
+      capture: false
+    },
+    response: responses/* Responses.stackPartner */.n3.stackPartner()
+  }, {
+    id: 'EnuoEx Dense Emptiness',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C371',
+      source: 'Enuo',
+      capture: false
+    },
+    // Not sure if this targets healers or tanks, but this accomplishes the same thing
+    response: responses/* Responses.healerGroups */.n3.healerGroups()
+  }, {
+    id: 'EnuoEx Gaze of the Void CW',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C353',
+      source: 'Enuo',
+      capture: false
+    },
+    run: data => data.gazeDir = 'CW'
+  }, {
+    id: 'EnuoEx Gaze of the Void CCW',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C354',
+      source: 'Enuo',
+      capture: false
+    },
+    run: data => data.gazeDir = 'CCW'
+  }, {
+    id: 'EnuoEx Gaze of the Void',
+    type: 'StartsUsingExtra',
+    netRegex: {
+      id: 'C355',
+      capture: true
+    },
+    delaySeconds: 0.2,
+    durationSeconds: 11.3,
+    suppressSeconds: 30,
+    infoText: (data, matches, output) => {
+      const coneDir = util/* Directions.hdgTo8DirNum */.Ns.hdgTo8DirNum(parseFloat(matches.heading));
+      let startDir;
+      let endDir;
+      data.gazeOrbs = [];
+      for (let i = 0; i < 8; ++i) data.gazeOrbs.push({
+        color: 'light',
+        tankOrb: i === coneDir
+      });
+      if (data.gazeDir === 'CW') {
+        startDir = (coneDir + 8 - 1) % 8;
+        endDir = (coneDir + 2) % 8;
+        const orb = data.gazeOrbs[(coneDir + 1) % 8];
+        if (orb === undefined) return;
+        orb.tankOrb = true;
+      } else {
+        startDir = (coneDir + 1) % 8;
+        endDir = (coneDir + 8 - 2) % 8;
+        const orb = data.gazeOrbs[(coneDir + 8 - 1) % 8];
+        if (orb === undefined) return;
+        orb.tankOrb = true;
+      }
+      return output.text({
+        rotation: output[data.gazeDir](),
+        dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[startDir] ?? 'unknown'](),
+        dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[endDir] ?? 'unknown']()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings8Dir */.Ns.outputStrings8Dir,
+      CW: outputs/* default.clockwise */.Z.clockwise,
+      CCW: outputs/* default.counterclockwise */.Z.counterclockwise,
+      text: {
+        en: '${dir1} ${rotation} => ${dir2}',
+        cn: '${dir1} ${rotation} => ${dir2} '
+      }
+    }
+  }, {
+    id: 'EnuoEx Gaze Orb Tether Collector',
+    type: 'Tether',
+    netRegex: {
+      id: '0196',
+      capture: true
+    },
+    preRun: (data, matches) => {
+      const actor = data.actorPositions[matches.sourceId];
+      if (actor === undefined) return;
+      const dirNum = util/* Directions.xyTo8DirNum */.Ns.xyTo8DirNum(actor.x, actor.y, enuo_ex_center.x, enuo_ex_center.y);
+      const orb = data.gazeOrbs[dirNum];
+      if (orb === undefined) return;
+      orb.color = 'dark';
+    },
+    infoText: (data, _matches, output) => {
+      // Wait until we have all 4 tethers
+      if (data.gazeOrbs.filter(orb => orb.color === 'dark').length < 4) {
+        return;
+      }
+      const strategy = data.triggerSetConfig.gazeOrbStrat;
+      const orbs = [...data.gazeOrbs, ...data.gazeOrbs];
+      let firstTankOrb = 0;
+      for (let i = 0; i < orbs.length; ++i) {
+        if (orbs[i]?.tankOrb === true && orbs[i + 1]?.tankOrb === true) {
+          firstTankOrb = i;
+          break;
+        }
+      }
+      if (strategy === 'tank') {
+        return output.tankOrbsDir({
+          dir: output[util/* Directions.output16Dir */.Ns.output16Dir[firstTankOrb * 2 + 1] ?? 'unknown']()
+        });
+      }
+      let trimmedOrbs = orbs.slice(firstTankOrb, firstTankOrb + 8);
+      const orb1Light = trimmedOrbs.findIndex(orb => orb.color === 'light');
+      const orb1Dark = trimmedOrbs.findIndex(orb => orb.color === 'dark');
+      trimmedOrbs = trimmedOrbs.filter((_orb, index) => index !== orb1Light && index !== orb1Dark);
+      const orb2Light = trimmedOrbs.findIndex(orb => orb.color === 'light');
+      const orb2Dark = trimmedOrbs.findIndex(orb => orb.color === 'dark');
+      trimmedOrbs = trimmedOrbs.filter((_orb, index) => index !== orb2Light && index !== orb2Dark);
+      const orb3Light = trimmedOrbs.findIndex(orb => orb.color === 'light');
+      const orb3Dark = trimmedOrbs.findIndex(orb => orb.color === 'dark');
+      trimmedOrbs = trimmedOrbs.filter((_orb, index) => index !== orb3Light && index !== orb3Dark);
+      const orb4Light = trimmedOrbs.findIndex(orb => orb.color === 'light');
+      const orb4Dark = trimmedOrbs.findIndex(orb => orb.color === 'dark');
+      switch (strategy) {
+        case '1':
+          return output.orbSoaks({
+            dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb1Light) % 8] ?? 'unknown'](),
+            dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb1Dark) % 8] ?? 'unknown']()
+          });
+        case '2':
+          return output.orbSoaks({
+            dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb2Light + 2) % 8] ?? 'unknown'](),
+            dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb2Dark + 2) % 8] ?? 'unknown']()
+          });
+        case '3':
+          return output.orbSoaks({
+            dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb3Light + 4) % 8] ?? 'unknown'](),
+            dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb3Dark + 4) % 8] ?? 'unknown']()
+          });
+        case '4':
+          return output.orbSoaks({
+            dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb4Light + 6) % 8] ?? 'unknown'](),
+            dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb4Dark + 6) % 8] ?? 'unknown']()
+          });
+        default:
+          return output.unknown();
+      }
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings16Dir */.Ns.outputStrings16Dir,
+      unknown: outputs/* default.unknown */.Z.unknown,
+      tankOrbsDir: {
+        en: 'Tank orbs ${dir}',
+        cn: '坦克球在${dir} '
+      },
+      orbSoaks: {
+        en: '${dir1} => ${dir2}',
+        cn: '${dir1} => ${dir2} '
+      }
+    }
+  }, {
+    id: 'EnuoEx Silent Torrent',
+    type: 'StartsUsingExtra',
+    netRegex: {
+      id: 'C34B',
+      capture: true
+    },
+    infoText: (_data, matches, output) => {
+      // C34B is the short line. Safe spots are (clockwise):
+      // +6 far
+      // +7 medium
+      // +8 short
+      // +9 short
+      // +10 short
+      // +11 medium
+      // +12 far
+
+      // Due to needing to bait Meltdown puddles later, just call the close safe position
+      const x = parseFloat(matches.x);
+      const y = parseFloat(matches.y);
+      const dangerDirNum = util/* Directions.xyTo16DirNum */.Ns.xyTo16DirNum(x, y, enuo_ex_center.x, enuo_ex_center.y);
+      const closeDirNum = util/* Directions.output16Dir */.Ns.output16Dir[(dangerDirNum + 9) % 16] ?? 'unknown';
+      return output.text({
+        dir3: output[closeDirNum]()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings8Dir */.Ns.outputStrings8Dir,
+      ...util/* Directions.outputStrings16Dir */.Ns.outputStrings16Dir,
+      text: {
+        en: '${dir3} Close',
+        cn: '${dir3}靠近'
+      }
+    }
+  }, {
+    id: 'EnuoEx Deep Freeze',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C37C',
+      source: 'Enuo',
+      capture: true
+    },
+    preRun: (data, matches) => {
+      data.flareTargets.push(matches.target);
+    },
+    delaySeconds: 0.1,
+    durationSeconds: 6,
+    infoText: (data, _matches, output) => {
+      if (data.flareTargets.length < 2) return;
+      if (data.flareTargets.includes(data.me)) return output.tankFlareOnYou();
+      return output.awayFromFlares();
+    },
+    run: data => {
+      data.flareTargets = [];
+    },
+    outputStrings: {
+      tankFlareOnYou: {
+        en: 'Tank Flare on YOU => Keep Moving',
+        cn: '坦克核爆 => 保持移动'
+      },
+      awayFromFlares: {
+        en: 'Away from tank flares => Keep Moving',
+        cn: '远离坦克核爆 => 保持移动'
+      }
+    }
+  }, {
+    id: 'EnuoEx Deep Freeze Move Reminder',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C37B',
+      source: 'Enuo',
+      capture: true
+    },
+    delaySeconds: (_data, matches) => parseFloat(matches.castTime),
+    durationSeconds: 3
+  }, {
+    id: 'EnuoEx Looming Emptiness',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C33E',
+      source: 'Looming Shadow',
+      capture: false
+    },
+    response: responses/* Responses.knockback */.n3.knockback()
+  },
+  // Empty Shadow = towers
+  // Voidal Turblence C374 = self cast for cones. Actual cone hits are instant cast C376
+  // Use headmarker 02D1 to ID targets instead. C374 is after last headmarker goes out,
+  // but add 0.1s delay to allow for potential lag
+  {
+    id: 'EnuoEx Empty Shadow Collector',
+    type: 'StartsUsingExtra',
+    netRegex: {
+      id: 'C35D',
+      capture: true
+    },
+    run: (data, matches) => {
+      const dirNum = util/* Directions.xyTo16DirNum */.Ns.xyTo16DirNum(parseFloat(matches.x), parseFloat(matches.y), enuo_ex_center.x, enuo_ex_center.y);
+      data.addPhasePositions[Math.floor(dirNum / 2)] = 'tower';
+    }
+  }, {
+    id: 'EnuoEx Voidal Turbulence Headmarker Collector',
+    type: 'HeadMarker',
+    netRegex: {
+      id: '02D1',
+      capture: true
+    },
+    run: (data, matches) => {
+      data.addPhaseConeTargets.push(matches.target);
+    }
+  }, {
+    id: 'EnuoEx Voidal Turbulence',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C374',
+      source: 'Looming Shadow',
+      capture: false
+    },
+    delaySeconds: 0.1,
+    infoText: (data, _matches, output) => {
+      const strategy = data.triggerSetConfig.addPhaseStrat;
+      const cone = data.addPhaseConeTargets.includes(data.me);
+      if (strategy === 'none') {
+        if (cone) return output.cone();
+        return output.tower();
+      }
+      const used = [];
+      const pos1Tower = data.addPhasePositions.findIndex(pos => pos === 'tower');
+      const pos1Cone = data.addPhasePositions.findIndex(pos => pos === 'empty');
+      used.push(pos1Tower, pos1Cone);
+      const pos2Tower = data.addPhasePositions.findIndex((pos, index) => pos === 'tower' && !used.includes(index));
+      const pos2Cone = data.addPhasePositions.findIndex((pos, index) => pos === 'empty' && !used.includes(index));
+      used.push(pos2Tower, pos2Cone);
+      const pos3Tower = data.addPhasePositions.findIndex((pos, index) => pos === 'tower' && !used.includes(index));
+      const pos3Cone = data.addPhasePositions.findIndex((pos, index) => pos === 'empty' && !used.includes(index));
+      used.push(pos3Tower, pos3Cone);
+      const pos4Tower = data.addPhasePositions.findIndex((pos, index) => pos === 'tower' && !used.includes(index));
+      const pos4Cone = data.addPhasePositions.findIndex((pos, index) => pos === 'empty' && !used.includes(index));
+      switch (strategy) {
+        case '1':
+          if (cone) return output.conePos({
+            dir: output[util/* Directions.output16Dir */.Ns.output16Dir[pos1Cone * 2 + 1] ?? 'unknown']()
+          });
+          return output.towerPos({
+            dir: output[util/* Directions.output16Dir */.Ns.output16Dir[pos1Tower * 2 + 1] ?? 'unknown']()
+          });
+        case '2':
+          if (cone) return output.conePos({
+            dir: output[util/* Directions.output16Dir */.Ns.output16Dir[pos2Cone * 2 + 1] ?? 'unknown']()
+          });
+          return output.towerPos({
+            dir: output[util/* Directions.output16Dir */.Ns.output16Dir[pos2Tower * 2 + 1] ?? 'unknown']()
+          });
+        case '3':
+          if (cone) return output.conePos({
+            dir: output[util/* Directions.output16Dir */.Ns.output16Dir[pos3Cone * 2 + 1] ?? 'unknown']()
+          });
+          return output.towerPos({
+            dir: output[util/* Directions.output16Dir */.Ns.output16Dir[pos3Tower * 2 + 1] ?? 'unknown']()
+          });
+        case '4':
+          if (cone) return output.conePos({
+            dir: output[util/* Directions.output16Dir */.Ns.output16Dir[pos4Cone * 2 + 1] ?? 'unknown']()
+          });
+          return output.towerPos({
+            dir: output[util/* Directions.output16Dir */.Ns.output16Dir[pos4Tower * 2 + 1] ?? 'unknown']()
+          });
+        default:
+          return output.unknown();
+      }
+    },
+    run: data => {
+      data.addPhaseConeTargets = [];
+      data.addPhasePositions = getEmptyAddPhaseData();
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings16Dir */.Ns.outputStrings16Dir,
+      unknown: outputs/* default.unknown */.Z.unknown,
+      cone: {
+        en: 'Cone on YOU',
+        cn: '扇形点名'
+      },
+      tower: {
+        en: 'Soak Tower',
+        cn: '踩塔'
+      },
+      conePos: {
+        en: 'Aim Cone ${dir}',
+        cn: '扇形指向 ${dir}'
+      },
+      towerPos: {
+        en: 'Soak Tower ${dir}',
+        cn: '前往 ${dir} 踩塔'
+      }
+    }
+  }, {
+    id: 'EnuoEx Curse of the Flesh',
+    type: 'Ability',
+    netRegex: {
+      id: 'C369',
+      source: 'Soothing Shadow',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    infoText: (_data, _matches, output) => output.cleanse(),
+    outputStrings: {
+      cleanse: {
+        en: 'Cleanse Debuff',
+        cn: '驱散 Debuff'
+      }
+    }
+  }, {
+    id: 'EnuoEx Drain Touch',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C362',
+      source: 'Protective Shadow',
+      capture: true
+    },
+    condition: data => data.role === 'tank',
+    suppressSeconds: 1,
+    response: responses/* Responses.interrupt */.n3.interrupt()
+  }, {
+    id: 'EnuoEx Weight of Nothing',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C365',
+      source: 'Protective Shadow',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    response: responses/* Responses.tankCleave */.n3.tankCleave()
+  }, {
+    id: 'EnuoEx Demon Eye',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C366',
+      source: 'Aggressive Shadow',
+      capture: false
+    },
+    suppressSeconds: 1,
+    infoText: (_data, _matches, output) => output.lookMiddle(),
+    outputStrings: {
+      lookMiddle: {
+        en: 'Look Middle',
+        cn: '看向场中'
+      }
+    }
+  }, {
+    id: 'EnuoEx Passage of Naught',
+    type: 'StartsUsingExtra',
+    netRegex: {
+      id: ['C341', 'C342', 'C343'],
+      capture: true
+    },
+    preRun: (data, matches) => {
+      const x = parseFloat(matches.x);
+      const y = parseFloat(matches.y);
+      const heading = parseFloat(matches.heading);
+      const size = matches.id === 'C341' ? 'big' : 'small';
+      data.passageOfNaughtPositions.push({
+        x: x,
+        y: y,
+        heading: heading,
+        type: size
+      });
+      data.passageOfNaughtCounter += size === 'big' ? 2 : 1;
+    },
+    infoText: (data, _matches, output) => {
+      if (data.passageOfNaughtCounter < 4) return;
+      const [line1, line2, line3, line4] = data.passageOfNaughtPositions;
+
+      // Reset here due to variable amount of entries
+      data.passageOfNaughtPositions = [];
+      data.passageOfNaughtCounter = 0;
+      if (line1 === undefined || line2 === undefined) return;
+
+      // Two "big" lines
+      if (line3 === undefined) {
+        // On cardinals
+        if (util/* Directions.hdgTo8DirNum */.Ns.hdgTo8DirNum(line1.heading) % 2 === 0) {
+          return output.intercards();
+        }
+        return output.cardinals();
+      }
+
+      // Four "small" lines
+      if (line4 !== undefined) return output.under();
+
+      // We're only concerned with the "big" line, as max melee perpindicular to that line will be safe
+      const big = line1.type === 'big' ? line1 : line2.type === 'big' ? line2 : line3;
+      const bigDirNum = util/* Directions.xyTo8DirNum */.Ns.xyTo8DirNum(big.x, big.y, enuo_ex_center.x, enuo_ex_center.y);
+      const safe1 = adjustDirNum(bigDirNum, 2, 8);
+      const safe2 = adjustDirNum(bigDirNum, 6, 8);
+
+      // Sort directions N CW
+
+      const safe1Sorted = safe1 > safe2 ? safe2 : safe1;
+      const safe2Sorted = safe1 === safe1Sorted ? safe2 : safe1;
+      return output.go({
+        dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[safe1Sorted] ?? 'unknown'](),
+        dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[safe2Sorted] ?? 'unknown']()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings8Dir */.Ns.outputStrings8Dir,
+      intercards: outputs/* default.intercards */.Z.intercards,
+      cardinals: outputs/* default.cardinals */.Z.cardinals,
+      under: outputs/* default.getUnder */.Z.getUnder,
+      go: {
+        en: 'Go ${dir1}/${dir2} Max Melee',
+        cn: '前往 ${dir1}/${dir2} 最大近战距离'
+      }
+    }
+  }, {
+    id: 'EnuoEx Shrouded Holy',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C37D',
+      source: 'Enuo',
+      capture: false
+    },
+    response: responses/* Responses.healerGroups */.n3.healerGroups()
+  }, {
+    id: 'EnuoEx Dimension Zero',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C37F',
+      source: 'Enuo',
+      capture: false
+    },
+    response: responses/* Responses.stackMarker */.n3.stackMarker()
+  }, {
+    id: 'EnuoEx Naught Hunts Tether',
+    type: 'Tether',
+    netRegex: {
+      id: ['0194', '0195'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    durationSeconds: 13.8,
+    suppressSeconds: 8,
+    countdownSeconds: 13.8,
+    infoText: (_data, _matches, output) => output.chasingPuddle(),
+    outputStrings: {
+      chasingPuddle: {
+        en: 'Chasing puddle on you',
+        cn: '追踪地火点名'
+      }
+    }
+  }],
+  timelineReplace: [{
+    'locale': 'cn',
+    'replaceSync': {
+      'Aggressive Shadow': '虚无之攻影',
+      'Enuo': '恩欧',
+      'Looming Shadow': '虚无巨影',
+      'Protective Shadow': '虚无之防影',
+      'Soothing Shadow': '虚无之疗影',
+      '(?<! )Void': '无之漩涡',
+      'Yawning Void': '无之巨漩涡'
+    },
+    'replaceText': {
+      '--Add': '--小怪',
+      '--Tower adds': '--塔小怪',
+      '(?<!un)targetable--': '可选中--',
+      '\\(active\\)': '(激活)',
+      '\\(castbar\\)': '(咏唱栏)',
+      '\\(enrage\\)': '(狂暴)',
+      '\\(lines\\)': '(直线)',
+      '\\(puddles\\)': '(黄圈)',
+      '\\(puddle baits': '(诱导黄圈',
+      '\\(puddle explodes\\)': '(黄圈爆炸)',
+      'pyretic\\)': '热病)',
+      '\\(spread\\)': '(分散)',
+      'Airy Emptiness': '扩散波动',
+      'Almagest': '至高无上',
+      'All for Naught': '无之领域',
+      'Curse of the Flesh': '疫病诅咒',
+      'Deep Freeze': '深度冻结',
+      'Demon Eye': '恶魔之瞳',
+      'Dense Emptiness': '集束波动',
+      'Dimension Zero': '零次元',
+      'Empty Shadow': '虚无冲击',
+      'Endless Chase': '追尾波动',
+      'Gaze of the Void': '混沌激流',
+      'Great Return to Nothing': '回归重波动',
+      'Lightless World': '无光的世界',
+      'Looming Emptiness': '虚无大冲击',
+      'Meltdown': '核心熔毁',
+      'Meteorain': '流星雨',
+      'Naught Grows': '无之膨胀',
+      'Naught Hunts': '无之追踪',
+      'Nothingness': '无之波动',
+      'Passage of Naught': '聚能波动',
+      '(?<!Great )Return to Nothing': '回归波动',
+      'Shrouded Holy': '暗影神圣',
+      'Silent Torrent': '奔流',
+      'Voidal Turbulence': '无之涡流',
+      'Weight of Nothing': '高压波动'
+    }
+  }]
+};
+/* harmony default export */ const enuo_ex = (enuo_ex_triggerSet);
+;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/enuo-ex.txt
+const trial_enuo_ex_namespaceObject = "### THE UNMAKING (EXTREME)\r\n# ZoneId: 1362\r\n\r\n# -ii C0D9 C311 C312 C335 C336 C337 C338 C34A C34C C34D C34F C350 C351 C352 C353 C354 C356 C357 C35B C35C C35F C360 C364 C366 C368 C36D C370 C371 C374 C37B C37D C37F C63F C640 C641\r\n# -it \"Enuo\" \"Looming Shadow\" \"Aggressive Shadow\" \"Soothing Shadow\" \"Protective Shadow\" \"Beacon in the Dark\"\r\n# -p C36D:500\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n0.0 \"--Reset--\" ActorControl { command: \"4000000F\" } window 0,100000 jump 0\r\n\r\n## Intro\r\n0.0 \"--sync--\" InCombat { inGameCombat: \"1\" } window 0,1\r\n9.2 \"--sync--\" StartsUsing { id: \"C381\", source: \"Enuo\" } window 9.2,2\r\n14.2 \"Meteorain\" Ability { id: \"C381\", source: \"Enuo\" }\r\n\r\n19.3 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n29.7 \"Naught Grows\" #Ability { id: \"C339\", source: \"Yawning Void\" }\r\n30.4 \"Return to Nothing/Great Return to Nothing\" Ability { id: [\"C33F\", \"C340\"], source: \"Void\" }\r\n43.8 \"Meltdown (puddle baits + pyretic)\" Ability { id: \"C378\", source: \"Enuo\" }\r\n49.4 \"Meltdown (puddle explodes)\" Ability { id: \"C379\", source: \"Enuo\" }\r\n\r\n50.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n50.5 \"Meltdown (spread)\" Ability { id: \"C37A\", source: \"Enuo\" }\r\n57.4 \"Airy Emptiness/Dense Emptiness\" Ability { id: [\"C372\", \"C373\"], source: \"Enuo\" }\r\n67.8 \"Naught Grows\" #Ability { id: \"C33A\", source: \"Yawning Void\" }\r\n68.6 \"Great Return to Nothing/Return to Nothing\" Ability { id: [\"C340\", \"C33F\"], source: \"Void\" }\r\n\r\n75.0 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n84.2 \"Gaze of the Void x10\" duration 3.6 #Ability { id: \"C355\", source: \"Enuo\" }\r\n\r\n115.3 \"Silent Torrent x7 (lines)\" #Ability { id: \"C34B\", source: \"Void\" }\r\n115.7 \"Silent Torrent x7 (puddles)\" #Ability { id: \"C34E\", source: \"Enuo\" }\r\n\r\n115.7 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n123.0 \"Dense Emptiness/Airy Emptiness\" Ability { id: [\"C373\", \"C372\"], source: \"Enuo\" }\r\n134.1 \"Deep Freeze\" Ability { id: \"C37C\", source: \"Enuo\" }\r\n141.2 \"Meteorain\" Ability { id: \"C381\", source: \"Enuo\" }\r\n\r\n147.4 \"--north--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n154.8 \"All for Naught\" Ability { id: \"C35A\", source: \"Enuo\" }\r\n154.9 \"--untargetable--\"\r\n\r\n## Add phase\r\n# Add phase timeline is a pain. First towers spawn at a fixed point, but second towers spawn\r\n# a few seconds after first set of solo adds are killed, and beacon spawns when middle add dies,\r\n# but that might be delayed if the solo adds aren't killed first.\r\n174.9 \"Looming Emptiness\" Ability { id: \"C33E\", source: \"Looming Shadow\" }\r\n174.9 \"--Add targetable--\"\r\n# Loop towers from early cast sync\r\n176.9 \"--sync--\" StartsUsing { id: \"C35D\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] } window 2.5,120\r\n183.9 \"Empty Shadow\" Ability { id: \"C35D\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n184.2 \"Voidal Turbulence\" #Ability { id: \"C376\", source: \"Enuo\" }\r\n185.4 \"--Tower adds targetable--\"\r\n# It is expected that the following three lines miss syncs in timeline testing, as which ability happens depends\r\n# on what roles are soaking towers\r\n189.1 \"Curse of the Flesh?\" Ability { id: \"C369\", source: \"Soothing Shadow\" }\r\n191.1 \"Demon Eye?\" Ability { id: \"C367\", source: \"Aggressive Shadow\" }\r\n198.3 \"Weight of Nothing?\" Ability { id: \"C365\", source: \"Protective Shadow\" }\r\n210.5 \"--Tower adds enrage--\" #Ability { id: \"C35E\", source: \"Looming Shadow\" }\r\n\r\n# MapEffect fires as looming shadow dies\r\n300.0 \"--sync--\" MapEffect { flags: \"00200010\", location: \"01\" } window 125,0\r\n302.5 label \"beacon-loop\"\r\n302.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n305.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n308.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n311.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n314.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n317.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] } forcejump \"beacon-loop\"\r\n\r\n# MapEffect fires as beacon dies\r\n486.2 \"--sync--\" MapEffect { flags: \"02000100\", location: \"01\" } window 400,0\r\n\r\n## Phase 2\r\n494.7 \"--targetable--\"\r\n505.7 \"Lightless World x5\" duration 1.8 #Ability { id: \"C36E\", source: \"Enuo\" }\r\n507.9 \"Lightless World (big)\" Ability { id: \"C36F\", source: \"Enuo\" }\r\n519.7 \"Almagest\" Ability { id: \"C334\", source: \"Enuo\" }\r\n\r\n523.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n533.5 \"Naught Grows x2\" #Ability { id: \"C33B\", source: \"Enuo\" }\r\n534.2 \"Return to Nothing/Great Return to Nothing\" Ability { id: [\"C33F\", \"C340\"], source: \"Void\" }\r\n549.6 \"Passage of Naught\" #Ability { id: \"C343\", source: \"Enuo\" }\r\n560.9 \"Passage of Naught\" #Ability { id: \"C342\", source: \"Yawning Void\" }\r\n566.9 \"Shrouded Holy\" Ability { id: \"C37E\", source: \"Enuo\" }\r\n\r\n572.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n582.2 \"Naught Grows x2\" #Ability { id: \"C339\", source: \"Yawning Void\" }\r\n583.1 \"Return to Nothing/Great Return to Nothing\" Ability { id: [\"C33F\", \"C340\"], source: \"Void\" }\r\n593.6 \"Dimension Zero x3\" duration 2.6 #Ability { id: \"C380\", source: \"Enuo\" }\r\n\r\n601.6 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n611.7 \"Silent Torrent x7 (lines)\" #Ability { id: \"C34B\", source: \"Void\" }\r\n612.1 \"Meltdown (puddle baits + pyretic)\" Ability { id: \"C378\", source: \"Enuo\" }\r\n612.1 \"Silent Torrent x7 (puddles)\" #Ability { id: \"C34E\", source: \"Enuo\" }\r\n617.5 \"Meltdown (puddle explodes)\" Ability { id: \"C379\", source: \"Enuo\" }\r\n618.5 \"Meltdown (spread)\" Ability { id: \"C37A\", source: \"Enuo\" }\r\n\r\n623.2 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n632.2 \"Gaze of the Void x10\" duration 3.6 #Ability { id: \"C355\", source: \"Enuo\" }\r\n664.2 \"Almagest\" Ability { id: \"C334\", source: \"Enuo\" }\r\n\r\n670.4 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n682.9 \"Naught Hunts\" Ability { id: \"C348\", source: \"Enuo\" }\r\n683.9 \"Passage of Naught\" #Ability { id: \"C343\", source: \"Enuo\" }\r\n683.9 \"Endless Chase (active)\" duration 16.9 #Ability { id: \"BD5B\", source: \"Void\" }\r\n705.4 \"Passage of Naught\" #Ability { id: \"C341\", source: \"Yawning Void\" }\r\n711.4 \"Airy Emptiness/Dense Emptiness\" Ability { id: [\"C372\", \"C373\"], source: \"Enuo\" }\r\n722.6 \"Naught Hunts\" Ability { id: \"C348\", source: \"Enuo\" }\r\n723.6 \"Passage of Naught\" #Ability { id: \"C342\", source: \"Yawning Void\" }\r\n723.6 \"Endless Chase (active)\" duration 16.9 #Ability { id: \"BD5B\", source: \"Void\" }\r\n\r\n745.1 \"Passage of Naught\" Ability { id: \"C341\", source: \"Yawning Void\" }\r\n751.1 \"Airy Emptiness/Dense Emptiness\" Ability { id: [\"C372\", \"C373\"], source: \"Enuo\" }\r\n760.4 \"Dimension Zero x4\" duration 3.9 #Ability { id: \"C380\", source: \"Enuo\" }\r\n774.7 \"Almagest\" Ability { id: \"C334\", source: \"Enuo\" }\r\n\r\n778.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n788.4 \"Naught Grows x2\" #Ability { id: \"C339\", source: \"Yawning Void\" }\r\n789.2 \"Return to Nothing/Great Return to Nothing\" Ability { id: [\"C33F\", \"C340\"], source: \"Void\" }\r\n804.6 \"Passage of Naught\" #Ability { id: \"C343\", source: \"Enuo\" }\r\n815.9 \"Passage of Naught\" #Ability { id: \"C343\", source: \"Enuo\" }\r\n821.9 \"Deep Freeze\" Ability { id: \"C37C\", source: \"Enuo\" }\r\n\r\n826.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n836.2 \"Naught Grows x2\" #Ability { id: \"C339\", source: \"Yawning Void\" }\r\n837.1 \"Return to Nothing/Great Return to Nothing\" Ability { id: [\"C33F\", \"C340\"], source: \"Void\" }\r\n847.9 \"Dimension Zero\" duration 3.9 #Ability { id: \"C380\", source: \"Enuo\" }\r\n862.3 \"Meteorain\" Ability { id: \"C381\", source: \"Enuo\" }\r\n872.4 \"Meteorain\" Ability { id: \"C381\", source: \"Enuo\" }\r\n\r\n878.5 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n889.6 \"Almagest (enrage)\" Ability { id: \"C382\", source: \"Enuo\" }\r\n\r\n\r\n# IGNORED ABILITIES\r\n# C0D9 Looming Emptiness: VFX or blue circle?\r\n# C311 --sync--: Enuo autoattack\r\n# C312 --sync--: Add death animation vfx?\r\n# C335 Naught Wakes: castbar to signify voids moving\r\n# C336 --sync--: Void teleport animation VFX\r\n# C337 Naught Grows: Castbar only\r\n# C338 Naught Grows: Castbar only\r\n# C34A Vacuum: VFX for silent torrent lines prep\r\n# C34C Silent Torrent: Medium line?\r\n# C34D Silent Torrent: Long line?\r\n# C34F Silent Torrent: Medium puddle?\r\n# C350 Silent Torrent: Big/far puddle?\r\n# C351 Vacuum: VFX for silent torrent lines end\r\n# C352 Gaze of the Void: Castbar for clockwise\r\n# C353 Gaze of the Void: Castbar for counter clockwise\r\n# C354 Gaze of the Void: VFX for glowing orb\r\n# C356 Burst: Gaze orb soak\r\n# C357 Violent Burst: Gaze tank orb soak\r\n# C35B Looming Emptiness: VFX or blue circle?\r\n# C35C --sync--: Tower add spawn VFX?\r\n# C35F --sync--: Tank/healer tower add autoattack\r\n# C360 --sync--: Big add autoattack\r\n# C364 Weight of Nothing: Tank interrupt, castbar only\r\n# C366 Demon Eye: Gaze attack castbar\r\n# C368 Curse of the Flesh: Healer debuff, castbar only\r\n# C36D Lightless World: P2 transition, castbar only. For some reason ignoring this prevents `-p` from working?\r\n# C370 Airy Emptiness: Partner stacks, castbar only\r\n# C371 Dense Emptiness: Healer stacks, castbar only\r\n# C374 Voidal Turbulence: Add phase cones, castbar only\r\n# C37B Deep Freeze: Tank flares, castbar only\r\n# C37D Shrouded Holy: Healer stacks, castbar only\r\n# C37F Dimension Zero: Line stack, castbar only\r\n# C63F --sync--: Something related to add phase tank add\r\n# C640 --sync--: Something related to add phase DPS add\r\n# C641 --sync--: Something related to add phase healer add\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# BD5B Endless Chase: Initial telegraphed aoe for chasing puddle\r\n# C0D9 Looming Emptiness: VFX or blue circle?\r\n# C307 --sync--: Enuo teleport/jump animation\r\n# C311 --sync--: Enuo autoattack\r\n# C312 --sync--: Add death animation vfx?\r\n# C334 Almagest: raidwide\r\n# C335 Naught Wakes: castbar to signify voids moving\r\n# C336 --sync--: Void teleport animation VFX\r\n# C337 Naught Grows: Castbar only\r\n# C338 Naught Grows: Castbar only\r\n# C339 Naught Grows: aoe around boss\r\n# C33A Naught Grows: donut around boss\r\n# C33B Naught Grows: aoe around void\r\n# C33C Naught Grows: donut around void\r\n# C33E Looming Emptiness: Add phase knockback\r\n# C33F Return to Nothing: Healer stacks wild charge\r\n# C340 Great Return to Nothing: Party stack wild charge\r\n# C341 Passage of Naught: Void portal line attack\r\n# C342 Passage of Naught: Void portal line attack\r\n# C343 Passage of Naught: Void portal line attack\r\n# C348 Naught Hunts: Castbar for chasing puddle\r\n# C349 Endless Chase: Actual chasing puddle aoe\r\n# C34A Vacuum: VFX for silent torrent lines prep\r\n# C34B Silent Torrent: Short line?\r\n# C34C Silent Torrent: Medium line?\r\n# C34D Silent Torrent: Long line?\r\n# C34E Silent Torrent: Small/close puddle?\r\n# C34F Silent Torrent: Medium puddle?\r\n# C350 Silent Torrent: Big/far puddle?\r\n# C351 Vacuum: VFX for silent torrent lines end\r\n# C352 Gaze of the Void: Castbar for clockwise\r\n# C353 Gaze of the Void: Castbar for counter clockwise\r\n# C354 Gaze of the Void: VFX for glowing orb\r\n# C355 Gaze of the Void: Actual cone attacks\r\n# C356 Burst: Gaze orb soak\r\n# C357 Violent Burst: Gaze tank orb soak\r\n# C35A All for Naught: Phase transition cast, does nothing / VFX only\r\n# C35B Looming Emptiness: VFX or blue circle?\r\n# C35C --sync--: Tower add spawn VFX?\r\n# C35D Empty Shadow: Add phase towers\r\n# C35E Big Burst: Tower/solo add enrage\r\n# C35F --sync--: Tank/healer tower add autoattack\r\n# C360 --sync--: Big add autoattack\r\n# C361 Nothingness: Add phase line attack\r\n# C362 Drain Touch: Mechanics failure of some sort?\r\n# C363 Drain Touch: Mechanics failure of some sort?\r\n# C364 Weight of Nothing: Tank interrupt, castbar only\r\n# C365 Weight of Nothing: Tank interrupt, actual hit\r\n# C366 Demon Eye: Gaze attack castbar\r\n# C367 Demon Eye: Gaze attack, actual look away ability\r\n# C368 Curse of the Flesh: Healer debuff, castbar only\r\n# C369 Curse of the Flesh: Healer debuff, actual hit\r\n# C36D Lightless World: P2 transition, castbar only\r\n# C36E Lightless World: P2 transition, small hits\r\n# C36F Lightless World: P2 transition, big hit\r\n# C370 Airy Emptiness: Partner stacks, castbar only\r\n# C371 Dense Emptiness: Healer stacks, castbar only\r\n# C372 Airy Emptiness: Partner stacks, actual hit\r\n# C373 Dense Emptiness: Healer stacks, actual hit\r\n# C374 Voidal Turbulence: Add phase cones, castbar only\r\n# C376 Voidal Turbulence: Add phase cones, actual hit\r\n# C378 Meltdown: Puddle bait + pyretic debuff (Chains of Condemnation)\r\n# C379 Meltdown: Puddle explosion\r\n# C37A Meltdown: Spread\r\n# C37B Deep Freeze: Tank flares, castbar only\r\n# C37C Deep Freeze: Tank flares, actual damage\r\n# C37D Shrouded Holy: Healer stacks, castbar only\r\n# C37E Shrouded Holy: Healer stacks, actual damage\r\n# C37F Dimension Zero: Line stack, castbar only\r\n# C380 Dimension Zero: Line stack, actual damage\r\n# C381 Meteorain: raidwide\r\n# C382 Almagest: Enrage\r\n# C63F --sync--: Something related to add phase tank add\r\n# C640 --sync--: Something related to add phase DPS add\r\n# C641 --sync--: Something related to add phase healer add\r\n# C66F Self-destruct: DPS add, DPS check failure\r\n";
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/necron-ex.ts
 
 
@@ -273772,6 +274580,927 @@ const seiryu_un_triggerSet = {
 /* harmony default export */ const seiryu_un = (seiryu_un_triggerSet);
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/seiryu-un.txt
 const trial_seiryu_un_namespaceObject = "# This file was autogenerated from running npm run sync-files.\r\n# DO NOT EDIT THIS FILE DIRECTLY.\r\n# Edit the source file below and then run `npm run sync-files`\r\n# Source: ui/raidboss/data/04-sb/trial/seiryu-ex.txt\r\n\r\n# Seiryu Unreal\r\n# -ii ABEA ABEE ABDE ABF2 ABCA ABCB ABF4 ABE9 ABEF ABF1 ABF0 ABC6 ABE1 ABBC ABE3 ABD4 ABC1 ABD9 ABDA -p ABC0:400\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n# Phase 1\r\n0.0 \"--sync--\" InCombat { inGameCombat: \"1\" } window 0,1\r\n12.5 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" } window 13,5\r\n#18.5 \"Serpent Ascending\" Ability { id: \"ABD3\", source: \"Seiryu\" } # towers later, but nothing here\r\n20.5 \"--middle--\" Ability { id: \"ABBB\", source: \"Seiryu\" }\r\n27.0 \"Kuji-kiri\" Ability { id: \"ABD8\", source: \"Seiryu\" }\r\n30.0 \"--jump--\" Ability { id: \"ABCC\", source: \"Seiryu\" }\r\n#33.5 \"Onmyo Sigil\" Ability { id: \"ABCD\", source: \"Seiryu\" }\r\n36.5 \"Onmyo Sigil\" Ability { id: \"ABF8\", source: \"Seiryu\" }\r\n46.5 \"Cursekeeper\" Ability { id: \"ABC9\", source: \"Seiryu\" }\r\n62.8 \"Summon Shiki\" Ability { id: \"ABC5\", source: \"Seiryu\" }\r\n#64.8 \"--rotate--\" Ability { id: \"ABBB\", source: \"Seiryu\" }\r\n64.8 \"--untargetable--\"\r\n69.8 \"--sync--\" Ability { id: \"ABE6\", source: \"Seiryu\" }\r\n75.8 \"Red Rush\" Ability { id: \"ABE8\", source: \"Aka-no-shiki\" }\r\n75.8 \"Blue Bolt\" Ability { id: \"ABE7\", source: \"Ao-no-shiki\" }\r\n80.5 \"100-tonze Swing\" Ability { id: \"ABE4\", source: \"Iwa-no-shiki\" }\r\n87.2 \"Yama-kagura\" Ability { id: \"ABFE\", source: \"Ten-no-shiki\" }\r\n89.5 \"Kanabo\" Ability { id: \"ABE5\", source: \"Iwa-no-shiki\" }\r\n\r\n# Times listed are the latest possible if the previous group is still alive.\r\n# The next group spawns immediately if the current one is killed.\r\n91.4 \"--small adds spawn--\"\r\n91.4 \"--large add spawns--\"\r\n108.4 \"--small adds spawn--\"\r\n116.6 \"--large add spawns--\"\r\n125.4 \"--small adds spawn--\"\r\n\r\n# Phase 2\r\n160.0 \"Enrage\"\r\n\r\n# Phase 3\r\n400.0 \"Strength of Spirit\" Ability { id: \"ABC0\", source: \"Seiryu\" } window 400,0\r\n427.0 \"Dragon's Wake\" Ability { id: \"ABC2\", source: \"Seiryu\" }\r\n#429.5 \"--rotate--\" Ability { id: \"ABBB\", source: \"Seiryu\" }\r\n429.5 \"--targetable--\"\r\n437.5 \"Summon Shiki\" Ability { id: \"ABC7\", source: \"Seiryu\" }\r\n448.0 \"Coursing River\" Ability { id: \"ABED\", source: \"Blue Orochi\" }\r\n462.0 \"Handprint\" Ability { id: \"ABDF\", source: \"Yama-no-shiki\" }\r\n466.5 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" }\r\n470.0 \"Handprint\" Ability { id: \"ABDF\", source: \"Yama-no-shiki\" }\r\n478.0 \"Summon Shiki\" Ability { id: \"ABC7\", source: \"Seiryu\" }\r\n478.0 \"Handprint\" Ability { id: \"ABDF\", source: \"Yama-no-shiki\" }\r\n486.5 \"Force of Nature\" Ability { id: \"ABE2\", source: \"Yama-no-shiki\" }\r\n488.5 \"Coursing River\" Ability { id: \"ABED\", source: \"Blue Orochi\" }\r\n494.3 \"Forbidden Arts\" Ability { id: \"ABBE\", source: \"Seiryu\" }\r\n496.3 \"Forbidden Arts\" Ability { id: \"ABBF\", source: \"Seiryu\" }\r\n504.3 \"--north--\" Ability { id: \"ABBB\", source: \"Seiryu\" }\r\n511.9 \"Blazing Aramitama\" Ability { id: \"ABDB\", source: \"Seiryu\" }\r\n515.9 \"--jump--\" Ability { id: \"ABCC\", source: \"Seiryu\" }\r\n#519.4 \"In/Out\" Ability { id: [\"ABD1\", \"ABCF\"], source: \"Seiryu\" }\r\n522.4 \"In/Out\" Ability { id: [\"ABFC\", \"ABFA\"], source: \"Seiryu\" }\r\n#524.9 \"Out/In\" Ability { id: [\"ABD2\", \"ABD0\"], source: \"Seiryu\" }\r\n525.4 \"Out/In\" Ability { id: [\"ABFD\", \"ABFB\"], source: \"Seiryu\" }\r\n531.9 \"--middle--\" Ability { id: \"ABBB\", source: \"Seiryu\" }\r\n538.6 \"Kuji-kiri\" Ability { id: \"ABD8\", source: \"Seiryu\" }\r\n541.6 \"--jump--\" Ability { id: \"ABCC\", source: \"Seiryu\" }\r\n#545.1 \"In/Out\" Ability { id: [\"ABD1\", \"ABCF\"], source: \"Seiryu\" }\r\n548.1 \"In/Out\" Ability { id: [\"ABFC\", \"ABFA\"], source: \"Seiryu\" }\r\n#550.6 \"Out/In\" Ability { id: [\"ABD2\", \"ABD0\"], source: \"Seiryu\" }\r\n551.1 \"Out/In\" Ability { id: [\"ABFD\", \"ABFB\"], source: \"Seiryu\" }\r\n558.6 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" }\r\n572.6 \"Serpent Ascending\" Ability { id: \"AC02\", source: \"Seiryu\" }\r\n578.6 \"Serpent Descending\" Ability { id: \"ABD5\", source: \"Seiryu\" }\r\n582.6 \"Serpent's Fang\" Ability { id: \"ABD6\", source: \"Seiryu\" }\r\n589.8 \"Forbidden Arts 1\" Ability { id: \"ABFF\", source: \"Seiryu\" }\r\n592.0 \"Forbidden Arts 2\" Ability { id: \"AC00\", source: \"Seiryu\" }\r\n599.0 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" }\r\n611.0 \"Cursekeeper\" Ability { id: \"ABC9\", source: \"Seiryu\" }\r\n624.1 \"Cursekeeper\" Ability { id: \"ABC9\", source: \"Seiryu\" }\r\n633.3 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" }\r\n646.3 \"Summon Shiki\" Ability { id: \"ABC4\", source: \"Seiryu\" }\r\n652.3 \"--jump--\" Ability { id: \"ABCC\", source: \"Seiryu\" }\r\n#655.8 \"In/Out\" Ability { id: [\"ABD1\", \"ABCF\"], source: \"Seiryu\" }\r\n658.4 \"100-tonze Swing\" Ability { id: \"ABE4\", source: \"Iwa-no-shiki\" }\r\n658.8 \"In/Out\" Ability { id: [\"ABFC\", \"ABFA\"], source: \"Seiryu\" }\r\n#661.3 \"Out/In\" Ability { id: [\"ABD2\", \"ABD0\"], source: \"Seiryu\" }\r\n661.8 \"Out/In\" Ability { id: [\"ABFD\", \"ABFB\"], source: \"Seiryu\" }\r\n667.5 \"Kanabo\" Ability { id: \"ABE5\", source: \"Iwa-no-shiki\" }\r\n671.3 \"--sync--\" Ability { id: \"ABE6\", source: \"Ao-no-shiki\" }\r\n676.3 \"Serpent Ascending\" Ability { id: \"ABD3\", source: \"Seiryu\" }\r\n677.3 \"Red Rush\" Ability { id: \"ABE8\", source: \"Aka-no-shiki\" }\r\n677.3 \"Blue Bolt\" Ability { id: \"ABE7\", source: \"Ao-no-shiki\" }\r\n678.3 \"--middle--\" Ability { id: \"ABBB\", source: \"Seiryu\" }\r\n685.0 \"Kuji-kiri\" Ability { id: \"ABD8\", source: \"Seiryu\" }\r\n691.9 \"Handprint\" Ability { id: \"ABDF\", source: \"Yama-no-shiki\" }\r\n697.1 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" }\r\n700.0 \"Handprint\" Ability { id: \"ABDF\", source: \"Yama-no-shiki\" }\r\n708.0 \"Handprint\" Ability { id: \"ABDF\", source: \"Yama-no-shiki\" }\r\n708.6 \"Summon Shiki\" Ability { id: \"ABC7\", source: \"Seiryu\" }\r\n716.5 \"Force of Nature\" Ability { id: \"ABE2\", source: \"Yama-no-shiki\" }\r\n719.1 \"Coursing River\" Ability { id: \"ABED\", source: \"Blue Orochi\" }\r\n721.6 \"--jump--\" Ability { id: \"ABCC\", source: \"Seiryu\" }\r\n#725.1 \"In/Out\" Ability { id: [\"ABD1\", \"ABCF\"], source: \"Seiryu\" }\r\n728.1 \"In/Out\" Ability { id: [\"ABFC\", \"ABFA\"], source: \"Seiryu\" }\r\n#730.6 \"Out/In\" Ability { id: [\"ABD2\", \"ABD0\"], source: \"Seiryu\" }\r\n731.1 \"Out/In\" Ability { id: [\"ABFD\", \"ABFB\"], source: \"Seiryu\" }\r\n733.9 \"Handprint\" Ability { id: \"ABDF\", source: \"Yama-no-shiki\" }\r\n741.9 \"Handprint\" Ability { id: \"ABDF\", source: \"Yama-no-shiki\" }\r\n749.9 \"Handprint\" Ability { id: \"ABDF\", source: \"Yama-no-shiki\" }\r\n751.0 \"Summon Shiki\" Ability { id: \"ABC7\", source: \"Seiryu\" }\r\n758.4 \"Force of Nature\" Ability { id: \"ABE2\", source: \"Yama-no-shiki\" }\r\n761.5 \"Coursing River\" Ability { id: \"ABED\", source: \"Blue Orochi\" }\r\n768.6 \"Forbidden Arts 1\" Ability { id: \"ABFF\", source: \"Seiryu\" }\r\n770.6 \"Forbidden Arts 2\" Ability { id: \"AC00\", source: \"Seiryu\" }\r\n777.6 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" }\r\n794.6 \"Cursekeeper\" Ability { id: \"ABC9\", source: \"Seiryu\" }\r\n807.8 \"Cursekeeper\" Ability { id: \"ABC9\", source: \"Seiryu\" }\r\n817.0 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" }\r\n823.0 \"--jump--\" Ability { id: \"ABCC\", source: \"Seiryu\" }\r\n#826.5 \"In/Out\" Ability { id: [\"ABD1\", \"ABCF\"], source: \"Seiryu\" }\r\n829.5 \"In/Out\" Ability { id: [\"ABFC\", \"ABFA\"], source: \"Seiryu\" }\r\n#832.0 \"Out/In\" Ability { id: [\"ABD2\", \"ABD0\"], source: \"Seiryu\" }\r\n832.5 \"Out/In\" Ability { id: [\"ABFD\", \"ABFB\"], source: \"Seiryu\" }\r\n839.0 \"Serpent Ascending\" Ability { id: \"AC02\", source: \"Seiryu\" }\r\n842.5 \"--middle--\" Ability { id: \"ABBB\", source: \"Seiryu\" }\r\n845.0 \"Serpent Descending\" Ability { id: \"ABD5\", source: \"Seiryu\" }\r\n849.0 \"Serpent's Fang\" Ability { id: \"ABD6\", source: \"Seiryu\" }\r\n849.0 \"Kuji-kiri\" Ability { id: \"ABD8\", source: \"Seiryu\" }\r\n857.6 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" }\r\n869.6 \"--middle--\" Ability { id: \"ABBB\", source: \"Seiryu\" }\r\n876.9 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" }\r\n883.9 \"Fifth Element\" Ability { id: \"ABBA\", source: \"Seiryu\" }\r\n906.0 \"Enrage\" Ability { id: \"AC03\", source: \"Seiryu\" }\r\n";
+;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/shinryu-un.ts
+// This file was autogenerated from running npm run sync-files.
+// DO NOT EDIT THIS FILE DIRECTLY.
+// Edit the source file below and then run `npm run sync-files`
+// Source: ui/raidboss/data/04-sb/trial/shinryu-ex.ts
+
+
+
+
+
+// Shinryu Unreal
+const shinryu_un_triggerSet = {
+  id: 'ShinryusDomainUnreal',
+  zoneId: zone_id/* default.ShinryusDomainUnreal */.Z.ShinryusDomainUnreal,
+  timelineFile: 'shinryu-un.txt',
+  triggers: [{
+    // Earthen Fury
+    id: 'ShinryuUn Phase 1',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C43A',
+      source: 'Shinryu',
+      capture: false
+    },
+    run: data => data.phase = 1
+  }, {
+    // Dark Matter
+    id: 'ShinryuUn Phase 2',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C443',
+      source: 'Shinryu',
+      capture: false
+    },
+    run: data => data.phase = 2
+  }, {
+    // Protostar
+    id: 'ShinryuUn Phase 3',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C440',
+      source: 'Shinryu',
+      capture: false
+    },
+    run: data => data.phase = 3
+  }, {
+    // Tidal Wave enrage
+    id: 'ShinryuUn Phase 4',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C47B',
+      source: 'Shinryu',
+      capture: false
+    },
+    run: data => data.phase = 4
+  }, {
+    id: 'ShinryuUn Akh Morn',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C44F',
+      source: 'Shinryu',
+      capture: true
+    },
+    alertText: (data, matches, output) => {
+      if (matches.target === data.me) return output.akhMornOnYou();else if (data.role === 'tank') return output.akhMornOn({
+        player: data.party.member(matches.target)
+      });
+    },
+    infoText: (data, matches, output) => {
+      if (matches.target === data.me || data.role === 'tank') return;
+      return output.akhRhaiSpreadAndMove();
+    },
+    outputStrings: {
+      akhRhaiSpreadAndMove: {
+        en: 'Akh Rhai: spread and move',
+        de: 'Akh Rhai: Verteilen und bewegen',
+        fr: 'Akh Rhai : Dispersion et bougez',
+        ja: 'アク・ラーイ: 散開 動け',
+        cn: '天光轮回：散开保持移动',
+        ko: '아크 라이: 산개, 이동',
+        tc: '天光輪迴：散開保持移動'
+      },
+      akhMornOnYou: {
+        en: 'Akh Morn on YOU',
+        de: 'Akh Morn auf DIR',
+        fr: 'Akh Morn sur VOUS',
+        ja: '自分にアク・モーン',
+        cn: '死亡轮回点名',
+        ko: '아크몬 대상자',
+        tc: '死亡輪迴點名'
+      },
+      akhMornOn: {
+        en: 'Akh Morn on ${player}',
+        de: 'Akh Morn auf ${player}',
+        fr: 'Akh Morn sur ${player}',
+        ja: '${player}にアク・モーン',
+        cn: '死亡轮回点${player}',
+        ko: '"${player}" 아크몬',
+        tc: '死亡輪迴點 ${player}'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Diamond Dust',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C439',
+      source: 'Shinryu',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Ice: Stack + don\'t move'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Dragonfist',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C46D',
+      source: 'Shinryu',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Out of middle',
+        de: 'Raus aus der Mitte',
+        fr: 'Sortez du milieu',
+        ja: '中央から離れ',
+        cn: '离开中间',
+        ko: '중앙 피하기',
+        tc: '離開中間'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Hellfire',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C437',
+      source: 'Shinryu',
+      capture: false
+    },
+    durationSeconds: 7,
+    alertText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Get in water',
+        de: 'In\'s Wasser',
+        fr: 'Allez dans l\'eau',
+        ja: '水に入る',
+        cn: '进水圈',
+        ko: '물 장판에 들어가기',
+        tc: '進水圈'
+      }
+    }
+  }, {
+    // TODO: the original trigger didn't differentiate the two ability ids.
+    // Probably the phase conditional could get removed if it did.
+    id: 'ShinryuUn Hypernova',
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['C481', 'C444'],
+      source: 'Right Wing',
+      capture: false
+    },
+    durationSeconds: 7,
+    alertText: (data, _matches, output) => {
+      if (data.phase === 3) return output.stopToGetFrozen();
+      return output.stackInWater();
+    },
+    outputStrings: {
+      stopToGetFrozen: {
+        en: 'Stop + Get frozen',
+        de: 'Stopp! Einfrieren lassen',
+        fr: 'Arrêtez, laissez-vous geler',
+        ja: '止まれ、凍結',
+        cn: '停止移动吃冻结',
+        ko: '멈춰서 얼기',
+        tc: '停止移動吃凍結'
+      },
+      stackInWater: {
+        en: 'Stack in water',
+        de: 'In Wasser stacken',
+        fr: 'Packez-vous dans l\'eau',
+        ja: '水に集合',
+        cn: '在水圈分摊',
+        ko: '물 장판에 모이기',
+        tc: '在水圈分攤'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Judgement Bolt',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C438',
+      source: 'Shinryu',
+      capture: false
+    },
+    durationSeconds: 7,
+    alertText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Out of water',
+        de: 'Raus aus dem Wasser',
+        fr: 'Sortez de l\'eau',
+        ja: '水から離れ',
+        cn: '离开水圈',
+        ko: '물 장판 밖으로',
+        tc: '離開水圈'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Levinbolt',
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['C446', 'C482', 'C486'],
+      source: 'Right Wing',
+      target: 'Right Wing',
+      capture: false
+    },
+    durationSeconds: 7,
+    alertText: (data, _matches, output) => {
+      if (data.phase === 3) return output.baitBoltKeepMoving();
+      return output.spreadOutNoWater();
+    },
+    outputStrings: {
+      baitBoltKeepMoving: {
+        en: 'Bait bolt + keep moving',
+        de: 'Blitz ködern, weiterbewegen',
+        fr: 'Attirez la foudre, continuez à bouger',
+        ja: '稲妻: 動き続ける',
+        cn: '诱导闪电，保持移动',
+        ko: '번개 공격 산개, 계속 움직이기',
+        tc: '誘導閃電，保持移動'
+      },
+      spreadOutNoWater: {
+        en: 'Spread out, no water',
+        de: 'Verteilen und nicht in\'s Wasser',
+        fr: 'Dispersez-vous en dehors de l\'eau',
+        ja: '散開、水に入らない',
+        cn: '散开，离开水圈',
+        ko: '산개, 물장판 X',
+        tc: '散開，離開水圈'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Levinbolt Phase 3',
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['C446', 'C482', 'C486'],
+      source: 'Right Wing',
+      target: 'Right Wing',
+      capture: false
+    },
+    condition: data => data.phase === 3,
+    delaySeconds: 9.5,
+    response: responses/* Responses.moveAway */.n3.moveAway('alarm')
+  }, {
+    id: 'ShinryuUn Icicle Left',
+    type: 'Ability',
+    netRegex: {
+      id: 'C44B',
+      source: 'Icicle',
+      capture: true
+    },
+    condition: (_data, matches) => {
+      return Math.round(parseFloat(matches.x)) === -30 && Math.round(parseFloat(matches.y)) === -15;
+    },
+    alarmText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Icicle, lean west',
+        de: 'Eiszapfen, nach westen',
+        fr: 'Stalactite, penchez vers l\'ouest',
+        ja: 'アイシクル: 西へ',
+        cn: '冰柱，去左边',
+        ko: '고드름, 왼쪽 먼저',
+        tc: '冰柱，去西邊'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Icicle Right',
+    type: 'Ability',
+    netRegex: {
+      id: 'C44B',
+      source: 'Icicle'
+    },
+    condition: (_data, matches) => {
+      return Math.round(parseFloat(matches.x)) === -30 && Math.round(parseFloat(matches.y)) === -25;
+    },
+    alarmText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Icicle, lean east',
+        de: 'Eiszapfen, nach Osten',
+        fr: 'Stalactite, penchez vers l\'est',
+        ja: 'アイシクル: 東へ',
+        cn: '冰柱，去右边',
+        ko: '고드름, 오른쪽 먼저',
+        tc: '冰柱，去東邊'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Tidal Wave',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C436',
+      source: 'Shinryu',
+      capture: false
+    },
+    delaySeconds: 3,
+    durationSeconds: 5,
+    response: responses/* Responses.knockback */.n3.knockback()
+  }, {
+    id: 'ShinryuUn Final Tidal Wave',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C47B',
+      source: 'Shinryu',
+      capture: false
+    },
+    condition: data => data.role === 'healer',
+    infoText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'no more heals needed',
+        de: 'keine Heilung mehr nötig',
+        fr: 'Plus besoin de soigner',
+        ja: 'ヒールはもう要らない',
+        cn: '狂暴读条，不用奶了',
+        ko: '힐 그만',
+        tc: '狂暴讀條，不用補了'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Tail Slap',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C43E',
+      source: 'Tail',
+      capture: false
+    },
+    delaySeconds: 2,
+    infoText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Tail: Switch targets',
+        de: 'Schweif: Zielwechsel',
+        fr: 'Queue : Changez de cible',
+        ja: '尾: タゲチェンジ',
+        cn: '打尾巴',
+        ko: '꼬리 공격',
+        tc: '打尾巴'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Heart',
+    type: 'AddedCombatant',
+    netRegex: {
+      name: 'The Worm\'s Heart',
+      capture: false
+    },
+    condition: data => {
+      // Prevent ugly heart message on wipe.
+      return data.phase === 1;
+    },
+    // TODO: If tail is alive, delay this message?
+    infoText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Heart: Switch targets',
+        de: 'Herz: Ziel wechseln',
+        fr: 'Cœur : Changez de cible',
+        ja: '心核: タゲチェンジ',
+        cn: '打核心',
+        ko: '심핵 공격',
+        tc: '打核心'
+      }
+    }
+  }, {
+    // TODO: math out locations and call directions if we get a log containing any of these IDs.
+    id: 'ShinryuUn Gyre Charge',
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['BFEB', 'BFEC', 'C45F'],
+      source: 'Shinryu',
+      capture: false
+    },
+    alarmText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Avoid divebomb',
+        de: 'Divebomb ausweichen',
+        fr: 'Évitez la bombe plongeante',
+        ja: 'ダイブボムに避け',
+        cn: '躲避俯冲',
+        ko: '회전 돌진 피하기',
+        tc: '躲避俯衝'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Death Sentence',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C466',
+      source: 'Hakkinryu'
+    },
+    alertText: (data, matches, output) => {
+      if (matches.target === data.me) return output.deathSentenceOnYou();else if (data.role === 'healer') return output.deathSentenceOn({
+        player: data.party.member(matches.target)
+      });
+    },
+    infoText: (data, matches, output) => {
+      if (matches.target !== data.me && data.role !== 'healer') return output.deathSentenceOn({
+        player: data.party.member(matches.target)
+      });
+    },
+    outputStrings: {
+      deathSentenceOn: {
+        en: 'Death Sentence on ${player}',
+        de: 'Todesurteil auf ${player}',
+        fr: 'Peine de mort sur ${player}',
+        ja: '${player}にデスセンテンス',
+        cn: '死刑点 ${player}',
+        ko: '"${player}" 사형 선고',
+        tc: '死刑點 ${player}'
+      },
+      deathSentenceOnYou: {
+        en: 'Death Sentence on YOU',
+        de: 'Todesurteil auf DIR',
+        fr: 'Peine de mort sur VOUS',
+        ja: '自分にデスセンテンス',
+        cn: '死刑点名',
+        ko: '사형 선고 대상자',
+        tc: '死刑點名'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Tera Slash',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C478',
+      source: 'Shinryu'
+    },
+    response: responses/* Responses.tankBusterSwap */.n3.tankBusterSwap()
+  }, {
+    id: 'ShinryuUn Wormwail',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C475',
+      source: 'Shinryu',
+      capture: false
+    },
+    response: responses/* Responses.getUnder */.n3.getUnder('alert')
+  }, {
+    id: 'ShinryuUn Breath',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C477',
+      source: 'Shinryu',
+      capture: false
+    },
+    response: responses/* Responses.awayFromFront */.n3.awayFromFront()
+  }, {
+    id: 'ShinryuUn Final Left Wing',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C47D',
+      source: 'Left Wing',
+      capture: false
+    },
+    condition: data => !data.finalWing,
+    alertText: (_data, _matches, output) => output.text(),
+    run: data => data.finalWing = true,
+    outputStrings: {
+      text: {
+        en: 'Kill left first',
+        de: 'linken Flügel zuerst',
+        fr: 'Tuez l\'aile gauche d\'abord',
+        ja: 'レフトウィングに攻撃',
+        cn: '击杀左翼',
+        ko: '왼쪽 날개 먼저',
+        tc: '擊殺左翼'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Final Right Wing',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C47E',
+      source: 'Right Wing',
+      capture: false
+    },
+    condition: data => !data.finalWing,
+    alertText: (_data, _matches, output) => output.text(),
+    run: data => data.finalWing = true,
+    outputStrings: {
+      text: {
+        en: 'Kill right first',
+        de: 'rechten Flügel zuerst',
+        fr: 'Tuez l\'aile droite d\'abord',
+        ja: 'ライトウィングに攻撃',
+        cn: '击杀右翼',
+        ko: '오른쪽 날개 먼저',
+        tc: '擊殺右翼'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Tethers',
+    type: 'HeadMarker',
+    netRegex: {
+      id: '0061'
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    delaySeconds: 3.8,
+    infoText: (data, _matches, output) => {
+      if (data.phase === 3) return output.breakTethersThenStack();
+      return output.breakTethers();
+    },
+    outputStrings: {
+      breakTethersThenStack: {
+        en: 'Break tethers => stack',
+        de: 'Kette zerreissen, dann stack',
+        fr: 'Cassez les liens, puis packez-vous',
+        ja: '鎖を引き、集合',
+        cn: '拉断连线然后分摊',
+        ko: '선 끊고 모이기',
+        tc: '拉斷連線然後分攤'
+      },
+      breakTethers: {
+        en: 'break tethers',
+        de: 'Ketten zerreissen',
+        fr: 'Cassez les liens',
+        ja: '鎖',
+        cn: '拉断连线',
+        ko: '선 끊기',
+        tc: '拉斷連線'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Tail Marker',
+    type: 'HeadMarker',
+    netRegex: {
+      id: '007E'
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    alarmText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Tail marker on YOU',
+        de: 'Schweifmarker auf dir',
+        fr: 'Marqueur Queue sur VOUS',
+        ja: '自分にテイル',
+        cn: '龙尾点名',
+        ko: '꼬리 징 대상자',
+        tc: '龍尾點名'
+      }
+    }
+  }, {
+    id: 'ShinryuUn Shakers',
+    type: 'HeadMarker',
+    netRegex: {
+      id: '0028'
+    },
+    condition: (data, matches) => {
+      data.shakerTargets ??= [];
+      data.shakerTargets.push(matches.target);
+      return data.shakerTargets.length === 2;
+    },
+    alarmText: (data, _matches, output) => {
+      if (data.shakerTargets?.includes(data.me)) return output.earthshakerOnYou();
+    },
+    alertText: (data, _matches, output) => {
+      if (!data.shakerTargets || !data.shakerTargets.includes(data.me)) return output.avoidEarthshakers();
+    },
+    run: data => delete data.shakerTargets,
+    outputStrings: {
+      avoidEarthshakers: {
+        en: 'avoid earthshakers',
+        de: 'Stöße ausweichen',
+        fr: 'Évitez les secousses',
+        ja: 'アースシェーカーに避け',
+        cn: '远离大地动摇',
+        ko: '어스 피하기',
+        tc: '遠離大地動搖'
+      },
+      earthshakerOnYou: outputs/* default.earthshakerOnYou */.Z.earthshakerOnYou
+    }
+  }, {
+    id: 'ShinryuUn Cocoon Marker',
+    type: 'HeadMarker',
+    netRegex: {
+      id: '0039'
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    response: responses/* Responses.spread */.n3.spread()
+  }],
+  timelineReplace: [{
+    'locale': 'de',
+    'missingTranslations': true,
+    'replaceSync': {
+      'Hakkinryu': 'Hakkinryu',
+      'Left Wing': 'link(?:e|er|es|en) Schwinge',
+      'Right Wing': 'recht(?:e|er|es|en) Schwinge',
+      'Shinryu': 'Shinryu',
+      'Tail': 'Schwanz',
+      'The Worm\'s Heart': 'Shinryus Herz',
+      'Icicle': 'Eiszapfen',
+      'Cocoon': 'Lichtsphäre'
+    },
+    'replaceText': {
+      '--Reiryu Adds--': '--Reiryu Adds--',
+      'Aerial Blast': 'Windschlag',
+      'Akh Morn': 'Akh Morn',
+      'Akh Rhai': 'Akh Rhai',
+      'Atomic Ray': 'Atomstrahlung',
+      'Benighting Breath': 'Dunkelhauch',
+      'Cocoon Markers': 'Kokon Marker',
+      'Dark Matter': 'Dunkelmaterie',
+      'Diamond Dust': 'Diamantenstaub',
+      'Dragonfist': 'Drachenfaust',
+      'Earth Breath': 'Erdatem',
+      'Earthen Fury': 'Gaias Zorn',
+      'First Wing': 'Erster Flügel',
+      'Gyre Charge': 'Wirbel-Aufladung',
+      'Hellfire': 'Höllenfeuer',
+      'Hypernova': 'Supernova',
+      'Ice Storm': 'Eissturm',
+      'Icicle Impact': 'Eiszapfen-Schlag',
+      'Judgment Bolt': 'Ionenschlag',
+      'Levinbolt': 'Keraunisches Feld',
+      'Meteor Impact': 'Meteoreinschlag',
+      'Phase': 'Phase',
+      'Protostar': 'Protostern',
+      'Reiyu Adds': 'Reiyu Adds',
+      'Second Wing': 'Zweiter Flügel',
+      'Spikesicle': 'Eislanze',
+      'Super Cyclone': 'Superzyklon',
+      'Shatter': 'Zerfallen',
+      'Summon Icicle': 'Flugeis',
+      'TAP BUTTON OR ELSE': 'DRÜCKE TASTEN ETC',
+      'Tail Marker': 'Schweifmarker',
+      'Tail Slap': 'Schweifklapser',
+      'Tail Spit': 'Schweifspieß',
+      'Tera Slash': 'Tera-Schlag',
+      'Tethers': 'Verbindungen',
+      'Tidal Wave': 'Flutwelle',
+      'Touchdown': 'Himmelssturz',
+      'Wormwail': 'Shinryus Ruf'
+    }
+  }, {
+    'locale': 'fr',
+    'missingTranslations': true,
+    'replaceSync': {
+      'Hakkinryu': 'Hakkinryu',
+      'Icicle': 'stalactite',
+      'Left Wing': 'aile gauche',
+      'Right Wing': 'aile droite',
+      'Shinryu': 'Shinryu',
+      'The Worm\'s Heart': 'cœur du dragon',
+      'Tail': 'queue',
+      'Cocoon': 'cocon de lumière'
+    },
+    'replaceText': {
+      '--Phase': '--Phase',
+      '--Reiryu Adds--': '--Adds Reiryu--',
+      'Aerial Blast': 'Rafale aérienne',
+      'Atomic Ray': 'Rayon atomique',
+      'Cocoon Markers': 'Marqueurs Cocon',
+      'Dark Matter': 'Matière sombre',
+      'Diamond Dust': 'Poussière de diamant',
+      'Dragonfist': 'Poing dragon',
+      'Earth Breath': 'Souffle de terre',
+      'Earthen Fury': 'Fureur tellurique',
+      'First Wing': 'Première aile',
+      'Gyre Charge': 'Gyrocharge',
+      'Hellfire': 'Flammes de l\'enfer',
+      'Hypernova': 'Hypernova',
+      'Ice Storm': 'Tempête de glace',
+      'Judgment Bolt': 'Éclair du jugement',
+      'Levinbolt': 'Fulguration',
+      'Meteor Impact': 'Impact de météore',
+      'Protostar': 'Proto-étoile',
+      'Reiyu Adds': 'Adds Ryu',
+      'Second Wing': 'Seconde aile',
+      'Summon Icicle': 'Appel de stalactite',
+      'Tail Marker': 'Marqueur Queue',
+      'Tail Slap': 'Gifle caudale',
+      'Tail Spit': 'Broche caudale',
+      'TAP BUTTON OR ELSE': 'CLIQUEZ SUR LE BOUTON OU AUTRE',
+      'Tera Slash': 'TéraTaillade',
+      'Tethers': 'Liens',
+      'Tidal Wave': 'Raz-de-marée',
+      'Touchdown': 'Atterrissage',
+      'Akh Morn': 'Akh Morn',
+      'Icicle Impact': 'Impact de stalactite',
+      'Spikesicle': 'Stalactopointe',
+      'Akh Rhai': 'Akh Rhai',
+      'Super Cyclone': 'Super cyclone',
+      'Shatter': 'Éclatement',
+      'Wormwail': 'Gémissement draconique',
+      'Benighting Breath': 'Souffle enténébrant'
+    }
+  }, {
+    'locale': 'ja',
+    'missingTranslations': true,
+    'replaceSync': {
+      'Left Wing': 'レフトウィング',
+      'Right Wing': 'ライトウィング',
+      'Shinryu': '神龍',
+      'Tail': '神龍の尾',
+      'The Worm\'s Heart': '神龍の心核',
+      'Icicle': 'アイシクル',
+      'Cocoon': '光の繭',
+      'Hakkinryu': '白金龍'
+    },
+    'replaceText': {
+      'Aerial Blast': 'エリアルブラスト',
+      'Akh Morn': 'アク・モーン',
+      'Atomic Ray': 'アトミックレイ',
+      'Cocoon Markers': 'マユ マーク',
+      'Dark Matter': 'ダークマター',
+      'Diamond Dust': 'ダイアモンドダスト',
+      'Dragonfist': '龍掌',
+      'Earth Breath': 'アースブレス',
+      'Earthen Fury': '大地の怒り',
+      'First Wing': '翼一つ目',
+      'Gyre Charge': 'ジャイヤチャージ',
+      'Hellfire': '地獄の火炎',
+      'Hypernova': 'スーパーノヴァ',
+      'Ice Storm': '吹雪',
+      'Judgment Bolt': '裁きの雷',
+      'Levinbolt': '稲妻',
+      'Meteor Impact': 'メテオインパクト',
+      'Phase': 'フェイス',
+      'Protostar': 'プロトスター',
+      'Reiyu Adds': '雑魚',
+      'Second Wing': '翼二つ目',
+      'Summon Icicle': 'サモン・アイシクル',
+      'TAP BUTTON OR ELSE': 'ボタンを押せ！',
+      'Tail Marker': 'テイル マーク',
+      'Tail Slap': 'テールスラップ',
+      'Tail Spit': 'テールスピット',
+      'Tera Slash': 'テラスラッシュ',
+      'Tethers': '線',
+      'Tidal Wave': 'タイダルウェイブ',
+      'Touchdown': 'タッチダウン',
+      'Icicle Impact': 'アイシクルインパクト',
+      'Spikesicle': 'アイシクルスパイク',
+      'Akh Rhai': 'アク・ラーイ',
+      'Super Cyclone': 'スーパーサイクロン',
+      'Shatter': '破砕',
+      'Wormwail': '神龍の咆哮',
+      'Benighting Breath': 'ダークネスブレス'
+    }
+  }, {
+    'locale': 'cn',
+    'missingTranslations': true,
+    'replaceSync': {
+      'Cocoon': '光茧',
+      'Icicle': '冰柱',
+      'Left Wing': '左翼',
+      'Right Wing': '右翼',
+      'Shinryu': '神龙',
+      'Tail': '龙尾',
+      'The Worm\'s Heart': '神龙的核心',
+      'Hakkinryu': '白金龙'
+    },
+    'replaceText': {
+      'Aerial Blast': '大气爆发',
+      'Akh Morn': '死亡轮回',
+      'Akh Rhai': '天光轮回',
+      'Atomic Ray': '原子射线',
+      'Benighting Breath': '黑暗吐息',
+      'Cocoon Markers': '光茧点名',
+      'Dark Matter': '暗物质',
+      'Diamond Dust': '钻石星尘',
+      'Dragonfist': '龙掌',
+      'Earth Breath': '大地吐息',
+      'Earthen Fury': '大地之怒',
+      'First Wing': '第一只翅膀',
+      'Gyre Charge': '螺旋冲锋',
+      'Hellfire': '地狱之火炎',
+      'Hypernova': '超新星',
+      'Icicle Impact': '冰柱冲击',
+      'Ice Storm': '吹雪',
+      'Judgment Bolt': '制裁之雷',
+      'Levinbolt': '闪电',
+      'Meteor Impact': '陨石冲击',
+      'Phase': '阶段',
+      'Protostar': '原恒星',
+      'Reiryu Adds': '灵龙出现',
+      'Second Wing': '第二只翅膀',
+      'Shatter': '破碎',
+      'Spikesicle': '冰柱突刺',
+      'Summon Icicle': '召唤冰柱',
+      'Super Cyclone': '超级气旋',
+      'TAP BUTTON OR ELSE': 'XJB按',
+      'Tail Marker': '尾巴点名',
+      'Tail Slap': '尾部猛击',
+      'Tail Spit': '尾部重击',
+      'Tera Slash': '万亿斩击',
+      'Tethers': '连线',
+      'Tidal Wave': '巨浪',
+      'Touchdown': '空降',
+      'Wormwail': '神龙啸'
+    }
+  }, {
+    'locale': 'tc',
+    'missingTranslations': true,
+    'replaceSync': {
+      'Cocoon': '光繭',
+      'Icicle': '冰柱',
+      'Left Wing': '左翼',
+      'Right Wing': '右翼',
+      'Shinryu': '神龍',
+      'Tail': '龍尾',
+      'The Worm\'s Heart': '神龍的核心',
+      'Hakkinryu': '白金龍'
+    },
+    'replaceText': {
+      'Aerial Blast': '大氣爆發',
+      'Akh Morn': '死亡輪迴',
+      'Akh Rhai': '天光輪迴',
+      'Atomic Ray': '原子射線',
+      'Benighting Breath': '黑暗吐息',
+      'Cocoon Markers': '光繭點名',
+      'Dark Matter': '黑暗物質',
+      'Diamond Dust': '鑽石星塵',
+      'Dragonfist': '龍掌',
+      'Earth Breath': '大地吐息',
+      'Earthen Fury': '大地之怒',
+      'First Wing': '第一隻翅膀',
+      'Gyre Charge': '螺旋衝鋒',
+      'Hellfire': '地獄之火炎',
+      'Hypernova': '超新星',
+      'Icicle Impact': '冰柱衝擊',
+      'Ice Storm': '吹雪',
+      'Judgment Bolt': '制裁之雷',
+      'Levinbolt': '閃電',
+      'Meteor Impact': '隕石衝擊',
+      'Phase': '階段',
+      'Protostar': '原恆星',
+      'Reiryu Adds': '靈龍出現',
+      'Second Wing': '第二隻翅膀',
+      'Shatter': '破碎',
+      'Spikesicle': '冰柱突刺',
+      'Summon Icicle': '召喚冰柱',
+      'Super Cyclone': '超級颶風',
+      'TAP BUTTON OR ELSE': '按按鈕！',
+      'Tail Marker': '尾巴點名',
+      'Tail Slap': '尾部猛擊',
+      'Tail Spit': '尾部重擊',
+      'Tera Slash': '萬億斬擊',
+      'Tethers': '連線',
+      'Tidal Wave': '巨浪',
+      'Touchdown': '空降',
+      'Wormwail': '神龍嘯'
+    }
+  }, {
+    'locale': 'ko',
+    'missingTranslations': true,
+    'replaceSync': {
+      'Hakkinryu': '백금룡',
+      'Left Wing': '왼쪽 날개',
+      'Right Wing': '오른쪽 날개',
+      'Shinryu': '신룡',
+      'Tail(?! )': '신룡의 꼬리',
+      'The Worm\'s Heart': '신룡의 심핵',
+      'Icicle': '고드름',
+      'Cocoon': '빛의 고치'
+    },
+    'replaceText': {
+      'T\\/H': '탱/힐',
+      'healer[s]*': '힐러',
+      'dps': '딜러',
+      'tank': '탱커',
+      'Aerial Blast': '대기 폭발',
+      'Akh Morn': '아크 몬',
+      'Atomic Ray': '원자 파동',
+      'Cocoon Markers': '빛의 고체 징',
+      'Dark Matter': '암흑물질',
+      'Diamond Dust': '다이아몬드 더스트',
+      'Dragonfist': '용의 손바닥',
+      'Earth Breath': '대지의 숨결',
+      'Earthen Fury': '대지의 분노',
+      'First Wing': '첫번째 날개',
+      'Gyre Charge': '회전 돌진',
+      'Hellfire': '지옥의 화염',
+      'Hypernova': '초신성',
+      'Ice Storm': '눈보라',
+      'Judgment Bolt': '심판의 벼락',
+      'Levinbolt': '우레',
+      'Meteor Impact': '운석 낙하',
+      'Phase': '페이즈',
+      'Protostar': '원시별',
+      'Reiryu Adds': '영룡 등장',
+      'Second Wing': '두번째 날개',
+      'Summon Icicle': '고드름 소환',
+      'TAP BUTTON OR ELSE': '긴 급 조 작',
+      'Tail Marker': '꼬리 징',
+      'Tail Slap': '꼬리치기',
+      'Tail Spit': '꼬리 찌르기',
+      'Tera Slash': '테라 슬래시',
+      'Tethers': '선',
+      'Tidal Wave': '해일',
+      'Touchdown': '착지',
+      'Icicle Impact': '고드름 낙하',
+      'Spikesicle': '고드름 돌진',
+      'Akh Rhai': '아크 라이',
+      'Super Cyclone': '대형 돌개바람',
+      'Shatter': '파쇄',
+      'Wormwail': '신룡의 포효',
+      'Benighting Breath': '어둠의 숨결'
+    }
+  }]
+};
+/* harmony default export */ const shinryu_un = (shinryu_un_triggerSet);
+;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/shinryu-un.txt
+const trial_shinryu_un_namespaceObject = "# This file was autogenerated from running npm run sync-files.\r\n# DO NOT EDIT THIS FILE DIRECTLY.\r\n# Edit the source file below and then run `npm run sync-files`\r\n# Source: ui/raidboss/data/04-sb/trial/shinryu-ex.txt\r\n\r\n# Shinryu Ex\r\n# Text Guide: http://clees.me/guides/shinryu-ex/\r\n#\r\n# -p C43A:21.3 C443:503 C440:806 C478:859.5\r\n# -it Shinryu\r\n# -ii C459 C436 C445 C447 C46D C45B C472 BC2D C470 C437 C452 C450 C44E C43B C449 C46A C439 C46B C464 C465 C466 C467 C442 C43F C474 C438 BC2F C47A C46E C486 C43C C43D C45C C45D\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n# Heart add not listed here. Seems to be on an independent respawn timer.\r\n\r\n### PHASE 1: Elemental carousel\r\n###\r\n0.0 \"--sync--\" InCombat { inGameCombat: \"1\" } window 0,1\r\n11.3 \"--sync--\" StartsUsing { id: \"C459\", source: \"Shinryu\" } window 20,20\r\n21.3 \"Earthen Fury\" Ability { id: \"C43A\", source: \"Shinryu\" }\r\n36.4 \"--Tethers--\" # Burning Chains (301) effect\r\n44.5 \"Tidal Wave\" Ability { id: \"C455\", source: \"Shinryu\" }\r\n49.7 \"--Tail Marker (healer)--\" # 007E headmarker\r\n61.7 \"Summon Icicle\" Ability { id: \"C44A\", source: \"Left Wing\" }\r\n62.4 \"Icicle Impact\" Ability { id: \"C44B\", source: \"Icicle\" }\r\n67.0 \"Spikesicle\" Ability { id: \"C44C\", source: \"Icicle\" }\r\n67.9 \"Tail Slap\" Ability { id: \"C43E\", source: \"Tail\" }\r\n79.8 \"Hypernova / Levinbolt\" Ability { id: [\"C444\", \"C446\"], source: \"Right Wing\" }\r\n90.9 \"Dragonfist\" Ability { id: \"C46C\", source: \"Shinryu\" }\r\n94.8 \"Ice Storm\" Ability { id: \"C44D\", source: \"Left Wing\" }\r\n108.0 \"Akh Morn 1\" Ability { id: \"C44F\", source: \"Shinryu\" } duration 3.2\r\n110.1 \"Akh Rhai\" Ability { id: \"C451\", source: \"Shinryu\" } duration 5.3\r\n116.3 \"Summon Icicle\" Ability { id: \"C44A\", source: \"Left Wing\" }\r\n116.9 \"Icicle Impact\" Ability { id: \"C44B\", source: \"Icicle\" }\r\n121.4 \"Spikesicle\" Ability { id: \"C44C\", source: \"Icicle\" }\r\n123.3 \"Judgment Bolt / Hellfire\" Ability { id: [\"C456\", \"C438\"], source: \"Shinryu\" }\r\n\r\n138.4 \"--Tail Marker (dps)--\"\r\n149.5 \"Levinbolt\" Ability { id: \"C446\", source: \"Right Wing\" }\r\n156.6 \"Tail Slap\" Ability { id: \"C43E\", source: \"Tail\" }\r\n164.5 \"Ice Storm\" Ability { id: \"C44D\", source: \"Left Wing\" }\r\n171.8 \"--Tethers (T/H)--\"\r\n180.6 \"Earth Breath\" Ability { id: \"C448\", source: \"Shinryu\" }\r\n188.0 \"Akh Morn 2\" Ability { id: \"C44F\", source: \"Shinryu\" } duration 3.2\r\n190.1 \"Akh Rhai\" Ability { id: \"C451\", source: \"Shinryu\" } duration 5.3\r\n194.0 \"Ice Storm\" Ability { id: \"C44D\", source: \"Left Wing\" }\r\n206.6 \"--Tethers (healers)--\"\r\n208.2 \"Diamond Dust\" Ability { id: \"C458\", source: \"Shinryu\" }\r\n224.9 \"--Reiryu Adds--\"\r\n\r\n# The timing on the Icicle here appears to be here or 3s later.\r\n# We leave the earlier visual in place to let players anticipate it.\r\n233.3 \"--Tail Marker (tank)--\"\r\n251.5 \"Tail Slap\" Ability { id: \"C43E\", source: \"Tail\" }\r\n268.5 \"Summon Icicle\" #Ability { id: \"C44A\", source: \"Left Wing\" }\r\n269.1 \"Icicle Impact\" #Ability { id: \"C44B\", source: \"Icicle\" }\r\n272.4 \"Akh Morn 3\" Ability { id: \"C44F\", source: \"Shinryu\" } duration 3.2\r\n273.6 \"Spikesicle\" #Ability { id: \"C44C\", source: \"Icicle\" }\r\n274.5 \"Akh Rhai\" Ability { id: \"C451\", source: \"Shinryu\" } duration 5.3\r\n285.3 \"Super Cyclone 1\" #Ability { id: \"C468\", source: \"Shinryu\" }\r\n287.4 \"Super Cyclone 2\" #Ability { id: \"C468\", source: \"Shinryu\" }\r\n289.5 \"Super Cyclone 3\" #Ability { id: \"C468\", source: \"Shinryu\" }\r\n291.7 \"Aerial Blast\" Ability { id: \"C45A\", source: \"Shinryu\" }\r\n292.7 \"--Tethers (dps)--\"\r\n318.9 \"Earth Breath\" Ability { id: \"C448\", source: \"Shinryu\" }\r\n321.9 \"Ice Storm\" Ability { id: \"C44D\", source: \"Left Wing\" }\r\n\r\n325.3 \"--untargetable--\"\r\n334.7 \"--sync--\" Ability { id: \"C453\", source: \"Shinryu\" }\r\n335.9 \"Gyre Charge\" Ability { id: \"C45F\", source: \"Shinryu\" }\r\n341.8 \"--targetable--\"\r\n\r\n350.9 \"Hypernova\" Ability { id: \"C444\", source: \"Right Wing\" }\r\n363.0 \"Akh Morn 4\" Ability { id: \"C44F\", source: \"Shinryu\" } duration 4.3\r\n365.1 \"Akh Rhai\" Ability { id: \"C451\", source: \"Shinryu\" } duration 5.3\r\n378.3 \"Hypernova / Levinbolt\" Ability { id: [\"C444\", \"C446\"], source: \"Right Wing\" }\r\n384.3 \"Tidal Wave\" Ability { id: \"C455\", source: \"Shinryu\" }\r\n387.4 \"--untargetable--\"\r\n394.8 \"Dark Matter\" #Ability { id: \"C443\", source: \"Shinryu\" }\r\n\r\n\r\n### PHASE 2: Adds, explosions, dramatic tail climbing\r\n###\r\n500.0 \"--Phase 2--\" StartsUsing { id: \"C443\", source: \"Shinryu\" } window 500,500\r\n503.0 \"Dark Matter\" Ability { id: \"C443\", source: \"Shinryu\" }\r\n513.0 \"TAP BUTTON OR ELSE\" duration 5\r\n540.7 \"Touchdown\" Ability { id: \"C46F\", source: \"Shinryu\" }\r\n545.2 \"--sync--\" Ability { id: \"C435\", source: \"Shinryu\" }\r\n552.3 \"Meteor Impact 1\" Ability { id: \"C441\", source: \"Cocoon\" }\r\n553.9 \"--sync--\" Ability { id: \"C461\", source: \"Cocoon\" }\r\n571.1 \"Meteor Impact 2\" Ability { id: \"C441\", source: \"Cocoon\" }\r\n572.7 \"--sync--\" Ability { id: \"C461\", source: \"Cocoon\" }\r\n588.0 \"--Cocoon Markers--\"\r\n601.0 \"Meteor Impact 3\" Ability { id: \"C441\", source: \"Cocoon\" }\r\n602.6 \"--sync--\" Ability { id: \"C461\", source: \"Cocoon\" }\r\n\r\n### PHASE 3: Anticlimax\r\n###\r\n800.0 \"--Phase 3--\" StartsUsing { id: \"C440\", source: \"Shinryu\" } window 500,500\r\n806.0 \"Protostar\" Ability { id: \"C440\", source: \"Shinryu\" }\r\n813.1 \"Tail Spit\" Ability { id: \"C471\", source: \"Shinryu\" }\r\n837.4 \"Shatter\" Ability { id: \"C473\", source: \"Shinryu\" } window 50,50\r\n843.4 \"--targetable--\"\r\n\r\n# Loop 1\r\n855.5 \"--sync--\" StartsUsing { id: \"C478\", source: \"Shinryu\" } window 20,20\r\n859.5 \"Tera Slash\" Ability { id: \"C478\", source: \"Shinryu\" }\r\n868.2 \"Atomic Ray\" Ability { id: \"C479\", source: \"Shinryu\" }\r\n885.9 \"Ice Storm\" Ability { id: \"C484\", source: \"Left Wing\" }\r\n889.9 \"Levinbolt / Hypernova\" Ability { id: [\"C482\", \"C481\"], source: \"Right Wing\" }\r\n897.9 \"Wormwail / Benighting Breath\" Ability { id: [\"C475\", \"C476\"], source: \"Shinryu\" }\r\n907.1 \"Tera Slash\" Ability { id: \"C478\", source: \"Shinryu\" }\r\n910.8 \"--Reiryu Adds--\"\r\n\r\n# Loop 2\r\n957.4 \"Tera Slash\" Ability { id: \"C478\", source: \"Shinryu\" } window 20,20\r\n966.1 \"Atomic Ray\" Ability { id: \"C479\", source: \"Shinryu\" }\r\n983.8 \"Ice Storm\" Ability { id: \"C484\", source: \"Left Wing\" }\r\n987.8 \"Levinbolt / Hypernova\" Ability { id: [\"C482\", \"C481\"], source: \"Right Wing\" }\r\n995.9 \"Wormwail / Benighting Breath\" Ability { id: [\"C475\", \"C476\"], source: \"Shinryu\" }\r\n1005.1 \"Tera Slash\" Ability { id: \"C478\", source: \"Shinryu\" }\r\n1009.1 \"--Reiryu Adds--\"\r\n\r\n### PHASE 4: Race to the finish!\r\n###\r\n1046.0 \"--sync--\" StartsUsing { id: \"C47B\", source: \"Shinryu\" } window 300,300\r\n1085.0 \"First Wing\" # 35 second cast, starts 4 seconds later, C47D/C47E\r\n1090.0 \"Second Wing\" # 35 second cast, starts 9 seconds later, C47E/C47D\r\n1116.0 \"Tidal Wave\" Ability { id: \"C47B\", source: \"Shinryu\" } # 70 second cast\r\n";
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/suzaku-un.ts
 // This file was autogenerated from running npm run sync-files.
 // DO NOT EDIT THIS FILE DIRECTLY.
@@ -284884,7 +286613,11 @@ const readme_namespaceObject = "This directory is for local, developer-specific 
 
 
 
-/* harmony default export */ const raidboss_manifest = ({'00-misc/general.ts': general,'00-misc/test.ts': test,'00-misc/test.txt': _00_misc_test_namespaceObject,'00-misc/the_masked_carnivale.ts': the_masked_carnivale,'02-arr/alliance/the_world_of_darkness.ts': the_world_of_darkness,'02-arr/dungeon/amdapor_keep.ts': amdapor_keep,'02-arr/dungeon/amdapor_keep_hard.ts': amdapor_keep_hard,'02-arr/dungeon/aurum_vale.ts': aurum_vale,'02-arr/dungeon/aurum_vale73.ts': aurum_vale73,'02-arr/dungeon/brayfloxs_longstop.ts': brayfloxs_longstop,'02-arr/dungeon/cutters_cry.ts': cutters_cry,'02-arr/dungeon/cutters_cry72.ts': cutters_cry72,'02-arr/dungeon/halatali_hard.ts': halatali_hard,'02-arr/dungeon/haukke_manor.ts': haukke_manor,'02-arr/dungeon/haukke_manor_hard.ts': haukke_manor_hard,'02-arr/dungeon/hullbreaker_isle.ts': hullbreaker_isle,'02-arr/dungeon/pharos_sirius.ts': pharos_sirius,'02-arr/dungeon/sastasha_hard.ts': sastasha_hard,'02-arr/dungeon/snowcloak.ts': snowcloak,'02-arr/dungeon/the_lost_city_of_amdapor.ts': the_lost_city_of_amdapor,'02-arr/dungeon/the_stone_vigil.ts': the_stone_vigil,'02-arr/dungeon/the_stone_vigil_hard.ts': the_stone_vigil_hard,'02-arr/dungeon/the_sunken_temple_of_quarn.ts': the_sunken_temple_of_quarn,'02-arr/dungeon/the_sunken_temple_of_quarn71.ts': the_sunken_temple_of_quarn71,'02-arr/dungeon/the_sunken_temple_of_quarn_hard.ts': the_sunken_temple_of_quarn_hard,'02-arr/dungeon/the_tam_tara_depocraft_hard.ts': the_tam_tara_depocraft_hard,'02-arr/dungeon/the_wanderers_palace_hard.ts': the_wanderers_palace_hard,'02-arr/raid/t1.ts': t1,'02-arr/raid/t10.ts': t10,'02-arr/raid/t10.txt': raid_t10_namespaceObject,'02-arr/raid/t11.ts': t11,'02-arr/raid/t11.txt': raid_t11_namespaceObject,'02-arr/raid/t12.ts': t12,'02-arr/raid/t12.txt': raid_t12_namespaceObject,'02-arr/raid/t13.ts': t13,'02-arr/raid/t13.txt': raid_t13_namespaceObject,'02-arr/raid/t2.ts': t2,'02-arr/raid/t4.ts': t4,'02-arr/raid/t4.txt': raid_t4_namespaceObject,'02-arr/raid/t5.ts': t5,'02-arr/raid/t5.txt': raid_t5_namespaceObject,'02-arr/raid/t6.ts': t6,'02-arr/raid/t6.txt': raid_t6_namespaceObject,'02-arr/raid/t7.ts': t7,'02-arr/raid/t7.txt': raid_t7_namespaceObject,'02-arr/raid/t8.ts': t8,'02-arr/raid/t8.txt': raid_t8_namespaceObject,'02-arr/raid/t9.ts': t9,'02-arr/raid/t9.txt': raid_t9_namespaceObject,'02-arr/trial/ifrit-nm.ts': ifrit_nm,'02-arr/trial/ifrit-nm.txt': trial_ifrit_nm_namespaceObject,'02-arr/trial/levi-ex.ts': levi_ex,'02-arr/trial/levi-ex.txt': trial_levi_ex_namespaceObject,'02-arr/trial/shiva-ex.ts': shiva_ex,'02-arr/trial/shiva-ex.txt': trial_shiva_ex_namespaceObject,'02-arr/trial/shiva-hm.ts': shiva_hm,'02-arr/trial/shiva-hm.txt': trial_shiva_hm_namespaceObject,'02-arr/trial/titan-ex.ts': titan_ex,'02-arr/trial/titan-ex.txt': trial_titan_ex_namespaceObject,'02-arr/trial/titan-hm.ts': titan_hm,'02-arr/trial/titan-hm.txt': trial_titan_hm_namespaceObject,'02-arr/trial/titan-nm.ts': titan_nm,'02-arr/trial/titan-nm.txt': trial_titan_nm_namespaceObject,'02-arr/trial/ultima-ex.ts': ultima_ex,'02-arr/trial/ultima-ex.txt': trial_ultima_ex_namespaceObject,'03-hw/alliance/dun_scaith.ts': dun_scaith,'03-hw/alliance/dun_scaith.txt': alliance_dun_scaith_namespaceObject,'03-hw/alliance/weeping_city.ts': weeping_city,'03-hw/alliance/weeping_city.txt': alliance_weeping_city_namespaceObject,'03-hw/deepdungeon/the_palace_of_the_dead_floors_001-010.ts': the_palace_of_the_dead_floors_001_010,'03-hw/deepdungeon/the_palace_of_the_dead_floors_011-020.ts': the_palace_of_the_dead_floors_011_020,'03-hw/deepdungeon/the_palace_of_the_dead_floors_021-030.ts': the_palace_of_the_dead_floors_021_030,'03-hw/deepdungeon/the_palace_of_the_dead_floors_031-040.ts': the_palace_of_the_dead_floors_031_040,'03-hw/deepdungeon/the_palace_of_the_dead_floors_041-050.ts': the_palace_of_the_dead_floors_041_050,'03-hw/deepdungeon/the_palace_of_the_dead_floors_051-060.ts': the_palace_of_the_dead_floors_051_060,'03-hw/deepdungeon/the_palace_of_the_dead_floors_061-070.ts': the_palace_of_the_dead_floors_061_070,'03-hw/deepdungeon/the_palace_of_the_dead_floors_071-080.ts': the_palace_of_the_dead_floors_071_080,'03-hw/deepdungeon/the_palace_of_the_dead_floors_081-090.ts': the_palace_of_the_dead_floors_081_090,'03-hw/deepdungeon/the_palace_of_the_dead_floors_091-100.ts': the_palace_of_the_dead_floors_091_100,'03-hw/deepdungeon/the_palace_of_the_dead_floors_101-110.ts': the_palace_of_the_dead_floors_101_110,'03-hw/deepdungeon/the_palace_of_the_dead_floors_111-120.ts': the_palace_of_the_dead_floors_111_120,'03-hw/deepdungeon/the_palace_of_the_dead_floors_121-130.ts': the_palace_of_the_dead_floors_121_130,'03-hw/deepdungeon/the_palace_of_the_dead_floors_131-140.ts': the_palace_of_the_dead_floors_131_140,'03-hw/deepdungeon/the_palace_of_the_dead_floors_141-150.ts': the_palace_of_the_dead_floors_141_150,'03-hw/deepdungeon/the_palace_of_the_dead_floors_151-160.ts': the_palace_of_the_dead_floors_151_160,'03-hw/deepdungeon/the_palace_of_the_dead_floors_161-170.ts': the_palace_of_the_dead_floors_161_170,'03-hw/deepdungeon/the_palace_of_the_dead_floors_171-180.ts': the_palace_of_the_dead_floors_171_180,'03-hw/deepdungeon/the_palace_of_the_dead_floors_181-190.ts': the_palace_of_the_dead_floors_181_190,'03-hw/deepdungeon/the_palace_of_the_dead_floors_191-200.ts': the_palace_of_the_dead_floors_191_200,'03-hw/deepdungeon/the_palace_of_the_dead_general.ts': the_palace_of_the_dead_general,'03-hw/dungeon/aetherochemical_research_facility.ts': aetherochemical_research_facility,'03-hw/dungeon/aetherochemical_research_facility.txt': dungeon_aetherochemical_research_facility_namespaceObject,'03-hw/dungeon/baelsars_wall.ts': baelsars_wall,'03-hw/dungeon/baelsars_wall.txt': dungeon_baelsars_wall_namespaceObject,'03-hw/dungeon/fractal_continuum.ts': fractal_continuum,'03-hw/dungeon/fractal_continuum.txt': dungeon_fractal_continuum_namespaceObject,'03-hw/dungeon/gubal_library_hard.ts': gubal_library_hard,'03-hw/dungeon/gubal_library_hard.txt': dungeon_gubal_library_hard_namespaceObject,'03-hw/dungeon/sohm_al.ts': sohm_al,'03-hw/dungeon/sohm_al.txt': dungeon_sohm_al_namespaceObject,'03-hw/dungeon/sohm_al_hard.ts': sohm_al_hard,'03-hw/dungeon/sohm_al_hard.txt': dungeon_sohm_al_hard_namespaceObject,'03-hw/dungeon/the_lost_city_of_amdapor_hard.ts': the_lost_city_of_amdapor_hard,'03-hw/dungeon/the_lost_city_of_amdapor_hard.txt': dungeon_the_lost_city_of_amdapor_hard_namespaceObject,'03-hw/dungeon/the_vault.ts': the_vault,'03-hw/dungeon/the_vault.txt': dungeon_the_vault_namespaceObject,'03-hw/dungeon/xelphatol.ts': xelphatol,'03-hw/dungeon/xelphatol.txt': dungeon_xelphatol_namespaceObject,'03-hw/map/the_aquapolis.ts': the_aquapolis,'03-hw/pvp/shatter.ts': shatter,'03-hw/raid/a10n.ts': a10n,'03-hw/raid/a10n.txt': raid_a10n_namespaceObject,'03-hw/raid/a10s.ts': a10s,'03-hw/raid/a10s.txt': raid_a10s_namespaceObject,'03-hw/raid/a11s.ts': a11s,'03-hw/raid/a11s.txt': raid_a11s_namespaceObject,'03-hw/raid/a12n.ts': a12n,'03-hw/raid/a12n.txt': raid_a12n_namespaceObject,'03-hw/raid/a12s.ts': a12s,'03-hw/raid/a12s.txt': raid_a12s_namespaceObject,'03-hw/raid/a1s.ts': a1s,'03-hw/raid/a1s.txt': raid_a1s_namespaceObject,'03-hw/raid/a2s.ts': a2s,'03-hw/raid/a2s.txt': raid_a2s_namespaceObject,'03-hw/raid/a3n.ts': a3n,'03-hw/raid/a3n.txt': raid_a3n_namespaceObject,'03-hw/raid/a3s.ts': a3s,'03-hw/raid/a3s.txt': raid_a3s_namespaceObject,'03-hw/raid/a4s.ts': a4s,'03-hw/raid/a4s.txt': raid_a4s_namespaceObject,'03-hw/raid/a5s.ts': a5s,'03-hw/raid/a5s.txt': raid_a5s_namespaceObject,'03-hw/raid/a6n.ts': a6n,'03-hw/raid/a6n.txt': raid_a6n_namespaceObject,'03-hw/raid/a6s.ts': a6s,'03-hw/raid/a6s.txt': raid_a6s_namespaceObject,'03-hw/raid/a7s.ts': a7s,'03-hw/raid/a7s.txt': raid_a7s_namespaceObject,'03-hw/raid/a8n.ts': a8n,'03-hw/raid/a8n.txt': raid_a8n_namespaceObject,'03-hw/raid/a8s.ts': a8s,'03-hw/raid/a8s.txt': raid_a8s_namespaceObject,'03-hw/raid/a9s.ts': a9s,'03-hw/raid/a9s.txt': raid_a9s_namespaceObject,'03-hw/trial/bismarck-ex.ts': bismarck_ex,'03-hw/trial/ravana-ex.ts': ravana_ex,'03-hw/trial/ravana-ex.txt': trial_ravana_ex_namespaceObject,'03-hw/trial/sephirot-ex.ts': sephirot_ex,'03-hw/trial/sephirot-ex.txt': trial_sephirot_ex_namespaceObject,'03-hw/trial/sephirot.ts': sephirot,'03-hw/trial/sophia-ex.ts': sophia_ex,'03-hw/trial/sophia-ex.txt': trial_sophia_ex_namespaceObject,'03-hw/trial/thordan-ex.ts': thordan_ex,'03-hw/trial/thordan-ex.txt': trial_thordan_ex_namespaceObject,'03-hw/trial/zurvan-ex.ts': zurvan_ex,'03-hw/trial/zurvan-ex.txt': trial_zurvan_ex_namespaceObject,'04-sb/alliance/orbonne_monastery.ts': orbonne_monastery,'04-sb/alliance/orbonne_monastery.txt': alliance_orbonne_monastery_namespaceObject,'04-sb/alliance/ridorana_lighthouse.ts': ridorana_lighthouse,'04-sb/alliance/ridorana_lighthouse.txt': alliance_ridorana_lighthouse_namespaceObject,'04-sb/alliance/royal_city_of_rabanastre.ts': royal_city_of_rabanastre,'04-sb/alliance/royal_city_of_rabanastre.txt': alliance_royal_city_of_rabanastre_namespaceObject,'04-sb/deepdungeon/heaven-on-high_floors_01-10.ts': heaven_on_high_floors_01_10,'04-sb/deepdungeon/heaven-on-high_floors_11-20.ts': heaven_on_high_floors_11_20,'04-sb/deepdungeon/heaven-on-high_floors_21-30.ts': heaven_on_high_floors_21_30,'04-sb/deepdungeon/heaven-on-high_floors_31-40.ts': heaven_on_high_floors_31_40,'04-sb/deepdungeon/heaven-on-high_floors_41-50.ts': heaven_on_high_floors_41_50,'04-sb/deepdungeon/heaven-on-high_floors_51-60.ts': heaven_on_high_floors_51_60,'04-sb/deepdungeon/heaven-on-high_floors_61-70.ts': heaven_on_high_floors_61_70,'04-sb/deepdungeon/heaven-on-high_floors_71-80.ts': heaven_on_high_floors_71_80,'04-sb/deepdungeon/heaven-on-high_floors_81-90.ts': heaven_on_high_floors_81_90,'04-sb/deepdungeon/heaven-on-high_floors_91-100.ts': heaven_on_high_floors_91_100,'04-sb/deepdungeon/heaven-on-high_general.ts': heaven_on_high_general,'04-sb/dungeon/ala_mhigo.ts': ala_mhigo,'04-sb/dungeon/ala_mhigo.txt': dungeon_ala_mhigo_namespaceObject,'04-sb/dungeon/bardams_mettle.ts': bardams_mettle,'04-sb/dungeon/bardams_mettle.txt': dungeon_bardams_mettle_namespaceObject,'04-sb/dungeon/castrum_abania.ts': castrum_abania,'04-sb/dungeon/castrum_abania.txt': dungeon_castrum_abania_namespaceObject,'04-sb/dungeon/doma_castle.ts': doma_castle,'04-sb/dungeon/doma_castle.txt': dungeon_doma_castle_namespaceObject,'04-sb/dungeon/drowned_city_of_skalla.ts': drowned_city_of_skalla,'04-sb/dungeon/drowned_city_of_skalla.txt': dungeon_drowned_city_of_skalla_namespaceObject,'04-sb/dungeon/fractal_continuum_hard.ts': fractal_continuum_hard,'04-sb/dungeon/fractal_continuum_hard.txt': dungeon_fractal_continuum_hard_namespaceObject,'04-sb/dungeon/ghimlyt_dark.ts': ghimlyt_dark,'04-sb/dungeon/ghimlyt_dark.txt': dungeon_ghimlyt_dark_namespaceObject,'04-sb/dungeon/hells_lid.ts': hells_lid,'04-sb/dungeon/hells_lid.txt': dungeon_hells_lid_namespaceObject,'04-sb/dungeon/kugane_castle.ts': kugane_castle,'04-sb/dungeon/kugane_castle.txt': dungeon_kugane_castle_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides.ts': shisui_of_the_violet_tides,'04-sb/dungeon/shisui_of_the_violet_tides.txt': dungeon_shisui_of_the_violet_tides_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides74.ts': shisui_of_the_violet_tides74,'04-sb/dungeon/shisui_of_the_violet_tides74.txt': dungeon_shisui_of_the_violet_tides74_namespaceObject,'04-sb/dungeon/sirensong_sea.ts': sirensong_sea,'04-sb/dungeon/sirensong_sea.txt': dungeon_sirensong_sea_namespaceObject,'04-sb/dungeon/st_mocianne_hard.ts': st_mocianne_hard,'04-sb/dungeon/st_mocianne_hard.txt': dungeon_st_mocianne_hard_namespaceObject,'04-sb/dungeon/swallows_compass.ts': swallows_compass,'04-sb/dungeon/swallows_compass.txt': dungeon_swallows_compass_namespaceObject,'04-sb/dungeon/temple_of_the_fist.ts': temple_of_the_fist,'04-sb/dungeon/temple_of_the_fist.txt': dungeon_temple_of_the_fist_namespaceObject,'04-sb/dungeon/the_burn.ts': the_burn,'04-sb/dungeon/the_burn.txt': dungeon_the_burn_namespaceObject,'04-sb/eureka/eureka_anemos.ts': eureka_anemos,'04-sb/eureka/eureka_hydatos.ts': eureka_hydatos,'04-sb/eureka/eureka_hydatos.txt': eureka_eureka_hydatos_namespaceObject,'04-sb/eureka/eureka_pyros.ts': eureka_pyros,'04-sb/hunts/yanxia.ts': yanxia,'04-sb/map/the_hidden_canals_of_uznair.ts': the_hidden_canals_of_uznair,'04-sb/map/the_lost_canals_of_uznair.ts': the_lost_canals_of_uznair,'04-sb/map/the_shifting_altars_of_uznair.ts': the_shifting_altars_of_uznair,'04-sb/raid/o10n.ts': o10n,'04-sb/raid/o10n.txt': raid_o10n_namespaceObject,'04-sb/raid/o10s.ts': o10s,'04-sb/raid/o10s.txt': raid_o10s_namespaceObject,'04-sb/raid/o11n.ts': o11n,'04-sb/raid/o11n.txt': raid_o11n_namespaceObject,'04-sb/raid/o11s.ts': o11s,'04-sb/raid/o11s.txt': raid_o11s_namespaceObject,'04-sb/raid/o12n.ts': o12n,'04-sb/raid/o12n.txt': raid_o12n_namespaceObject,'04-sb/raid/o12s.ts': o12s,'04-sb/raid/o12s.txt': raid_o12s_namespaceObject,'04-sb/raid/o1n.ts': o1n,'04-sb/raid/o1n.txt': raid_o1n_namespaceObject,'04-sb/raid/o1s.ts': o1s,'04-sb/raid/o1s.txt': raid_o1s_namespaceObject,'04-sb/raid/o2n.ts': o2n,'04-sb/raid/o2n.txt': raid_o2n_namespaceObject,'04-sb/raid/o2s.ts': o2s,'04-sb/raid/o2s.txt': raid_o2s_namespaceObject,'04-sb/raid/o3n.ts': o3n,'04-sb/raid/o3n.txt': raid_o3n_namespaceObject,'04-sb/raid/o3s.ts': o3s,'04-sb/raid/o3s.txt': raid_o3s_namespaceObject,'04-sb/raid/o4n.ts': o4n,'04-sb/raid/o4n.txt': raid_o4n_namespaceObject,'04-sb/raid/o4s.ts': o4s,'04-sb/raid/o4s.txt': raid_o4s_namespaceObject,'04-sb/raid/o5n.ts': o5n,'04-sb/raid/o5n.txt': raid_o5n_namespaceObject,'04-sb/raid/o5s.ts': o5s,'04-sb/raid/o5s.txt': raid_o5s_namespaceObject,'04-sb/raid/o6n.ts': o6n,'04-sb/raid/o6n.txt': raid_o6n_namespaceObject,'04-sb/raid/o6s.ts': o6s,'04-sb/raid/o6s.txt': raid_o6s_namespaceObject,'04-sb/raid/o7n.ts': o7n,'04-sb/raid/o7n.txt': raid_o7n_namespaceObject,'04-sb/raid/o7s.ts': o7s,'04-sb/raid/o7s.txt': raid_o7s_namespaceObject,'04-sb/raid/o8n.ts': o8n,'04-sb/raid/o8n.txt': raid_o8n_namespaceObject,'04-sb/raid/o8s.ts': o8s,'04-sb/raid/o8s.txt': raid_o8s_namespaceObject,'04-sb/raid/o9n.ts': o9n,'04-sb/raid/o9n.txt': raid_o9n_namespaceObject,'04-sb/raid/o9s.ts': o9s,'04-sb/raid/o9s.txt': raid_o9s_namespaceObject,'04-sb/trial/byakko-ex.ts': byakko_ex,'04-sb/trial/byakko-ex.txt': trial_byakko_ex_namespaceObject,'04-sb/trial/byakko.ts': byakko,'04-sb/trial/byakko.txt': trial_byakko_namespaceObject,'04-sb/trial/lakshmi-ex.ts': lakshmi_ex,'04-sb/trial/lakshmi-ex.txt': trial_lakshmi_ex_namespaceObject,'04-sb/trial/lakshmi.ts': lakshmi,'04-sb/trial/lakshmi.txt': trial_lakshmi_namespaceObject,'04-sb/trial/rathalos-ex.ts': rathalos_ex,'04-sb/trial/rathalos.ts': rathalos,'04-sb/trial/seiryu-ex.ts': seiryu_ex,'04-sb/trial/seiryu-ex.txt': trial_seiryu_ex_namespaceObject,'04-sb/trial/seiryu.ts': seiryu,'04-sb/trial/seiryu.txt': trial_seiryu_namespaceObject,'04-sb/trial/shinryu-ex.ts': shinryu_ex,'04-sb/trial/shinryu-ex.txt': trial_shinryu_ex_namespaceObject,'04-sb/trial/shinryu.ts': shinryu,'04-sb/trial/shinryu.txt': trial_shinryu_namespaceObject,'04-sb/trial/susano-ex.ts': susano_ex,'04-sb/trial/susano-ex.txt': trial_susano_ex_namespaceObject,'04-sb/trial/susano.ts': susano,'04-sb/trial/susano.txt': trial_susano_namespaceObject,'04-sb/trial/suzaku-ex.ts': suzaku_ex,'04-sb/trial/suzaku-ex.txt': trial_suzaku_ex_namespaceObject,'04-sb/trial/suzaku.ts': suzaku,'04-sb/trial/suzaku.txt': trial_suzaku_namespaceObject,'04-sb/trial/tsukuyomi-ex.ts': tsukuyomi_ex,'04-sb/trial/tsukuyomi-ex.txt': trial_tsukuyomi_ex_namespaceObject,'04-sb/trial/tsukuyomi.ts': tsukuyomi,'04-sb/trial/tsukuyomi.txt': trial_tsukuyomi_namespaceObject,'04-sb/trial/yojimbo.ts': yojimbo,'04-sb/trial/yojimbo.txt': trial_yojimbo_namespaceObject,'04-sb/ultimate/ultima_weapon_ultimate.ts': ultima_weapon_ultimate,'04-sb/ultimate/ultima_weapon_ultimate.txt': ultimate_ultima_weapon_ultimate_namespaceObject,'04-sb/ultimate/unending_coil_ultimate.ts': unending_coil_ultimate,'04-sb/ultimate/unending_coil_ultimate.txt': ultimate_unending_coil_ultimate_namespaceObject,'05-shb/alliance/the_copied_factory.ts': the_copied_factory,'05-shb/alliance/the_copied_factory.txt': alliance_the_copied_factory_namespaceObject,'05-shb/alliance/the_puppets_bunker.ts': the_puppets_bunker,'05-shb/alliance/the_puppets_bunker.txt': alliance_the_puppets_bunker_namespaceObject,'05-shb/alliance/the_tower_at_paradigms_breach.ts': the_tower_at_paradigms_breach,'05-shb/alliance/the_tower_at_paradigms_breach.txt': alliance_the_tower_at_paradigms_breach_namespaceObject,'05-shb/dungeon/akadaemia_anyder.ts': akadaemia_anyder,'05-shb/dungeon/akadaemia_anyder.txt': dungeon_akadaemia_anyder_namespaceObject,'05-shb/dungeon/amaurot.ts': amaurot,'05-shb/dungeon/amaurot.txt': dungeon_amaurot_namespaceObject,'05-shb/dungeon/anamnesis_anyder.ts': anamnesis_anyder,'05-shb/dungeon/anamnesis_anyder.txt': dungeon_anamnesis_anyder_namespaceObject,'05-shb/dungeon/dohn_mheg.ts': dohn_mheg,'05-shb/dungeon/dohn_mheg.txt': dungeon_dohn_mheg_namespaceObject,'05-shb/dungeon/heroes_gauntlet.ts': heroes_gauntlet,'05-shb/dungeon/heroes_gauntlet.txt': dungeon_heroes_gauntlet_namespaceObject,'05-shb/dungeon/holminster_switch.ts': holminster_switch,'05-shb/dungeon/holminster_switch.txt': dungeon_holminster_switch_namespaceObject,'05-shb/dungeon/malikahs_well.ts': malikahs_well,'05-shb/dungeon/malikahs_well.txt': dungeon_malikahs_well_namespaceObject,'05-shb/dungeon/matoyas_relict.ts': matoyas_relict,'05-shb/dungeon/matoyas_relict.txt': dungeon_matoyas_relict_namespaceObject,'05-shb/dungeon/mt_gulg.ts': mt_gulg,'05-shb/dungeon/mt_gulg.txt': dungeon_mt_gulg_namespaceObject,'05-shb/dungeon/paglthan.ts': paglthan,'05-shb/dungeon/paglthan.txt': dungeon_paglthan_namespaceObject,'05-shb/dungeon/qitana_ravel.ts': qitana_ravel,'05-shb/dungeon/qitana_ravel.txt': dungeon_qitana_ravel_namespaceObject,'05-shb/dungeon/the_grand_cosmos.ts': the_grand_cosmos,'05-shb/dungeon/the_grand_cosmos.txt': dungeon_the_grand_cosmos_namespaceObject,'05-shb/dungeon/twinning.ts': twinning,'05-shb/dungeon/twinning.txt': dungeon_twinning_namespaceObject,'05-shb/etc/the_diadem.ts': the_diadem,'05-shb/eureka/bozjan_southern_front.ts': bozjan_southern_front,'05-shb/eureka/bozjan_southern_front.txt': eureka_bozjan_southern_front_namespaceObject,'05-shb/eureka/delubrum_reginae.ts': delubrum_reginae,'05-shb/eureka/delubrum_reginae.txt': eureka_delubrum_reginae_namespaceObject,'05-shb/eureka/delubrum_reginae_savage.ts': delubrum_reginae_savage,'05-shb/eureka/delubrum_reginae_savage.txt': eureka_delubrum_reginae_savage_namespaceObject,'05-shb/eureka/zadnor.ts': zadnor,'05-shb/eureka/zadnor.txt': eureka_zadnor_namespaceObject,'05-shb/hunts/amh_araeng.ts': amh_araeng,'05-shb/hunts/il_mheg.ts': il_mheg,'05-shb/hunts/kholusia.ts': kholusia,'05-shb/hunts/lakeland.ts': lakeland,'05-shb/hunts/ss_rank.ts': ss_rank,'05-shb/hunts/the_raktika_greatwood.ts': the_raktika_greatwood,'05-shb/hunts/the_tempest.ts': the_tempest,'05-shb/map/the_dungeons_of_lyhe_ghiah.ts': the_dungeons_of_lyhe_ghiah,'05-shb/map/the_shifting_oubliettes_of_lyhe_ghiah.ts': the_shifting_oubliettes_of_lyhe_ghiah,'05-shb/raid/e10n.ts': e10n,'05-shb/raid/e10n.txt': raid_e10n_namespaceObject,'05-shb/raid/e10s.ts': e10s,'05-shb/raid/e10s.txt': raid_e10s_namespaceObject,'05-shb/raid/e11n.ts': e11n,'05-shb/raid/e11n.txt': raid_e11n_namespaceObject,'05-shb/raid/e11s.ts': e11s,'05-shb/raid/e11s.txt': raid_e11s_namespaceObject,'05-shb/raid/e12n.ts': e12n,'05-shb/raid/e12n.txt': raid_e12n_namespaceObject,'05-shb/raid/e12s.ts': e12s,'05-shb/raid/e12s.txt': raid_e12s_namespaceObject,'05-shb/raid/e1n.ts': e1n,'05-shb/raid/e1n.txt': raid_e1n_namespaceObject,'05-shb/raid/e1s.ts': e1s,'05-shb/raid/e1s.txt': raid_e1s_namespaceObject,'05-shb/raid/e2n.ts': e2n,'05-shb/raid/e2n.txt': raid_e2n_namespaceObject,'05-shb/raid/e2s.ts': e2s,'05-shb/raid/e2s.txt': raid_e2s_namespaceObject,'05-shb/raid/e3n.ts': e3n,'05-shb/raid/e3n.txt': raid_e3n_namespaceObject,'05-shb/raid/e3s.ts': e3s,'05-shb/raid/e3s.txt': raid_e3s_namespaceObject,'05-shb/raid/e4n.ts': e4n,'05-shb/raid/e4n.txt': raid_e4n_namespaceObject,'05-shb/raid/e4s.ts': e4s,'05-shb/raid/e4s.txt': raid_e4s_namespaceObject,'05-shb/raid/e5n.ts': e5n,'05-shb/raid/e5n.txt': raid_e5n_namespaceObject,'05-shb/raid/e5s.ts': e5s,'05-shb/raid/e5s.txt': raid_e5s_namespaceObject,'05-shb/raid/e6n.ts': e6n,'05-shb/raid/e6n.txt': raid_e6n_namespaceObject,'05-shb/raid/e6s.ts': e6s,'05-shb/raid/e6s.txt': raid_e6s_namespaceObject,'05-shb/raid/e7n.ts': e7n,'05-shb/raid/e7n.txt': raid_e7n_namespaceObject,'05-shb/raid/e7s.ts': e7s,'05-shb/raid/e7s.txt': raid_e7s_namespaceObject,'05-shb/raid/e8n.ts': e8n,'05-shb/raid/e8n.txt': raid_e8n_namespaceObject,'05-shb/raid/e8s.ts': e8s,'05-shb/raid/e8s.txt': raid_e8s_namespaceObject,'05-shb/raid/e9n.ts': e9n,'05-shb/raid/e9n.txt': raid_e9n_namespaceObject,'05-shb/raid/e9s.ts': e9s,'05-shb/raid/e9s.txt': raid_e9s_namespaceObject,'05-shb/trial/diamond_weapon-ex.ts': diamond_weapon_ex,'05-shb/trial/diamond_weapon-ex.txt': trial_diamond_weapon_ex_namespaceObject,'05-shb/trial/diamond_weapon.ts': diamond_weapon,'05-shb/trial/diamond_weapon.txt': trial_diamond_weapon_namespaceObject,'05-shb/trial/emerald_weapon-ex.ts': emerald_weapon_ex,'05-shb/trial/emerald_weapon-ex.txt': trial_emerald_weapon_ex_namespaceObject,'05-shb/trial/emerald_weapon.ts': emerald_weapon,'05-shb/trial/emerald_weapon.txt': trial_emerald_weapon_namespaceObject,'05-shb/trial/hades-ex.ts': hades_ex,'05-shb/trial/hades-ex.txt': trial_hades_ex_namespaceObject,'05-shb/trial/hades.ts': hades,'05-shb/trial/hades.txt': trial_hades_namespaceObject,'05-shb/trial/innocence-ex.ts': innocence_ex,'05-shb/trial/innocence-ex.txt': trial_innocence_ex_namespaceObject,'05-shb/trial/innocence.ts': innocence,'05-shb/trial/innocence.txt': trial_innocence_namespaceObject,'05-shb/trial/levi-un.ts': levi_un,'05-shb/trial/levi-un.txt': trial_levi_un_namespaceObject,'05-shb/trial/ruby_weapon-ex.ts': ruby_weapon_ex,'05-shb/trial/ruby_weapon-ex.txt': trial_ruby_weapon_ex_namespaceObject,'05-shb/trial/ruby_weapon.ts': ruby_weapon,'05-shb/trial/ruby_weapon.txt': trial_ruby_weapon_namespaceObject,'05-shb/trial/shiva-un.ts': shiva_un,'05-shb/trial/shiva-un.txt': trial_shiva_un_namespaceObject,'05-shb/trial/titan-un.ts': titan_un,'05-shb/trial/titan-un.txt': trial_titan_un_namespaceObject,'05-shb/trial/titania-ex.ts': titania_ex,'05-shb/trial/titania-ex.txt': trial_titania_ex_namespaceObject,'05-shb/trial/titania.ts': titania,'05-shb/trial/titania.txt': trial_titania_namespaceObject,'05-shb/trial/varis-ex.ts': varis_ex,'05-shb/trial/varis-ex.txt': trial_varis_ex_namespaceObject,'05-shb/trial/wol-ex.ts': wol_ex,'05-shb/trial/wol-ex.txt': trial_wol_ex_namespaceObject,'05-shb/trial/wol.ts': wol,'05-shb/trial/wol.txt': trial_wol_namespaceObject,'05-shb/ultimate/the_epic_of_alexander.ts': the_epic_of_alexander,'05-shb/ultimate/the_epic_of_alexander.txt': ultimate_the_epic_of_alexander_namespaceObject,'06-ew/alliance/aglaia.ts': aglaia,'06-ew/alliance/aglaia.txt': alliance_aglaia_namespaceObject,'06-ew/alliance/euphrosyne.ts': euphrosyne,'06-ew/alliance/euphrosyne.txt': alliance_euphrosyne_namespaceObject,'06-ew/alliance/thaleia.ts': thaleia,'06-ew/alliance/thaleia.txt': alliance_thaleia_namespaceObject,'06-ew/deepdungeon/eureka_orthos_floors_01-10.ts': eureka_orthos_floors_01_10,'06-ew/deepdungeon/eureka_orthos_floors_11-20.ts': eureka_orthos_floors_11_20,'06-ew/deepdungeon/eureka_orthos_floors_21-30.ts': eureka_orthos_floors_21_30,'06-ew/deepdungeon/eureka_orthos_floors_31-40.ts': eureka_orthos_floors_31_40,'06-ew/deepdungeon/eureka_orthos_floors_41-50.ts': eureka_orthos_floors_41_50,'06-ew/deepdungeon/eureka_orthos_floors_51-60.ts': eureka_orthos_floors_51_60,'06-ew/deepdungeon/eureka_orthos_floors_61-70.ts': eureka_orthos_floors_61_70,'06-ew/deepdungeon/eureka_orthos_floors_71-80.ts': eureka_orthos_floors_71_80,'06-ew/deepdungeon/eureka_orthos_floors_81-90.ts': eureka_orthos_floors_81_90,'06-ew/deepdungeon/eureka_orthos_floors_91-100.ts': eureka_orthos_floors_91_100,'06-ew/deepdungeon/eureka_orthos_general.ts': eureka_orthos_general,'06-ew/dungeon/aetherfont.ts': aetherfont,'06-ew/dungeon/aetherfont.txt': dungeon_aetherfont_namespaceObject,'06-ew/dungeon/aloalo_island.ts': aloalo_island,'06-ew/dungeon/aloalo_island.txt': dungeon_aloalo_island_namespaceObject,'06-ew/dungeon/alzadaals_legacy.ts': alzadaals_legacy,'06-ew/dungeon/alzadaals_legacy.txt': dungeon_alzadaals_legacy_namespaceObject,'06-ew/dungeon/another_aloalo_island-savage.ts': another_aloalo_island_savage,'06-ew/dungeon/another_aloalo_island-savage.txt': dungeon_another_aloalo_island_savage_namespaceObject,'06-ew/dungeon/another_aloalo_island.ts': another_aloalo_island,'06-ew/dungeon/another_aloalo_island.txt': dungeon_another_aloalo_island_namespaceObject,'06-ew/dungeon/another_mount_rokkon-savage.ts': another_mount_rokkon_savage,'06-ew/dungeon/another_mount_rokkon-savage.txt': dungeon_another_mount_rokkon_savage_namespaceObject,'06-ew/dungeon/another_mount_rokkon.ts': another_mount_rokkon,'06-ew/dungeon/another_mount_rokkon.txt': dungeon_another_mount_rokkon_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane-savage.ts': another_sildihn_subterrane_savage,'06-ew/dungeon/another_sildihn_subterrane-savage.txt': dungeon_another_sildihn_subterrane_savage_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane.ts': another_sildihn_subterrane,'06-ew/dungeon/another_sildihn_subterrane.txt': dungeon_another_sildihn_subterrane_namespaceObject,'06-ew/dungeon/ktisis_hyperboreia.ts': ktisis_hyperboreia,'06-ew/dungeon/ktisis_hyperboreia.txt': dungeon_ktisis_hyperboreia_namespaceObject,'06-ew/dungeon/lapis_manalis.ts': lapis_manalis,'06-ew/dungeon/lapis_manalis.txt': dungeon_lapis_manalis_namespaceObject,'06-ew/dungeon/mount_rokkon.ts': mount_rokkon,'06-ew/dungeon/mount_rokkon.txt': dungeon_mount_rokkon_namespaceObject,'06-ew/dungeon/smileton.ts': smileton,'06-ew/dungeon/smileton.txt': dungeon_smileton_namespaceObject,'06-ew/dungeon/stigma_dreamscape.ts': stigma_dreamscape,'06-ew/dungeon/stigma_dreamscape.txt': dungeon_stigma_dreamscape_namespaceObject,'06-ew/dungeon/the_aitiascope.ts': the_aitiascope,'06-ew/dungeon/the_aitiascope.txt': dungeon_the_aitiascope_namespaceObject,'06-ew/dungeon/the_dead_ends.ts': the_dead_ends,'06-ew/dungeon/the_dead_ends.txt': dungeon_the_dead_ends_namespaceObject,'06-ew/dungeon/the_fell_court_of_troia.ts': the_fell_court_of_troia,'06-ew/dungeon/the_fell_court_of_troia.txt': dungeon_the_fell_court_of_troia_namespaceObject,'06-ew/dungeon/the_lunar_subterrane.ts': the_lunar_subterrane,'06-ew/dungeon/the_lunar_subterrane.txt': dungeon_the_lunar_subterrane_namespaceObject,'06-ew/dungeon/the_sildihn_subterrane.ts': the_sildihn_subterrane,'06-ew/dungeon/the_sildihn_subterrane.txt': dungeon_the_sildihn_subterrane_namespaceObject,'06-ew/dungeon/the_tower_of_babil.ts': the_tower_of_babil,'06-ew/dungeon/the_tower_of_babil.txt': dungeon_the_tower_of_babil_namespaceObject,'06-ew/dungeon/the_tower_of_zot.ts': the_tower_of_zot,'06-ew/dungeon/the_tower_of_zot.txt': dungeon_the_tower_of_zot_namespaceObject,'06-ew/dungeon/vanaspati.ts': vanaspati,'06-ew/dungeon/vanaspati.txt': dungeon_vanaspati_namespaceObject,'06-ew/hunts/elpis.ts': elpis,'06-ew/hunts/garlemald.ts': garlemald,'06-ew/hunts/labyrinthos.ts': labyrinthos,'06-ew/hunts/mare_lamentorum.ts': mare_lamentorum,'06-ew/hunts/ss_rank.ts': hunts_ss_rank,'06-ew/hunts/thavnair.ts': thavnair,'06-ew/hunts/ultima_thule.ts': ultima_thule,'06-ew/map/the_excitatron_6000.ts': the_excitatron_6000,'06-ew/map/the_shifting_gymnasion_agonon.ts': the_shifting_gymnasion_agonon,'06-ew/raid/p10n.ts': p10n,'06-ew/raid/p10n.txt': raid_p10n_namespaceObject,'06-ew/raid/p10s.ts': p10s,'06-ew/raid/p10s.txt': raid_p10s_namespaceObject,'06-ew/raid/p11n.ts': p11n,'06-ew/raid/p11n.txt': raid_p11n_namespaceObject,'06-ew/raid/p11s.ts': p11s,'06-ew/raid/p11s.txt': raid_p11s_namespaceObject,'06-ew/raid/p12n.ts': p12n,'06-ew/raid/p12n.txt': raid_p12n_namespaceObject,'06-ew/raid/p12s.ts': p12s,'06-ew/raid/p12s.txt': raid_p12s_namespaceObject,'06-ew/raid/p1n.ts': p1n,'06-ew/raid/p1n.txt': raid_p1n_namespaceObject,'06-ew/raid/p1s.ts': p1s,'06-ew/raid/p1s.txt': raid_p1s_namespaceObject,'06-ew/raid/p2n.ts': p2n,'06-ew/raid/p2n.txt': raid_p2n_namespaceObject,'06-ew/raid/p2s.ts': p2s,'06-ew/raid/p2s.txt': raid_p2s_namespaceObject,'06-ew/raid/p3n.ts': p3n,'06-ew/raid/p3n.txt': raid_p3n_namespaceObject,'06-ew/raid/p3s.ts': p3s,'06-ew/raid/p3s.txt': raid_p3s_namespaceObject,'06-ew/raid/p4n.ts': p4n,'06-ew/raid/p4n.txt': raid_p4n_namespaceObject,'06-ew/raid/p4s.ts': p4s,'06-ew/raid/p4s.txt': raid_p4s_namespaceObject,'06-ew/raid/p5n.ts': p5n,'06-ew/raid/p5n.txt': raid_p5n_namespaceObject,'06-ew/raid/p5s.ts': p5s,'06-ew/raid/p5s.txt': raid_p5s_namespaceObject,'06-ew/raid/p6n.ts': p6n,'06-ew/raid/p6n.txt': raid_p6n_namespaceObject,'06-ew/raid/p6s.ts': p6s,'06-ew/raid/p6s.txt': raid_p6s_namespaceObject,'06-ew/raid/p7n.ts': p7n,'06-ew/raid/p7n.txt': raid_p7n_namespaceObject,'06-ew/raid/p7s.ts': p7s,'06-ew/raid/p7s.txt': raid_p7s_namespaceObject,'06-ew/raid/p8n.ts': p8n,'06-ew/raid/p8n.txt': raid_p8n_namespaceObject,'06-ew/raid/p8s.ts': p8s,'06-ew/raid/p8s.txt': raid_p8s_namespaceObject,'06-ew/raid/p9n.ts': p9n,'06-ew/raid/p9n.txt': raid_p9n_namespaceObject,'06-ew/raid/p9s.ts': p9s,'06-ew/raid/p9s.txt': raid_p9s_namespaceObject,'06-ew/trial/asura.ts': asura,'06-ew/trial/asura.txt': trial_asura_namespaceObject,'06-ew/trial/barbariccia-ex.ts': barbariccia_ex,'06-ew/trial/barbariccia-ex.txt': trial_barbariccia_ex_namespaceObject,'06-ew/trial/barbariccia.ts': barbariccia,'06-ew/trial/barbariccia.txt': trial_barbariccia_namespaceObject,'06-ew/trial/endsinger-ex.ts': endsinger_ex,'06-ew/trial/endsinger-ex.txt': trial_endsinger_ex_namespaceObject,'06-ew/trial/endsinger.ts': endsinger,'06-ew/trial/endsinger.txt': trial_endsinger_namespaceObject,'06-ew/trial/golbez-ex.ts': golbez_ex,'06-ew/trial/golbez-ex.txt': trial_golbez_ex_namespaceObject,'06-ew/trial/golbez.ts': golbez,'06-ew/trial/golbez.txt': trial_golbez_namespaceObject,'06-ew/trial/hydaelyn-ex.ts': hydaelyn_ex,'06-ew/trial/hydaelyn-ex.txt': trial_hydaelyn_ex_namespaceObject,'06-ew/trial/hydaelyn.ts': hydaelyn,'06-ew/trial/hydaelyn.txt': trial_hydaelyn_namespaceObject,'06-ew/trial/rubicante-ex.ts': rubicante_ex,'06-ew/trial/rubicante-ex.txt': trial_rubicante_ex_namespaceObject,'06-ew/trial/rubicante.ts': rubicante,'06-ew/trial/rubicante.txt': trial_rubicante_namespaceObject,'06-ew/trial/sephirot-un.ts': sephirot_un,'06-ew/trial/sephirot-un.txt': trial_sephirot_un_namespaceObject,'06-ew/trial/sophia-un.ts': sophia_un,'06-ew/trial/sophia-un.txt': trial_sophia_un_namespaceObject,'06-ew/trial/thordan-un.ts': thordan_un,'06-ew/trial/thordan-un.txt': trial_thordan_un_namespaceObject,'06-ew/trial/ultima-un.ts': ultima_un,'06-ew/trial/ultima-un.txt': trial_ultima_un_namespaceObject,'06-ew/trial/zeromus-ex.ts': zeromus_ex,'06-ew/trial/zeromus-ex.txt': trial_zeromus_ex_namespaceObject,'06-ew/trial/zeromus.ts': zeromus,'06-ew/trial/zeromus.txt': trial_zeromus_namespaceObject,'06-ew/trial/zodiark-ex.ts': zodiark_ex,'06-ew/trial/zodiark-ex.txt': trial_zodiark_ex_namespaceObject,'06-ew/trial/zodiark.ts': zodiark,'06-ew/trial/zodiark.txt': trial_zodiark_namespaceObject,'06-ew/trial/zurvan-un.ts': zurvan_un,'06-ew/trial/zurvan-un.txt': trial_zurvan_un_namespaceObject,'06-ew/ultimate/dragonsongs_reprise_ultimate.ts': dragonsongs_reprise_ultimate,'06-ew/ultimate/dragonsongs_reprise_ultimate.txt': ultimate_dragonsongs_reprise_ultimate_namespaceObject,'06-ew/ultimate/the_omega_protocol.ts': the_omega_protocol,'06-ew/ultimate/the_omega_protocol.txt': ultimate_the_omega_protocol_namespaceObject,'07-dt/alliance/cloud_of_darkness_chaotic.ts': cloud_of_darkness_chaotic,'07-dt/alliance/cloud_of_darkness_chaotic.txt': alliance_cloud_of_darkness_chaotic_namespaceObject,'07-dt/alliance/jeuno-first-walk.ts': jeuno_first_walk,'07-dt/alliance/jeuno-first-walk.txt': alliance_jeuno_first_walk_namespaceObject,'07-dt/deepdungeon/pilgrims_traverse_general.ts': pilgrims_traverse_general,'07-dt/deepdungeon/pilgrims_traverse_stones_01-10.ts': pilgrims_traverse_stones_01_10,'07-dt/deepdungeon/pilgrims_traverse_stones_11-20.ts': pilgrims_traverse_stones_11_20,'07-dt/deepdungeon/pilgrims_traverse_stones_21-30.ts': pilgrims_traverse_stones_21_30,'07-dt/deepdungeon/pilgrims_traverse_stones_31-40.ts': pilgrims_traverse_stones_31_40,'07-dt/deepdungeon/pilgrims_traverse_stones_41-50.ts': pilgrims_traverse_stones_41_50,'07-dt/deepdungeon/pilgrims_traverse_stones_51-60.ts': pilgrims_traverse_stones_51_60,'07-dt/deepdungeon/pilgrims_traverse_stones_61-70.ts': pilgrims_traverse_stones_61_70,'07-dt/deepdungeon/pilgrims_traverse_stones_71-80.ts': pilgrims_traverse_stones_71_80,'07-dt/deepdungeon/pilgrims_traverse_stones_81-90.ts': pilgrims_traverse_stones_81_90,'07-dt/deepdungeon/pilgrims_traverse_stones_91-100.ts': pilgrims_traverse_stones_91_100,'07-dt/deepdungeon/pilgrims_traverse_the_final_verse.ts': pilgrims_traverse_the_final_verse,'07-dt/deepdungeon/the_final_verse_quantum.ts': the_final_verse_quantum,'07-dt/deepdungeon/the_final_verse_quantum.txt': deepdungeon_the_final_verse_quantum_namespaceObject,'07-dt/dungeon/alexandria.ts': alexandria,'07-dt/dungeon/alexandria.txt': dungeon_alexandria_namespaceObject,'07-dt/dungeon/ihuykatumu.ts': ihuykatumu,'07-dt/dungeon/ihuykatumu.txt': dungeon_ihuykatumu_namespaceObject,'07-dt/dungeon/meso-terminal.ts': meso_terminal,'07-dt/dungeon/meso-terminal.txt': dungeon_meso_terminal_namespaceObject,'07-dt/dungeon/mistwake.ts': mistwake,'07-dt/dungeon/mistwake.txt': dungeon_mistwake_namespaceObject,'07-dt/dungeon/origenics.ts': origenics,'07-dt/dungeon/origenics.txt': dungeon_origenics_namespaceObject,'07-dt/dungeon/skydeep-cenote.ts': skydeep_cenote,'07-dt/dungeon/skydeep-cenote.txt': dungeon_skydeep_cenote_namespaceObject,'07-dt/dungeon/strayborough-deadwalk.ts': strayborough_deadwalk,'07-dt/dungeon/strayborough-deadwalk.txt': dungeon_strayborough_deadwalk_namespaceObject,'07-dt/dungeon/the_underkeep.ts': the_underkeep,'07-dt/dungeon/the_underkeep.txt': dungeon_the_underkeep_namespaceObject,'07-dt/dungeon/vanguard.ts': vanguard,'07-dt/dungeon/vanguard.txt': dungeon_vanguard_namespaceObject,'07-dt/dungeon/worqor-zormor.ts': worqor_zormor,'07-dt/dungeon/worqor-zormor.txt': dungeon_worqor_zormor_namespaceObject,'07-dt/dungeon/yuweyawata.ts': yuweyawata,'07-dt/dungeon/yuweyawata.txt': dungeon_yuweyawata_namespaceObject,'07-dt/eureka/occult_crescent_south_horn.ts': occult_crescent_south_horn,'07-dt/eureka/occult_crescent_south_horn.txt': eureka_occult_crescent_south_horn_namespaceObject,'07-dt/hunts/heritage_found.ts': heritage_found,'07-dt/hunts/kozamauka.ts': kozamauka,'07-dt/hunts/living_memory.ts': living_memory,'07-dt/hunts/shaaloani.ts': shaaloani,'07-dt/hunts/ss_rank.ts': _07_dt_hunts_ss_rank,'07-dt/hunts/urqopacha.ts': urqopacha,'07-dt/hunts/yaktel.ts': yaktel,'07-dt/map/cenote_ja_ja_gural.ts': cenote_ja_ja_gural,'07-dt/raid/r10n.ts': r10n,'07-dt/raid/r10n.txt': raid_r10n_namespaceObject,'07-dt/raid/r10s.ts': r10s,'07-dt/raid/r10s.txt': raid_r10s_namespaceObject,'07-dt/raid/r11n.ts': r11n,'07-dt/raid/r11n.txt': raid_r11n_namespaceObject,'07-dt/raid/r11s.ts': r11s,'07-dt/raid/r11s.txt': raid_r11s_namespaceObject,'07-dt/raid/r12n.ts': r12n,'07-dt/raid/r12n.txt': raid_r12n_namespaceObject,'07-dt/raid/r12s.ts': r12s,'07-dt/raid/r12s.txt': raid_r12s_namespaceObject,'07-dt/raid/r1n.ts': r1n,'07-dt/raid/r1n.txt': raid_r1n_namespaceObject,'07-dt/raid/r1s.ts': r1s,'07-dt/raid/r1s.txt': raid_r1s_namespaceObject,'07-dt/raid/r2n.ts': r2n,'07-dt/raid/r2n.txt': raid_r2n_namespaceObject,'07-dt/raid/r2s.ts': r2s,'07-dt/raid/r2s.txt': raid_r2s_namespaceObject,'07-dt/raid/r3n.ts': r3n,'07-dt/raid/r3n.txt': raid_r3n_namespaceObject,'07-dt/raid/r3s.ts': r3s,'07-dt/raid/r3s.txt': raid_r3s_namespaceObject,'07-dt/raid/r4n.ts': r4n,'07-dt/raid/r4n.txt': raid_r4n_namespaceObject,'07-dt/raid/r4s.ts': r4s,'07-dt/raid/r4s.txt': raid_r4s_namespaceObject,'07-dt/raid/r5n.ts': r5n,'07-dt/raid/r5n.txt': raid_r5n_namespaceObject,'07-dt/raid/r5s.ts': r5s,'07-dt/raid/r5s.txt': raid_r5s_namespaceObject,'07-dt/raid/r6n.ts': r6n,'07-dt/raid/r6n.txt': raid_r6n_namespaceObject,'07-dt/raid/r6s.ts': r6s,'07-dt/raid/r6s.txt': raid_r6s_namespaceObject,'07-dt/raid/r7n.ts': r7n,'07-dt/raid/r7n.txt': raid_r7n_namespaceObject,'07-dt/raid/r7s.ts': r7s,'07-dt/raid/r7s.txt': raid_r7s_namespaceObject,'07-dt/raid/r8n.ts': r8n,'07-dt/raid/r8n.txt': raid_r8n_namespaceObject,'07-dt/raid/r8s.ts': r8s,'07-dt/raid/r8s.txt': raid_r8s_namespaceObject,'07-dt/raid/r9n.ts': r9n,'07-dt/raid/r9n.txt': raid_r9n_namespaceObject,'07-dt/raid/r9s.ts': r9s,'07-dt/raid/r9s.txt': raid_r9s_namespaceObject,'07-dt/trial/arkveld-ex.ts': arkveld_ex,'07-dt/trial/arkveld-ex.txt': trial_arkveld_ex_namespaceObject,'07-dt/trial/arkveld.ts': arkveld,'07-dt/trial/arkveld.txt': trial_arkveld_namespaceObject,'07-dt/trial/byakko-un.ts': byakko_un,'07-dt/trial/byakko-un.txt': trial_byakko_un_namespaceObject,'07-dt/trial/doomtrain-ex.ts': doomtrain_ex,'07-dt/trial/doomtrain-ex.txt': trial_doomtrain_ex_namespaceObject,'07-dt/trial/doomtrain.ts': doomtrain,'07-dt/trial/doomtrain.txt': trial_doomtrain_namespaceObject,'07-dt/trial/necron-ex.ts': necron_ex,'07-dt/trial/necron-ex.txt': trial_necron_ex_namespaceObject,'07-dt/trial/queen-eternal-ex.ts': queen_eternal_ex,'07-dt/trial/queen-eternal-ex.txt': trial_queen_eternal_ex_namespaceObject,'07-dt/trial/queen-eternal.ts': queen_eternal,'07-dt/trial/queen-eternal.txt': trial_queen_eternal_namespaceObject,'07-dt/trial/seiryu-un.ts': seiryu_un,'07-dt/trial/seiryu-un.txt': trial_seiryu_un_namespaceObject,'07-dt/trial/suzaku-un.ts': suzaku_un,'07-dt/trial/suzaku-un.txt': trial_suzaku_un_namespaceObject,'07-dt/trial/tsukuyomi-un.ts': tsukuyomi_un,'07-dt/trial/tsukuyomi-un.txt': trial_tsukuyomi_un_namespaceObject,'07-dt/trial/valigarmanda-ex.ts': valigarmanda_ex,'07-dt/trial/valigarmanda-ex.txt': trial_valigarmanda_ex_namespaceObject,'07-dt/trial/valigarmanda.ts': valigarmanda,'07-dt/trial/valigarmanda.txt': trial_valigarmanda_namespaceObject,'07-dt/trial/zelenia-ex.ts': zelenia_ex,'07-dt/trial/zelenia-ex.txt': trial_zelenia_ex_namespaceObject,'07-dt/trial/zelenia.ts': zelenia,'07-dt/trial/zelenia.txt': trial_zelenia_namespaceObject,'07-dt/trial/zoraal-ja-ex.ts': zoraal_ja_ex,'07-dt/trial/zoraal-ja-ex.txt': trial_zoraal_ja_ex_namespaceObject,'07-dt/trial/zoraal-ja.ts': zoraal_ja,'07-dt/trial/zoraal-ja.txt': trial_zoraal_ja_namespaceObject,'07-dt/ultimate/futures_rewritten.ts': futures_rewritten,'07-dt/ultimate/futures_rewritten.txt': ultimate_futures_rewritten_namespaceObject,'99-custom/readme.txt': readme_namespaceObject,});
+
+
+
+
+/* harmony default export */ const raidboss_manifest = ({'00-misc/general.ts': general,'00-misc/test.ts': test,'00-misc/test.txt': _00_misc_test_namespaceObject,'00-misc/the_masked_carnivale.ts': the_masked_carnivale,'02-arr/alliance/the_world_of_darkness.ts': the_world_of_darkness,'02-arr/dungeon/amdapor_keep.ts': amdapor_keep,'02-arr/dungeon/amdapor_keep_hard.ts': amdapor_keep_hard,'02-arr/dungeon/aurum_vale.ts': aurum_vale,'02-arr/dungeon/aurum_vale73.ts': aurum_vale73,'02-arr/dungeon/brayfloxs_longstop.ts': brayfloxs_longstop,'02-arr/dungeon/cutters_cry.ts': cutters_cry,'02-arr/dungeon/cutters_cry72.ts': cutters_cry72,'02-arr/dungeon/halatali_hard.ts': halatali_hard,'02-arr/dungeon/haukke_manor.ts': haukke_manor,'02-arr/dungeon/haukke_manor_hard.ts': haukke_manor_hard,'02-arr/dungeon/hullbreaker_isle.ts': hullbreaker_isle,'02-arr/dungeon/pharos_sirius.ts': pharos_sirius,'02-arr/dungeon/sastasha_hard.ts': sastasha_hard,'02-arr/dungeon/snowcloak.ts': snowcloak,'02-arr/dungeon/the_lost_city_of_amdapor.ts': the_lost_city_of_amdapor,'02-arr/dungeon/the_stone_vigil.ts': the_stone_vigil,'02-arr/dungeon/the_stone_vigil_hard.ts': the_stone_vigil_hard,'02-arr/dungeon/the_sunken_temple_of_quarn.ts': the_sunken_temple_of_quarn,'02-arr/dungeon/the_sunken_temple_of_quarn71.ts': the_sunken_temple_of_quarn71,'02-arr/dungeon/the_sunken_temple_of_quarn_hard.ts': the_sunken_temple_of_quarn_hard,'02-arr/dungeon/the_tam_tara_depocraft_hard.ts': the_tam_tara_depocraft_hard,'02-arr/dungeon/the_wanderers_palace_hard.ts': the_wanderers_palace_hard,'02-arr/raid/t1.ts': t1,'02-arr/raid/t10.ts': t10,'02-arr/raid/t10.txt': raid_t10_namespaceObject,'02-arr/raid/t11.ts': t11,'02-arr/raid/t11.txt': raid_t11_namespaceObject,'02-arr/raid/t12.ts': t12,'02-arr/raid/t12.txt': raid_t12_namespaceObject,'02-arr/raid/t13.ts': t13,'02-arr/raid/t13.txt': raid_t13_namespaceObject,'02-arr/raid/t2.ts': t2,'02-arr/raid/t4.ts': t4,'02-arr/raid/t4.txt': raid_t4_namespaceObject,'02-arr/raid/t5.ts': t5,'02-arr/raid/t5.txt': raid_t5_namespaceObject,'02-arr/raid/t6.ts': t6,'02-arr/raid/t6.txt': raid_t6_namespaceObject,'02-arr/raid/t7.ts': t7,'02-arr/raid/t7.txt': raid_t7_namespaceObject,'02-arr/raid/t8.ts': t8,'02-arr/raid/t8.txt': raid_t8_namespaceObject,'02-arr/raid/t9.ts': t9,'02-arr/raid/t9.txt': raid_t9_namespaceObject,'02-arr/trial/ifrit-nm.ts': ifrit_nm,'02-arr/trial/ifrit-nm.txt': trial_ifrit_nm_namespaceObject,'02-arr/trial/levi-ex.ts': levi_ex,'02-arr/trial/levi-ex.txt': trial_levi_ex_namespaceObject,'02-arr/trial/shiva-ex.ts': shiva_ex,'02-arr/trial/shiva-ex.txt': trial_shiva_ex_namespaceObject,'02-arr/trial/shiva-hm.ts': shiva_hm,'02-arr/trial/shiva-hm.txt': trial_shiva_hm_namespaceObject,'02-arr/trial/titan-ex.ts': titan_ex,'02-arr/trial/titan-ex.txt': trial_titan_ex_namespaceObject,'02-arr/trial/titan-hm.ts': titan_hm,'02-arr/trial/titan-hm.txt': trial_titan_hm_namespaceObject,'02-arr/trial/titan-nm.ts': titan_nm,'02-arr/trial/titan-nm.txt': trial_titan_nm_namespaceObject,'02-arr/trial/ultima-ex.ts': ultima_ex,'02-arr/trial/ultima-ex.txt': trial_ultima_ex_namespaceObject,'03-hw/alliance/dun_scaith.ts': dun_scaith,'03-hw/alliance/dun_scaith.txt': alliance_dun_scaith_namespaceObject,'03-hw/alliance/weeping_city.ts': weeping_city,'03-hw/alliance/weeping_city.txt': alliance_weeping_city_namespaceObject,'03-hw/deepdungeon/the_palace_of_the_dead_floors_001-010.ts': the_palace_of_the_dead_floors_001_010,'03-hw/deepdungeon/the_palace_of_the_dead_floors_011-020.ts': the_palace_of_the_dead_floors_011_020,'03-hw/deepdungeon/the_palace_of_the_dead_floors_021-030.ts': the_palace_of_the_dead_floors_021_030,'03-hw/deepdungeon/the_palace_of_the_dead_floors_031-040.ts': the_palace_of_the_dead_floors_031_040,'03-hw/deepdungeon/the_palace_of_the_dead_floors_041-050.ts': the_palace_of_the_dead_floors_041_050,'03-hw/deepdungeon/the_palace_of_the_dead_floors_051-060.ts': the_palace_of_the_dead_floors_051_060,'03-hw/deepdungeon/the_palace_of_the_dead_floors_061-070.ts': the_palace_of_the_dead_floors_061_070,'03-hw/deepdungeon/the_palace_of_the_dead_floors_071-080.ts': the_palace_of_the_dead_floors_071_080,'03-hw/deepdungeon/the_palace_of_the_dead_floors_081-090.ts': the_palace_of_the_dead_floors_081_090,'03-hw/deepdungeon/the_palace_of_the_dead_floors_091-100.ts': the_palace_of_the_dead_floors_091_100,'03-hw/deepdungeon/the_palace_of_the_dead_floors_101-110.ts': the_palace_of_the_dead_floors_101_110,'03-hw/deepdungeon/the_palace_of_the_dead_floors_111-120.ts': the_palace_of_the_dead_floors_111_120,'03-hw/deepdungeon/the_palace_of_the_dead_floors_121-130.ts': the_palace_of_the_dead_floors_121_130,'03-hw/deepdungeon/the_palace_of_the_dead_floors_131-140.ts': the_palace_of_the_dead_floors_131_140,'03-hw/deepdungeon/the_palace_of_the_dead_floors_141-150.ts': the_palace_of_the_dead_floors_141_150,'03-hw/deepdungeon/the_palace_of_the_dead_floors_151-160.ts': the_palace_of_the_dead_floors_151_160,'03-hw/deepdungeon/the_palace_of_the_dead_floors_161-170.ts': the_palace_of_the_dead_floors_161_170,'03-hw/deepdungeon/the_palace_of_the_dead_floors_171-180.ts': the_palace_of_the_dead_floors_171_180,'03-hw/deepdungeon/the_palace_of_the_dead_floors_181-190.ts': the_palace_of_the_dead_floors_181_190,'03-hw/deepdungeon/the_palace_of_the_dead_floors_191-200.ts': the_palace_of_the_dead_floors_191_200,'03-hw/deepdungeon/the_palace_of_the_dead_general.ts': the_palace_of_the_dead_general,'03-hw/dungeon/aetherochemical_research_facility.ts': aetherochemical_research_facility,'03-hw/dungeon/aetherochemical_research_facility.txt': dungeon_aetherochemical_research_facility_namespaceObject,'03-hw/dungeon/baelsars_wall.ts': baelsars_wall,'03-hw/dungeon/baelsars_wall.txt': dungeon_baelsars_wall_namespaceObject,'03-hw/dungeon/fractal_continuum.ts': fractal_continuum,'03-hw/dungeon/fractal_continuum.txt': dungeon_fractal_continuum_namespaceObject,'03-hw/dungeon/gubal_library_hard.ts': gubal_library_hard,'03-hw/dungeon/gubal_library_hard.txt': dungeon_gubal_library_hard_namespaceObject,'03-hw/dungeon/sohm_al.ts': sohm_al,'03-hw/dungeon/sohm_al.txt': dungeon_sohm_al_namespaceObject,'03-hw/dungeon/sohm_al_hard.ts': sohm_al_hard,'03-hw/dungeon/sohm_al_hard.txt': dungeon_sohm_al_hard_namespaceObject,'03-hw/dungeon/the_lost_city_of_amdapor_hard.ts': the_lost_city_of_amdapor_hard,'03-hw/dungeon/the_lost_city_of_amdapor_hard.txt': dungeon_the_lost_city_of_amdapor_hard_namespaceObject,'03-hw/dungeon/the_vault.ts': the_vault,'03-hw/dungeon/the_vault.txt': dungeon_the_vault_namespaceObject,'03-hw/dungeon/xelphatol.ts': xelphatol,'03-hw/dungeon/xelphatol.txt': dungeon_xelphatol_namespaceObject,'03-hw/map/the_aquapolis.ts': the_aquapolis,'03-hw/pvp/shatter.ts': shatter,'03-hw/raid/a10n.ts': a10n,'03-hw/raid/a10n.txt': raid_a10n_namespaceObject,'03-hw/raid/a10s.ts': a10s,'03-hw/raid/a10s.txt': raid_a10s_namespaceObject,'03-hw/raid/a11s.ts': a11s,'03-hw/raid/a11s.txt': raid_a11s_namespaceObject,'03-hw/raid/a12n.ts': a12n,'03-hw/raid/a12n.txt': raid_a12n_namespaceObject,'03-hw/raid/a12s.ts': a12s,'03-hw/raid/a12s.txt': raid_a12s_namespaceObject,'03-hw/raid/a1s.ts': a1s,'03-hw/raid/a1s.txt': raid_a1s_namespaceObject,'03-hw/raid/a2s.ts': a2s,'03-hw/raid/a2s.txt': raid_a2s_namespaceObject,'03-hw/raid/a3n.ts': a3n,'03-hw/raid/a3n.txt': raid_a3n_namespaceObject,'03-hw/raid/a3s.ts': a3s,'03-hw/raid/a3s.txt': raid_a3s_namespaceObject,'03-hw/raid/a4s.ts': a4s,'03-hw/raid/a4s.txt': raid_a4s_namespaceObject,'03-hw/raid/a5s.ts': a5s,'03-hw/raid/a5s.txt': raid_a5s_namespaceObject,'03-hw/raid/a6n.ts': a6n,'03-hw/raid/a6n.txt': raid_a6n_namespaceObject,'03-hw/raid/a6s.ts': a6s,'03-hw/raid/a6s.txt': raid_a6s_namespaceObject,'03-hw/raid/a7s.ts': a7s,'03-hw/raid/a7s.txt': raid_a7s_namespaceObject,'03-hw/raid/a8n.ts': a8n,'03-hw/raid/a8n.txt': raid_a8n_namespaceObject,'03-hw/raid/a8s.ts': a8s,'03-hw/raid/a8s.txt': raid_a8s_namespaceObject,'03-hw/raid/a9s.ts': a9s,'03-hw/raid/a9s.txt': raid_a9s_namespaceObject,'03-hw/trial/bismarck-ex.ts': bismarck_ex,'03-hw/trial/ravana-ex.ts': ravana_ex,'03-hw/trial/ravana-ex.txt': trial_ravana_ex_namespaceObject,'03-hw/trial/sephirot-ex.ts': sephirot_ex,'03-hw/trial/sephirot-ex.txt': trial_sephirot_ex_namespaceObject,'03-hw/trial/sephirot.ts': sephirot,'03-hw/trial/sophia-ex.ts': sophia_ex,'03-hw/trial/sophia-ex.txt': trial_sophia_ex_namespaceObject,'03-hw/trial/thordan-ex.ts': thordan_ex,'03-hw/trial/thordan-ex.txt': trial_thordan_ex_namespaceObject,'03-hw/trial/zurvan-ex.ts': zurvan_ex,'03-hw/trial/zurvan-ex.txt': trial_zurvan_ex_namespaceObject,'04-sb/alliance/orbonne_monastery.ts': orbonne_monastery,'04-sb/alliance/orbonne_monastery.txt': alliance_orbonne_monastery_namespaceObject,'04-sb/alliance/ridorana_lighthouse.ts': ridorana_lighthouse,'04-sb/alliance/ridorana_lighthouse.txt': alliance_ridorana_lighthouse_namespaceObject,'04-sb/alliance/royal_city_of_rabanastre.ts': royal_city_of_rabanastre,'04-sb/alliance/royal_city_of_rabanastre.txt': alliance_royal_city_of_rabanastre_namespaceObject,'04-sb/deepdungeon/heaven-on-high_floors_01-10.ts': heaven_on_high_floors_01_10,'04-sb/deepdungeon/heaven-on-high_floors_11-20.ts': heaven_on_high_floors_11_20,'04-sb/deepdungeon/heaven-on-high_floors_21-30.ts': heaven_on_high_floors_21_30,'04-sb/deepdungeon/heaven-on-high_floors_31-40.ts': heaven_on_high_floors_31_40,'04-sb/deepdungeon/heaven-on-high_floors_41-50.ts': heaven_on_high_floors_41_50,'04-sb/deepdungeon/heaven-on-high_floors_51-60.ts': heaven_on_high_floors_51_60,'04-sb/deepdungeon/heaven-on-high_floors_61-70.ts': heaven_on_high_floors_61_70,'04-sb/deepdungeon/heaven-on-high_floors_71-80.ts': heaven_on_high_floors_71_80,'04-sb/deepdungeon/heaven-on-high_floors_81-90.ts': heaven_on_high_floors_81_90,'04-sb/deepdungeon/heaven-on-high_floors_91-100.ts': heaven_on_high_floors_91_100,'04-sb/deepdungeon/heaven-on-high_general.ts': heaven_on_high_general,'04-sb/dungeon/ala_mhigo.ts': ala_mhigo,'04-sb/dungeon/ala_mhigo.txt': dungeon_ala_mhigo_namespaceObject,'04-sb/dungeon/bardams_mettle.ts': bardams_mettle,'04-sb/dungeon/bardams_mettle.txt': dungeon_bardams_mettle_namespaceObject,'04-sb/dungeon/castrum_abania.ts': castrum_abania,'04-sb/dungeon/castrum_abania.txt': dungeon_castrum_abania_namespaceObject,'04-sb/dungeon/doma_castle.ts': doma_castle,'04-sb/dungeon/doma_castle.txt': dungeon_doma_castle_namespaceObject,'04-sb/dungeon/drowned_city_of_skalla.ts': drowned_city_of_skalla,'04-sb/dungeon/drowned_city_of_skalla.txt': dungeon_drowned_city_of_skalla_namespaceObject,'04-sb/dungeon/fractal_continuum_hard.ts': fractal_continuum_hard,'04-sb/dungeon/fractal_continuum_hard.txt': dungeon_fractal_continuum_hard_namespaceObject,'04-sb/dungeon/ghimlyt_dark.ts': ghimlyt_dark,'04-sb/dungeon/ghimlyt_dark.txt': dungeon_ghimlyt_dark_namespaceObject,'04-sb/dungeon/hells_lid.ts': hells_lid,'04-sb/dungeon/hells_lid.txt': dungeon_hells_lid_namespaceObject,'04-sb/dungeon/kugane_castle.ts': kugane_castle,'04-sb/dungeon/kugane_castle.txt': dungeon_kugane_castle_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides.ts': shisui_of_the_violet_tides,'04-sb/dungeon/shisui_of_the_violet_tides.txt': dungeon_shisui_of_the_violet_tides_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides74.ts': shisui_of_the_violet_tides74,'04-sb/dungeon/shisui_of_the_violet_tides74.txt': dungeon_shisui_of_the_violet_tides74_namespaceObject,'04-sb/dungeon/sirensong_sea.ts': sirensong_sea,'04-sb/dungeon/sirensong_sea.txt': dungeon_sirensong_sea_namespaceObject,'04-sb/dungeon/st_mocianne_hard.ts': st_mocianne_hard,'04-sb/dungeon/st_mocianne_hard.txt': dungeon_st_mocianne_hard_namespaceObject,'04-sb/dungeon/swallows_compass.ts': swallows_compass,'04-sb/dungeon/swallows_compass.txt': dungeon_swallows_compass_namespaceObject,'04-sb/dungeon/temple_of_the_fist.ts': temple_of_the_fist,'04-sb/dungeon/temple_of_the_fist.txt': dungeon_temple_of_the_fist_namespaceObject,'04-sb/dungeon/the_burn.ts': the_burn,'04-sb/dungeon/the_burn.txt': dungeon_the_burn_namespaceObject,'04-sb/eureka/eureka_anemos.ts': eureka_anemos,'04-sb/eureka/eureka_hydatos.ts': eureka_hydatos,'04-sb/eureka/eureka_hydatos.txt': eureka_eureka_hydatos_namespaceObject,'04-sb/eureka/eureka_pyros.ts': eureka_pyros,'04-sb/hunts/yanxia.ts': yanxia,'04-sb/map/the_hidden_canals_of_uznair.ts': the_hidden_canals_of_uznair,'04-sb/map/the_lost_canals_of_uznair.ts': the_lost_canals_of_uznair,'04-sb/map/the_shifting_altars_of_uznair.ts': the_shifting_altars_of_uznair,'04-sb/raid/o10n.ts': o10n,'04-sb/raid/o10n.txt': raid_o10n_namespaceObject,'04-sb/raid/o10s.ts': o10s,'04-sb/raid/o10s.txt': raid_o10s_namespaceObject,'04-sb/raid/o11n.ts': o11n,'04-sb/raid/o11n.txt': raid_o11n_namespaceObject,'04-sb/raid/o11s.ts': o11s,'04-sb/raid/o11s.txt': raid_o11s_namespaceObject,'04-sb/raid/o12n.ts': o12n,'04-sb/raid/o12n.txt': raid_o12n_namespaceObject,'04-sb/raid/o12s.ts': o12s,'04-sb/raid/o12s.txt': raid_o12s_namespaceObject,'04-sb/raid/o1n.ts': o1n,'04-sb/raid/o1n.txt': raid_o1n_namespaceObject,'04-sb/raid/o1s.ts': o1s,'04-sb/raid/o1s.txt': raid_o1s_namespaceObject,'04-sb/raid/o2n.ts': o2n,'04-sb/raid/o2n.txt': raid_o2n_namespaceObject,'04-sb/raid/o2s.ts': o2s,'04-sb/raid/o2s.txt': raid_o2s_namespaceObject,'04-sb/raid/o3n.ts': o3n,'04-sb/raid/o3n.txt': raid_o3n_namespaceObject,'04-sb/raid/o3s.ts': o3s,'04-sb/raid/o3s.txt': raid_o3s_namespaceObject,'04-sb/raid/o4n.ts': o4n,'04-sb/raid/o4n.txt': raid_o4n_namespaceObject,'04-sb/raid/o4s.ts': o4s,'04-sb/raid/o4s.txt': raid_o4s_namespaceObject,'04-sb/raid/o5n.ts': o5n,'04-sb/raid/o5n.txt': raid_o5n_namespaceObject,'04-sb/raid/o5s.ts': o5s,'04-sb/raid/o5s.txt': raid_o5s_namespaceObject,'04-sb/raid/o6n.ts': o6n,'04-sb/raid/o6n.txt': raid_o6n_namespaceObject,'04-sb/raid/o6s.ts': o6s,'04-sb/raid/o6s.txt': raid_o6s_namespaceObject,'04-sb/raid/o7n.ts': o7n,'04-sb/raid/o7n.txt': raid_o7n_namespaceObject,'04-sb/raid/o7s.ts': o7s,'04-sb/raid/o7s.txt': raid_o7s_namespaceObject,'04-sb/raid/o8n.ts': o8n,'04-sb/raid/o8n.txt': raid_o8n_namespaceObject,'04-sb/raid/o8s.ts': o8s,'04-sb/raid/o8s.txt': raid_o8s_namespaceObject,'04-sb/raid/o9n.ts': o9n,'04-sb/raid/o9n.txt': raid_o9n_namespaceObject,'04-sb/raid/o9s.ts': o9s,'04-sb/raid/o9s.txt': raid_o9s_namespaceObject,'04-sb/trial/byakko-ex.ts': byakko_ex,'04-sb/trial/byakko-ex.txt': trial_byakko_ex_namespaceObject,'04-sb/trial/byakko.ts': byakko,'04-sb/trial/byakko.txt': trial_byakko_namespaceObject,'04-sb/trial/lakshmi-ex.ts': lakshmi_ex,'04-sb/trial/lakshmi-ex.txt': trial_lakshmi_ex_namespaceObject,'04-sb/trial/lakshmi.ts': lakshmi,'04-sb/trial/lakshmi.txt': trial_lakshmi_namespaceObject,'04-sb/trial/rathalos-ex.ts': rathalos_ex,'04-sb/trial/rathalos.ts': rathalos,'04-sb/trial/seiryu-ex.ts': seiryu_ex,'04-sb/trial/seiryu-ex.txt': trial_seiryu_ex_namespaceObject,'04-sb/trial/seiryu.ts': seiryu,'04-sb/trial/seiryu.txt': trial_seiryu_namespaceObject,'04-sb/trial/shinryu-ex.ts': shinryu_ex,'04-sb/trial/shinryu-ex.txt': trial_shinryu_ex_namespaceObject,'04-sb/trial/shinryu.ts': shinryu,'04-sb/trial/shinryu.txt': trial_shinryu_namespaceObject,'04-sb/trial/susano-ex.ts': susano_ex,'04-sb/trial/susano-ex.txt': trial_susano_ex_namespaceObject,'04-sb/trial/susano.ts': susano,'04-sb/trial/susano.txt': trial_susano_namespaceObject,'04-sb/trial/suzaku-ex.ts': suzaku_ex,'04-sb/trial/suzaku-ex.txt': trial_suzaku_ex_namespaceObject,'04-sb/trial/suzaku.ts': suzaku,'04-sb/trial/suzaku.txt': trial_suzaku_namespaceObject,'04-sb/trial/tsukuyomi-ex.ts': tsukuyomi_ex,'04-sb/trial/tsukuyomi-ex.txt': trial_tsukuyomi_ex_namespaceObject,'04-sb/trial/tsukuyomi.ts': tsukuyomi,'04-sb/trial/tsukuyomi.txt': trial_tsukuyomi_namespaceObject,'04-sb/trial/yojimbo.ts': yojimbo,'04-sb/trial/yojimbo.txt': trial_yojimbo_namespaceObject,'04-sb/ultimate/ultima_weapon_ultimate.ts': ultima_weapon_ultimate,'04-sb/ultimate/ultima_weapon_ultimate.txt': ultimate_ultima_weapon_ultimate_namespaceObject,'04-sb/ultimate/unending_coil_ultimate.ts': unending_coil_ultimate,'04-sb/ultimate/unending_coil_ultimate.txt': ultimate_unending_coil_ultimate_namespaceObject,'05-shb/alliance/the_copied_factory.ts': the_copied_factory,'05-shb/alliance/the_copied_factory.txt': alliance_the_copied_factory_namespaceObject,'05-shb/alliance/the_puppets_bunker.ts': the_puppets_bunker,'05-shb/alliance/the_puppets_bunker.txt': alliance_the_puppets_bunker_namespaceObject,'05-shb/alliance/the_tower_at_paradigms_breach.ts': the_tower_at_paradigms_breach,'05-shb/alliance/the_tower_at_paradigms_breach.txt': alliance_the_tower_at_paradigms_breach_namespaceObject,'05-shb/dungeon/akadaemia_anyder.ts': akadaemia_anyder,'05-shb/dungeon/akadaemia_anyder.txt': dungeon_akadaemia_anyder_namespaceObject,'05-shb/dungeon/amaurot.ts': amaurot,'05-shb/dungeon/amaurot.txt': dungeon_amaurot_namespaceObject,'05-shb/dungeon/anamnesis_anyder.ts': anamnesis_anyder,'05-shb/dungeon/anamnesis_anyder.txt': dungeon_anamnesis_anyder_namespaceObject,'05-shb/dungeon/dohn_mheg.ts': dohn_mheg,'05-shb/dungeon/dohn_mheg.txt': dungeon_dohn_mheg_namespaceObject,'05-shb/dungeon/heroes_gauntlet.ts': heroes_gauntlet,'05-shb/dungeon/heroes_gauntlet.txt': dungeon_heroes_gauntlet_namespaceObject,'05-shb/dungeon/holminster_switch.ts': holminster_switch,'05-shb/dungeon/holminster_switch.txt': dungeon_holminster_switch_namespaceObject,'05-shb/dungeon/malikahs_well.ts': malikahs_well,'05-shb/dungeon/malikahs_well.txt': dungeon_malikahs_well_namespaceObject,'05-shb/dungeon/matoyas_relict.ts': matoyas_relict,'05-shb/dungeon/matoyas_relict.txt': dungeon_matoyas_relict_namespaceObject,'05-shb/dungeon/mt_gulg.ts': mt_gulg,'05-shb/dungeon/mt_gulg.txt': dungeon_mt_gulg_namespaceObject,'05-shb/dungeon/paglthan.ts': paglthan,'05-shb/dungeon/paglthan.txt': dungeon_paglthan_namespaceObject,'05-shb/dungeon/qitana_ravel.ts': qitana_ravel,'05-shb/dungeon/qitana_ravel.txt': dungeon_qitana_ravel_namespaceObject,'05-shb/dungeon/the_grand_cosmos.ts': the_grand_cosmos,'05-shb/dungeon/the_grand_cosmos.txt': dungeon_the_grand_cosmos_namespaceObject,'05-shb/dungeon/twinning.ts': twinning,'05-shb/dungeon/twinning.txt': dungeon_twinning_namespaceObject,'05-shb/etc/the_diadem.ts': the_diadem,'05-shb/eureka/bozjan_southern_front.ts': bozjan_southern_front,'05-shb/eureka/bozjan_southern_front.txt': eureka_bozjan_southern_front_namespaceObject,'05-shb/eureka/delubrum_reginae.ts': delubrum_reginae,'05-shb/eureka/delubrum_reginae.txt': eureka_delubrum_reginae_namespaceObject,'05-shb/eureka/delubrum_reginae_savage.ts': delubrum_reginae_savage,'05-shb/eureka/delubrum_reginae_savage.txt': eureka_delubrum_reginae_savage_namespaceObject,'05-shb/eureka/zadnor.ts': zadnor,'05-shb/eureka/zadnor.txt': eureka_zadnor_namespaceObject,'05-shb/hunts/amh_araeng.ts': amh_araeng,'05-shb/hunts/il_mheg.ts': il_mheg,'05-shb/hunts/kholusia.ts': kholusia,'05-shb/hunts/lakeland.ts': lakeland,'05-shb/hunts/ss_rank.ts': ss_rank,'05-shb/hunts/the_raktika_greatwood.ts': the_raktika_greatwood,'05-shb/hunts/the_tempest.ts': the_tempest,'05-shb/map/the_dungeons_of_lyhe_ghiah.ts': the_dungeons_of_lyhe_ghiah,'05-shb/map/the_shifting_oubliettes_of_lyhe_ghiah.ts': the_shifting_oubliettes_of_lyhe_ghiah,'05-shb/raid/e10n.ts': e10n,'05-shb/raid/e10n.txt': raid_e10n_namespaceObject,'05-shb/raid/e10s.ts': e10s,'05-shb/raid/e10s.txt': raid_e10s_namespaceObject,'05-shb/raid/e11n.ts': e11n,'05-shb/raid/e11n.txt': raid_e11n_namespaceObject,'05-shb/raid/e11s.ts': e11s,'05-shb/raid/e11s.txt': raid_e11s_namespaceObject,'05-shb/raid/e12n.ts': e12n,'05-shb/raid/e12n.txt': raid_e12n_namespaceObject,'05-shb/raid/e12s.ts': e12s,'05-shb/raid/e12s.txt': raid_e12s_namespaceObject,'05-shb/raid/e1n.ts': e1n,'05-shb/raid/e1n.txt': raid_e1n_namespaceObject,'05-shb/raid/e1s.ts': e1s,'05-shb/raid/e1s.txt': raid_e1s_namespaceObject,'05-shb/raid/e2n.ts': e2n,'05-shb/raid/e2n.txt': raid_e2n_namespaceObject,'05-shb/raid/e2s.ts': e2s,'05-shb/raid/e2s.txt': raid_e2s_namespaceObject,'05-shb/raid/e3n.ts': e3n,'05-shb/raid/e3n.txt': raid_e3n_namespaceObject,'05-shb/raid/e3s.ts': e3s,'05-shb/raid/e3s.txt': raid_e3s_namespaceObject,'05-shb/raid/e4n.ts': e4n,'05-shb/raid/e4n.txt': raid_e4n_namespaceObject,'05-shb/raid/e4s.ts': e4s,'05-shb/raid/e4s.txt': raid_e4s_namespaceObject,'05-shb/raid/e5n.ts': e5n,'05-shb/raid/e5n.txt': raid_e5n_namespaceObject,'05-shb/raid/e5s.ts': e5s,'05-shb/raid/e5s.txt': raid_e5s_namespaceObject,'05-shb/raid/e6n.ts': e6n,'05-shb/raid/e6n.txt': raid_e6n_namespaceObject,'05-shb/raid/e6s.ts': e6s,'05-shb/raid/e6s.txt': raid_e6s_namespaceObject,'05-shb/raid/e7n.ts': e7n,'05-shb/raid/e7n.txt': raid_e7n_namespaceObject,'05-shb/raid/e7s.ts': e7s,'05-shb/raid/e7s.txt': raid_e7s_namespaceObject,'05-shb/raid/e8n.ts': e8n,'05-shb/raid/e8n.txt': raid_e8n_namespaceObject,'05-shb/raid/e8s.ts': e8s,'05-shb/raid/e8s.txt': raid_e8s_namespaceObject,'05-shb/raid/e9n.ts': e9n,'05-shb/raid/e9n.txt': raid_e9n_namespaceObject,'05-shb/raid/e9s.ts': e9s,'05-shb/raid/e9s.txt': raid_e9s_namespaceObject,'05-shb/trial/diamond_weapon-ex.ts': diamond_weapon_ex,'05-shb/trial/diamond_weapon-ex.txt': trial_diamond_weapon_ex_namespaceObject,'05-shb/trial/diamond_weapon.ts': diamond_weapon,'05-shb/trial/diamond_weapon.txt': trial_diamond_weapon_namespaceObject,'05-shb/trial/emerald_weapon-ex.ts': emerald_weapon_ex,'05-shb/trial/emerald_weapon-ex.txt': trial_emerald_weapon_ex_namespaceObject,'05-shb/trial/emerald_weapon.ts': emerald_weapon,'05-shb/trial/emerald_weapon.txt': trial_emerald_weapon_namespaceObject,'05-shb/trial/hades-ex.ts': hades_ex,'05-shb/trial/hades-ex.txt': trial_hades_ex_namespaceObject,'05-shb/trial/hades.ts': hades,'05-shb/trial/hades.txt': trial_hades_namespaceObject,'05-shb/trial/innocence-ex.ts': innocence_ex,'05-shb/trial/innocence-ex.txt': trial_innocence_ex_namespaceObject,'05-shb/trial/innocence.ts': innocence,'05-shb/trial/innocence.txt': trial_innocence_namespaceObject,'05-shb/trial/levi-un.ts': levi_un,'05-shb/trial/levi-un.txt': trial_levi_un_namespaceObject,'05-shb/trial/ruby_weapon-ex.ts': ruby_weapon_ex,'05-shb/trial/ruby_weapon-ex.txt': trial_ruby_weapon_ex_namespaceObject,'05-shb/trial/ruby_weapon.ts': ruby_weapon,'05-shb/trial/ruby_weapon.txt': trial_ruby_weapon_namespaceObject,'05-shb/trial/shiva-un.ts': shiva_un,'05-shb/trial/shiva-un.txt': trial_shiva_un_namespaceObject,'05-shb/trial/titan-un.ts': titan_un,'05-shb/trial/titan-un.txt': trial_titan_un_namespaceObject,'05-shb/trial/titania-ex.ts': titania_ex,'05-shb/trial/titania-ex.txt': trial_titania_ex_namespaceObject,'05-shb/trial/titania.ts': titania,'05-shb/trial/titania.txt': trial_titania_namespaceObject,'05-shb/trial/varis-ex.ts': varis_ex,'05-shb/trial/varis-ex.txt': trial_varis_ex_namespaceObject,'05-shb/trial/wol-ex.ts': wol_ex,'05-shb/trial/wol-ex.txt': trial_wol_ex_namespaceObject,'05-shb/trial/wol.ts': wol,'05-shb/trial/wol.txt': trial_wol_namespaceObject,'05-shb/ultimate/the_epic_of_alexander.ts': the_epic_of_alexander,'05-shb/ultimate/the_epic_of_alexander.txt': ultimate_the_epic_of_alexander_namespaceObject,'06-ew/alliance/aglaia.ts': aglaia,'06-ew/alliance/aglaia.txt': alliance_aglaia_namespaceObject,'06-ew/alliance/euphrosyne.ts': euphrosyne,'06-ew/alliance/euphrosyne.txt': alliance_euphrosyne_namespaceObject,'06-ew/alliance/thaleia.ts': thaleia,'06-ew/alliance/thaleia.txt': alliance_thaleia_namespaceObject,'06-ew/deepdungeon/eureka_orthos_floors_01-10.ts': eureka_orthos_floors_01_10,'06-ew/deepdungeon/eureka_orthos_floors_11-20.ts': eureka_orthos_floors_11_20,'06-ew/deepdungeon/eureka_orthos_floors_21-30.ts': eureka_orthos_floors_21_30,'06-ew/deepdungeon/eureka_orthos_floors_31-40.ts': eureka_orthos_floors_31_40,'06-ew/deepdungeon/eureka_orthos_floors_41-50.ts': eureka_orthos_floors_41_50,'06-ew/deepdungeon/eureka_orthos_floors_51-60.ts': eureka_orthos_floors_51_60,'06-ew/deepdungeon/eureka_orthos_floors_61-70.ts': eureka_orthos_floors_61_70,'06-ew/deepdungeon/eureka_orthos_floors_71-80.ts': eureka_orthos_floors_71_80,'06-ew/deepdungeon/eureka_orthos_floors_81-90.ts': eureka_orthos_floors_81_90,'06-ew/deepdungeon/eureka_orthos_floors_91-100.ts': eureka_orthos_floors_91_100,'06-ew/deepdungeon/eureka_orthos_general.ts': eureka_orthos_general,'06-ew/dungeon/aetherfont.ts': aetherfont,'06-ew/dungeon/aetherfont.txt': dungeon_aetherfont_namespaceObject,'06-ew/dungeon/aloalo_island.ts': aloalo_island,'06-ew/dungeon/aloalo_island.txt': dungeon_aloalo_island_namespaceObject,'06-ew/dungeon/alzadaals_legacy.ts': alzadaals_legacy,'06-ew/dungeon/alzadaals_legacy.txt': dungeon_alzadaals_legacy_namespaceObject,'06-ew/dungeon/another_aloalo_island-savage.ts': another_aloalo_island_savage,'06-ew/dungeon/another_aloalo_island-savage.txt': dungeon_another_aloalo_island_savage_namespaceObject,'06-ew/dungeon/another_aloalo_island.ts': another_aloalo_island,'06-ew/dungeon/another_aloalo_island.txt': dungeon_another_aloalo_island_namespaceObject,'06-ew/dungeon/another_mount_rokkon-savage.ts': another_mount_rokkon_savage,'06-ew/dungeon/another_mount_rokkon-savage.txt': dungeon_another_mount_rokkon_savage_namespaceObject,'06-ew/dungeon/another_mount_rokkon.ts': another_mount_rokkon,'06-ew/dungeon/another_mount_rokkon.txt': dungeon_another_mount_rokkon_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane-savage.ts': another_sildihn_subterrane_savage,'06-ew/dungeon/another_sildihn_subterrane-savage.txt': dungeon_another_sildihn_subterrane_savage_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane.ts': another_sildihn_subterrane,'06-ew/dungeon/another_sildihn_subterrane.txt': dungeon_another_sildihn_subterrane_namespaceObject,'06-ew/dungeon/ktisis_hyperboreia.ts': ktisis_hyperboreia,'06-ew/dungeon/ktisis_hyperboreia.txt': dungeon_ktisis_hyperboreia_namespaceObject,'06-ew/dungeon/lapis_manalis.ts': lapis_manalis,'06-ew/dungeon/lapis_manalis.txt': dungeon_lapis_manalis_namespaceObject,'06-ew/dungeon/mount_rokkon.ts': mount_rokkon,'06-ew/dungeon/mount_rokkon.txt': dungeon_mount_rokkon_namespaceObject,'06-ew/dungeon/smileton.ts': smileton,'06-ew/dungeon/smileton.txt': dungeon_smileton_namespaceObject,'06-ew/dungeon/stigma_dreamscape.ts': stigma_dreamscape,'06-ew/dungeon/stigma_dreamscape.txt': dungeon_stigma_dreamscape_namespaceObject,'06-ew/dungeon/the_aitiascope.ts': the_aitiascope,'06-ew/dungeon/the_aitiascope.txt': dungeon_the_aitiascope_namespaceObject,'06-ew/dungeon/the_dead_ends.ts': the_dead_ends,'06-ew/dungeon/the_dead_ends.txt': dungeon_the_dead_ends_namespaceObject,'06-ew/dungeon/the_fell_court_of_troia.ts': the_fell_court_of_troia,'06-ew/dungeon/the_fell_court_of_troia.txt': dungeon_the_fell_court_of_troia_namespaceObject,'06-ew/dungeon/the_lunar_subterrane.ts': the_lunar_subterrane,'06-ew/dungeon/the_lunar_subterrane.txt': dungeon_the_lunar_subterrane_namespaceObject,'06-ew/dungeon/the_sildihn_subterrane.ts': the_sildihn_subterrane,'06-ew/dungeon/the_sildihn_subterrane.txt': dungeon_the_sildihn_subterrane_namespaceObject,'06-ew/dungeon/the_tower_of_babil.ts': the_tower_of_babil,'06-ew/dungeon/the_tower_of_babil.txt': dungeon_the_tower_of_babil_namespaceObject,'06-ew/dungeon/the_tower_of_zot.ts': the_tower_of_zot,'06-ew/dungeon/the_tower_of_zot.txt': dungeon_the_tower_of_zot_namespaceObject,'06-ew/dungeon/vanaspati.ts': vanaspati,'06-ew/dungeon/vanaspati.txt': dungeon_vanaspati_namespaceObject,'06-ew/hunts/elpis.ts': elpis,'06-ew/hunts/garlemald.ts': garlemald,'06-ew/hunts/labyrinthos.ts': labyrinthos,'06-ew/hunts/mare_lamentorum.ts': mare_lamentorum,'06-ew/hunts/ss_rank.ts': hunts_ss_rank,'06-ew/hunts/thavnair.ts': thavnair,'06-ew/hunts/ultima_thule.ts': ultima_thule,'06-ew/map/the_excitatron_6000.ts': the_excitatron_6000,'06-ew/map/the_shifting_gymnasion_agonon.ts': the_shifting_gymnasion_agonon,'06-ew/raid/p10n.ts': p10n,'06-ew/raid/p10n.txt': raid_p10n_namespaceObject,'06-ew/raid/p10s.ts': p10s,'06-ew/raid/p10s.txt': raid_p10s_namespaceObject,'06-ew/raid/p11n.ts': p11n,'06-ew/raid/p11n.txt': raid_p11n_namespaceObject,'06-ew/raid/p11s.ts': p11s,'06-ew/raid/p11s.txt': raid_p11s_namespaceObject,'06-ew/raid/p12n.ts': p12n,'06-ew/raid/p12n.txt': raid_p12n_namespaceObject,'06-ew/raid/p12s.ts': p12s,'06-ew/raid/p12s.txt': raid_p12s_namespaceObject,'06-ew/raid/p1n.ts': p1n,'06-ew/raid/p1n.txt': raid_p1n_namespaceObject,'06-ew/raid/p1s.ts': p1s,'06-ew/raid/p1s.txt': raid_p1s_namespaceObject,'06-ew/raid/p2n.ts': p2n,'06-ew/raid/p2n.txt': raid_p2n_namespaceObject,'06-ew/raid/p2s.ts': p2s,'06-ew/raid/p2s.txt': raid_p2s_namespaceObject,'06-ew/raid/p3n.ts': p3n,'06-ew/raid/p3n.txt': raid_p3n_namespaceObject,'06-ew/raid/p3s.ts': p3s,'06-ew/raid/p3s.txt': raid_p3s_namespaceObject,'06-ew/raid/p4n.ts': p4n,'06-ew/raid/p4n.txt': raid_p4n_namespaceObject,'06-ew/raid/p4s.ts': p4s,'06-ew/raid/p4s.txt': raid_p4s_namespaceObject,'06-ew/raid/p5n.ts': p5n,'06-ew/raid/p5n.txt': raid_p5n_namespaceObject,'06-ew/raid/p5s.ts': p5s,'06-ew/raid/p5s.txt': raid_p5s_namespaceObject,'06-ew/raid/p6n.ts': p6n,'06-ew/raid/p6n.txt': raid_p6n_namespaceObject,'06-ew/raid/p6s.ts': p6s,'06-ew/raid/p6s.txt': raid_p6s_namespaceObject,'06-ew/raid/p7n.ts': p7n,'06-ew/raid/p7n.txt': raid_p7n_namespaceObject,'06-ew/raid/p7s.ts': p7s,'06-ew/raid/p7s.txt': raid_p7s_namespaceObject,'06-ew/raid/p8n.ts': p8n,'06-ew/raid/p8n.txt': raid_p8n_namespaceObject,'06-ew/raid/p8s.ts': p8s,'06-ew/raid/p8s.txt': raid_p8s_namespaceObject,'06-ew/raid/p9n.ts': p9n,'06-ew/raid/p9n.txt': raid_p9n_namespaceObject,'06-ew/raid/p9s.ts': p9s,'06-ew/raid/p9s.txt': raid_p9s_namespaceObject,'06-ew/trial/asura.ts': asura,'06-ew/trial/asura.txt': trial_asura_namespaceObject,'06-ew/trial/barbariccia-ex.ts': barbariccia_ex,'06-ew/trial/barbariccia-ex.txt': trial_barbariccia_ex_namespaceObject,'06-ew/trial/barbariccia.ts': barbariccia,'06-ew/trial/barbariccia.txt': trial_barbariccia_namespaceObject,'06-ew/trial/endsinger-ex.ts': endsinger_ex,'06-ew/trial/endsinger-ex.txt': trial_endsinger_ex_namespaceObject,'06-ew/trial/endsinger.ts': endsinger,'06-ew/trial/endsinger.txt': trial_endsinger_namespaceObject,'06-ew/trial/golbez-ex.ts': golbez_ex,'06-ew/trial/golbez-ex.txt': trial_golbez_ex_namespaceObject,'06-ew/trial/golbez.ts': golbez,'06-ew/trial/golbez.txt': trial_golbez_namespaceObject,'06-ew/trial/hydaelyn-ex.ts': hydaelyn_ex,'06-ew/trial/hydaelyn-ex.txt': trial_hydaelyn_ex_namespaceObject,'06-ew/trial/hydaelyn.ts': hydaelyn,'06-ew/trial/hydaelyn.txt': trial_hydaelyn_namespaceObject,'06-ew/trial/rubicante-ex.ts': rubicante_ex,'06-ew/trial/rubicante-ex.txt': trial_rubicante_ex_namespaceObject,'06-ew/trial/rubicante.ts': rubicante,'06-ew/trial/rubicante.txt': trial_rubicante_namespaceObject,'06-ew/trial/sephirot-un.ts': sephirot_un,'06-ew/trial/sephirot-un.txt': trial_sephirot_un_namespaceObject,'06-ew/trial/sophia-un.ts': sophia_un,'06-ew/trial/sophia-un.txt': trial_sophia_un_namespaceObject,'06-ew/trial/thordan-un.ts': thordan_un,'06-ew/trial/thordan-un.txt': trial_thordan_un_namespaceObject,'06-ew/trial/ultima-un.ts': ultima_un,'06-ew/trial/ultima-un.txt': trial_ultima_un_namespaceObject,'06-ew/trial/zeromus-ex.ts': zeromus_ex,'06-ew/trial/zeromus-ex.txt': trial_zeromus_ex_namespaceObject,'06-ew/trial/zeromus.ts': zeromus,'06-ew/trial/zeromus.txt': trial_zeromus_namespaceObject,'06-ew/trial/zodiark-ex.ts': zodiark_ex,'06-ew/trial/zodiark-ex.txt': trial_zodiark_ex_namespaceObject,'06-ew/trial/zodiark.ts': zodiark,'06-ew/trial/zodiark.txt': trial_zodiark_namespaceObject,'06-ew/trial/zurvan-un.ts': zurvan_un,'06-ew/trial/zurvan-un.txt': trial_zurvan_un_namespaceObject,'06-ew/ultimate/dragonsongs_reprise_ultimate.ts': dragonsongs_reprise_ultimate,'06-ew/ultimate/dragonsongs_reprise_ultimate.txt': ultimate_dragonsongs_reprise_ultimate_namespaceObject,'06-ew/ultimate/the_omega_protocol.ts': the_omega_protocol,'06-ew/ultimate/the_omega_protocol.txt': ultimate_the_omega_protocol_namespaceObject,'07-dt/alliance/cloud_of_darkness_chaotic.ts': cloud_of_darkness_chaotic,'07-dt/alliance/cloud_of_darkness_chaotic.txt': alliance_cloud_of_darkness_chaotic_namespaceObject,'07-dt/alliance/jeuno-first-walk.ts': jeuno_first_walk,'07-dt/alliance/jeuno-first-walk.txt': alliance_jeuno_first_walk_namespaceObject,'07-dt/deepdungeon/pilgrims_traverse_general.ts': pilgrims_traverse_general,'07-dt/deepdungeon/pilgrims_traverse_stones_01-10.ts': pilgrims_traverse_stones_01_10,'07-dt/deepdungeon/pilgrims_traverse_stones_11-20.ts': pilgrims_traverse_stones_11_20,'07-dt/deepdungeon/pilgrims_traverse_stones_21-30.ts': pilgrims_traverse_stones_21_30,'07-dt/deepdungeon/pilgrims_traverse_stones_31-40.ts': pilgrims_traverse_stones_31_40,'07-dt/deepdungeon/pilgrims_traverse_stones_41-50.ts': pilgrims_traverse_stones_41_50,'07-dt/deepdungeon/pilgrims_traverse_stones_51-60.ts': pilgrims_traverse_stones_51_60,'07-dt/deepdungeon/pilgrims_traverse_stones_61-70.ts': pilgrims_traverse_stones_61_70,'07-dt/deepdungeon/pilgrims_traverse_stones_71-80.ts': pilgrims_traverse_stones_71_80,'07-dt/deepdungeon/pilgrims_traverse_stones_81-90.ts': pilgrims_traverse_stones_81_90,'07-dt/deepdungeon/pilgrims_traverse_stones_91-100.ts': pilgrims_traverse_stones_91_100,'07-dt/deepdungeon/pilgrims_traverse_the_final_verse.ts': pilgrims_traverse_the_final_verse,'07-dt/deepdungeon/the_final_verse_quantum.ts': the_final_verse_quantum,'07-dt/deepdungeon/the_final_verse_quantum.txt': deepdungeon_the_final_verse_quantum_namespaceObject,'07-dt/dungeon/alexandria.ts': alexandria,'07-dt/dungeon/alexandria.txt': dungeon_alexandria_namespaceObject,'07-dt/dungeon/ihuykatumu.ts': ihuykatumu,'07-dt/dungeon/ihuykatumu.txt': dungeon_ihuykatumu_namespaceObject,'07-dt/dungeon/meso-terminal.ts': meso_terminal,'07-dt/dungeon/meso-terminal.txt': dungeon_meso_terminal_namespaceObject,'07-dt/dungeon/mistwake.ts': mistwake,'07-dt/dungeon/mistwake.txt': dungeon_mistwake_namespaceObject,'07-dt/dungeon/origenics.ts': origenics,'07-dt/dungeon/origenics.txt': dungeon_origenics_namespaceObject,'07-dt/dungeon/skydeep-cenote.ts': skydeep_cenote,'07-dt/dungeon/skydeep-cenote.txt': dungeon_skydeep_cenote_namespaceObject,'07-dt/dungeon/strayborough-deadwalk.ts': strayborough_deadwalk,'07-dt/dungeon/strayborough-deadwalk.txt': dungeon_strayborough_deadwalk_namespaceObject,'07-dt/dungeon/the_underkeep.ts': the_underkeep,'07-dt/dungeon/the_underkeep.txt': dungeon_the_underkeep_namespaceObject,'07-dt/dungeon/vanguard.ts': vanguard,'07-dt/dungeon/vanguard.txt': dungeon_vanguard_namespaceObject,'07-dt/dungeon/worqor-zormor.ts': worqor_zormor,'07-dt/dungeon/worqor-zormor.txt': dungeon_worqor_zormor_namespaceObject,'07-dt/dungeon/yuweyawata.ts': yuweyawata,'07-dt/dungeon/yuweyawata.txt': dungeon_yuweyawata_namespaceObject,'07-dt/eureka/occult_crescent_south_horn.ts': occult_crescent_south_horn,'07-dt/eureka/occult_crescent_south_horn.txt': eureka_occult_crescent_south_horn_namespaceObject,'07-dt/hunts/heritage_found.ts': heritage_found,'07-dt/hunts/kozamauka.ts': kozamauka,'07-dt/hunts/living_memory.ts': living_memory,'07-dt/hunts/shaaloani.ts': shaaloani,'07-dt/hunts/ss_rank.ts': _07_dt_hunts_ss_rank,'07-dt/hunts/urqopacha.ts': urqopacha,'07-dt/hunts/yaktel.ts': yaktel,'07-dt/map/cenote_ja_ja_gural.ts': cenote_ja_ja_gural,'07-dt/raid/r10n.ts': r10n,'07-dt/raid/r10n.txt': raid_r10n_namespaceObject,'07-dt/raid/r10s.ts': r10s,'07-dt/raid/r10s.txt': raid_r10s_namespaceObject,'07-dt/raid/r11n.ts': r11n,'07-dt/raid/r11n.txt': raid_r11n_namespaceObject,'07-dt/raid/r11s.ts': r11s,'07-dt/raid/r11s.txt': raid_r11s_namespaceObject,'07-dt/raid/r12n.ts': r12n,'07-dt/raid/r12n.txt': raid_r12n_namespaceObject,'07-dt/raid/r12s.ts': r12s,'07-dt/raid/r12s.txt': raid_r12s_namespaceObject,'07-dt/raid/r1n.ts': r1n,'07-dt/raid/r1n.txt': raid_r1n_namespaceObject,'07-dt/raid/r1s.ts': r1s,'07-dt/raid/r1s.txt': raid_r1s_namespaceObject,'07-dt/raid/r2n.ts': r2n,'07-dt/raid/r2n.txt': raid_r2n_namespaceObject,'07-dt/raid/r2s.ts': r2s,'07-dt/raid/r2s.txt': raid_r2s_namespaceObject,'07-dt/raid/r3n.ts': r3n,'07-dt/raid/r3n.txt': raid_r3n_namespaceObject,'07-dt/raid/r3s.ts': r3s,'07-dt/raid/r3s.txt': raid_r3s_namespaceObject,'07-dt/raid/r4n.ts': r4n,'07-dt/raid/r4n.txt': raid_r4n_namespaceObject,'07-dt/raid/r4s.ts': r4s,'07-dt/raid/r4s.txt': raid_r4s_namespaceObject,'07-dt/raid/r5n.ts': r5n,'07-dt/raid/r5n.txt': raid_r5n_namespaceObject,'07-dt/raid/r5s.ts': r5s,'07-dt/raid/r5s.txt': raid_r5s_namespaceObject,'07-dt/raid/r6n.ts': r6n,'07-dt/raid/r6n.txt': raid_r6n_namespaceObject,'07-dt/raid/r6s.ts': r6s,'07-dt/raid/r6s.txt': raid_r6s_namespaceObject,'07-dt/raid/r7n.ts': r7n,'07-dt/raid/r7n.txt': raid_r7n_namespaceObject,'07-dt/raid/r7s.ts': r7s,'07-dt/raid/r7s.txt': raid_r7s_namespaceObject,'07-dt/raid/r8n.ts': r8n,'07-dt/raid/r8n.txt': raid_r8n_namespaceObject,'07-dt/raid/r8s.ts': r8s,'07-dt/raid/r8s.txt': raid_r8s_namespaceObject,'07-dt/raid/r9n.ts': r9n,'07-dt/raid/r9n.txt': raid_r9n_namespaceObject,'07-dt/raid/r9s.ts': r9s,'07-dt/raid/r9s.txt': raid_r9s_namespaceObject,'07-dt/trial/arkveld-ex.ts': arkveld_ex,'07-dt/trial/arkveld-ex.txt': trial_arkveld_ex_namespaceObject,'07-dt/trial/arkveld.ts': arkveld,'07-dt/trial/arkveld.txt': trial_arkveld_namespaceObject,'07-dt/trial/byakko-un.ts': byakko_un,'07-dt/trial/byakko-un.txt': trial_byakko_un_namespaceObject,'07-dt/trial/doomtrain-ex.ts': doomtrain_ex,'07-dt/trial/doomtrain-ex.txt': trial_doomtrain_ex_namespaceObject,'07-dt/trial/doomtrain.ts': doomtrain,'07-dt/trial/doomtrain.txt': trial_doomtrain_namespaceObject,'07-dt/trial/enuo-ex.ts': enuo_ex,'07-dt/trial/enuo-ex.txt': trial_enuo_ex_namespaceObject,'07-dt/trial/necron-ex.ts': necron_ex,'07-dt/trial/necron-ex.txt': trial_necron_ex_namespaceObject,'07-dt/trial/queen-eternal-ex.ts': queen_eternal_ex,'07-dt/trial/queen-eternal-ex.txt': trial_queen_eternal_ex_namespaceObject,'07-dt/trial/queen-eternal.ts': queen_eternal,'07-dt/trial/queen-eternal.txt': trial_queen_eternal_namespaceObject,'07-dt/trial/seiryu-un.ts': seiryu_un,'07-dt/trial/seiryu-un.txt': trial_seiryu_un_namespaceObject,'07-dt/trial/shinryu-un.ts': shinryu_un,'07-dt/trial/shinryu-un.txt': trial_shinryu_un_namespaceObject,'07-dt/trial/suzaku-un.ts': suzaku_un,'07-dt/trial/suzaku-un.txt': trial_suzaku_un_namespaceObject,'07-dt/trial/tsukuyomi-un.ts': tsukuyomi_un,'07-dt/trial/tsukuyomi-un.txt': trial_tsukuyomi_un_namespaceObject,'07-dt/trial/valigarmanda-ex.ts': valigarmanda_ex,'07-dt/trial/valigarmanda-ex.txt': trial_valigarmanda_ex_namespaceObject,'07-dt/trial/valigarmanda.ts': valigarmanda,'07-dt/trial/valigarmanda.txt': trial_valigarmanda_namespaceObject,'07-dt/trial/zelenia-ex.ts': zelenia_ex,'07-dt/trial/zelenia-ex.txt': trial_zelenia_ex_namespaceObject,'07-dt/trial/zelenia.ts': zelenia,'07-dt/trial/zelenia.txt': trial_zelenia_namespaceObject,'07-dt/trial/zoraal-ja-ex.ts': zoraal_ja_ex,'07-dt/trial/zoraal-ja-ex.txt': trial_zoraal_ja_ex_namespaceObject,'07-dt/trial/zoraal-ja.ts': zoraal_ja,'07-dt/trial/zoraal-ja.txt': trial_zoraal_ja_namespaceObject,'07-dt/ultimate/futures_rewritten.ts': futures_rewritten,'07-dt/ultimate/futures_rewritten.txt': ultimate_futures_rewritten_namespaceObject,'99-custom/readme.txt': readme_namespaceObject,});
 
 /***/ })
 

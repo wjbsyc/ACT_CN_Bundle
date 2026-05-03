@@ -22682,8 +22682,8 @@ class DamageTracker {
     this.ReloadTriggers();
   }
 }
-// EXTERNAL MODULE: ./ui/oopsyraidsy/data/oopsy_manifest.txt + 260 modules
-var oopsy_manifest = __webpack_require__(449);
+// EXTERNAL MODULE: ./ui/oopsyraidsy/data/oopsy_manifest.txt + 261 modules
+var oopsy_manifest = __webpack_require__(552);
 ;// CONCATENATED MODULE: ./ui/oopsyraidsy/mistake_collector.ts
 
 const broadcastSource = 'oopsyraidsy';

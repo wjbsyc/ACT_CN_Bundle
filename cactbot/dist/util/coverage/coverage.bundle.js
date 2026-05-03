@@ -19930,8 +19930,8 @@ const generateBuffTriggerIds = () => {
   buffs.sort((a, b) => a.id.localeCompare(b.id));
   return buffs.map(buff => `Buff ${buff.id}`);
 };
-// EXTERNAL MODULE: ./ui/oopsyraidsy/data/oopsy_manifest.txt + 260 modules
-var oopsy_manifest = __webpack_require__(449);
+// EXTERNAL MODULE: ./ui/oopsyraidsy/data/oopsy_manifest.txt + 261 modules
+var oopsy_manifest = __webpack_require__(552);
 ;// CONCATENATED MODULE: ./ui/oopsyraidsy/oopsyraidsy_config.ts
 
 
@@ -22242,8 +22242,8 @@ const translateRegexBuildParamAnon = (anonParams, replaceLang, replacements) => 
     missingFields
   };
 };
-// EXTERNAL MODULE: ./ui/raidboss/data/raidboss_manifest.txt + 730 modules
-var raidboss_manifest = __webpack_require__(998);
+// EXTERNAL MODULE: ./ui/raidboss/data/raidboss_manifest.txt + 734 modules
+var raidboss_manifest = __webpack_require__(707);
 ;// CONCATENATED MODULE: ./ui/raidboss/raidboss_options.ts
 
 
