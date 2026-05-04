@@ -20474,8 +20474,8 @@ const translateRegexBuildParamAnon = (anonParams, replaceLang, replacements) => 
 };
 // EXTERNAL MODULE: ./resources/user_config.ts
 var user_config = __webpack_require__(456);
-// EXTERNAL MODULE: ./ui/raidboss/data/raidboss_manifest.txt + 734 modules
-var raidboss_manifest = __webpack_require__(707);
+// EXTERNAL MODULE: ./ui/raidboss/data/raidboss_manifest.txt + 736 modules
+var raidboss_manifest = __webpack_require__(915);
 ;// CONCATENATED MODULE: ./ui/raidboss/raidboss_options.ts
 
 

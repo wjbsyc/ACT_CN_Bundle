@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunkcactbot"] = self["webpackChunkcactbot"] || []).push([[890],{
 
-/***/ 707:
+/***/ 915:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -61984,7 +61984,8 @@ const shinryu_ex_triggerSet = {
     infoText: (_data, _matches, output) => output.text(),
     outputStrings: {
       text: {
-        en: 'Ice: Stack + don\'t move'
+        en: 'Ice: Stack + don\'t move',
+        cn: '冰: 集合 + 不要动'
       }
     }
   }, {
@@ -62049,7 +62050,7 @@ const shinryu_ex_triggerSet = {
         de: 'Stopp! Einfrieren lassen',
         fr: 'Arrêtez, laissez-vous geler',
         ja: '止まれ、凍結',
-        cn: '停止移动吃冻结',
+        cn: '停止移动 + 吃冻结',
         ko: '멈춰서 얼기',
         tc: '停止移動吃凍結'
       },
@@ -62104,7 +62105,7 @@ const shinryu_ex_triggerSet = {
         de: 'Blitz ködern, weiterbewegen',
         fr: 'Attirez la foudre, continuez à bouger',
         ja: '稲妻: 動き続ける',
-        cn: '诱导闪电，保持移动',
+        cn: '诱导闪电 + 保持移动',
         ko: '번개 공격 산개, 계속 움직이기',
         tc: '誘導閃電，保持移動'
       },
@@ -62148,7 +62149,7 @@ const shinryu_ex_triggerSet = {
         de: 'Eiszapfen, nach westen',
         fr: 'Stalactite, penchez vers l\'ouest',
         ja: 'アイシクル: 西へ',
-        cn: '冰柱，去左边',
+        cn: '冰柱, 偏左站',
         ko: '고드름, 왼쪽 먼저',
         tc: '冰柱，去西邊'
       }
@@ -62170,7 +62171,7 @@ const shinryu_ex_triggerSet = {
         de: 'Eiszapfen, nach Osten',
         fr: 'Stalactite, penchez vers l\'est',
         ja: 'アイシクル: 東へ',
-        cn: '冰柱，去右边',
+        cn: '冰柱, 偏右站',
         ko: '고드름, 오른쪽 먼저',
         tc: '冰柱，去東邊'
       }
@@ -62353,7 +62354,7 @@ const shinryu_ex_triggerSet = {
         de: 'linken Flügel zuerst',
         fr: 'Tuez l\'aile gauche d\'abord',
         ja: 'レフトウィングに攻撃',
-        cn: '击杀左翼',
+        cn: '优先击杀左翼',
         ko: '왼쪽 날개 먼저',
         tc: '擊殺左翼'
       }
@@ -62375,7 +62376,7 @@ const shinryu_ex_triggerSet = {
         de: 'rechten Flügel zuerst',
         fr: 'Tuez l\'aile droite d\'abord',
         ja: 'ライトウィングに攻撃',
-        cn: '击杀右翼',
+        cn: '优先击杀右翼',
         ko: '오른쪽 날개 먼저',
         tc: '擊殺右翼'
       }
@@ -62398,7 +62399,7 @@ const shinryu_ex_triggerSet = {
         de: 'Kette zerreissen, dann stack',
         fr: 'Cassez les liens, puis packez-vous',
         ja: '鎖を引き、集合',
-        cn: '拉断连线然后分摊',
+        cn: '拉断连线 => 分摊',
         ko: '선 끊고 모이기',
         tc: '拉斷連線然後分攤'
       },
@@ -62455,7 +62456,7 @@ const shinryu_ex_triggerSet = {
         de: 'Stöße ausweichen',
         fr: 'Évitez les secousses',
         ja: 'アースシェーカーに避け',
-        cn: '远离大地动摇',
+        cn: '躲避大地动摇',
         ko: '어스 피하기',
         tc: '遠離大地動搖'
       },
@@ -270343,17 +270344,27 @@ const enuo_ex_triggerSet = {
     id: 'gazeOrbStrat',
     name: {
       en: 'Gaze of the Void Strategy',
-      cn: '混沌激流策略'
+      fr: 'Stratégie pour les Torrents chaotiques',
+      cn: '混沌激流策略',
+      ko: '혼돈의 격류 전략'
     },
     comment: {
       en: `Strategy for resolving Gaze of the Void orbs.
 
              Tank: Call the tank direction only.
              <number>: Call the specified number's priority, treating tank orb as north clockwise`,
+      fr: `Stratégie pour résoudre les Torrent Chaotiques.
+
+             Tank: Indique la direction Tank seulement.
+             <nombre>: Indique la priorité du nombre spécifié, l'orbe des tank étant le nord (sens horaire)`,
       cn: `处理混沌激流撞球的策略。
 
              坦克: 仅播报坦克方向。
-             <数字>: 播报指定数字编号的优先级, 以坦克球为北顺时针排列`
+             <数字>: 播报指定数字编号的优先级, 以坦克球为北顺时针排列`,
+      ko: `혼돈의 격류 구슬 처리 전략.
+
+             탱커: 탱커 방향만 호출.
+             <숫자>: 탱커 구슬을 북쪽으로 보고 시계 방향으로 번호를 매겼을 때, 해당 번호의 우선순위로 호출.`
     },
     type: 'select',
     options: {
@@ -270366,12 +270377,26 @@ const enuo_ex_triggerSet = {
         '3 (melee)': '3',
         '4 (ranged)': '4'
       },
+      fr: {
+        'Tank': 'tank',
+        '1 (Tank)': '1',
+        '2 (Soigneur)': '2',
+        '3 (Mêlée)': '3',
+        '4 (Distant)': '4'
+      },
       cn: {
         '坦克': 'tank',
         '1 (坦克)': '1',
         '2 (治疗)': '2',
         '3 (近战)': '3',
         '4 (远程)': '4'
+      },
+      ko: {
+        '탱커': 'tank',
+        '1 (탱커)': '1',
+        '2 (힐러)': '2',
+        '3 (근딜)': '3',
+        '4 (원딜)': '4'
       }
     },
     default: 'tank'
@@ -270379,21 +270404,36 @@ const enuo_ex_triggerSet = {
     id: 'addPhaseStrat',
     name: {
       en: 'Add Phase Strategy',
-      cn: '小怪阶段策略'
+      fr: 'Stratégie pour les adds',
+      cn: '小怪阶段策略',
+      ko: '쫄 페이즈 전략'
     },
     comment: {
       en: `Strategy for resolving towers and spreads in add phase.
 
              None: Call tower or spread only.
              <number>: Call the specified partner number's position. For example:
-             If following the "modified" raidplan (kgH6GJydOCbUs1L_), H1 should select "3" for S CW priority, T1 should select "4" for N CCW priority.
-             If following the "original" raidplan (z6hesq84t7ewujw9), H1 should select "2" as they are 2nd fill clockwise from N, T1 should select "1" as they are 1st fill clockwise from N.`,
+             If following the "modified" raidplan (<a href="https://raidplan.io/plan/kgH6GJydOCbUs1L_" target="_blank">kgH6GJydOCbUs1L_</a>), H1 should select "3" for S CW priority, T1 should select "4" for N CCW priority.
+             If following the "original" raidplan (<a href="https://raidplan.io/plan/z6hesq84t7ewujw9" target="_blank">z6hesq84t7ewujw9</a>), H1 should select "2" as they are 2nd fill clockwise from N, T1 should select "1" as they are 1st fill clockwise from N.`,
+      fr: `Strategy for resolving towers and spreads in add phase.
+
+             Aucun: Indique seulement les tours et les spread.
+             <nombre>: la position du numéro du partenaire spécifié. Par exemple :
+             Utilisation du raidplan "Modifié" (<a href="https://raidplan.io/plan/kgH6GJydOCbUs1L_" target="_blank">kgH6GJydOCbUs1L_</a>), H1 séléctionne "3" pour une priorité Sud horaire, T1 sélectionne "4" pour une priorité Nord anti-horaire.
+             Utilisation du raidplan "Original" (<a href="https://raidplan.io/plan/z6hesq84t7ewujw9" target="_blank">z6hesq84t7ewujw9</a>), H1 sélectionne "2", 2ème emplacement (sens horaire) à partir du Nord, T1 sélectionne "1", 1er emplacement (sens horaire) depuis le nord.`,
       cn: `小怪阶段处理踩塔与扇形分散的策略。
 
              无: 仅播报踩塔或扇形分散。
              <数字>: 播报指定搭档编号的位置。例如:
-             若遵循 "修改版" 攻略 (kgH6GJydOCbUs1L_), H1应选择 "3" 因为是从南开始顺时针第一顺位, MT应选择 "4" 因为是从北开始逆时针第一顺位。
-             若遵循 "初始版" 攻略 (z6hesq84t7ewujw9), H1应选择 "2" 因为是从北开始顺时针第二顺位, MT应选择 "1" 因为是从北开始顺时针第一顺位。`
+             若遵循 "修改版" 攻略 (<a href="https://raidplan.io/plan/kgH6GJydOCbUs1L_" target="_blank">kgH6GJydOCbUs1L_</a>), H1应选择 "3" 因为是从南开始顺时针第一顺位, MT应选择 "4" 因为是从北开始逆时针第一顺位。
+             若遵循 "初始版" 攻略 (<a href="https://raidplan.io/plan/z6hesq84t7ewujw9" target="_blank">z6hesq84t7ewujw9</a>), H1应选择 "2" 因为是从北开始顺时针第二顺位, MT应选择 "1" 因为是从北开始顺时针第一顺位。`,
+      ko: `쫄 페이즈의 탑과 산개 처리 전략.
+
+             없음: 탑 또는 산개만 호출.
+             <숫자>: 지정한 번호의 파트너 위치를 호출. 예시:
+             "수정된" 공략 (<a href="https://raidplan.io/plan/kgH6GJydOCbUs1L_" target="_blank">kgH6GJydOCbUs1L_</a>)을 따를 경우, H1은 남쪽 시계 방향 우선순위인 "3"을, T1은 북쪽 반시계 방향 우선순위인 "4"를 담당합니다.
+             "원래" 공략 (<a href="https://raidplan.io/plan/z6hesq84t7ewujw9" target="_blank">z6hesq84t7ewujw9</a>)을 따를 경우, H1은 북쪽에서 시계 방향으로 2번째 채우기인 "2"를, T1은 북쪽에서 시계 방향으로 1번째 채우기인 "1"을 담당합니다.
+        `
     },
     type: 'select',
     options: {
@@ -270404,12 +270444,26 @@ const enuo_ex_triggerSet = {
         '3 (SW)': '3',
         '4 (NW)': '4'
       },
+      fr: {
+        'Aucun': 'none',
+        '1 (NE)': '1',
+        '2 (SE)': '2',
+        '3 (SO)': '3',
+        '4 (NO)': '4'
+      },
       cn: {
         '无': 'none',
         '1 (右上)': '1',
         '2 (右下)': '2',
         '3 (左下)': '3',
         '4 (左上)': '4'
+      },
+      ko: {
+        '없음': 'none',
+        '1 (북동)': '1',
+        '2 (남동)': '2',
+        '3 (남서)': '3',
+        '4 (북서)': '4'
       }
     },
     default: 'none'
@@ -270530,19 +270584,27 @@ const enuo_ex_triggerSet = {
       stack: outputs/* default.stackMarker */.Z.stackMarker,
       awayFrom: {
         en: 'Away from ${dir} + ${mech}',
-        cn: '远离 ${dir} + ${mech}'
+        fr: 'Loin de ${dir} + ${mech}',
+        cn: '远离 ${dir} + ${mech}',
+        ko: '${dir} 멀어지기 + ${mech}'
       },
       under: {
         en: '${dir} + ${mech}',
-        cn: '${dir} + ${mech}'
+        fr: '${dir} + ${mech}',
+        cn: '${dir} + ${mech}',
+        ko: '${dir} + ${mech}'
       },
       underBossAndAway: {
         en: 'Under Boss + Away from ${dir} + ${mech}',
-        cn: 'Boss 脚下 + 远离 ${dir} + ${mech}'
+        fr: 'Sous le boss + loin de ${dir} + ${mech}',
+        cn: 'Boss 脚下 + 远离 ${dir} + ${mech}',
+        ko: '보스 아래 + ${dir} 멀어지기 + ${mech}'
       },
       underPortalAndAway: {
         en: '${dir} + Away from Boss + ${mech}',
-        cn: '${dir} + 远离 Boss + ${mech}'
+        fr: '${dir} + Loin du boss + ${mech}',
+        cn: '${dir} + 远离 Boss + ${mech}',
+        ko: '${dir} + 보스 멀어지기 + ${mech}'
       }
     }
   }, {
@@ -270573,7 +270635,9 @@ const enuo_ex_triggerSet = {
     outputStrings: {
       text: {
         en: 'Bait Puddles => Stop Moving => Spread',
-        cn: '引诱黄圈 => 停止移动 => 分散'
+        fr: 'Déposez les flaques => Ne bougez plus => Écartez-vous',
+        cn: '引诱黄圈 => 停止移动 => 分散',
+        ko: '장판 유도 => 이동 멈추기 => 산개'
       }
     }
   }, {
@@ -270592,7 +270656,9 @@ const enuo_ex_triggerSet = {
     outputStrings: {
       text: {
         en: 'Stop Moving => Spread',
-        cn: '停止移动 => 分散'
+        fr: 'Ne bougez plus => Écartez-vous',
+        cn: '停止移动 => 分散',
+        ko: '이동 멈추기 => 산개'
       }
     }
   }, {
@@ -270676,7 +270742,9 @@ const enuo_ex_triggerSet = {
       CCW: outputs/* default.counterclockwise */.Z.counterclockwise,
       text: {
         en: '${dir1} ${rotation} => ${dir2}',
-        cn: '${dir1} ${rotation} => ${dir2} '
+        fr: '${dir1} ${rotation} => ${dir2}',
+        cn: '${dir1} ${rotation} => ${dir2} ',
+        ko: '${dir1} ${rotation} => ${dir2}'
       }
     }
   }, {
@@ -270713,53 +270781,42 @@ const enuo_ex_triggerSet = {
           dir: output[util/* Directions.output16Dir */.Ns.output16Dir[firstTankOrb * 2 + 1] ?? 'unknown']()
         });
       }
-      let trimmedOrbs = orbs.slice(firstTankOrb, firstTankOrb + 8);
-      const orb1Light = trimmedOrbs.findIndex(orb => orb.color === 'light');
-      const orb1Dark = trimmedOrbs.findIndex(orb => orb.color === 'dark');
-      trimmedOrbs = trimmedOrbs.filter((_orb, index) => index !== orb1Light && index !== orb1Dark);
-      const orb2Light = trimmedOrbs.findIndex(orb => orb.color === 'light');
-      const orb2Dark = trimmedOrbs.findIndex(orb => orb.color === 'dark');
-      trimmedOrbs = trimmedOrbs.filter((_orb, index) => index !== orb2Light && index !== orb2Dark);
-      const orb3Light = trimmedOrbs.findIndex(orb => orb.color === 'light');
-      const orb3Dark = trimmedOrbs.findIndex(orb => orb.color === 'dark');
-      trimmedOrbs = trimmedOrbs.filter((_orb, index) => index !== orb3Light && index !== orb3Dark);
-      const orb4Light = trimmedOrbs.findIndex(orb => orb.color === 'light');
-      const orb4Dark = trimmedOrbs.findIndex(orb => orb.color === 'dark');
-      switch (strategy) {
-        case '1':
-          return output.orbSoaks({
-            dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb1Light) % 8] ?? 'unknown'](),
-            dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb1Dark) % 8] ?? 'unknown']()
-          });
-        case '2':
-          return output.orbSoaks({
-            dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb2Light + 2) % 8] ?? 'unknown'](),
-            dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb2Dark + 2) % 8] ?? 'unknown']()
-          });
-        case '3':
-          return output.orbSoaks({
-            dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb3Light + 4) % 8] ?? 'unknown'](),
-            dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb3Dark + 4) % 8] ?? 'unknown']()
-          });
-        case '4':
-          return output.orbSoaks({
-            dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb4Light + 6) % 8] ?? 'unknown'](),
-            dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[(firstTankOrb + orb4Dark + 6) % 8] ?? 'unknown']()
-          });
-        default:
-          return output.unknown();
+      const indexes = {
+        light: 0,
+        dark: 0
+      };
+      const dirs = {
+        light: -1,
+        dark: -1
+      };
+      for (let dir = firstTankOrb; dir < firstTankOrb + 8; dir++) {
+        const {
+          color
+        } = orbs[dir];
+        indexes[color]++;
+        if (indexes[color].toString() === strategy) {
+          dirs[color] = dir % 8;
+        }
       }
+      return output.orbSoaks({
+        dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[dirs.light] ?? 'unknown'](),
+        dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[dirs.dark] ?? 'unknown']()
+      });
     },
     outputStrings: {
       ...util/* Directions.outputStrings16Dir */.Ns.outputStrings16Dir,
       unknown: outputs/* default.unknown */.Z.unknown,
       tankOrbsDir: {
         en: 'Tank orbs ${dir}',
-        cn: '坦克球在${dir} '
+        fr: 'Orbes Tank : ${dir}',
+        cn: '坦克球在${dir} ',
+        ko: '탱커 구슬 ${dir}'
       },
       orbSoaks: {
         en: '${dir1} => ${dir2}',
-        cn: '${dir1} => ${dir2} '
+        fr: '${dir1} => ${dir2}',
+        cn: '${dir1} => ${dir2} ',
+        ko: '${dir1} => ${dir2}'
       }
     }
   }, {
@@ -270793,7 +270850,9 @@ const enuo_ex_triggerSet = {
       ...util/* Directions.outputStrings16Dir */.Ns.outputStrings16Dir,
       text: {
         en: '${dir3} Close',
-        cn: '${dir3}靠近'
+        fr: '${dir3} proche',
+        cn: '${dir3}靠近',
+        ko: '${dir3} 가까이'
       }
     }
   }, {
@@ -270820,11 +270879,15 @@ const enuo_ex_triggerSet = {
     outputStrings: {
       tankFlareOnYou: {
         en: 'Tank Flare on YOU => Keep Moving',
-        cn: '坦克核爆 => 保持移动'
+        fr: 'Brasier sur VOUS => Bougez !',
+        cn: '坦克核爆 => 保持移动',
+        ko: '탱커 플레어 대상자 => 계속 움직이기'
       },
       awayFromFlares: {
         en: 'Away from tank flares => Keep Moving',
-        cn: '远离坦克核爆 => 保持移动'
+        fr: 'Loin des brasiers (Tanks) => Bougez !',
+        cn: '远离坦克核爆 => 保持移动',
+        ko: '탱커 플레어에서 멀어지기 => 계속 움직이기'
       }
     }
   }, {
@@ -270942,19 +271005,27 @@ const enuo_ex_triggerSet = {
       unknown: outputs/* default.unknown */.Z.unknown,
       cone: {
         en: 'Cone on YOU',
-        cn: '扇形点名'
+        fr: 'Cône sur VOUS',
+        cn: '扇形点名',
+        ko: '부채꼴 대상자'
       },
       tower: {
         en: 'Soak Tower',
-        cn: '踩塔'
+        fr: 'Prenez une tour',
+        cn: '踩塔',
+        ko: '탑 밟기'
       },
       conePos: {
         en: 'Aim Cone ${dir}',
-        cn: '扇形指向 ${dir}'
+        fr: 'Pointez le cône : ${dir}',
+        cn: '扇形指向 ${dir}',
+        ko: '부채꼴 조준 ${dir}'
       },
       towerPos: {
         en: 'Soak Tower ${dir}',
-        cn: '前往 ${dir} 踩塔'
+        fr: 'Prenez la tour : ${dir}',
+        cn: '前往 ${dir} 踩塔',
+        ko: '${dir} 탑 밟기'
       }
     }
   }, {
@@ -270970,7 +271041,9 @@ const enuo_ex_triggerSet = {
     outputStrings: {
       cleanse: {
         en: 'Cleanse Debuff',
-        cn: '驱散 Debuff'
+        fr: 'Guérissez le débuff',
+        cn: '驱散 Debuff',
+        ko: '디버프 해제'
       }
     }
   }, {
@@ -271007,7 +271080,9 @@ const enuo_ex_triggerSet = {
     outputStrings: {
       lookMiddle: {
         en: 'Look Middle',
-        cn: '看向场中'
+        fr: 'Regardez au milieu',
+        cn: '看向场中',
+        ko: '중앙 보기'
       }
     }
   }, {
@@ -271073,7 +271148,9 @@ const enuo_ex_triggerSet = {
       under: outputs/* default.getUnder */.Z.getUnder,
       go: {
         en: 'Go ${dir1}/${dir2} Max Melee',
-        cn: '前往 ${dir1}/${dir2} 最大近战距离'
+        fr: 'Allez ${dir1}/${dir2} Max mêlée',
+        cn: '前往 ${dir1}/${dir2} 最大近战距离',
+        ko: '${dir1}/${dir2} 칼끝딜'
       }
     }
   }, {
@@ -271109,11 +271186,130 @@ const enuo_ex_triggerSet = {
     outputStrings: {
       chasingPuddle: {
         en: 'Chasing puddle on you',
-        cn: '追踪地火点名'
+        fr: 'Flaque chassante sur VOUS',
+        cn: '追踪地火点名',
+        ko: '추적 장판 대상자'
       }
     }
   }],
   timelineReplace: [{
+    'locale': 'de',
+    'missingTranslations': true,
+    'replaceSync': {
+      'Aggressive Shadow': 'strafend(?:e|er|es|en) Hand',
+      'Enuo': 'Enuo',
+      'Looming Shadow': 'groß(?:e|er|es|en) Nichts-Silhouette',
+      'Protective Shadow': 'beschützend(?:e|er|es|en) Hand',
+      'Soothing Shadow': 'heilend(?:e|er|es|en) Hand',
+      '(?<! )Void': 'Nichtswirbel',
+      'Yawning Void': 'groß(?:e|er|es|en) Nichtswirbel'
+    },
+    'replaceText': {
+      'Airy Emptiness': 'Streuende Welle',
+      'All for Naught': 'Nichts-Territorium',
+      'Almagest': 'Almagest',
+      'Curse of the Flesh': 'Miasma-Fluch',
+      'Deep Freeze': 'Tiefenfrost',
+      'Demon Eye': 'Dämonenauge',
+      'Dense Emptiness': 'Sammelnde Welle',
+      'Dimension Zero': 'Dimension Null',
+      'Empty Shadow': 'Last der Leere',
+      'Endless Chase': 'Suchende Welle',
+      'Gaze of the Void': 'Chaotischer Strom',
+      'Great Return to Nothing': 'Große Welle der Wiederkehr',
+      'Lightless World': 'Lichtlose Welt',
+      'Looming Emptiness': 'Schwere Last der Leere',
+      'Meltdown': 'Komplettschmelze',
+      'Meteorain': 'Meteorregen',
+      'Naught Grows': 'Anschwellen des Nichts',
+      'Naught Hunts': 'Verfolgung des Nichts',
+      'Nothingness': 'Welle der Leere',
+      'Passage of Naught': 'Sammelwelle',
+      '(?<! )Return to Nothing': 'Welle der Wiederkehr',
+      'Shrouded Holy': 'Schattenheiligtum',
+      'Silent Torrent': 'Reißender Strom',
+      'Voidal Turbulence': 'Nichtsstrudel',
+      'Weight of Nothing': 'Hochdruckwelle'
+    }
+  }, {
+    'locale': 'fr',
+    'missingTranslations': true,
+    'replaceSync': {
+      'Aggressive Shadow': 'main assaillante de l\'ombre insondable',
+      'Enuo': 'Énuo',
+      'Looming Shadow': 'grande ombre insondable',
+      'Protective Shadow': 'main protectrice de l\'ombre insondable',
+      'Soothing Shadow': 'main guérisseuse de l\'ombre insondable',
+      '(?<! )Void': 'vortex de néant',
+      'Yawning Void': 'grand vortex de néant'
+    },
+    'replaceText': {
+      'Airy Emptiness': 'Onde diffusée',
+      'All for Naught': 'Domaine du néant',
+      'Almagest': 'Almageste',
+      'Curse of the Flesh': 'Malédiction pathogène',
+      'Deep Freeze': 'Congélation ancestrale',
+      'Demon Eye': 'Œil diabolique',
+      'Dense Emptiness': 'Onde concentrée',
+      'Dimension Zero': 'Dimension zéro',
+      'Empty Shadow': 'Impact de vacuité',
+      'Endless Chase': 'Néant traqueur',
+      'Gaze of the Void': 'Torrents chaotiques',
+      'Great Return to Nothing': 'Grande onde régressive',
+      'Lightless World': 'Monde sans Lumière',
+      'Looming Emptiness': 'Grand impact de vacuité',
+      'Meltdown': 'Fusion ancestrale',
+      'Meteorain': 'Pluie de météorites',
+      'Naught Grows': 'Abcès du néant',
+      'Naught Hunts': 'Poursuite du néant',
+      'Nothingness': 'Rayon du néant',
+      'Passage of Naught': 'Onde accumulatrice',
+      '(?<! )Return to Nothing': 'Onde régressive',
+      'Shrouded Holy': 'Miracle d\'ombre',
+      'Silent Torrent': 'Flot d\'énergie',
+      'Voidal Turbulence': 'Maelström du néant',
+      'Weight of Nothing': 'Onde de particules haute tension'
+    }
+  }, {
+    'locale': 'ja',
+    'missingTranslations': true,
+    'replaceSync': {
+      'Aggressive Shadow': '虚ろなる影の攻め手',
+      'Enuo': 'エヌオー',
+      'Looming Shadow': '虚ろなる巨影',
+      'Protective Shadow': '虚ろなる影の護り手',
+      'Soothing Shadow': '虚ろなる影の癒し手',
+      '(?<! )Void': '無の渦',
+      'Yawning Void': '無の大渦'
+    },
+    'replaceText': {
+      'Airy Emptiness': '拡散波動',
+      'All for Naught': '無の領域',
+      'Almagest': 'アルマゲスト',
+      'Curse of the Flesh': '病の呪詛',
+      'Deep Freeze': 'ディープフリーズ',
+      'Demon Eye': '悪魔の瞳',
+      'Dense Emptiness': '集束波動',
+      'Dimension Zero': 'ディメンションゼロ',
+      'Empty Shadow': '虚ろなる衝撃',
+      'Endless Chase': '追尾波動',
+      'Gaze of the Void': '混沌の激流',
+      'Great Return to Nothing': '回帰の重波動',
+      'Lightless World': 'ライトレス・ワールド',
+      'Looming Emptiness': '虚ろなる大衝撃',
+      'Meltdown': 'メルトダウン',
+      'Meteorain': 'メテオレイン',
+      'Naught Grows': '無の肥大',
+      'Naught Hunts': '無の追跡',
+      'Nothingness': '無の波動',
+      'Passage of Naught': '集積波動',
+      '(?<! )Return to Nothing': '回帰の波動',
+      'Shrouded Holy': 'シャドウホーリー',
+      'Silent Torrent': '奔流',
+      'Voidal Turbulence': '無の渦流',
+      'Weight of Nothing': '高圧波動'
+    }
+  }, {
     'locale': 'cn',
     'replaceSync': {
       'Aggressive Shadow': '虚无之攻影',
@@ -271127,15 +271323,13 @@ const enuo_ex_triggerSet = {
     'replaceText': {
       '--Add': '--小怪',
       '--Tower adds': '--塔小怪',
-      '(?<!un)targetable--': '可选中--',
+      '(?<= )targetable--': '可选中--',
       '\\(active\\)': '(激活)',
-      '\\(castbar\\)': '(咏唱栏)',
-      '\\(enrage\\)': '(狂暴)',
+      '\\(big\\)': '(大)',
       '\\(lines\\)': '(直线)',
       '\\(puddles\\)': '(黄圈)',
-      '\\(puddle baits': '(诱导黄圈',
+      '\\(puddle baits \\+ pyretic\\)': '(诱导黄圈 + 热病)',
       '\\(puddle explodes\\)': '(黄圈爆炸)',
-      'pyretic\\)': '热病)',
       '\\(spread\\)': '(分散)',
       'Airy Emptiness': '扩散波动',
       'Almagest': '至高无上',
@@ -271163,11 +271357,467 @@ const enuo_ex_triggerSet = {
       'Voidal Turbulence': '无之涡流',
       'Weight of Nothing': '高压波动'
     }
+  }, {
+    'locale': 'ko',
+    'replaceSync': {
+      'Aggressive Shadow': '공허한 그림자의 공격수',
+      'Enuo': '에누오',
+      'Looming Shadow': '공허한 큰 그림자',
+      'Protective Shadow': '공허한 그림자의 수호자',
+      'Soothing Shadow': '공허한 그림자의 치유사',
+      '(?<! )Void': '무의 소용돌이',
+      'Yawning Void': '무의 큰 소용돌이'
+    },
+    'replaceText': {
+      '--Add': '--쫄',
+      '--Tower adds': '--탑 쫄',
+      '(?<= )targetable--': '타겟가능--',
+      '\\(puddle baits \\+ pyretic\\)': '(장판 유도 + 열병)',
+      '\\(puddle explodes\\)': '(장판 폭발)',
+      '\\(spread\\)': '(산개)',
+      '\\(lines\\)': '(선)',
+      '\\(puddles\\)': '(장판)',
+      '\\(big\\)': '(강력)',
+      '\\(active\\)': '(활성)',
+      'Airy Emptiness': '확산 파동',
+      'All for Naught': '무의 영역',
+      'Almagest': '알마게스트',
+      'Curse of the Flesh': '질병의 저주',
+      'Deep Freeze': '극한 동결',
+      'Demon Eye': '악마의 눈동자',
+      'Dense Emptiness': '집속 파동',
+      'Dimension Zero': '0차원',
+      'Empty Shadow': '공허한 충격',
+      'Endless Chase': '추적 파동',
+      'Gaze of the Void': '혼돈의 격류',
+      'Great Return to Nothing': '회귀의 대파동',
+      'Lightless World': '빛이 없는 세계',
+      'Looming Emptiness': '공허한 대충격',
+      'Meltdown': '용융',
+      'Meteorain': '메테오 레인',
+      'Naught Grows': '무의 비대',
+      'Naught Hunts': '무의 추적',
+      'Nothingness': '무의 파동',
+      'Passage of Naught': '집적 파동',
+      '(?<! )Return to Nothing': '회귀의 파동',
+      'Shrouded Holy': '섀도우 홀리',
+      'Silent Torrent': '급류',
+      'Voidal Turbulence': '무의 맴돌이',
+      'Weight of Nothing': '고압 파동'
+    }
   }]
 };
 /* harmony default export */ const enuo_ex = (enuo_ex_triggerSet);
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/enuo-ex.txt
 const trial_enuo_ex_namespaceObject = "### THE UNMAKING (EXTREME)\r\n# ZoneId: 1362\r\n\r\n# -ii C0D9 C311 C312 C335 C336 C337 C338 C34A C34C C34D C34F C350 C351 C352 C353 C354 C356 C357 C35B C35C C35F C360 C364 C366 C368 C36D C370 C371 C374 C37B C37D C37F C63F C640 C641\r\n# -it \"Enuo\" \"Looming Shadow\" \"Aggressive Shadow\" \"Soothing Shadow\" \"Protective Shadow\" \"Beacon in the Dark\"\r\n# -p C36D:500\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n0.0 \"--Reset--\" ActorControl { command: \"4000000F\" } window 0,100000 jump 0\r\n\r\n## Intro\r\n0.0 \"--sync--\" InCombat { inGameCombat: \"1\" } window 0,1\r\n9.2 \"--sync--\" StartsUsing { id: \"C381\", source: \"Enuo\" } window 9.2,2\r\n14.2 \"Meteorain\" Ability { id: \"C381\", source: \"Enuo\" }\r\n\r\n19.3 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n29.7 \"Naught Grows\" #Ability { id: \"C339\", source: \"Yawning Void\" }\r\n30.4 \"Return to Nothing/Great Return to Nothing\" Ability { id: [\"C33F\", \"C340\"], source: \"Void\" }\r\n43.8 \"Meltdown (puddle baits + pyretic)\" Ability { id: \"C378\", source: \"Enuo\" }\r\n49.4 \"Meltdown (puddle explodes)\" Ability { id: \"C379\", source: \"Enuo\" }\r\n\r\n50.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n50.5 \"Meltdown (spread)\" Ability { id: \"C37A\", source: \"Enuo\" }\r\n57.4 \"Airy Emptiness/Dense Emptiness\" Ability { id: [\"C372\", \"C373\"], source: \"Enuo\" }\r\n67.8 \"Naught Grows\" #Ability { id: \"C33A\", source: \"Yawning Void\" }\r\n68.6 \"Great Return to Nothing/Return to Nothing\" Ability { id: [\"C340\", \"C33F\"], source: \"Void\" }\r\n\r\n75.0 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n84.2 \"Gaze of the Void x10\" duration 3.6 #Ability { id: \"C355\", source: \"Enuo\" }\r\n\r\n115.3 \"Silent Torrent x7 (lines)\" #Ability { id: \"C34B\", source: \"Void\" }\r\n115.7 \"Silent Torrent x7 (puddles)\" #Ability { id: \"C34E\", source: \"Enuo\" }\r\n\r\n115.7 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n123.0 \"Dense Emptiness/Airy Emptiness\" Ability { id: [\"C373\", \"C372\"], source: \"Enuo\" }\r\n134.1 \"Deep Freeze\" Ability { id: \"C37C\", source: \"Enuo\" }\r\n141.2 \"Meteorain\" Ability { id: \"C381\", source: \"Enuo\" }\r\n\r\n147.4 \"--north--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n154.8 \"All for Naught\" Ability { id: \"C35A\", source: \"Enuo\" }\r\n154.9 \"--untargetable--\"\r\n\r\n## Add phase\r\n# Add phase timeline is a pain. First towers spawn at a fixed point, but second towers spawn\r\n# a few seconds after first set of solo adds are killed, and beacon spawns when middle add dies,\r\n# but that might be delayed if the solo adds aren't killed first.\r\n174.9 \"Looming Emptiness\" Ability { id: \"C33E\", source: \"Looming Shadow\" }\r\n174.9 \"--Add targetable--\"\r\n# Loop towers from early cast sync\r\n176.9 \"--sync--\" StartsUsing { id: \"C35D\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] } window 2.5,120\r\n183.9 \"Empty Shadow\" Ability { id: \"C35D\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n184.2 \"Voidal Turbulence\" #Ability { id: \"C376\", source: \"Enuo\" }\r\n185.4 \"--Tower adds targetable--\"\r\n# It is expected that the following three lines miss syncs in timeline testing, as which ability happens depends\r\n# on what roles are soaking towers\r\n189.1 \"Curse of the Flesh?\" Ability { id: \"C369\", source: \"Soothing Shadow\" }\r\n191.1 \"Demon Eye?\" Ability { id: \"C367\", source: \"Aggressive Shadow\" }\r\n198.3 \"Weight of Nothing?\" Ability { id: \"C365\", source: \"Protective Shadow\" }\r\n210.5 \"--Tower adds enrage--\" #Ability { id: \"C35E\", source: \"Looming Shadow\" }\r\n\r\n# MapEffect fires as looming shadow dies\r\n300.0 \"--sync--\" MapEffect { flags: \"00200010\", location: \"01\" } window 125,0\r\n302.5 label \"beacon-loop\"\r\n302.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n305.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n308.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n311.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n314.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] }\r\n317.5 \"Nothingness\" Ability { id: \"C361\", source: [\"Aggressive Shadow\", \"Soothing Shadow\", \"Protective Shadow\"] } forcejump \"beacon-loop\"\r\n\r\n# MapEffect fires as beacon dies\r\n486.2 \"--sync--\" MapEffect { flags: \"02000100\", location: \"01\" } window 400,0\r\n\r\n## Phase 2\r\n494.7 \"--targetable--\"\r\n505.7 \"Lightless World x5\" duration 1.8 #Ability { id: \"C36E\", source: \"Enuo\" }\r\n507.9 \"Lightless World (big)\" Ability { id: \"C36F\", source: \"Enuo\" }\r\n519.7 \"Almagest\" Ability { id: \"C334\", source: \"Enuo\" }\r\n\r\n523.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n533.5 \"Naught Grows x2\" #Ability { id: \"C33B\", source: \"Enuo\" }\r\n534.2 \"Return to Nothing/Great Return to Nothing\" Ability { id: [\"C33F\", \"C340\"], source: \"Void\" }\r\n549.6 \"Passage of Naught\" #Ability { id: \"C343\", source: \"Enuo\" }\r\n560.9 \"Passage of Naught\" #Ability { id: \"C342\", source: \"Yawning Void\" }\r\n566.9 \"Shrouded Holy\" Ability { id: \"C37E\", source: \"Enuo\" }\r\n\r\n572.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n582.2 \"Naught Grows x2\" #Ability { id: \"C339\", source: \"Yawning Void\" }\r\n583.1 \"Return to Nothing/Great Return to Nothing\" Ability { id: [\"C33F\", \"C340\"], source: \"Void\" }\r\n593.6 \"Dimension Zero x3\" duration 2.6 #Ability { id: \"C380\", source: \"Enuo\" }\r\n\r\n601.6 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n611.7 \"Silent Torrent x7 (lines)\" #Ability { id: \"C34B\", source: \"Void\" }\r\n612.1 \"Meltdown (puddle baits + pyretic)\" Ability { id: \"C378\", source: \"Enuo\" }\r\n612.1 \"Silent Torrent x7 (puddles)\" #Ability { id: \"C34E\", source: \"Enuo\" }\r\n617.5 \"Meltdown (puddle explodes)\" Ability { id: \"C379\", source: \"Enuo\" }\r\n618.5 \"Meltdown (spread)\" Ability { id: \"C37A\", source: \"Enuo\" }\r\n\r\n623.2 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n632.2 \"Gaze of the Void x10\" duration 3.6 #Ability { id: \"C355\", source: \"Enuo\" }\r\n664.2 \"Almagest\" Ability { id: \"C334\", source: \"Enuo\" }\r\n\r\n670.4 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n682.9 \"Naught Hunts\" Ability { id: \"C348\", source: \"Enuo\" }\r\n683.9 \"Passage of Naught\" #Ability { id: \"C343\", source: \"Enuo\" }\r\n683.9 \"Endless Chase (active)\" duration 16.9 #Ability { id: \"BD5B\", source: \"Void\" }\r\n705.4 \"Passage of Naught\" #Ability { id: \"C341\", source: \"Yawning Void\" }\r\n711.4 \"Airy Emptiness/Dense Emptiness\" Ability { id: [\"C372\", \"C373\"], source: \"Enuo\" }\r\n722.6 \"Naught Hunts\" Ability { id: \"C348\", source: \"Enuo\" }\r\n723.6 \"Passage of Naught\" #Ability { id: \"C342\", source: \"Yawning Void\" }\r\n723.6 \"Endless Chase (active)\" duration 16.9 #Ability { id: \"BD5B\", source: \"Void\" }\r\n\r\n745.1 \"Passage of Naught\" Ability { id: \"C341\", source: \"Yawning Void\" }\r\n751.1 \"Airy Emptiness/Dense Emptiness\" Ability { id: [\"C372\", \"C373\"], source: \"Enuo\" }\r\n760.4 \"Dimension Zero x4\" duration 3.9 #Ability { id: \"C380\", source: \"Enuo\" }\r\n774.7 \"Almagest\" Ability { id: \"C334\", source: \"Enuo\" }\r\n\r\n778.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n788.4 \"Naught Grows x2\" #Ability { id: \"C339\", source: \"Yawning Void\" }\r\n789.2 \"Return to Nothing/Great Return to Nothing\" Ability { id: [\"C33F\", \"C340\"], source: \"Void\" }\r\n804.6 \"Passage of Naught\" #Ability { id: \"C343\", source: \"Enuo\" }\r\n815.9 \"Passage of Naught\" #Ability { id: \"C343\", source: \"Enuo\" }\r\n821.9 \"Deep Freeze\" Ability { id: \"C37C\", source: \"Enuo\" }\r\n\r\n826.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n836.2 \"Naught Grows x2\" #Ability { id: \"C339\", source: \"Yawning Void\" }\r\n837.1 \"Return to Nothing/Great Return to Nothing\" Ability { id: [\"C33F\", \"C340\"], source: \"Void\" }\r\n847.9 \"Dimension Zero\" duration 3.9 #Ability { id: \"C380\", source: \"Enuo\" }\r\n862.3 \"Meteorain\" Ability { id: \"C381\", source: \"Enuo\" }\r\n872.4 \"Meteorain\" Ability { id: \"C381\", source: \"Enuo\" }\r\n\r\n878.5 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n889.6 \"Almagest (enrage)\" Ability { id: \"C382\", source: \"Enuo\" }\r\n\r\n\r\n# IGNORED ABILITIES\r\n# C0D9 Looming Emptiness: VFX or blue circle?\r\n# C311 --sync--: Enuo autoattack\r\n# C312 --sync--: Add death animation vfx?\r\n# C335 Naught Wakes: castbar to signify voids moving\r\n# C336 --sync--: Void teleport animation VFX\r\n# C337 Naught Grows: Castbar only\r\n# C338 Naught Grows: Castbar only\r\n# C34A Vacuum: VFX for silent torrent lines prep\r\n# C34C Silent Torrent: Medium line?\r\n# C34D Silent Torrent: Long line?\r\n# C34F Silent Torrent: Medium puddle?\r\n# C350 Silent Torrent: Big/far puddle?\r\n# C351 Vacuum: VFX for silent torrent lines end\r\n# C352 Gaze of the Void: Castbar for clockwise\r\n# C353 Gaze of the Void: Castbar for counter clockwise\r\n# C354 Gaze of the Void: VFX for glowing orb\r\n# C356 Burst: Gaze orb soak\r\n# C357 Violent Burst: Gaze tank orb soak\r\n# C35B Looming Emptiness: VFX or blue circle?\r\n# C35C --sync--: Tower add spawn VFX?\r\n# C35F --sync--: Tank/healer tower add autoattack\r\n# C360 --sync--: Big add autoattack\r\n# C364 Weight of Nothing: Tank interrupt, castbar only\r\n# C366 Demon Eye: Gaze attack castbar\r\n# C368 Curse of the Flesh: Healer debuff, castbar only\r\n# C36D Lightless World: P2 transition, castbar only. For some reason ignoring this prevents `-p` from working?\r\n# C370 Airy Emptiness: Partner stacks, castbar only\r\n# C371 Dense Emptiness: Healer stacks, castbar only\r\n# C374 Voidal Turbulence: Add phase cones, castbar only\r\n# C37B Deep Freeze: Tank flares, castbar only\r\n# C37D Shrouded Holy: Healer stacks, castbar only\r\n# C37F Dimension Zero: Line stack, castbar only\r\n# C63F --sync--: Something related to add phase tank add\r\n# C640 --sync--: Something related to add phase DPS add\r\n# C641 --sync--: Something related to add phase healer add\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# BD5B Endless Chase: Initial telegraphed aoe for chasing puddle\r\n# C0D9 Looming Emptiness: VFX or blue circle?\r\n# C307 --sync--: Enuo teleport/jump animation\r\n# C311 --sync--: Enuo autoattack\r\n# C312 --sync--: Add death animation vfx?\r\n# C334 Almagest: raidwide\r\n# C335 Naught Wakes: castbar to signify voids moving\r\n# C336 --sync--: Void teleport animation VFX\r\n# C337 Naught Grows: Castbar only\r\n# C338 Naught Grows: Castbar only\r\n# C339 Naught Grows: aoe around boss\r\n# C33A Naught Grows: donut around boss\r\n# C33B Naught Grows: aoe around void\r\n# C33C Naught Grows: donut around void\r\n# C33E Looming Emptiness: Add phase knockback\r\n# C33F Return to Nothing: Healer stacks wild charge\r\n# C340 Great Return to Nothing: Party stack wild charge\r\n# C341 Passage of Naught: Void portal line attack\r\n# C342 Passage of Naught: Void portal line attack\r\n# C343 Passage of Naught: Void portal line attack\r\n# C348 Naught Hunts: Castbar for chasing puddle\r\n# C349 Endless Chase: Actual chasing puddle aoe\r\n# C34A Vacuum: VFX for silent torrent lines prep\r\n# C34B Silent Torrent: Short line?\r\n# C34C Silent Torrent: Medium line?\r\n# C34D Silent Torrent: Long line?\r\n# C34E Silent Torrent: Small/close puddle?\r\n# C34F Silent Torrent: Medium puddle?\r\n# C350 Silent Torrent: Big/far puddle?\r\n# C351 Vacuum: VFX for silent torrent lines end\r\n# C352 Gaze of the Void: Castbar for clockwise\r\n# C353 Gaze of the Void: Castbar for counter clockwise\r\n# C354 Gaze of the Void: VFX for glowing orb\r\n# C355 Gaze of the Void: Actual cone attacks\r\n# C356 Burst: Gaze orb soak\r\n# C357 Violent Burst: Gaze tank orb soak\r\n# C35A All for Naught: Phase transition cast, does nothing / VFX only\r\n# C35B Looming Emptiness: VFX or blue circle?\r\n# C35C --sync--: Tower add spawn VFX?\r\n# C35D Empty Shadow: Add phase towers\r\n# C35E Big Burst: Tower/solo add enrage\r\n# C35F --sync--: Tank/healer tower add autoattack\r\n# C360 --sync--: Big add autoattack\r\n# C361 Nothingness: Add phase line attack\r\n# C362 Drain Touch: Mechanics failure of some sort?\r\n# C363 Drain Touch: Mechanics failure of some sort?\r\n# C364 Weight of Nothing: Tank interrupt, castbar only\r\n# C365 Weight of Nothing: Tank interrupt, actual hit\r\n# C366 Demon Eye: Gaze attack castbar\r\n# C367 Demon Eye: Gaze attack, actual look away ability\r\n# C368 Curse of the Flesh: Healer debuff, castbar only\r\n# C369 Curse of the Flesh: Healer debuff, actual hit\r\n# C36D Lightless World: P2 transition, castbar only\r\n# C36E Lightless World: P2 transition, small hits\r\n# C36F Lightless World: P2 transition, big hit\r\n# C370 Airy Emptiness: Partner stacks, castbar only\r\n# C371 Dense Emptiness: Healer stacks, castbar only\r\n# C372 Airy Emptiness: Partner stacks, actual hit\r\n# C373 Dense Emptiness: Healer stacks, actual hit\r\n# C374 Voidal Turbulence: Add phase cones, castbar only\r\n# C376 Voidal Turbulence: Add phase cones, actual hit\r\n# C378 Meltdown: Puddle bait + pyretic debuff (Chains of Condemnation)\r\n# C379 Meltdown: Puddle explosion\r\n# C37A Meltdown: Spread\r\n# C37B Deep Freeze: Tank flares, castbar only\r\n# C37C Deep Freeze: Tank flares, actual damage\r\n# C37D Shrouded Holy: Healer stacks, castbar only\r\n# C37E Shrouded Holy: Healer stacks, actual damage\r\n# C37F Dimension Zero: Line stack, castbar only\r\n# C380 Dimension Zero: Line stack, actual damage\r\n# C381 Meteorain: raidwide\r\n# C382 Almagest: Enrage\r\n# C63F --sync--: Something related to add phase tank add\r\n# C640 --sync--: Something related to add phase DPS add\r\n# C641 --sync--: Something related to add phase healer add\r\n# C66F Self-destruct: DPS add, DPS check failure\r\n";
+;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/enuo.ts
+
+
+
+
+
+const enuo_center = {
+  x: 100,
+  y: 100
+};
+const enuo_triggerSet = {
+  id: 'TheUnmaking',
+  zoneId: zone_id/* default.TheUnmaking */.Z.TheUnmaking,
+  timelineFile: 'enuo.txt',
+  initData: () => ({
+    naughtGrowsPositions: [],
+    gazeDir: 'CW',
+    flareTargets: []
+  }),
+  triggers: [{
+    id: 'Enuo Meteorain',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C333',
+      source: 'Enuo',
+      capture: false
+    },
+    durationSeconds: 4.7,
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'Enuo Almagest',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C308',
+      source: 'Enuo',
+      capture: false
+    },
+    durationSeconds: 5,
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'Enuo Lightless World',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C327',
+      source: 'Enuo',
+      capture: false
+    },
+    durationSeconds: 8.3,
+    response: responses/* Responses.bigAoe */.n3.bigAoe()
+  }, {
+    id: 'Enuo Naught Grows',
+    type: 'StartsUsingExtra',
+    netRegex: {
+      id: ['C30D', 'C30E'],
+      capture: true
+    },
+    preRun: (data, matches) => {
+      let dir;
+      const x = parseFloat(matches.x);
+      const y = parseFloat(matches.y);
+      if (Math.abs(x - enuo_center.x) < 1 && Math.abs(y - enuo_center.y) < 1) {
+        dir = 'middle';
+      } else {
+        dir = util/* Directions.xyTo8DirOutput */.Ns.xyTo8DirOutput(x, y, enuo_center.x, enuo_center.y);
+      }
+      data.naughtGrowsPositions.push(dir);
+    },
+    delaySeconds: 0.5,
+    durationSeconds: 6,
+    infoText: (data, _matches, output) => {
+      if (data.naughtGrowsPositions.length === 0) return;
+      const [pos1, pos2] = data.naughtGrowsPositions;
+      // Clear data here instead of in run due to variable count of entries
+      data.naughtGrowsPositions = [];
+      if (pos1 === undefined) return;
+
+      // Four possible patterns: Single, Double with one under boss, Double at opposite sides, Double with overlap
+      // Single
+      if (pos2 === undefined) return output.awayFrom({
+        dir: output[pos1]()
+      });
+
+      // Double with one under boss
+      if (pos1 === 'middle' || pos2 === 'middle') {
+        const awayFromDir = pos1 === 'middle' ? pos2 : pos1;
+        const dirOutput = output[awayFromDir]();
+        return output.awayFromAndOut({
+          dir: dirOutput
+        });
+      }
+
+      // Double and opposite
+      const dir1Num = util/* Directions.output8Dir.indexOf */.Ns.output8Dir.indexOf(pos1);
+      const dir2Num = util/* Directions.output8Dir.indexOf */.Ns.output8Dir.indexOf(pos2);
+      if (dir1Num % 4 === dir2Num % 4) {
+        const safe1Dir = util/* Directions.output8Dir */.Ns.output8Dir[(dir1Num + 2) % 8];
+        const safe2Dir = util/* Directions.output8Dir */.Ns.output8Dir[(dir2Num + 2) % 8];
+        if (safe1Dir === undefined || safe2Dir === undefined) return;
+        const dir1Output = output[safe1Dir]();
+        const dir2Output = output[safe2Dir]();
+        return output.goDirections({
+          dir1: dir1Output,
+          dir2: dir2Output
+        });
+      }
+
+      // Double with overlap
+      const safeDir8Num = (dir1Num + 3) % 8 === dir2Num ? dir2Num + 2 : dir1Num + 2;
+      // Convert to 16, add 1
+      const safeDir16Num = (safeDir8Num * 2 + 1) % 16;
+      return output.goDir({
+        dir: output[util/* Directions.output16Dir */.Ns.output16Dir[safeDir16Num] ?? 'unknown']()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings8Dir */.Ns.outputStrings8Dir,
+      ...util/* Directions.outputStrings16Dir */.Ns.outputStrings16Dir,
+      middle: outputs/* default.middle */.Z.middle,
+      awayFrom: {
+        en: 'Away from ${dir}',
+        cn: '远离 ${dir}'
+      },
+      awayFromAndOut: {
+        en: 'Away from ${dir} + Out',
+        cn: '远离 ${dir} + 出去'
+      },
+      goDirections: {
+        en: 'Go ${dir1}/${dir2} + Max Melee',
+        cn: '前往 ${dir1}/${dir2} + 最大近战距离'
+      },
+      goDir: {
+        en: 'Go ${dir} + Max Melee',
+        cn: '前往 ${dir} + 最大近战距离'
+      }
+    }
+  }, {
+    id: 'Enuo Gaze of the Void CW',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C31F',
+      source: 'Enuo',
+      capture: false
+    },
+    run: data => data.gazeDir = 'CW'
+  }, {
+    id: 'Enuo Gaze of the Void CCW',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C320',
+      source: 'Enuo',
+      capture: false
+    },
+    run: data => data.gazeDir = 'CCW'
+  }, {
+    id: 'Enuo Gaze of the Void',
+    type: 'StartsUsingExtra',
+    netRegex: {
+      id: 'C321',
+      capture: true
+    },
+    delaySeconds: 0.2,
+    durationSeconds: 11.3,
+    suppressSeconds: 30,
+    infoText: (data, matches, output) => {
+      const coneDir = util/* Directions.hdgTo8DirNum */.Ns.hdgTo8DirNum(parseFloat(matches.heading));
+      let startDir;
+      let endDir;
+      if (data.gazeDir === 'CW') {
+        startDir = (coneDir + 8 - 1) % 8;
+        endDir = (coneDir + 2) % 8;
+      } else {
+        startDir = (coneDir + 1) % 8;
+        endDir = (coneDir + 8 - 2) % 8;
+      }
+      return output.text({
+        rotation: output[data.gazeDir](),
+        dir1: output[util/* Directions.output8Dir */.Ns.output8Dir[startDir] ?? 'unknown'](),
+        dir2: output[util/* Directions.output8Dir */.Ns.output8Dir[endDir] ?? 'unknown']()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings8Dir */.Ns.outputStrings8Dir,
+      CW: outputs/* default.clockwise */.Z.clockwise,
+      CCW: outputs/* default.counterclockwise */.Z.counterclockwise,
+      text: {
+        en: '${dir1} ${rotation} => ${dir2}',
+        cn: '${dir1} ${rotation} => ${dir2}'
+      }
+    }
+  }, {
+    id: 'Enuo Deep Freeze',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C32E',
+      source: 'Enuo',
+      capture: true
+    },
+    preRun: (data, matches) => {
+      data.flareTargets.push(matches.target);
+    },
+    delaySeconds: 0.1,
+    durationSeconds: 6,
+    infoText: (data, _matches, output) => {
+      if (data.flareTargets.length < 2) return;
+      if (data.flareTargets.includes(data.me)) return output.tankFlareOnYou();
+      return output.awayFromFlares();
+    },
+    run: data => {
+      data.flareTargets = [];
+    },
+    outputStrings: {
+      tankFlareOnYou: {
+        en: 'Tank Flare on YOU',
+        cn: '坦克核爆点名'
+      },
+      awayFromFlares: {
+        en: 'Away from tank flares',
+        cn: '远离坦克核爆'
+      }
+    }
+  }, {
+    id: 'Enuo Shrouded Holy',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C32F',
+      source: 'Enuo',
+      capture: true
+    },
+    durationSeconds: 5,
+    response: responses/* Responses.stackMarkerOn */.n3.stackMarkerOn()
+  }, {
+    id: 'Enuo Dimension Zero Headmarker',
+    type: 'HeadMarker',
+    netRegex: {
+      id: '02CF',
+      data0: '1[0-9A-F]{7}',
+      capture: true
+    },
+    durationSeconds: 7.7,
+    infoText: (data, matches, output) => {
+      const member = data.party.nameFromId(matches.data0);
+      return output.stackMarkerOn({
+        player: data.party.member(member)
+      });
+    },
+    outputStrings: {
+      stackMarkerOn: outputs/* default.stackOnPlayer */.Z.stackOnPlayer
+    }
+  }, {
+    id: 'Enuo Naught Hunts Tether',
+    type: 'Tether',
+    netRegex: {
+      id: '0194',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    durationSeconds: 13.8,
+    countdownSeconds: 13.8,
+    infoText: (_data, _matches, output) => output.chasingPuddle(),
+    outputStrings: {
+      chasingPuddle: {
+        en: 'Chasing puddle on you',
+        cn: '追踪地火点名'
+      }
+    }
+  }, {
+    id: 'Enuo Naught Hunts Another Tether',
+    type: 'Tether',
+    netRegex: {
+      id: '0195',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    durationSeconds: 13.3,
+    countdownSeconds: 13.3,
+    infoText: (_data, _matches, output) => output.chasingPuddle(),
+    outputStrings: {
+      chasingPuddle: {
+        en: 'Chasing puddle on you',
+        cn: '追踪地火点名'
+      }
+    }
+  }, {
+    id: 'Enuo Meltdown',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C32A',
+      source: 'Enuo',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Bait puddles => spread',
+        cn: '诱导黄圈 => 分散'
+      }
+    }
+  }, {
+    id: 'Enuo Silent Torrent',
+    type: 'StartsUsingExtra',
+    netRegex: {
+      id: 'C317',
+      capture: false
+    },
+    alertText: (_data, _matches, output) => output.avoid(),
+    outputStrings: {
+      avoid: {
+        en: 'Avoid Line Ends',
+        de: 'Weiche den Enden der Linien aus',
+        fr: 'Évitez les fins de lignes',
+        ja: '線の端から離れる',
+        cn: '远离线末端',
+        ko: '선의 끝부분 피하기',
+        tc: '遠離線末端'
+      }
+    }
+  }, {
+    id: 'Enuo Looming Emptiness',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C33D',
+      source: 'Looming Shadow',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => output.away(),
+    outputStrings: {
+      away: {
+        en: 'Away from proximity marker',
+        cn: '远离距离衰减标记'
+      }
+    }
+  }, {
+    id: 'Enuo Add Spawn',
+    type: 'NameToggle',
+    netRegex: {
+      name: 'Looming Shadow',
+      toggle: '01',
+      capture: false
+    },
+    suppressSeconds: 9999,
+    infoText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Kill adds',
+        cn: '击杀小怪'
+      }
+    }
+  }, {
+    id: 'Enuo Beacon Spawn',
+    type: 'MapEffect',
+    netRegex: {
+      flags: '00020001',
+      location: '03',
+      capture: false
+    },
+    suppressSeconds: 9999,
+    infoText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'Kill light beacon',
+        cn: '击杀光之征兆'
+      }
+    }
+  }],
+  timelineReplace: [{
+    'locale': 'cn',
+    'replaceSync': {
+      'Enuo': '恩欧',
+      'Looming Shadow': '虚无巨影',
+      'Uncast Shadow': '虚无之影',
+      '(?<! )Void': '无之漩涡',
+      'Yawning Void': '无之巨漩涡'
+    },
+    'replaceText': {
+      '--beacon targetable--': '--光之征兆可选中--',
+      '\\(active\\)': '(激活)',
+      '\\(big\\)': '(大)',
+      '\\(castbar\\)': '(咏唱栏)',
+      '\\(lines\\)': '(直线)',
+      '\\(puddles\\)': '(黄圈)',
+      '\\(puddle baits\\)': '(诱导黄圈)',
+      '\\(spreads\\)': '(分散)',
+      '\\(Tether\\)': '(连线)',
+      'All for Naught': '无之领域',
+      'Almagest': '至高无上',
+      'Deep Freeze': '深度冻结',
+      'Dimension Zero': '零次元',
+      'Empty Shadow': '虚无冲击',
+      'Endless Chase': '追尾波动',
+      'Gaze of the Void': '混沌激流',
+      'Lightless World': '无光的世界',
+      'Looming Emptiness': '虚无大冲击',
+      'Meltdown': '核心熔毁',
+      'Meteorain': '流星雨',
+      'Naught Grows': '无之膨胀',
+      'Naught Hunts(?! )': '无之追踪',
+      'Naught Hunts Another': '无之再追踪',
+      'Naught Wakes': '无之活性',
+      'Nothingness': '无之波动',
+      'Shrouded Holy': '暗影神圣',
+      'Silent Torrent': '奔流',
+      'Vacuum': '无之漩涡'
+    }
+  }]
+};
+/* harmony default export */ const enuo = (enuo_triggerSet);
+;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/enuo.txt
+const trial_enuo_namespaceObject = "### THE UNMAKING\r\n# ZoneId: 1361\r\n\r\n# -ii C30A C310 C312 C31E C31F C320 C323 C32D C5EB\r\n# -ic \"Golbez\"\r\n# -it \"Enuo\" \"Uncast Shadow\" \"Beacon in the Dark\"\r\n# -p C327:500\r\n\r\n# \"Shrouded Holy\" entry corresponds to the actual damage casts, which can be cancelled if the target dies\r\n# As such, the enemy castbar is included before as a sync\r\n\r\n# \"Naught Hunts\" and \"Naught Hunts Another\" can be cancelled early if both targets die, so\r\n# after every instance of the mechanic, the next timeline entry has an early sync with a window covering\r\n# the \"Naught Hunts\" mechanic\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n0.0 \"--Reset--\" ActorControl { command: \"4000000F\" } window 0,100000 jump 0\r\n\r\n0.0 \"--sync--\" InCombat { inGameCombat: \"1\" } window 0,1\r\n9.4 \"--sync--\" StartsUsing { id: \"C333\", source: \"Enuo\" } window 9.4,5\r\n14.4 \"Meteorain\" Ability { id: \"C333\", source: \"Enuo\" }\r\n\r\n16.5 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n24.8 \"Naught Grows (Tether)\" Ability { id: [\"C30B\", \"C30C\"], source: \"Enuo\" }\r\n25.8 \"Naught Grows (AoE)\" #Ability { id: \"C30D\", source: \"Yawning Void\" }\r\n31.8 \"Naught Wakes\" Ability { id: \"C309\", source: \"Enuo\" }\r\n\r\n36.9 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n45.2 \"Naught Grows (Tether)\" Ability { id: [\"C30B\", \"C30C\"], source: \"Enuo\" }\r\n46.2 \"Naught Grows (AoE)\" #Ability { id: \"C30D\", source: \"Yawning Void\" }\r\n60.3 \"Gaze of the Void x10\" duration 3.6 #Ability { id: \"C321\", source: \"Enuo\" }\r\n74.5 \"Deep Freeze\" Ability { id: \"C32E\", source: \"Enuo\" }\r\n\r\n78.6 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n86.9 \"Naught Hunts\" Ability { id: \"C313\", source: \"Enuo\" }\r\n88.0 \"Endless Chase (active)\" duration 7.8 #Ability { id: \"BD5A\", source: \"Void\" }\r\n96.2 \"Naught Hunts Another\" Ability { id: \"C315\", source: \"Enuo\" }\r\n96.3 \"Endless Chase (active)\" duration 8.4\r\n\r\n# This \"Shrouded Holy\" cast has a large window to cover the Naught Hunts potential skip\r\n106.2 \"--sync--\" StartsUsing { id: \"C32F\", source: \"Enuo\" } window 20,2.5\r\n111.2 \"Shrouded Holy\" Ability { id: \"C330\", source: \"Enuo\" }\r\n120.3 \"Meltdown (puddle baits)\" Ability { id: \"C32A\", source: \"Enuo\" }\r\n126.3 \"Meltdown (puddles)\" Ability { id: \"C32B\", source: \"Enuo\" }\r\n127.3 \"Meltdown (spreads)\" #Ability { id: \"C32C\", source: \"Enuo\" }\r\n132.3 \"Vacuum\" Ability { id: \"C316\", source: \"Enuo\" }\r\n138.0 \"Silent Torrent x7 (lines)\" Ability { id: \"C318\", source: \"Void\" }\r\n138.6 \"Silent Torrent x7 (puddles)\" Ability { id: \"C31B\", source: \"Enuo\" }\r\n140.6 \"Vacuum\" Ability { id: \"C31D\", source: \"Void\" }\r\n148.6 \"Meteorain\" Ability { id: \"C333\", source: \"Enuo\" }\r\n150.7 \"--north--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n158.1 \"All for Naught\" Ability { id: \"C322\", source: \"Enuo\" }\r\n158.2 \"--untargetable--\"\r\n\r\n# Add Phase\r\n179.2 \"Empty Shadow\" #Ability { id: \"C324\", source: \"Uncast Shadow\" }\r\n179.2 \"Looming Emptiness\" Ability { id: \"C33D\", source: \"Looming Shadow\" }\r\n180.2 \"--adds targetable--\"\r\n185.2 label \"adds-loop\"\r\n185.2 \"Nothingness\" #Ability { id: \"C326\", source: \"Uncast Shadow\" }\r\n188.2 \"Nothingness\" #Ability { id: \"C326\", source: \"Uncast Shadow\" }\r\n191.2 \"Nothingness\" #Ability { id: \"C326\", source: \"Uncast Shadow\" }\r\n194.2 \"Nothingness\" #Ability { id: \"C326\", source: \"Uncast Shadow\" }\r\n197.2 \"Nothingness\" #Ability { id: \"C326\", source: \"Uncast Shadow\" }\r\n200.2 \"Nothingness\" Ability { id: \"C326\", source: \"Uncast Shadow\" } window 1,1 forcejump \"adds-loop\"\r\n\r\n# Add line attacks pause momentarily for the beacon to spawn\r\n\r\n# MapEffect for the white ring pulse animation\r\n299.6 \"--beacon targetable--\" MapEffect { flags: \"00020001\", location: \"0[^09]\" } window 200,0\r\n306.0 label \"beacon-loop\"\r\n306.0 \"Nothingness\" #Ability { id: \"C326\", source: \"Uncast Shadow\" }\r\n309.1 \"Nothingness\" #Ability { id: \"C326\", source: \"Uncast Shadow\" }\r\n312.0 \"Nothingness\" #Ability { id: \"C326\", source: \"Uncast Shadow\" }\r\n315.0 \"Nothingness\" #Ability { id: \"C326\", source: \"Uncast Shadow\" }\r\n318.0 \"Nothingness\" #Ability { id: \"C326\", source: \"Uncast Shadow\" }\r\n321.0 \"Nothingness\" Ability { id: \"C326\", source: \"Uncast Shadow\" } window 1,1 forcejump \"beacon-loop\"\r\n\r\n# Phase 2\r\n# Sync based on MapEffect for the cracking animation of the portal breaking\r\n441.2 \"--sync--\" MapEffect { flags: \"02000100\", location: \"0[^09]\" } window 400,0\r\n# Backup sync to match phase change for FFLogs report testing\r\n494.6 \"--sync--\" StartsUsing { id: \"C327\", source: \"Enuo\" } window 400,0\r\n499.6 \"Lightless World (castbar)\" Ability { id: \"C327\", source: \"Enuo\" }\r\n500.6 \"Lightless World x5\" duration 1.8 #Ability { id: \"C328\", source: \"Enuo\" }\r\n503.0 \"Lightless World (big)\" Ability { id: \"C329\", source: \"Enuo\" }\r\n505.4 \"--targetable--\"\r\n\r\n509.5 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n517.9 \"Naught Grows (Tether)\" Ability { id: [\"C30B\", \"C30C\"], source: \"Enuo\" }\r\n518.9 \"Naught Grows (AoE)\" #Ability { id: \"C30E\", source: \"Enuo\" }\r\n526.0 \"Almagest\" Ability { id: \"C308\", source: \"Enuo\" }\r\n\r\n532.1 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n540.3 \"Naught Grows (Tether)\" Ability { id: [\"C30B\", \"C30C\"], source: \"Enuo\" }\r\n541.3 \"Naught Grows x2 (AoE)\" #Ability { id: \"C30E\", source: \"Enuo\" }\r\n545.3 \"Naught Wakes\" Ability { id: \"C309\", source: \"Enuo\" }\r\n553.7 \"Naught Grows (Tether)\" Ability { id: [\"C30B\", \"C30C\"], source: \"Enuo\" }\r\n554.7 \"Naught Grows x2 (AoE)\" #Ability { id: \"C30D\", source: \"Yawning Void\" }\r\n561.7 \"Dimension Zero (castbar)\" Ability { id: \"C331\", source: \"Enuo\" }\r\n562.0 \"Dimension Zero x3\" duration 2.6 #Ability { id: \"C332\", source: \"Enuo\" }\r\n575.3 \"Almagest\" Ability { id: \"C308\", source: \"Enuo\" }\r\n\r\n575.3 label \"p2-loop\"\r\n\r\n578.7 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n586.7 \"Naught Hunts\" Ability { id: \"C313\", source: \"Enuo\" }\r\n587.8 \"Endless Chase (active)\" duration 7.8 #Ability { id: \"BD5A\", source: \"Void\" }\r\n596.0 \"Naught Hunts Another\" Ability { id: \"C315\", source: \"Enuo\" }\r\n596.1 \"Endless Chase (active)\" duration 8.4 #Ability { id: \"C314\", source: \"Void\" }\r\n# Big window to cover Naught Hunts potential timeline skip\r\n603.5 \"--sync--\" StartsUsing { id: [\"C30B\", \"C30C\"], source: \"Enuo\" } window 20,2.5\r\n609.5 \"Naught Grows (Tether)\" Ability { id: [\"C30B\", \"C30C\"], source: \"Enuo\" }\r\n610.5 \"Naught Grows x2 (AoE)\" #Ability { id: \"C30E\", source: \"Enuo\" }\r\n617.5 \"Naught Wakes\" Ability { id: \"C309\", source: \"Enuo\" }\r\n\r\n621.5 \"Vacuum\" Ability { id: \"C316\", source: \"Enuo\" }\r\n623.6 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n627.0 \"Silent Torrent x7 (lines)\" Ability { id: \"C318\", source: \"Void\" }\r\n627.6 \"Silent Torrent x7 (puddles)\" Ability { id: \"C31B\", source: \"Enuo\" }\r\n629.6 \"Vacuum\" Ability { id: \"C31D\", source: \"Void\" }\r\n633.6 \"Gaze of the Void x10\" duration 3.6 #Ability { id: \"C321\", source: \"Enuo\" }\r\n\r\n641.7 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n647.7 \"Meltdown (puddle baits)\" Ability { id: \"C32A\", source: \"Enuo\" }\r\n653.7 \"Meltdown (puddles)\" Ability { id: \"C32B\", source: \"Enuo\" }\r\n654.7 \"Meltdown (spreads)\" Ability { id: \"C32C\", source: \"Enuo\" }\r\n658.1 \"Naught Grows (Tether)\" Ability { id: [\"C30B\", \"C30C\"], source: \"Enuo\" }\r\n659.1 \"Naught Grows x2 (AoE)\" #Ability { id: \"C30D\", source: \"Yawning Void\" }\r\n666.1 \"Meteorain\" Ability { id: \"C333\", source: \"Enuo\" }\r\n\r\n674.2 \"Vacuum\" Ability { id: \"C316\", source: \"Enuo\" }\r\n679.9 \"Silent Torrent x7 (lines)\" Ability { id: \"C319\", source: \"Void\" }\r\n680.3 \"Meltdown (puddle baits)\" Ability { id: \"C32A\", source: \"Enuo\" }\r\n680.3 \"Silent Torrent (puddles)\" Ability { id: \"C31B\", source: \"Enuo\" }\r\n682.3 \"Vacuum\" Ability { id: \"C31D\", source: \"Void\" }\r\n686.3 \"Meltdown (puddles)\" Ability { id: \"C32B\", source: \"Enuo\" }\r\n687.3 \"Meltdown (spreads)\" Ability { id: \"C32C\", source: \"Enuo\" }\r\n\r\n691.4 \"Gaze of the Void x10\" duration 3.6 #Ability { id: \"C321\", source: \"Enuo\" }\r\n702.6 \"Deep Freeze\" Ability { id: \"C32E\", source: \"Enuo\" }\r\n708.7 \"Dimension Zero (castbar)\" Ability { id: \"C331\", source: \"Enuo\" }\r\n709.1 \"Dimension Zero x3\" duration 2.6 #Ability { id: \"C332\", source: \"Enuo\" }\r\n723.3 \"Almagest\" Ability { id: \"C308\", source: \"Enuo\" }\r\n\r\n731.4 \"Vacuum\" Ability { id: \"C316\", source: \"Enuo\" }\r\n734.5 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n736.9 \"Silent Torrent x7 (lines)\" Ability { id: \"C319\", source: \"Void\" }\r\n737.3 \"Silent Torrent (puddles)\" Ability { id: \"C31C\", source: \"Enuo\" }\r\n739.3 \"Vacuum\" #Ability { id: \"C31D\", source: \"Void\" }\r\n742.4 \"Naught Grows (Tether)\" Ability { id: [\"C30B\", \"C30C\"], source: \"Enuo\" }\r\n743.4 \"Naught Grows x2 (AoE)\" #Ability { id: \"C30E\", source: \"Enuo\" }\r\n750.4 \"Naught Wakes\" Ability { id: \"C309\", source: \"Enuo\" }\r\n\r\n754.4 \"Vacuum\" Ability { id: \"C316\", source: \"Enuo\" }\r\n757.5 \"--middle--\" Ability { id: \"C307\", source: \"Enuo\" }\r\n759.9 \"Silent Torrent x7 (lines)\" Ability { id: \"C318\", source: \"Void\" }\r\n760.3 \"Silent Torrent (puddles)\" Ability { id: \"C31B\", source: \"Enuo\" }\r\n762.3 \"Vacuum\" Ability { id: \"C31D\", source: \"Void\" }\r\n765.4 \"Naught Grows (Tether)\" Ability { id: [\"C30B\", \"C30C\"], source: \"Enuo\" }\r\n766.4 \"Naught Grows x2 (AoE)\" #Ability { id: \"C30E\", source: \"Enuo\" }\r\n773.4 \"Meteorain\" Ability { id: \"C333\", source: \"Enuo\" }\r\n784.5 \"Almagest\" Ability { id: \"C308\", source: \"Enuo\" } forcejump \"p2-loop\"\r\n\r\n\r\n# IGNORED ABILITIES\r\n# C30A --sync--: Void teleports/jumps\r\n# C310 --sync--: Enuo Autoattack\r\n# C312 --sync--: Add teleport on death\r\n# C31E Gaze of the Void: Cast bar\r\n# C31F Gaze of the Void: CW rotation\r\n# C320 Gaze of the Void: CCW rotation\r\n# C323 Looming Emptiness: VFX\r\n# C32D Deep Freeze: Tank Flare castbar\r\n# C5EB Empty Shadow: VFX?\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# BD5A Endless Chase: Initial cast/telegraphed puddle?\r\n# C307 --sync--: Enuo teleport/jump\r\n# C308 Almagest: Raidwide\r\n# C309 Naught Wakes: Enuo castbar to indicate void teleport/jump\r\n# C30A --sync--: Void teleports/jumps\r\n# C30B Naught Grows: Tether animation to indicate what's exploding\r\n# C30C Naught Grows: Tether animation to indicate what's exploding\r\n# C30D Naught Grows: point blank aoe\r\n# C30E Naught Grows: point blank aoe\r\n# C310 --sync--: Enuo Autoattack\r\n# C312 --sync--: Add teleport on death\r\n# C313 Naught Hunts: Cast bar for chasing puddle, initial aoe marker\r\n# C314 Endless Chase: Chasing puddle\r\n# C315 Naught Hunts Another: Cast bar to change chasing puddle target\r\n# C316 Vacuum: VFX for silent torrent lines prep\r\n# C317 Silent Torrent: Short line?\r\n# C318 Silent Torrent: Medium line?\r\n# C319 Silent Torrent: Long line?\r\n# C31A Silent Torrent: Small/close puddle?\r\n# C31B Silent Torrent: Medium puddle?\r\n# C31C Silent Torrent: Big/far puddle?\r\n# C31D Vacuum: VFX for silent torrent lines end\r\n# C31E Gaze of the Void: Cast bar\r\n# C31F Gaze of the Void: CW rotation\r\n# C320 Gaze of the Void: CCW rotation\r\n# C321 Gaze of the Void: Cone\r\n# C322 All for Naught: Transition cast\r\n# C323 Looming Emptiness: Proximity marker VFX\r\n# C324 Empty Shadow: Damage?\r\n# C325 --sync--\r\n# C326 Nothingness: Add line attack\r\n# C327 Lightless World: castbar\r\n# C328 Lightless World: small hits\r\n# C329 Lightless World: big hit\r\n# C32A Meltdown: Castbar/puddle bait\r\n# C32B Meltdown: Puddle explosions\r\n# C32C Meltdown: Spreads\r\n# C32D Deep Freeze: Tank flare castbar\r\n# C32E Deep Freeze: Tank flare actual damage snapshot\r\n# C32F Shrouded Holy: Party stack castbar\r\n# C330 Shrouded Holy: Party stack actual damage snapshot\r\n# C331 Dimension Zero: cast bar\r\n# C332 Dimension Zero: line stack, 3 hits\r\n# C333 Meteorain: Raidwide\r\n# C33D Looming Emptiness: Proximity marker snapshot/damage\r\n# C5EB Empty Shadow: VFX?\r\n# C657 --sync--: Golbez Autoattack?\r\n# C658 Warlock's Tide: NPC attack\r\n# C66C Spell Flame: NPC attack\r\n";
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/trial/necron-ex.ts
 
 
@@ -274692,7 +275342,8 @@ const shinryu_un_triggerSet = {
     infoText: (_data, _matches, output) => output.text(),
     outputStrings: {
       text: {
-        en: 'Ice: Stack + don\'t move'
+        en: 'Ice: Stack + don\'t move',
+        cn: '冰: 集合 + 不要动'
       }
     }
   }, {
@@ -274757,7 +275408,7 @@ const shinryu_un_triggerSet = {
         de: 'Stopp! Einfrieren lassen',
         fr: 'Arrêtez, laissez-vous geler',
         ja: '止まれ、凍結',
-        cn: '停止移动吃冻结',
+        cn: '停止移动 + 吃冻结',
         ko: '멈춰서 얼기',
         tc: '停止移動吃凍結'
       },
@@ -274812,7 +275463,7 @@ const shinryu_un_triggerSet = {
         de: 'Blitz ködern, weiterbewegen',
         fr: 'Attirez la foudre, continuez à bouger',
         ja: '稲妻: 動き続ける',
-        cn: '诱导闪电，保持移动',
+        cn: '诱导闪电 + 保持移动',
         ko: '번개 공격 산개, 계속 움직이기',
         tc: '誘導閃電，保持移動'
       },
@@ -274856,7 +275507,7 @@ const shinryu_un_triggerSet = {
         de: 'Eiszapfen, nach westen',
         fr: 'Stalactite, penchez vers l\'ouest',
         ja: 'アイシクル: 西へ',
-        cn: '冰柱，去左边',
+        cn: '冰柱, 偏左站',
         ko: '고드름, 왼쪽 먼저',
         tc: '冰柱，去西邊'
       }
@@ -274878,7 +275529,7 @@ const shinryu_un_triggerSet = {
         de: 'Eiszapfen, nach Osten',
         fr: 'Stalactite, penchez vers l\'est',
         ja: 'アイシクル: 東へ',
-        cn: '冰柱，去右边',
+        cn: '冰柱, 偏右站',
         ko: '고드름, 오른쪽 먼저',
         tc: '冰柱，去東邊'
       }
@@ -275061,7 +275712,7 @@ const shinryu_un_triggerSet = {
         de: 'linken Flügel zuerst',
         fr: 'Tuez l\'aile gauche d\'abord',
         ja: 'レフトウィングに攻撃',
-        cn: '击杀左翼',
+        cn: '优先击杀左翼',
         ko: '왼쪽 날개 먼저',
         tc: '擊殺左翼'
       }
@@ -275083,7 +275734,7 @@ const shinryu_un_triggerSet = {
         de: 'rechten Flügel zuerst',
         fr: 'Tuez l\'aile droite d\'abord',
         ja: 'ライトウィングに攻撃',
-        cn: '击杀右翼',
+        cn: '优先击杀右翼',
         ko: '오른쪽 날개 먼저',
         tc: '擊殺右翼'
       }
@@ -275106,7 +275757,7 @@ const shinryu_un_triggerSet = {
         de: 'Kette zerreissen, dann stack',
         fr: 'Cassez les liens, puis packez-vous',
         ja: '鎖を引き、集合',
-        cn: '拉断连线然后分摊',
+        cn: '拉断连线 => 分摊',
         ko: '선 끊고 모이기',
         tc: '拉斷連線然後分攤'
       },
@@ -275163,7 +275814,7 @@ const shinryu_un_triggerSet = {
         de: 'Stöße ausweichen',
         fr: 'Évitez les secousses',
         ja: 'アースシェーカーに避け',
-        cn: '远离大地动摇',
+        cn: '躲避大地动摇',
         ko: '어스 피하기',
         tc: '遠離大地動搖'
       },
@@ -275338,7 +275989,6 @@ const shinryu_un_triggerSet = {
     }
   }, {
     'locale': 'cn',
-    'missingTranslations': true,
     'replaceSync': {
       'Cocoon': '光茧',
       'Icicle': '冰柱',
@@ -286617,7 +287267,9 @@ const readme_namespaceObject = "This directory is for local, developer-specific 
 
 
 
-/* harmony default export */ const raidboss_manifest = ({'00-misc/general.ts': general,'00-misc/test.ts': test,'00-misc/test.txt': _00_misc_test_namespaceObject,'00-misc/the_masked_carnivale.ts': the_masked_carnivale,'02-arr/alliance/the_world_of_darkness.ts': the_world_of_darkness,'02-arr/dungeon/amdapor_keep.ts': amdapor_keep,'02-arr/dungeon/amdapor_keep_hard.ts': amdapor_keep_hard,'02-arr/dungeon/aurum_vale.ts': aurum_vale,'02-arr/dungeon/aurum_vale73.ts': aurum_vale73,'02-arr/dungeon/brayfloxs_longstop.ts': brayfloxs_longstop,'02-arr/dungeon/cutters_cry.ts': cutters_cry,'02-arr/dungeon/cutters_cry72.ts': cutters_cry72,'02-arr/dungeon/halatali_hard.ts': halatali_hard,'02-arr/dungeon/haukke_manor.ts': haukke_manor,'02-arr/dungeon/haukke_manor_hard.ts': haukke_manor_hard,'02-arr/dungeon/hullbreaker_isle.ts': hullbreaker_isle,'02-arr/dungeon/pharos_sirius.ts': pharos_sirius,'02-arr/dungeon/sastasha_hard.ts': sastasha_hard,'02-arr/dungeon/snowcloak.ts': snowcloak,'02-arr/dungeon/the_lost_city_of_amdapor.ts': the_lost_city_of_amdapor,'02-arr/dungeon/the_stone_vigil.ts': the_stone_vigil,'02-arr/dungeon/the_stone_vigil_hard.ts': the_stone_vigil_hard,'02-arr/dungeon/the_sunken_temple_of_quarn.ts': the_sunken_temple_of_quarn,'02-arr/dungeon/the_sunken_temple_of_quarn71.ts': the_sunken_temple_of_quarn71,'02-arr/dungeon/the_sunken_temple_of_quarn_hard.ts': the_sunken_temple_of_quarn_hard,'02-arr/dungeon/the_tam_tara_depocraft_hard.ts': the_tam_tara_depocraft_hard,'02-arr/dungeon/the_wanderers_palace_hard.ts': the_wanderers_palace_hard,'02-arr/raid/t1.ts': t1,'02-arr/raid/t10.ts': t10,'02-arr/raid/t10.txt': raid_t10_namespaceObject,'02-arr/raid/t11.ts': t11,'02-arr/raid/t11.txt': raid_t11_namespaceObject,'02-arr/raid/t12.ts': t12,'02-arr/raid/t12.txt': raid_t12_namespaceObject,'02-arr/raid/t13.ts': t13,'02-arr/raid/t13.txt': raid_t13_namespaceObject,'02-arr/raid/t2.ts': t2,'02-arr/raid/t4.ts': t4,'02-arr/raid/t4.txt': raid_t4_namespaceObject,'02-arr/raid/t5.ts': t5,'02-arr/raid/t5.txt': raid_t5_namespaceObject,'02-arr/raid/t6.ts': t6,'02-arr/raid/t6.txt': raid_t6_namespaceObject,'02-arr/raid/t7.ts': t7,'02-arr/raid/t7.txt': raid_t7_namespaceObject,'02-arr/raid/t8.ts': t8,'02-arr/raid/t8.txt': raid_t8_namespaceObject,'02-arr/raid/t9.ts': t9,'02-arr/raid/t9.txt': raid_t9_namespaceObject,'02-arr/trial/ifrit-nm.ts': ifrit_nm,'02-arr/trial/ifrit-nm.txt': trial_ifrit_nm_namespaceObject,'02-arr/trial/levi-ex.ts': levi_ex,'02-arr/trial/levi-ex.txt': trial_levi_ex_namespaceObject,'02-arr/trial/shiva-ex.ts': shiva_ex,'02-arr/trial/shiva-ex.txt': trial_shiva_ex_namespaceObject,'02-arr/trial/shiva-hm.ts': shiva_hm,'02-arr/trial/shiva-hm.txt': trial_shiva_hm_namespaceObject,'02-arr/trial/titan-ex.ts': titan_ex,'02-arr/trial/titan-ex.txt': trial_titan_ex_namespaceObject,'02-arr/trial/titan-hm.ts': titan_hm,'02-arr/trial/titan-hm.txt': trial_titan_hm_namespaceObject,'02-arr/trial/titan-nm.ts': titan_nm,'02-arr/trial/titan-nm.txt': trial_titan_nm_namespaceObject,'02-arr/trial/ultima-ex.ts': ultima_ex,'02-arr/trial/ultima-ex.txt': trial_ultima_ex_namespaceObject,'03-hw/alliance/dun_scaith.ts': dun_scaith,'03-hw/alliance/dun_scaith.txt': alliance_dun_scaith_namespaceObject,'03-hw/alliance/weeping_city.ts': weeping_city,'03-hw/alliance/weeping_city.txt': alliance_weeping_city_namespaceObject,'03-hw/deepdungeon/the_palace_of_the_dead_floors_001-010.ts': the_palace_of_the_dead_floors_001_010,'03-hw/deepdungeon/the_palace_of_the_dead_floors_011-020.ts': the_palace_of_the_dead_floors_011_020,'03-hw/deepdungeon/the_palace_of_the_dead_floors_021-030.ts': the_palace_of_the_dead_floors_021_030,'03-hw/deepdungeon/the_palace_of_the_dead_floors_031-040.ts': the_palace_of_the_dead_floors_031_040,'03-hw/deepdungeon/the_palace_of_the_dead_floors_041-050.ts': the_palace_of_the_dead_floors_041_050,'03-hw/deepdungeon/the_palace_of_the_dead_floors_051-060.ts': the_palace_of_the_dead_floors_051_060,'03-hw/deepdungeon/the_palace_of_the_dead_floors_061-070.ts': the_palace_of_the_dead_floors_061_070,'03-hw/deepdungeon/the_palace_of_the_dead_floors_071-080.ts': the_palace_of_the_dead_floors_071_080,'03-hw/deepdungeon/the_palace_of_the_dead_floors_081-090.ts': the_palace_of_the_dead_floors_081_090,'03-hw/deepdungeon/the_palace_of_the_dead_floors_091-100.ts': the_palace_of_the_dead_floors_091_100,'03-hw/deepdungeon/the_palace_of_the_dead_floors_101-110.ts': the_palace_of_the_dead_floors_101_110,'03-hw/deepdungeon/the_palace_of_the_dead_floors_111-120.ts': the_palace_of_the_dead_floors_111_120,'03-hw/deepdungeon/the_palace_of_the_dead_floors_121-130.ts': the_palace_of_the_dead_floors_121_130,'03-hw/deepdungeon/the_palace_of_the_dead_floors_131-140.ts': the_palace_of_the_dead_floors_131_140,'03-hw/deepdungeon/the_palace_of_the_dead_floors_141-150.ts': the_palace_of_the_dead_floors_141_150,'03-hw/deepdungeon/the_palace_of_the_dead_floors_151-160.ts': the_palace_of_the_dead_floors_151_160,'03-hw/deepdungeon/the_palace_of_the_dead_floors_161-170.ts': the_palace_of_the_dead_floors_161_170,'03-hw/deepdungeon/the_palace_of_the_dead_floors_171-180.ts': the_palace_of_the_dead_floors_171_180,'03-hw/deepdungeon/the_palace_of_the_dead_floors_181-190.ts': the_palace_of_the_dead_floors_181_190,'03-hw/deepdungeon/the_palace_of_the_dead_floors_191-200.ts': the_palace_of_the_dead_floors_191_200,'03-hw/deepdungeon/the_palace_of_the_dead_general.ts': the_palace_of_the_dead_general,'03-hw/dungeon/aetherochemical_research_facility.ts': aetherochemical_research_facility,'03-hw/dungeon/aetherochemical_research_facility.txt': dungeon_aetherochemical_research_facility_namespaceObject,'03-hw/dungeon/baelsars_wall.ts': baelsars_wall,'03-hw/dungeon/baelsars_wall.txt': dungeon_baelsars_wall_namespaceObject,'03-hw/dungeon/fractal_continuum.ts': fractal_continuum,'03-hw/dungeon/fractal_continuum.txt': dungeon_fractal_continuum_namespaceObject,'03-hw/dungeon/gubal_library_hard.ts': gubal_library_hard,'03-hw/dungeon/gubal_library_hard.txt': dungeon_gubal_library_hard_namespaceObject,'03-hw/dungeon/sohm_al.ts': sohm_al,'03-hw/dungeon/sohm_al.txt': dungeon_sohm_al_namespaceObject,'03-hw/dungeon/sohm_al_hard.ts': sohm_al_hard,'03-hw/dungeon/sohm_al_hard.txt': dungeon_sohm_al_hard_namespaceObject,'03-hw/dungeon/the_lost_city_of_amdapor_hard.ts': the_lost_city_of_amdapor_hard,'03-hw/dungeon/the_lost_city_of_amdapor_hard.txt': dungeon_the_lost_city_of_amdapor_hard_namespaceObject,'03-hw/dungeon/the_vault.ts': the_vault,'03-hw/dungeon/the_vault.txt': dungeon_the_vault_namespaceObject,'03-hw/dungeon/xelphatol.ts': xelphatol,'03-hw/dungeon/xelphatol.txt': dungeon_xelphatol_namespaceObject,'03-hw/map/the_aquapolis.ts': the_aquapolis,'03-hw/pvp/shatter.ts': shatter,'03-hw/raid/a10n.ts': a10n,'03-hw/raid/a10n.txt': raid_a10n_namespaceObject,'03-hw/raid/a10s.ts': a10s,'03-hw/raid/a10s.txt': raid_a10s_namespaceObject,'03-hw/raid/a11s.ts': a11s,'03-hw/raid/a11s.txt': raid_a11s_namespaceObject,'03-hw/raid/a12n.ts': a12n,'03-hw/raid/a12n.txt': raid_a12n_namespaceObject,'03-hw/raid/a12s.ts': a12s,'03-hw/raid/a12s.txt': raid_a12s_namespaceObject,'03-hw/raid/a1s.ts': a1s,'03-hw/raid/a1s.txt': raid_a1s_namespaceObject,'03-hw/raid/a2s.ts': a2s,'03-hw/raid/a2s.txt': raid_a2s_namespaceObject,'03-hw/raid/a3n.ts': a3n,'03-hw/raid/a3n.txt': raid_a3n_namespaceObject,'03-hw/raid/a3s.ts': a3s,'03-hw/raid/a3s.txt': raid_a3s_namespaceObject,'03-hw/raid/a4s.ts': a4s,'03-hw/raid/a4s.txt': raid_a4s_namespaceObject,'03-hw/raid/a5s.ts': a5s,'03-hw/raid/a5s.txt': raid_a5s_namespaceObject,'03-hw/raid/a6n.ts': a6n,'03-hw/raid/a6n.txt': raid_a6n_namespaceObject,'03-hw/raid/a6s.ts': a6s,'03-hw/raid/a6s.txt': raid_a6s_namespaceObject,'03-hw/raid/a7s.ts': a7s,'03-hw/raid/a7s.txt': raid_a7s_namespaceObject,'03-hw/raid/a8n.ts': a8n,'03-hw/raid/a8n.txt': raid_a8n_namespaceObject,'03-hw/raid/a8s.ts': a8s,'03-hw/raid/a8s.txt': raid_a8s_namespaceObject,'03-hw/raid/a9s.ts': a9s,'03-hw/raid/a9s.txt': raid_a9s_namespaceObject,'03-hw/trial/bismarck-ex.ts': bismarck_ex,'03-hw/trial/ravana-ex.ts': ravana_ex,'03-hw/trial/ravana-ex.txt': trial_ravana_ex_namespaceObject,'03-hw/trial/sephirot-ex.ts': sephirot_ex,'03-hw/trial/sephirot-ex.txt': trial_sephirot_ex_namespaceObject,'03-hw/trial/sephirot.ts': sephirot,'03-hw/trial/sophia-ex.ts': sophia_ex,'03-hw/trial/sophia-ex.txt': trial_sophia_ex_namespaceObject,'03-hw/trial/thordan-ex.ts': thordan_ex,'03-hw/trial/thordan-ex.txt': trial_thordan_ex_namespaceObject,'03-hw/trial/zurvan-ex.ts': zurvan_ex,'03-hw/trial/zurvan-ex.txt': trial_zurvan_ex_namespaceObject,'04-sb/alliance/orbonne_monastery.ts': orbonne_monastery,'04-sb/alliance/orbonne_monastery.txt': alliance_orbonne_monastery_namespaceObject,'04-sb/alliance/ridorana_lighthouse.ts': ridorana_lighthouse,'04-sb/alliance/ridorana_lighthouse.txt': alliance_ridorana_lighthouse_namespaceObject,'04-sb/alliance/royal_city_of_rabanastre.ts': royal_city_of_rabanastre,'04-sb/alliance/royal_city_of_rabanastre.txt': alliance_royal_city_of_rabanastre_namespaceObject,'04-sb/deepdungeon/heaven-on-high_floors_01-10.ts': heaven_on_high_floors_01_10,'04-sb/deepdungeon/heaven-on-high_floors_11-20.ts': heaven_on_high_floors_11_20,'04-sb/deepdungeon/heaven-on-high_floors_21-30.ts': heaven_on_high_floors_21_30,'04-sb/deepdungeon/heaven-on-high_floors_31-40.ts': heaven_on_high_floors_31_40,'04-sb/deepdungeon/heaven-on-high_floors_41-50.ts': heaven_on_high_floors_41_50,'04-sb/deepdungeon/heaven-on-high_floors_51-60.ts': heaven_on_high_floors_51_60,'04-sb/deepdungeon/heaven-on-high_floors_61-70.ts': heaven_on_high_floors_61_70,'04-sb/deepdungeon/heaven-on-high_floors_71-80.ts': heaven_on_high_floors_71_80,'04-sb/deepdungeon/heaven-on-high_floors_81-90.ts': heaven_on_high_floors_81_90,'04-sb/deepdungeon/heaven-on-high_floors_91-100.ts': heaven_on_high_floors_91_100,'04-sb/deepdungeon/heaven-on-high_general.ts': heaven_on_high_general,'04-sb/dungeon/ala_mhigo.ts': ala_mhigo,'04-sb/dungeon/ala_mhigo.txt': dungeon_ala_mhigo_namespaceObject,'04-sb/dungeon/bardams_mettle.ts': bardams_mettle,'04-sb/dungeon/bardams_mettle.txt': dungeon_bardams_mettle_namespaceObject,'04-sb/dungeon/castrum_abania.ts': castrum_abania,'04-sb/dungeon/castrum_abania.txt': dungeon_castrum_abania_namespaceObject,'04-sb/dungeon/doma_castle.ts': doma_castle,'04-sb/dungeon/doma_castle.txt': dungeon_doma_castle_namespaceObject,'04-sb/dungeon/drowned_city_of_skalla.ts': drowned_city_of_skalla,'04-sb/dungeon/drowned_city_of_skalla.txt': dungeon_drowned_city_of_skalla_namespaceObject,'04-sb/dungeon/fractal_continuum_hard.ts': fractal_continuum_hard,'04-sb/dungeon/fractal_continuum_hard.txt': dungeon_fractal_continuum_hard_namespaceObject,'04-sb/dungeon/ghimlyt_dark.ts': ghimlyt_dark,'04-sb/dungeon/ghimlyt_dark.txt': dungeon_ghimlyt_dark_namespaceObject,'04-sb/dungeon/hells_lid.ts': hells_lid,'04-sb/dungeon/hells_lid.txt': dungeon_hells_lid_namespaceObject,'04-sb/dungeon/kugane_castle.ts': kugane_castle,'04-sb/dungeon/kugane_castle.txt': dungeon_kugane_castle_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides.ts': shisui_of_the_violet_tides,'04-sb/dungeon/shisui_of_the_violet_tides.txt': dungeon_shisui_of_the_violet_tides_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides74.ts': shisui_of_the_violet_tides74,'04-sb/dungeon/shisui_of_the_violet_tides74.txt': dungeon_shisui_of_the_violet_tides74_namespaceObject,'04-sb/dungeon/sirensong_sea.ts': sirensong_sea,'04-sb/dungeon/sirensong_sea.txt': dungeon_sirensong_sea_namespaceObject,'04-sb/dungeon/st_mocianne_hard.ts': st_mocianne_hard,'04-sb/dungeon/st_mocianne_hard.txt': dungeon_st_mocianne_hard_namespaceObject,'04-sb/dungeon/swallows_compass.ts': swallows_compass,'04-sb/dungeon/swallows_compass.txt': dungeon_swallows_compass_namespaceObject,'04-sb/dungeon/temple_of_the_fist.ts': temple_of_the_fist,'04-sb/dungeon/temple_of_the_fist.txt': dungeon_temple_of_the_fist_namespaceObject,'04-sb/dungeon/the_burn.ts': the_burn,'04-sb/dungeon/the_burn.txt': dungeon_the_burn_namespaceObject,'04-sb/eureka/eureka_anemos.ts': eureka_anemos,'04-sb/eureka/eureka_hydatos.ts': eureka_hydatos,'04-sb/eureka/eureka_hydatos.txt': eureka_eureka_hydatos_namespaceObject,'04-sb/eureka/eureka_pyros.ts': eureka_pyros,'04-sb/hunts/yanxia.ts': yanxia,'04-sb/map/the_hidden_canals_of_uznair.ts': the_hidden_canals_of_uznair,'04-sb/map/the_lost_canals_of_uznair.ts': the_lost_canals_of_uznair,'04-sb/map/the_shifting_altars_of_uznair.ts': the_shifting_altars_of_uznair,'04-sb/raid/o10n.ts': o10n,'04-sb/raid/o10n.txt': raid_o10n_namespaceObject,'04-sb/raid/o10s.ts': o10s,'04-sb/raid/o10s.txt': raid_o10s_namespaceObject,'04-sb/raid/o11n.ts': o11n,'04-sb/raid/o11n.txt': raid_o11n_namespaceObject,'04-sb/raid/o11s.ts': o11s,'04-sb/raid/o11s.txt': raid_o11s_namespaceObject,'04-sb/raid/o12n.ts': o12n,'04-sb/raid/o12n.txt': raid_o12n_namespaceObject,'04-sb/raid/o12s.ts': o12s,'04-sb/raid/o12s.txt': raid_o12s_namespaceObject,'04-sb/raid/o1n.ts': o1n,'04-sb/raid/o1n.txt': raid_o1n_namespaceObject,'04-sb/raid/o1s.ts': o1s,'04-sb/raid/o1s.txt': raid_o1s_namespaceObject,'04-sb/raid/o2n.ts': o2n,'04-sb/raid/o2n.txt': raid_o2n_namespaceObject,'04-sb/raid/o2s.ts': o2s,'04-sb/raid/o2s.txt': raid_o2s_namespaceObject,'04-sb/raid/o3n.ts': o3n,'04-sb/raid/o3n.txt': raid_o3n_namespaceObject,'04-sb/raid/o3s.ts': o3s,'04-sb/raid/o3s.txt': raid_o3s_namespaceObject,'04-sb/raid/o4n.ts': o4n,'04-sb/raid/o4n.txt': raid_o4n_namespaceObject,'04-sb/raid/o4s.ts': o4s,'04-sb/raid/o4s.txt': raid_o4s_namespaceObject,'04-sb/raid/o5n.ts': o5n,'04-sb/raid/o5n.txt': raid_o5n_namespaceObject,'04-sb/raid/o5s.ts': o5s,'04-sb/raid/o5s.txt': raid_o5s_namespaceObject,'04-sb/raid/o6n.ts': o6n,'04-sb/raid/o6n.txt': raid_o6n_namespaceObject,'04-sb/raid/o6s.ts': o6s,'04-sb/raid/o6s.txt': raid_o6s_namespaceObject,'04-sb/raid/o7n.ts': o7n,'04-sb/raid/o7n.txt': raid_o7n_namespaceObject,'04-sb/raid/o7s.ts': o7s,'04-sb/raid/o7s.txt': raid_o7s_namespaceObject,'04-sb/raid/o8n.ts': o8n,'04-sb/raid/o8n.txt': raid_o8n_namespaceObject,'04-sb/raid/o8s.ts': o8s,'04-sb/raid/o8s.txt': raid_o8s_namespaceObject,'04-sb/raid/o9n.ts': o9n,'04-sb/raid/o9n.txt': raid_o9n_namespaceObject,'04-sb/raid/o9s.ts': o9s,'04-sb/raid/o9s.txt': raid_o9s_namespaceObject,'04-sb/trial/byakko-ex.ts': byakko_ex,'04-sb/trial/byakko-ex.txt': trial_byakko_ex_namespaceObject,'04-sb/trial/byakko.ts': byakko,'04-sb/trial/byakko.txt': trial_byakko_namespaceObject,'04-sb/trial/lakshmi-ex.ts': lakshmi_ex,'04-sb/trial/lakshmi-ex.txt': trial_lakshmi_ex_namespaceObject,'04-sb/trial/lakshmi.ts': lakshmi,'04-sb/trial/lakshmi.txt': trial_lakshmi_namespaceObject,'04-sb/trial/rathalos-ex.ts': rathalos_ex,'04-sb/trial/rathalos.ts': rathalos,'04-sb/trial/seiryu-ex.ts': seiryu_ex,'04-sb/trial/seiryu-ex.txt': trial_seiryu_ex_namespaceObject,'04-sb/trial/seiryu.ts': seiryu,'04-sb/trial/seiryu.txt': trial_seiryu_namespaceObject,'04-sb/trial/shinryu-ex.ts': shinryu_ex,'04-sb/trial/shinryu-ex.txt': trial_shinryu_ex_namespaceObject,'04-sb/trial/shinryu.ts': shinryu,'04-sb/trial/shinryu.txt': trial_shinryu_namespaceObject,'04-sb/trial/susano-ex.ts': susano_ex,'04-sb/trial/susano-ex.txt': trial_susano_ex_namespaceObject,'04-sb/trial/susano.ts': susano,'04-sb/trial/susano.txt': trial_susano_namespaceObject,'04-sb/trial/suzaku-ex.ts': suzaku_ex,'04-sb/trial/suzaku-ex.txt': trial_suzaku_ex_namespaceObject,'04-sb/trial/suzaku.ts': suzaku,'04-sb/trial/suzaku.txt': trial_suzaku_namespaceObject,'04-sb/trial/tsukuyomi-ex.ts': tsukuyomi_ex,'04-sb/trial/tsukuyomi-ex.txt': trial_tsukuyomi_ex_namespaceObject,'04-sb/trial/tsukuyomi.ts': tsukuyomi,'04-sb/trial/tsukuyomi.txt': trial_tsukuyomi_namespaceObject,'04-sb/trial/yojimbo.ts': yojimbo,'04-sb/trial/yojimbo.txt': trial_yojimbo_namespaceObject,'04-sb/ultimate/ultima_weapon_ultimate.ts': ultima_weapon_ultimate,'04-sb/ultimate/ultima_weapon_ultimate.txt': ultimate_ultima_weapon_ultimate_namespaceObject,'04-sb/ultimate/unending_coil_ultimate.ts': unending_coil_ultimate,'04-sb/ultimate/unending_coil_ultimate.txt': ultimate_unending_coil_ultimate_namespaceObject,'05-shb/alliance/the_copied_factory.ts': the_copied_factory,'05-shb/alliance/the_copied_factory.txt': alliance_the_copied_factory_namespaceObject,'05-shb/alliance/the_puppets_bunker.ts': the_puppets_bunker,'05-shb/alliance/the_puppets_bunker.txt': alliance_the_puppets_bunker_namespaceObject,'05-shb/alliance/the_tower_at_paradigms_breach.ts': the_tower_at_paradigms_breach,'05-shb/alliance/the_tower_at_paradigms_breach.txt': alliance_the_tower_at_paradigms_breach_namespaceObject,'05-shb/dungeon/akadaemia_anyder.ts': akadaemia_anyder,'05-shb/dungeon/akadaemia_anyder.txt': dungeon_akadaemia_anyder_namespaceObject,'05-shb/dungeon/amaurot.ts': amaurot,'05-shb/dungeon/amaurot.txt': dungeon_amaurot_namespaceObject,'05-shb/dungeon/anamnesis_anyder.ts': anamnesis_anyder,'05-shb/dungeon/anamnesis_anyder.txt': dungeon_anamnesis_anyder_namespaceObject,'05-shb/dungeon/dohn_mheg.ts': dohn_mheg,'05-shb/dungeon/dohn_mheg.txt': dungeon_dohn_mheg_namespaceObject,'05-shb/dungeon/heroes_gauntlet.ts': heroes_gauntlet,'05-shb/dungeon/heroes_gauntlet.txt': dungeon_heroes_gauntlet_namespaceObject,'05-shb/dungeon/holminster_switch.ts': holminster_switch,'05-shb/dungeon/holminster_switch.txt': dungeon_holminster_switch_namespaceObject,'05-shb/dungeon/malikahs_well.ts': malikahs_well,'05-shb/dungeon/malikahs_well.txt': dungeon_malikahs_well_namespaceObject,'05-shb/dungeon/matoyas_relict.ts': matoyas_relict,'05-shb/dungeon/matoyas_relict.txt': dungeon_matoyas_relict_namespaceObject,'05-shb/dungeon/mt_gulg.ts': mt_gulg,'05-shb/dungeon/mt_gulg.txt': dungeon_mt_gulg_namespaceObject,'05-shb/dungeon/paglthan.ts': paglthan,'05-shb/dungeon/paglthan.txt': dungeon_paglthan_namespaceObject,'05-shb/dungeon/qitana_ravel.ts': qitana_ravel,'05-shb/dungeon/qitana_ravel.txt': dungeon_qitana_ravel_namespaceObject,'05-shb/dungeon/the_grand_cosmos.ts': the_grand_cosmos,'05-shb/dungeon/the_grand_cosmos.txt': dungeon_the_grand_cosmos_namespaceObject,'05-shb/dungeon/twinning.ts': twinning,'05-shb/dungeon/twinning.txt': dungeon_twinning_namespaceObject,'05-shb/etc/the_diadem.ts': the_diadem,'05-shb/eureka/bozjan_southern_front.ts': bozjan_southern_front,'05-shb/eureka/bozjan_southern_front.txt': eureka_bozjan_southern_front_namespaceObject,'05-shb/eureka/delubrum_reginae.ts': delubrum_reginae,'05-shb/eureka/delubrum_reginae.txt': eureka_delubrum_reginae_namespaceObject,'05-shb/eureka/delubrum_reginae_savage.ts': delubrum_reginae_savage,'05-shb/eureka/delubrum_reginae_savage.txt': eureka_delubrum_reginae_savage_namespaceObject,'05-shb/eureka/zadnor.ts': zadnor,'05-shb/eureka/zadnor.txt': eureka_zadnor_namespaceObject,'05-shb/hunts/amh_araeng.ts': amh_araeng,'05-shb/hunts/il_mheg.ts': il_mheg,'05-shb/hunts/kholusia.ts': kholusia,'05-shb/hunts/lakeland.ts': lakeland,'05-shb/hunts/ss_rank.ts': ss_rank,'05-shb/hunts/the_raktika_greatwood.ts': the_raktika_greatwood,'05-shb/hunts/the_tempest.ts': the_tempest,'05-shb/map/the_dungeons_of_lyhe_ghiah.ts': the_dungeons_of_lyhe_ghiah,'05-shb/map/the_shifting_oubliettes_of_lyhe_ghiah.ts': the_shifting_oubliettes_of_lyhe_ghiah,'05-shb/raid/e10n.ts': e10n,'05-shb/raid/e10n.txt': raid_e10n_namespaceObject,'05-shb/raid/e10s.ts': e10s,'05-shb/raid/e10s.txt': raid_e10s_namespaceObject,'05-shb/raid/e11n.ts': e11n,'05-shb/raid/e11n.txt': raid_e11n_namespaceObject,'05-shb/raid/e11s.ts': e11s,'05-shb/raid/e11s.txt': raid_e11s_namespaceObject,'05-shb/raid/e12n.ts': e12n,'05-shb/raid/e12n.txt': raid_e12n_namespaceObject,'05-shb/raid/e12s.ts': e12s,'05-shb/raid/e12s.txt': raid_e12s_namespaceObject,'05-shb/raid/e1n.ts': e1n,'05-shb/raid/e1n.txt': raid_e1n_namespaceObject,'05-shb/raid/e1s.ts': e1s,'05-shb/raid/e1s.txt': raid_e1s_namespaceObject,'05-shb/raid/e2n.ts': e2n,'05-shb/raid/e2n.txt': raid_e2n_namespaceObject,'05-shb/raid/e2s.ts': e2s,'05-shb/raid/e2s.txt': raid_e2s_namespaceObject,'05-shb/raid/e3n.ts': e3n,'05-shb/raid/e3n.txt': raid_e3n_namespaceObject,'05-shb/raid/e3s.ts': e3s,'05-shb/raid/e3s.txt': raid_e3s_namespaceObject,'05-shb/raid/e4n.ts': e4n,'05-shb/raid/e4n.txt': raid_e4n_namespaceObject,'05-shb/raid/e4s.ts': e4s,'05-shb/raid/e4s.txt': raid_e4s_namespaceObject,'05-shb/raid/e5n.ts': e5n,'05-shb/raid/e5n.txt': raid_e5n_namespaceObject,'05-shb/raid/e5s.ts': e5s,'05-shb/raid/e5s.txt': raid_e5s_namespaceObject,'05-shb/raid/e6n.ts': e6n,'05-shb/raid/e6n.txt': raid_e6n_namespaceObject,'05-shb/raid/e6s.ts': e6s,'05-shb/raid/e6s.txt': raid_e6s_namespaceObject,'05-shb/raid/e7n.ts': e7n,'05-shb/raid/e7n.txt': raid_e7n_namespaceObject,'05-shb/raid/e7s.ts': e7s,'05-shb/raid/e7s.txt': raid_e7s_namespaceObject,'05-shb/raid/e8n.ts': e8n,'05-shb/raid/e8n.txt': raid_e8n_namespaceObject,'05-shb/raid/e8s.ts': e8s,'05-shb/raid/e8s.txt': raid_e8s_namespaceObject,'05-shb/raid/e9n.ts': e9n,'05-shb/raid/e9n.txt': raid_e9n_namespaceObject,'05-shb/raid/e9s.ts': e9s,'05-shb/raid/e9s.txt': raid_e9s_namespaceObject,'05-shb/trial/diamond_weapon-ex.ts': diamond_weapon_ex,'05-shb/trial/diamond_weapon-ex.txt': trial_diamond_weapon_ex_namespaceObject,'05-shb/trial/diamond_weapon.ts': diamond_weapon,'05-shb/trial/diamond_weapon.txt': trial_diamond_weapon_namespaceObject,'05-shb/trial/emerald_weapon-ex.ts': emerald_weapon_ex,'05-shb/trial/emerald_weapon-ex.txt': trial_emerald_weapon_ex_namespaceObject,'05-shb/trial/emerald_weapon.ts': emerald_weapon,'05-shb/trial/emerald_weapon.txt': trial_emerald_weapon_namespaceObject,'05-shb/trial/hades-ex.ts': hades_ex,'05-shb/trial/hades-ex.txt': trial_hades_ex_namespaceObject,'05-shb/trial/hades.ts': hades,'05-shb/trial/hades.txt': trial_hades_namespaceObject,'05-shb/trial/innocence-ex.ts': innocence_ex,'05-shb/trial/innocence-ex.txt': trial_innocence_ex_namespaceObject,'05-shb/trial/innocence.ts': innocence,'05-shb/trial/innocence.txt': trial_innocence_namespaceObject,'05-shb/trial/levi-un.ts': levi_un,'05-shb/trial/levi-un.txt': trial_levi_un_namespaceObject,'05-shb/trial/ruby_weapon-ex.ts': ruby_weapon_ex,'05-shb/trial/ruby_weapon-ex.txt': trial_ruby_weapon_ex_namespaceObject,'05-shb/trial/ruby_weapon.ts': ruby_weapon,'05-shb/trial/ruby_weapon.txt': trial_ruby_weapon_namespaceObject,'05-shb/trial/shiva-un.ts': shiva_un,'05-shb/trial/shiva-un.txt': trial_shiva_un_namespaceObject,'05-shb/trial/titan-un.ts': titan_un,'05-shb/trial/titan-un.txt': trial_titan_un_namespaceObject,'05-shb/trial/titania-ex.ts': titania_ex,'05-shb/trial/titania-ex.txt': trial_titania_ex_namespaceObject,'05-shb/trial/titania.ts': titania,'05-shb/trial/titania.txt': trial_titania_namespaceObject,'05-shb/trial/varis-ex.ts': varis_ex,'05-shb/trial/varis-ex.txt': trial_varis_ex_namespaceObject,'05-shb/trial/wol-ex.ts': wol_ex,'05-shb/trial/wol-ex.txt': trial_wol_ex_namespaceObject,'05-shb/trial/wol.ts': wol,'05-shb/trial/wol.txt': trial_wol_namespaceObject,'05-shb/ultimate/the_epic_of_alexander.ts': the_epic_of_alexander,'05-shb/ultimate/the_epic_of_alexander.txt': ultimate_the_epic_of_alexander_namespaceObject,'06-ew/alliance/aglaia.ts': aglaia,'06-ew/alliance/aglaia.txt': alliance_aglaia_namespaceObject,'06-ew/alliance/euphrosyne.ts': euphrosyne,'06-ew/alliance/euphrosyne.txt': alliance_euphrosyne_namespaceObject,'06-ew/alliance/thaleia.ts': thaleia,'06-ew/alliance/thaleia.txt': alliance_thaleia_namespaceObject,'06-ew/deepdungeon/eureka_orthos_floors_01-10.ts': eureka_orthos_floors_01_10,'06-ew/deepdungeon/eureka_orthos_floors_11-20.ts': eureka_orthos_floors_11_20,'06-ew/deepdungeon/eureka_orthos_floors_21-30.ts': eureka_orthos_floors_21_30,'06-ew/deepdungeon/eureka_orthos_floors_31-40.ts': eureka_orthos_floors_31_40,'06-ew/deepdungeon/eureka_orthos_floors_41-50.ts': eureka_orthos_floors_41_50,'06-ew/deepdungeon/eureka_orthos_floors_51-60.ts': eureka_orthos_floors_51_60,'06-ew/deepdungeon/eureka_orthos_floors_61-70.ts': eureka_orthos_floors_61_70,'06-ew/deepdungeon/eureka_orthos_floors_71-80.ts': eureka_orthos_floors_71_80,'06-ew/deepdungeon/eureka_orthos_floors_81-90.ts': eureka_orthos_floors_81_90,'06-ew/deepdungeon/eureka_orthos_floors_91-100.ts': eureka_orthos_floors_91_100,'06-ew/deepdungeon/eureka_orthos_general.ts': eureka_orthos_general,'06-ew/dungeon/aetherfont.ts': aetherfont,'06-ew/dungeon/aetherfont.txt': dungeon_aetherfont_namespaceObject,'06-ew/dungeon/aloalo_island.ts': aloalo_island,'06-ew/dungeon/aloalo_island.txt': dungeon_aloalo_island_namespaceObject,'06-ew/dungeon/alzadaals_legacy.ts': alzadaals_legacy,'06-ew/dungeon/alzadaals_legacy.txt': dungeon_alzadaals_legacy_namespaceObject,'06-ew/dungeon/another_aloalo_island-savage.ts': another_aloalo_island_savage,'06-ew/dungeon/another_aloalo_island-savage.txt': dungeon_another_aloalo_island_savage_namespaceObject,'06-ew/dungeon/another_aloalo_island.ts': another_aloalo_island,'06-ew/dungeon/another_aloalo_island.txt': dungeon_another_aloalo_island_namespaceObject,'06-ew/dungeon/another_mount_rokkon-savage.ts': another_mount_rokkon_savage,'06-ew/dungeon/another_mount_rokkon-savage.txt': dungeon_another_mount_rokkon_savage_namespaceObject,'06-ew/dungeon/another_mount_rokkon.ts': another_mount_rokkon,'06-ew/dungeon/another_mount_rokkon.txt': dungeon_another_mount_rokkon_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane-savage.ts': another_sildihn_subterrane_savage,'06-ew/dungeon/another_sildihn_subterrane-savage.txt': dungeon_another_sildihn_subterrane_savage_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane.ts': another_sildihn_subterrane,'06-ew/dungeon/another_sildihn_subterrane.txt': dungeon_another_sildihn_subterrane_namespaceObject,'06-ew/dungeon/ktisis_hyperboreia.ts': ktisis_hyperboreia,'06-ew/dungeon/ktisis_hyperboreia.txt': dungeon_ktisis_hyperboreia_namespaceObject,'06-ew/dungeon/lapis_manalis.ts': lapis_manalis,'06-ew/dungeon/lapis_manalis.txt': dungeon_lapis_manalis_namespaceObject,'06-ew/dungeon/mount_rokkon.ts': mount_rokkon,'06-ew/dungeon/mount_rokkon.txt': dungeon_mount_rokkon_namespaceObject,'06-ew/dungeon/smileton.ts': smileton,'06-ew/dungeon/smileton.txt': dungeon_smileton_namespaceObject,'06-ew/dungeon/stigma_dreamscape.ts': stigma_dreamscape,'06-ew/dungeon/stigma_dreamscape.txt': dungeon_stigma_dreamscape_namespaceObject,'06-ew/dungeon/the_aitiascope.ts': the_aitiascope,'06-ew/dungeon/the_aitiascope.txt': dungeon_the_aitiascope_namespaceObject,'06-ew/dungeon/the_dead_ends.ts': the_dead_ends,'06-ew/dungeon/the_dead_ends.txt': dungeon_the_dead_ends_namespaceObject,'06-ew/dungeon/the_fell_court_of_troia.ts': the_fell_court_of_troia,'06-ew/dungeon/the_fell_court_of_troia.txt': dungeon_the_fell_court_of_troia_namespaceObject,'06-ew/dungeon/the_lunar_subterrane.ts': the_lunar_subterrane,'06-ew/dungeon/the_lunar_subterrane.txt': dungeon_the_lunar_subterrane_namespaceObject,'06-ew/dungeon/the_sildihn_subterrane.ts': the_sildihn_subterrane,'06-ew/dungeon/the_sildihn_subterrane.txt': dungeon_the_sildihn_subterrane_namespaceObject,'06-ew/dungeon/the_tower_of_babil.ts': the_tower_of_babil,'06-ew/dungeon/the_tower_of_babil.txt': dungeon_the_tower_of_babil_namespaceObject,'06-ew/dungeon/the_tower_of_zot.ts': the_tower_of_zot,'06-ew/dungeon/the_tower_of_zot.txt': dungeon_the_tower_of_zot_namespaceObject,'06-ew/dungeon/vanaspati.ts': vanaspati,'06-ew/dungeon/vanaspati.txt': dungeon_vanaspati_namespaceObject,'06-ew/hunts/elpis.ts': elpis,'06-ew/hunts/garlemald.ts': garlemald,'06-ew/hunts/labyrinthos.ts': labyrinthos,'06-ew/hunts/mare_lamentorum.ts': mare_lamentorum,'06-ew/hunts/ss_rank.ts': hunts_ss_rank,'06-ew/hunts/thavnair.ts': thavnair,'06-ew/hunts/ultima_thule.ts': ultima_thule,'06-ew/map/the_excitatron_6000.ts': the_excitatron_6000,'06-ew/map/the_shifting_gymnasion_agonon.ts': the_shifting_gymnasion_agonon,'06-ew/raid/p10n.ts': p10n,'06-ew/raid/p10n.txt': raid_p10n_namespaceObject,'06-ew/raid/p10s.ts': p10s,'06-ew/raid/p10s.txt': raid_p10s_namespaceObject,'06-ew/raid/p11n.ts': p11n,'06-ew/raid/p11n.txt': raid_p11n_namespaceObject,'06-ew/raid/p11s.ts': p11s,'06-ew/raid/p11s.txt': raid_p11s_namespaceObject,'06-ew/raid/p12n.ts': p12n,'06-ew/raid/p12n.txt': raid_p12n_namespaceObject,'06-ew/raid/p12s.ts': p12s,'06-ew/raid/p12s.txt': raid_p12s_namespaceObject,'06-ew/raid/p1n.ts': p1n,'06-ew/raid/p1n.txt': raid_p1n_namespaceObject,'06-ew/raid/p1s.ts': p1s,'06-ew/raid/p1s.txt': raid_p1s_namespaceObject,'06-ew/raid/p2n.ts': p2n,'06-ew/raid/p2n.txt': raid_p2n_namespaceObject,'06-ew/raid/p2s.ts': p2s,'06-ew/raid/p2s.txt': raid_p2s_namespaceObject,'06-ew/raid/p3n.ts': p3n,'06-ew/raid/p3n.txt': raid_p3n_namespaceObject,'06-ew/raid/p3s.ts': p3s,'06-ew/raid/p3s.txt': raid_p3s_namespaceObject,'06-ew/raid/p4n.ts': p4n,'06-ew/raid/p4n.txt': raid_p4n_namespaceObject,'06-ew/raid/p4s.ts': p4s,'06-ew/raid/p4s.txt': raid_p4s_namespaceObject,'06-ew/raid/p5n.ts': p5n,'06-ew/raid/p5n.txt': raid_p5n_namespaceObject,'06-ew/raid/p5s.ts': p5s,'06-ew/raid/p5s.txt': raid_p5s_namespaceObject,'06-ew/raid/p6n.ts': p6n,'06-ew/raid/p6n.txt': raid_p6n_namespaceObject,'06-ew/raid/p6s.ts': p6s,'06-ew/raid/p6s.txt': raid_p6s_namespaceObject,'06-ew/raid/p7n.ts': p7n,'06-ew/raid/p7n.txt': raid_p7n_namespaceObject,'06-ew/raid/p7s.ts': p7s,'06-ew/raid/p7s.txt': raid_p7s_namespaceObject,'06-ew/raid/p8n.ts': p8n,'06-ew/raid/p8n.txt': raid_p8n_namespaceObject,'06-ew/raid/p8s.ts': p8s,'06-ew/raid/p8s.txt': raid_p8s_namespaceObject,'06-ew/raid/p9n.ts': p9n,'06-ew/raid/p9n.txt': raid_p9n_namespaceObject,'06-ew/raid/p9s.ts': p9s,'06-ew/raid/p9s.txt': raid_p9s_namespaceObject,'06-ew/trial/asura.ts': asura,'06-ew/trial/asura.txt': trial_asura_namespaceObject,'06-ew/trial/barbariccia-ex.ts': barbariccia_ex,'06-ew/trial/barbariccia-ex.txt': trial_barbariccia_ex_namespaceObject,'06-ew/trial/barbariccia.ts': barbariccia,'06-ew/trial/barbariccia.txt': trial_barbariccia_namespaceObject,'06-ew/trial/endsinger-ex.ts': endsinger_ex,'06-ew/trial/endsinger-ex.txt': trial_endsinger_ex_namespaceObject,'06-ew/trial/endsinger.ts': endsinger,'06-ew/trial/endsinger.txt': trial_endsinger_namespaceObject,'06-ew/trial/golbez-ex.ts': golbez_ex,'06-ew/trial/golbez-ex.txt': trial_golbez_ex_namespaceObject,'06-ew/trial/golbez.ts': golbez,'06-ew/trial/golbez.txt': trial_golbez_namespaceObject,'06-ew/trial/hydaelyn-ex.ts': hydaelyn_ex,'06-ew/trial/hydaelyn-ex.txt': trial_hydaelyn_ex_namespaceObject,'06-ew/trial/hydaelyn.ts': hydaelyn,'06-ew/trial/hydaelyn.txt': trial_hydaelyn_namespaceObject,'06-ew/trial/rubicante-ex.ts': rubicante_ex,'06-ew/trial/rubicante-ex.txt': trial_rubicante_ex_namespaceObject,'06-ew/trial/rubicante.ts': rubicante,'06-ew/trial/rubicante.txt': trial_rubicante_namespaceObject,'06-ew/trial/sephirot-un.ts': sephirot_un,'06-ew/trial/sephirot-un.txt': trial_sephirot_un_namespaceObject,'06-ew/trial/sophia-un.ts': sophia_un,'06-ew/trial/sophia-un.txt': trial_sophia_un_namespaceObject,'06-ew/trial/thordan-un.ts': thordan_un,'06-ew/trial/thordan-un.txt': trial_thordan_un_namespaceObject,'06-ew/trial/ultima-un.ts': ultima_un,'06-ew/trial/ultima-un.txt': trial_ultima_un_namespaceObject,'06-ew/trial/zeromus-ex.ts': zeromus_ex,'06-ew/trial/zeromus-ex.txt': trial_zeromus_ex_namespaceObject,'06-ew/trial/zeromus.ts': zeromus,'06-ew/trial/zeromus.txt': trial_zeromus_namespaceObject,'06-ew/trial/zodiark-ex.ts': zodiark_ex,'06-ew/trial/zodiark-ex.txt': trial_zodiark_ex_namespaceObject,'06-ew/trial/zodiark.ts': zodiark,'06-ew/trial/zodiark.txt': trial_zodiark_namespaceObject,'06-ew/trial/zurvan-un.ts': zurvan_un,'06-ew/trial/zurvan-un.txt': trial_zurvan_un_namespaceObject,'06-ew/ultimate/dragonsongs_reprise_ultimate.ts': dragonsongs_reprise_ultimate,'06-ew/ultimate/dragonsongs_reprise_ultimate.txt': ultimate_dragonsongs_reprise_ultimate_namespaceObject,'06-ew/ultimate/the_omega_protocol.ts': the_omega_protocol,'06-ew/ultimate/the_omega_protocol.txt': ultimate_the_omega_protocol_namespaceObject,'07-dt/alliance/cloud_of_darkness_chaotic.ts': cloud_of_darkness_chaotic,'07-dt/alliance/cloud_of_darkness_chaotic.txt': alliance_cloud_of_darkness_chaotic_namespaceObject,'07-dt/alliance/jeuno-first-walk.ts': jeuno_first_walk,'07-dt/alliance/jeuno-first-walk.txt': alliance_jeuno_first_walk_namespaceObject,'07-dt/deepdungeon/pilgrims_traverse_general.ts': pilgrims_traverse_general,'07-dt/deepdungeon/pilgrims_traverse_stones_01-10.ts': pilgrims_traverse_stones_01_10,'07-dt/deepdungeon/pilgrims_traverse_stones_11-20.ts': pilgrims_traverse_stones_11_20,'07-dt/deepdungeon/pilgrims_traverse_stones_21-30.ts': pilgrims_traverse_stones_21_30,'07-dt/deepdungeon/pilgrims_traverse_stones_31-40.ts': pilgrims_traverse_stones_31_40,'07-dt/deepdungeon/pilgrims_traverse_stones_41-50.ts': pilgrims_traverse_stones_41_50,'07-dt/deepdungeon/pilgrims_traverse_stones_51-60.ts': pilgrims_traverse_stones_51_60,'07-dt/deepdungeon/pilgrims_traverse_stones_61-70.ts': pilgrims_traverse_stones_61_70,'07-dt/deepdungeon/pilgrims_traverse_stones_71-80.ts': pilgrims_traverse_stones_71_80,'07-dt/deepdungeon/pilgrims_traverse_stones_81-90.ts': pilgrims_traverse_stones_81_90,'07-dt/deepdungeon/pilgrims_traverse_stones_91-100.ts': pilgrims_traverse_stones_91_100,'07-dt/deepdungeon/pilgrims_traverse_the_final_verse.ts': pilgrims_traverse_the_final_verse,'07-dt/deepdungeon/the_final_verse_quantum.ts': the_final_verse_quantum,'07-dt/deepdungeon/the_final_verse_quantum.txt': deepdungeon_the_final_verse_quantum_namespaceObject,'07-dt/dungeon/alexandria.ts': alexandria,'07-dt/dungeon/alexandria.txt': dungeon_alexandria_namespaceObject,'07-dt/dungeon/ihuykatumu.ts': ihuykatumu,'07-dt/dungeon/ihuykatumu.txt': dungeon_ihuykatumu_namespaceObject,'07-dt/dungeon/meso-terminal.ts': meso_terminal,'07-dt/dungeon/meso-terminal.txt': dungeon_meso_terminal_namespaceObject,'07-dt/dungeon/mistwake.ts': mistwake,'07-dt/dungeon/mistwake.txt': dungeon_mistwake_namespaceObject,'07-dt/dungeon/origenics.ts': origenics,'07-dt/dungeon/origenics.txt': dungeon_origenics_namespaceObject,'07-dt/dungeon/skydeep-cenote.ts': skydeep_cenote,'07-dt/dungeon/skydeep-cenote.txt': dungeon_skydeep_cenote_namespaceObject,'07-dt/dungeon/strayborough-deadwalk.ts': strayborough_deadwalk,'07-dt/dungeon/strayborough-deadwalk.txt': dungeon_strayborough_deadwalk_namespaceObject,'07-dt/dungeon/the_underkeep.ts': the_underkeep,'07-dt/dungeon/the_underkeep.txt': dungeon_the_underkeep_namespaceObject,'07-dt/dungeon/vanguard.ts': vanguard,'07-dt/dungeon/vanguard.txt': dungeon_vanguard_namespaceObject,'07-dt/dungeon/worqor-zormor.ts': worqor_zormor,'07-dt/dungeon/worqor-zormor.txt': dungeon_worqor_zormor_namespaceObject,'07-dt/dungeon/yuweyawata.ts': yuweyawata,'07-dt/dungeon/yuweyawata.txt': dungeon_yuweyawata_namespaceObject,'07-dt/eureka/occult_crescent_south_horn.ts': occult_crescent_south_horn,'07-dt/eureka/occult_crescent_south_horn.txt': eureka_occult_crescent_south_horn_namespaceObject,'07-dt/hunts/heritage_found.ts': heritage_found,'07-dt/hunts/kozamauka.ts': kozamauka,'07-dt/hunts/living_memory.ts': living_memory,'07-dt/hunts/shaaloani.ts': shaaloani,'07-dt/hunts/ss_rank.ts': _07_dt_hunts_ss_rank,'07-dt/hunts/urqopacha.ts': urqopacha,'07-dt/hunts/yaktel.ts': yaktel,'07-dt/map/cenote_ja_ja_gural.ts': cenote_ja_ja_gural,'07-dt/raid/r10n.ts': r10n,'07-dt/raid/r10n.txt': raid_r10n_namespaceObject,'07-dt/raid/r10s.ts': r10s,'07-dt/raid/r10s.txt': raid_r10s_namespaceObject,'07-dt/raid/r11n.ts': r11n,'07-dt/raid/r11n.txt': raid_r11n_namespaceObject,'07-dt/raid/r11s.ts': r11s,'07-dt/raid/r11s.txt': raid_r11s_namespaceObject,'07-dt/raid/r12n.ts': r12n,'07-dt/raid/r12n.txt': raid_r12n_namespaceObject,'07-dt/raid/r12s.ts': r12s,'07-dt/raid/r12s.txt': raid_r12s_namespaceObject,'07-dt/raid/r1n.ts': r1n,'07-dt/raid/r1n.txt': raid_r1n_namespaceObject,'07-dt/raid/r1s.ts': r1s,'07-dt/raid/r1s.txt': raid_r1s_namespaceObject,'07-dt/raid/r2n.ts': r2n,'07-dt/raid/r2n.txt': raid_r2n_namespaceObject,'07-dt/raid/r2s.ts': r2s,'07-dt/raid/r2s.txt': raid_r2s_namespaceObject,'07-dt/raid/r3n.ts': r3n,'07-dt/raid/r3n.txt': raid_r3n_namespaceObject,'07-dt/raid/r3s.ts': r3s,'07-dt/raid/r3s.txt': raid_r3s_namespaceObject,'07-dt/raid/r4n.ts': r4n,'07-dt/raid/r4n.txt': raid_r4n_namespaceObject,'07-dt/raid/r4s.ts': r4s,'07-dt/raid/r4s.txt': raid_r4s_namespaceObject,'07-dt/raid/r5n.ts': r5n,'07-dt/raid/r5n.txt': raid_r5n_namespaceObject,'07-dt/raid/r5s.ts': r5s,'07-dt/raid/r5s.txt': raid_r5s_namespaceObject,'07-dt/raid/r6n.ts': r6n,'07-dt/raid/r6n.txt': raid_r6n_namespaceObject,'07-dt/raid/r6s.ts': r6s,'07-dt/raid/r6s.txt': raid_r6s_namespaceObject,'07-dt/raid/r7n.ts': r7n,'07-dt/raid/r7n.txt': raid_r7n_namespaceObject,'07-dt/raid/r7s.ts': r7s,'07-dt/raid/r7s.txt': raid_r7s_namespaceObject,'07-dt/raid/r8n.ts': r8n,'07-dt/raid/r8n.txt': raid_r8n_namespaceObject,'07-dt/raid/r8s.ts': r8s,'07-dt/raid/r8s.txt': raid_r8s_namespaceObject,'07-dt/raid/r9n.ts': r9n,'07-dt/raid/r9n.txt': raid_r9n_namespaceObject,'07-dt/raid/r9s.ts': r9s,'07-dt/raid/r9s.txt': raid_r9s_namespaceObject,'07-dt/trial/arkveld-ex.ts': arkveld_ex,'07-dt/trial/arkveld-ex.txt': trial_arkveld_ex_namespaceObject,'07-dt/trial/arkveld.ts': arkveld,'07-dt/trial/arkveld.txt': trial_arkveld_namespaceObject,'07-dt/trial/byakko-un.ts': byakko_un,'07-dt/trial/byakko-un.txt': trial_byakko_un_namespaceObject,'07-dt/trial/doomtrain-ex.ts': doomtrain_ex,'07-dt/trial/doomtrain-ex.txt': trial_doomtrain_ex_namespaceObject,'07-dt/trial/doomtrain.ts': doomtrain,'07-dt/trial/doomtrain.txt': trial_doomtrain_namespaceObject,'07-dt/trial/enuo-ex.ts': enuo_ex,'07-dt/trial/enuo-ex.txt': trial_enuo_ex_namespaceObject,'07-dt/trial/necron-ex.ts': necron_ex,'07-dt/trial/necron-ex.txt': trial_necron_ex_namespaceObject,'07-dt/trial/queen-eternal-ex.ts': queen_eternal_ex,'07-dt/trial/queen-eternal-ex.txt': trial_queen_eternal_ex_namespaceObject,'07-dt/trial/queen-eternal.ts': queen_eternal,'07-dt/trial/queen-eternal.txt': trial_queen_eternal_namespaceObject,'07-dt/trial/seiryu-un.ts': seiryu_un,'07-dt/trial/seiryu-un.txt': trial_seiryu_un_namespaceObject,'07-dt/trial/shinryu-un.ts': shinryu_un,'07-dt/trial/shinryu-un.txt': trial_shinryu_un_namespaceObject,'07-dt/trial/suzaku-un.ts': suzaku_un,'07-dt/trial/suzaku-un.txt': trial_suzaku_un_namespaceObject,'07-dt/trial/tsukuyomi-un.ts': tsukuyomi_un,'07-dt/trial/tsukuyomi-un.txt': trial_tsukuyomi_un_namespaceObject,'07-dt/trial/valigarmanda-ex.ts': valigarmanda_ex,'07-dt/trial/valigarmanda-ex.txt': trial_valigarmanda_ex_namespaceObject,'07-dt/trial/valigarmanda.ts': valigarmanda,'07-dt/trial/valigarmanda.txt': trial_valigarmanda_namespaceObject,'07-dt/trial/zelenia-ex.ts': zelenia_ex,'07-dt/trial/zelenia-ex.txt': trial_zelenia_ex_namespaceObject,'07-dt/trial/zelenia.ts': zelenia,'07-dt/trial/zelenia.txt': trial_zelenia_namespaceObject,'07-dt/trial/zoraal-ja-ex.ts': zoraal_ja_ex,'07-dt/trial/zoraal-ja-ex.txt': trial_zoraal_ja_ex_namespaceObject,'07-dt/trial/zoraal-ja.ts': zoraal_ja,'07-dt/trial/zoraal-ja.txt': trial_zoraal_ja_namespaceObject,'07-dt/ultimate/futures_rewritten.ts': futures_rewritten,'07-dt/ultimate/futures_rewritten.txt': ultimate_futures_rewritten_namespaceObject,'99-custom/readme.txt': readme_namespaceObject,});
+
+
+/* harmony default export */ const raidboss_manifest = ({'00-misc/general.ts': general,'00-misc/test.ts': test,'00-misc/test.txt': _00_misc_test_namespaceObject,'00-misc/the_masked_carnivale.ts': the_masked_carnivale,'02-arr/alliance/the_world_of_darkness.ts': the_world_of_darkness,'02-arr/dungeon/amdapor_keep.ts': amdapor_keep,'02-arr/dungeon/amdapor_keep_hard.ts': amdapor_keep_hard,'02-arr/dungeon/aurum_vale.ts': aurum_vale,'02-arr/dungeon/aurum_vale73.ts': aurum_vale73,'02-arr/dungeon/brayfloxs_longstop.ts': brayfloxs_longstop,'02-arr/dungeon/cutters_cry.ts': cutters_cry,'02-arr/dungeon/cutters_cry72.ts': cutters_cry72,'02-arr/dungeon/halatali_hard.ts': halatali_hard,'02-arr/dungeon/haukke_manor.ts': haukke_manor,'02-arr/dungeon/haukke_manor_hard.ts': haukke_manor_hard,'02-arr/dungeon/hullbreaker_isle.ts': hullbreaker_isle,'02-arr/dungeon/pharos_sirius.ts': pharos_sirius,'02-arr/dungeon/sastasha_hard.ts': sastasha_hard,'02-arr/dungeon/snowcloak.ts': snowcloak,'02-arr/dungeon/the_lost_city_of_amdapor.ts': the_lost_city_of_amdapor,'02-arr/dungeon/the_stone_vigil.ts': the_stone_vigil,'02-arr/dungeon/the_stone_vigil_hard.ts': the_stone_vigil_hard,'02-arr/dungeon/the_sunken_temple_of_quarn.ts': the_sunken_temple_of_quarn,'02-arr/dungeon/the_sunken_temple_of_quarn71.ts': the_sunken_temple_of_quarn71,'02-arr/dungeon/the_sunken_temple_of_quarn_hard.ts': the_sunken_temple_of_quarn_hard,'02-arr/dungeon/the_tam_tara_depocraft_hard.ts': the_tam_tara_depocraft_hard,'02-arr/dungeon/the_wanderers_palace_hard.ts': the_wanderers_palace_hard,'02-arr/raid/t1.ts': t1,'02-arr/raid/t10.ts': t10,'02-arr/raid/t10.txt': raid_t10_namespaceObject,'02-arr/raid/t11.ts': t11,'02-arr/raid/t11.txt': raid_t11_namespaceObject,'02-arr/raid/t12.ts': t12,'02-arr/raid/t12.txt': raid_t12_namespaceObject,'02-arr/raid/t13.ts': t13,'02-arr/raid/t13.txt': raid_t13_namespaceObject,'02-arr/raid/t2.ts': t2,'02-arr/raid/t4.ts': t4,'02-arr/raid/t4.txt': raid_t4_namespaceObject,'02-arr/raid/t5.ts': t5,'02-arr/raid/t5.txt': raid_t5_namespaceObject,'02-arr/raid/t6.ts': t6,'02-arr/raid/t6.txt': raid_t6_namespaceObject,'02-arr/raid/t7.ts': t7,'02-arr/raid/t7.txt': raid_t7_namespaceObject,'02-arr/raid/t8.ts': t8,'02-arr/raid/t8.txt': raid_t8_namespaceObject,'02-arr/raid/t9.ts': t9,'02-arr/raid/t9.txt': raid_t9_namespaceObject,'02-arr/trial/ifrit-nm.ts': ifrit_nm,'02-arr/trial/ifrit-nm.txt': trial_ifrit_nm_namespaceObject,'02-arr/trial/levi-ex.ts': levi_ex,'02-arr/trial/levi-ex.txt': trial_levi_ex_namespaceObject,'02-arr/trial/shiva-ex.ts': shiva_ex,'02-arr/trial/shiva-ex.txt': trial_shiva_ex_namespaceObject,'02-arr/trial/shiva-hm.ts': shiva_hm,'02-arr/trial/shiva-hm.txt': trial_shiva_hm_namespaceObject,'02-arr/trial/titan-ex.ts': titan_ex,'02-arr/trial/titan-ex.txt': trial_titan_ex_namespaceObject,'02-arr/trial/titan-hm.ts': titan_hm,'02-arr/trial/titan-hm.txt': trial_titan_hm_namespaceObject,'02-arr/trial/titan-nm.ts': titan_nm,'02-arr/trial/titan-nm.txt': trial_titan_nm_namespaceObject,'02-arr/trial/ultima-ex.ts': ultima_ex,'02-arr/trial/ultima-ex.txt': trial_ultima_ex_namespaceObject,'03-hw/alliance/dun_scaith.ts': dun_scaith,'03-hw/alliance/dun_scaith.txt': alliance_dun_scaith_namespaceObject,'03-hw/alliance/weeping_city.ts': weeping_city,'03-hw/alliance/weeping_city.txt': alliance_weeping_city_namespaceObject,'03-hw/deepdungeon/the_palace_of_the_dead_floors_001-010.ts': the_palace_of_the_dead_floors_001_010,'03-hw/deepdungeon/the_palace_of_the_dead_floors_011-020.ts': the_palace_of_the_dead_floors_011_020,'03-hw/deepdungeon/the_palace_of_the_dead_floors_021-030.ts': the_palace_of_the_dead_floors_021_030,'03-hw/deepdungeon/the_palace_of_the_dead_floors_031-040.ts': the_palace_of_the_dead_floors_031_040,'03-hw/deepdungeon/the_palace_of_the_dead_floors_041-050.ts': the_palace_of_the_dead_floors_041_050,'03-hw/deepdungeon/the_palace_of_the_dead_floors_051-060.ts': the_palace_of_the_dead_floors_051_060,'03-hw/deepdungeon/the_palace_of_the_dead_floors_061-070.ts': the_palace_of_the_dead_floors_061_070,'03-hw/deepdungeon/the_palace_of_the_dead_floors_071-080.ts': the_palace_of_the_dead_floors_071_080,'03-hw/deepdungeon/the_palace_of_the_dead_floors_081-090.ts': the_palace_of_the_dead_floors_081_090,'03-hw/deepdungeon/the_palace_of_the_dead_floors_091-100.ts': the_palace_of_the_dead_floors_091_100,'03-hw/deepdungeon/the_palace_of_the_dead_floors_101-110.ts': the_palace_of_the_dead_floors_101_110,'03-hw/deepdungeon/the_palace_of_the_dead_floors_111-120.ts': the_palace_of_the_dead_floors_111_120,'03-hw/deepdungeon/the_palace_of_the_dead_floors_121-130.ts': the_palace_of_the_dead_floors_121_130,'03-hw/deepdungeon/the_palace_of_the_dead_floors_131-140.ts': the_palace_of_the_dead_floors_131_140,'03-hw/deepdungeon/the_palace_of_the_dead_floors_141-150.ts': the_palace_of_the_dead_floors_141_150,'03-hw/deepdungeon/the_palace_of_the_dead_floors_151-160.ts': the_palace_of_the_dead_floors_151_160,'03-hw/deepdungeon/the_palace_of_the_dead_floors_161-170.ts': the_palace_of_the_dead_floors_161_170,'03-hw/deepdungeon/the_palace_of_the_dead_floors_171-180.ts': the_palace_of_the_dead_floors_171_180,'03-hw/deepdungeon/the_palace_of_the_dead_floors_181-190.ts': the_palace_of_the_dead_floors_181_190,'03-hw/deepdungeon/the_palace_of_the_dead_floors_191-200.ts': the_palace_of_the_dead_floors_191_200,'03-hw/deepdungeon/the_palace_of_the_dead_general.ts': the_palace_of_the_dead_general,'03-hw/dungeon/aetherochemical_research_facility.ts': aetherochemical_research_facility,'03-hw/dungeon/aetherochemical_research_facility.txt': dungeon_aetherochemical_research_facility_namespaceObject,'03-hw/dungeon/baelsars_wall.ts': baelsars_wall,'03-hw/dungeon/baelsars_wall.txt': dungeon_baelsars_wall_namespaceObject,'03-hw/dungeon/fractal_continuum.ts': fractal_continuum,'03-hw/dungeon/fractal_continuum.txt': dungeon_fractal_continuum_namespaceObject,'03-hw/dungeon/gubal_library_hard.ts': gubal_library_hard,'03-hw/dungeon/gubal_library_hard.txt': dungeon_gubal_library_hard_namespaceObject,'03-hw/dungeon/sohm_al.ts': sohm_al,'03-hw/dungeon/sohm_al.txt': dungeon_sohm_al_namespaceObject,'03-hw/dungeon/sohm_al_hard.ts': sohm_al_hard,'03-hw/dungeon/sohm_al_hard.txt': dungeon_sohm_al_hard_namespaceObject,'03-hw/dungeon/the_lost_city_of_amdapor_hard.ts': the_lost_city_of_amdapor_hard,'03-hw/dungeon/the_lost_city_of_amdapor_hard.txt': dungeon_the_lost_city_of_amdapor_hard_namespaceObject,'03-hw/dungeon/the_vault.ts': the_vault,'03-hw/dungeon/the_vault.txt': dungeon_the_vault_namespaceObject,'03-hw/dungeon/xelphatol.ts': xelphatol,'03-hw/dungeon/xelphatol.txt': dungeon_xelphatol_namespaceObject,'03-hw/map/the_aquapolis.ts': the_aquapolis,'03-hw/pvp/shatter.ts': shatter,'03-hw/raid/a10n.ts': a10n,'03-hw/raid/a10n.txt': raid_a10n_namespaceObject,'03-hw/raid/a10s.ts': a10s,'03-hw/raid/a10s.txt': raid_a10s_namespaceObject,'03-hw/raid/a11s.ts': a11s,'03-hw/raid/a11s.txt': raid_a11s_namespaceObject,'03-hw/raid/a12n.ts': a12n,'03-hw/raid/a12n.txt': raid_a12n_namespaceObject,'03-hw/raid/a12s.ts': a12s,'03-hw/raid/a12s.txt': raid_a12s_namespaceObject,'03-hw/raid/a1s.ts': a1s,'03-hw/raid/a1s.txt': raid_a1s_namespaceObject,'03-hw/raid/a2s.ts': a2s,'03-hw/raid/a2s.txt': raid_a2s_namespaceObject,'03-hw/raid/a3n.ts': a3n,'03-hw/raid/a3n.txt': raid_a3n_namespaceObject,'03-hw/raid/a3s.ts': a3s,'03-hw/raid/a3s.txt': raid_a3s_namespaceObject,'03-hw/raid/a4s.ts': a4s,'03-hw/raid/a4s.txt': raid_a4s_namespaceObject,'03-hw/raid/a5s.ts': a5s,'03-hw/raid/a5s.txt': raid_a5s_namespaceObject,'03-hw/raid/a6n.ts': a6n,'03-hw/raid/a6n.txt': raid_a6n_namespaceObject,'03-hw/raid/a6s.ts': a6s,'03-hw/raid/a6s.txt': raid_a6s_namespaceObject,'03-hw/raid/a7s.ts': a7s,'03-hw/raid/a7s.txt': raid_a7s_namespaceObject,'03-hw/raid/a8n.ts': a8n,'03-hw/raid/a8n.txt': raid_a8n_namespaceObject,'03-hw/raid/a8s.ts': a8s,'03-hw/raid/a8s.txt': raid_a8s_namespaceObject,'03-hw/raid/a9s.ts': a9s,'03-hw/raid/a9s.txt': raid_a9s_namespaceObject,'03-hw/trial/bismarck-ex.ts': bismarck_ex,'03-hw/trial/ravana-ex.ts': ravana_ex,'03-hw/trial/ravana-ex.txt': trial_ravana_ex_namespaceObject,'03-hw/trial/sephirot-ex.ts': sephirot_ex,'03-hw/trial/sephirot-ex.txt': trial_sephirot_ex_namespaceObject,'03-hw/trial/sephirot.ts': sephirot,'03-hw/trial/sophia-ex.ts': sophia_ex,'03-hw/trial/sophia-ex.txt': trial_sophia_ex_namespaceObject,'03-hw/trial/thordan-ex.ts': thordan_ex,'03-hw/trial/thordan-ex.txt': trial_thordan_ex_namespaceObject,'03-hw/trial/zurvan-ex.ts': zurvan_ex,'03-hw/trial/zurvan-ex.txt': trial_zurvan_ex_namespaceObject,'04-sb/alliance/orbonne_monastery.ts': orbonne_monastery,'04-sb/alliance/orbonne_monastery.txt': alliance_orbonne_monastery_namespaceObject,'04-sb/alliance/ridorana_lighthouse.ts': ridorana_lighthouse,'04-sb/alliance/ridorana_lighthouse.txt': alliance_ridorana_lighthouse_namespaceObject,'04-sb/alliance/royal_city_of_rabanastre.ts': royal_city_of_rabanastre,'04-sb/alliance/royal_city_of_rabanastre.txt': alliance_royal_city_of_rabanastre_namespaceObject,'04-sb/deepdungeon/heaven-on-high_floors_01-10.ts': heaven_on_high_floors_01_10,'04-sb/deepdungeon/heaven-on-high_floors_11-20.ts': heaven_on_high_floors_11_20,'04-sb/deepdungeon/heaven-on-high_floors_21-30.ts': heaven_on_high_floors_21_30,'04-sb/deepdungeon/heaven-on-high_floors_31-40.ts': heaven_on_high_floors_31_40,'04-sb/deepdungeon/heaven-on-high_floors_41-50.ts': heaven_on_high_floors_41_50,'04-sb/deepdungeon/heaven-on-high_floors_51-60.ts': heaven_on_high_floors_51_60,'04-sb/deepdungeon/heaven-on-high_floors_61-70.ts': heaven_on_high_floors_61_70,'04-sb/deepdungeon/heaven-on-high_floors_71-80.ts': heaven_on_high_floors_71_80,'04-sb/deepdungeon/heaven-on-high_floors_81-90.ts': heaven_on_high_floors_81_90,'04-sb/deepdungeon/heaven-on-high_floors_91-100.ts': heaven_on_high_floors_91_100,'04-sb/deepdungeon/heaven-on-high_general.ts': heaven_on_high_general,'04-sb/dungeon/ala_mhigo.ts': ala_mhigo,'04-sb/dungeon/ala_mhigo.txt': dungeon_ala_mhigo_namespaceObject,'04-sb/dungeon/bardams_mettle.ts': bardams_mettle,'04-sb/dungeon/bardams_mettle.txt': dungeon_bardams_mettle_namespaceObject,'04-sb/dungeon/castrum_abania.ts': castrum_abania,'04-sb/dungeon/castrum_abania.txt': dungeon_castrum_abania_namespaceObject,'04-sb/dungeon/doma_castle.ts': doma_castle,'04-sb/dungeon/doma_castle.txt': dungeon_doma_castle_namespaceObject,'04-sb/dungeon/drowned_city_of_skalla.ts': drowned_city_of_skalla,'04-sb/dungeon/drowned_city_of_skalla.txt': dungeon_drowned_city_of_skalla_namespaceObject,'04-sb/dungeon/fractal_continuum_hard.ts': fractal_continuum_hard,'04-sb/dungeon/fractal_continuum_hard.txt': dungeon_fractal_continuum_hard_namespaceObject,'04-sb/dungeon/ghimlyt_dark.ts': ghimlyt_dark,'04-sb/dungeon/ghimlyt_dark.txt': dungeon_ghimlyt_dark_namespaceObject,'04-sb/dungeon/hells_lid.ts': hells_lid,'04-sb/dungeon/hells_lid.txt': dungeon_hells_lid_namespaceObject,'04-sb/dungeon/kugane_castle.ts': kugane_castle,'04-sb/dungeon/kugane_castle.txt': dungeon_kugane_castle_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides.ts': shisui_of_the_violet_tides,'04-sb/dungeon/shisui_of_the_violet_tides.txt': dungeon_shisui_of_the_violet_tides_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides74.ts': shisui_of_the_violet_tides74,'04-sb/dungeon/shisui_of_the_violet_tides74.txt': dungeon_shisui_of_the_violet_tides74_namespaceObject,'04-sb/dungeon/sirensong_sea.ts': sirensong_sea,'04-sb/dungeon/sirensong_sea.txt': dungeon_sirensong_sea_namespaceObject,'04-sb/dungeon/st_mocianne_hard.ts': st_mocianne_hard,'04-sb/dungeon/st_mocianne_hard.txt': dungeon_st_mocianne_hard_namespaceObject,'04-sb/dungeon/swallows_compass.ts': swallows_compass,'04-sb/dungeon/swallows_compass.txt': dungeon_swallows_compass_namespaceObject,'04-sb/dungeon/temple_of_the_fist.ts': temple_of_the_fist,'04-sb/dungeon/temple_of_the_fist.txt': dungeon_temple_of_the_fist_namespaceObject,'04-sb/dungeon/the_burn.ts': the_burn,'04-sb/dungeon/the_burn.txt': dungeon_the_burn_namespaceObject,'04-sb/eureka/eureka_anemos.ts': eureka_anemos,'04-sb/eureka/eureka_hydatos.ts': eureka_hydatos,'04-sb/eureka/eureka_hydatos.txt': eureka_eureka_hydatos_namespaceObject,'04-sb/eureka/eureka_pyros.ts': eureka_pyros,'04-sb/hunts/yanxia.ts': yanxia,'04-sb/map/the_hidden_canals_of_uznair.ts': the_hidden_canals_of_uznair,'04-sb/map/the_lost_canals_of_uznair.ts': the_lost_canals_of_uznair,'04-sb/map/the_shifting_altars_of_uznair.ts': the_shifting_altars_of_uznair,'04-sb/raid/o10n.ts': o10n,'04-sb/raid/o10n.txt': raid_o10n_namespaceObject,'04-sb/raid/o10s.ts': o10s,'04-sb/raid/o10s.txt': raid_o10s_namespaceObject,'04-sb/raid/o11n.ts': o11n,'04-sb/raid/o11n.txt': raid_o11n_namespaceObject,'04-sb/raid/o11s.ts': o11s,'04-sb/raid/o11s.txt': raid_o11s_namespaceObject,'04-sb/raid/o12n.ts': o12n,'04-sb/raid/o12n.txt': raid_o12n_namespaceObject,'04-sb/raid/o12s.ts': o12s,'04-sb/raid/o12s.txt': raid_o12s_namespaceObject,'04-sb/raid/o1n.ts': o1n,'04-sb/raid/o1n.txt': raid_o1n_namespaceObject,'04-sb/raid/o1s.ts': o1s,'04-sb/raid/o1s.txt': raid_o1s_namespaceObject,'04-sb/raid/o2n.ts': o2n,'04-sb/raid/o2n.txt': raid_o2n_namespaceObject,'04-sb/raid/o2s.ts': o2s,'04-sb/raid/o2s.txt': raid_o2s_namespaceObject,'04-sb/raid/o3n.ts': o3n,'04-sb/raid/o3n.txt': raid_o3n_namespaceObject,'04-sb/raid/o3s.ts': o3s,'04-sb/raid/o3s.txt': raid_o3s_namespaceObject,'04-sb/raid/o4n.ts': o4n,'04-sb/raid/o4n.txt': raid_o4n_namespaceObject,'04-sb/raid/o4s.ts': o4s,'04-sb/raid/o4s.txt': raid_o4s_namespaceObject,'04-sb/raid/o5n.ts': o5n,'04-sb/raid/o5n.txt': raid_o5n_namespaceObject,'04-sb/raid/o5s.ts': o5s,'04-sb/raid/o5s.txt': raid_o5s_namespaceObject,'04-sb/raid/o6n.ts': o6n,'04-sb/raid/o6n.txt': raid_o6n_namespaceObject,'04-sb/raid/o6s.ts': o6s,'04-sb/raid/o6s.txt': raid_o6s_namespaceObject,'04-sb/raid/o7n.ts': o7n,'04-sb/raid/o7n.txt': raid_o7n_namespaceObject,'04-sb/raid/o7s.ts': o7s,'04-sb/raid/o7s.txt': raid_o7s_namespaceObject,'04-sb/raid/o8n.ts': o8n,'04-sb/raid/o8n.txt': raid_o8n_namespaceObject,'04-sb/raid/o8s.ts': o8s,'04-sb/raid/o8s.txt': raid_o8s_namespaceObject,'04-sb/raid/o9n.ts': o9n,'04-sb/raid/o9n.txt': raid_o9n_namespaceObject,'04-sb/raid/o9s.ts': o9s,'04-sb/raid/o9s.txt': raid_o9s_namespaceObject,'04-sb/trial/byakko-ex.ts': byakko_ex,'04-sb/trial/byakko-ex.txt': trial_byakko_ex_namespaceObject,'04-sb/trial/byakko.ts': byakko,'04-sb/trial/byakko.txt': trial_byakko_namespaceObject,'04-sb/trial/lakshmi-ex.ts': lakshmi_ex,'04-sb/trial/lakshmi-ex.txt': trial_lakshmi_ex_namespaceObject,'04-sb/trial/lakshmi.ts': lakshmi,'04-sb/trial/lakshmi.txt': trial_lakshmi_namespaceObject,'04-sb/trial/rathalos-ex.ts': rathalos_ex,'04-sb/trial/rathalos.ts': rathalos,'04-sb/trial/seiryu-ex.ts': seiryu_ex,'04-sb/trial/seiryu-ex.txt': trial_seiryu_ex_namespaceObject,'04-sb/trial/seiryu.ts': seiryu,'04-sb/trial/seiryu.txt': trial_seiryu_namespaceObject,'04-sb/trial/shinryu-ex.ts': shinryu_ex,'04-sb/trial/shinryu-ex.txt': trial_shinryu_ex_namespaceObject,'04-sb/trial/shinryu.ts': shinryu,'04-sb/trial/shinryu.txt': trial_shinryu_namespaceObject,'04-sb/trial/susano-ex.ts': susano_ex,'04-sb/trial/susano-ex.txt': trial_susano_ex_namespaceObject,'04-sb/trial/susano.ts': susano,'04-sb/trial/susano.txt': trial_susano_namespaceObject,'04-sb/trial/suzaku-ex.ts': suzaku_ex,'04-sb/trial/suzaku-ex.txt': trial_suzaku_ex_namespaceObject,'04-sb/trial/suzaku.ts': suzaku,'04-sb/trial/suzaku.txt': trial_suzaku_namespaceObject,'04-sb/trial/tsukuyomi-ex.ts': tsukuyomi_ex,'04-sb/trial/tsukuyomi-ex.txt': trial_tsukuyomi_ex_namespaceObject,'04-sb/trial/tsukuyomi.ts': tsukuyomi,'04-sb/trial/tsukuyomi.txt': trial_tsukuyomi_namespaceObject,'04-sb/trial/yojimbo.ts': yojimbo,'04-sb/trial/yojimbo.txt': trial_yojimbo_namespaceObject,'04-sb/ultimate/ultima_weapon_ultimate.ts': ultima_weapon_ultimate,'04-sb/ultimate/ultima_weapon_ultimate.txt': ultimate_ultima_weapon_ultimate_namespaceObject,'04-sb/ultimate/unending_coil_ultimate.ts': unending_coil_ultimate,'04-sb/ultimate/unending_coil_ultimate.txt': ultimate_unending_coil_ultimate_namespaceObject,'05-shb/alliance/the_copied_factory.ts': the_copied_factory,'05-shb/alliance/the_copied_factory.txt': alliance_the_copied_factory_namespaceObject,'05-shb/alliance/the_puppets_bunker.ts': the_puppets_bunker,'05-shb/alliance/the_puppets_bunker.txt': alliance_the_puppets_bunker_namespaceObject,'05-shb/alliance/the_tower_at_paradigms_breach.ts': the_tower_at_paradigms_breach,'05-shb/alliance/the_tower_at_paradigms_breach.txt': alliance_the_tower_at_paradigms_breach_namespaceObject,'05-shb/dungeon/akadaemia_anyder.ts': akadaemia_anyder,'05-shb/dungeon/akadaemia_anyder.txt': dungeon_akadaemia_anyder_namespaceObject,'05-shb/dungeon/amaurot.ts': amaurot,'05-shb/dungeon/amaurot.txt': dungeon_amaurot_namespaceObject,'05-shb/dungeon/anamnesis_anyder.ts': anamnesis_anyder,'05-shb/dungeon/anamnesis_anyder.txt': dungeon_anamnesis_anyder_namespaceObject,'05-shb/dungeon/dohn_mheg.ts': dohn_mheg,'05-shb/dungeon/dohn_mheg.txt': dungeon_dohn_mheg_namespaceObject,'05-shb/dungeon/heroes_gauntlet.ts': heroes_gauntlet,'05-shb/dungeon/heroes_gauntlet.txt': dungeon_heroes_gauntlet_namespaceObject,'05-shb/dungeon/holminster_switch.ts': holminster_switch,'05-shb/dungeon/holminster_switch.txt': dungeon_holminster_switch_namespaceObject,'05-shb/dungeon/malikahs_well.ts': malikahs_well,'05-shb/dungeon/malikahs_well.txt': dungeon_malikahs_well_namespaceObject,'05-shb/dungeon/matoyas_relict.ts': matoyas_relict,'05-shb/dungeon/matoyas_relict.txt': dungeon_matoyas_relict_namespaceObject,'05-shb/dungeon/mt_gulg.ts': mt_gulg,'05-shb/dungeon/mt_gulg.txt': dungeon_mt_gulg_namespaceObject,'05-shb/dungeon/paglthan.ts': paglthan,'05-shb/dungeon/paglthan.txt': dungeon_paglthan_namespaceObject,'05-shb/dungeon/qitana_ravel.ts': qitana_ravel,'05-shb/dungeon/qitana_ravel.txt': dungeon_qitana_ravel_namespaceObject,'05-shb/dungeon/the_grand_cosmos.ts': the_grand_cosmos,'05-shb/dungeon/the_grand_cosmos.txt': dungeon_the_grand_cosmos_namespaceObject,'05-shb/dungeon/twinning.ts': twinning,'05-shb/dungeon/twinning.txt': dungeon_twinning_namespaceObject,'05-shb/etc/the_diadem.ts': the_diadem,'05-shb/eureka/bozjan_southern_front.ts': bozjan_southern_front,'05-shb/eureka/bozjan_southern_front.txt': eureka_bozjan_southern_front_namespaceObject,'05-shb/eureka/delubrum_reginae.ts': delubrum_reginae,'05-shb/eureka/delubrum_reginae.txt': eureka_delubrum_reginae_namespaceObject,'05-shb/eureka/delubrum_reginae_savage.ts': delubrum_reginae_savage,'05-shb/eureka/delubrum_reginae_savage.txt': eureka_delubrum_reginae_savage_namespaceObject,'05-shb/eureka/zadnor.ts': zadnor,'05-shb/eureka/zadnor.txt': eureka_zadnor_namespaceObject,'05-shb/hunts/amh_araeng.ts': amh_araeng,'05-shb/hunts/il_mheg.ts': il_mheg,'05-shb/hunts/kholusia.ts': kholusia,'05-shb/hunts/lakeland.ts': lakeland,'05-shb/hunts/ss_rank.ts': ss_rank,'05-shb/hunts/the_raktika_greatwood.ts': the_raktika_greatwood,'05-shb/hunts/the_tempest.ts': the_tempest,'05-shb/map/the_dungeons_of_lyhe_ghiah.ts': the_dungeons_of_lyhe_ghiah,'05-shb/map/the_shifting_oubliettes_of_lyhe_ghiah.ts': the_shifting_oubliettes_of_lyhe_ghiah,'05-shb/raid/e10n.ts': e10n,'05-shb/raid/e10n.txt': raid_e10n_namespaceObject,'05-shb/raid/e10s.ts': e10s,'05-shb/raid/e10s.txt': raid_e10s_namespaceObject,'05-shb/raid/e11n.ts': e11n,'05-shb/raid/e11n.txt': raid_e11n_namespaceObject,'05-shb/raid/e11s.ts': e11s,'05-shb/raid/e11s.txt': raid_e11s_namespaceObject,'05-shb/raid/e12n.ts': e12n,'05-shb/raid/e12n.txt': raid_e12n_namespaceObject,'05-shb/raid/e12s.ts': e12s,'05-shb/raid/e12s.txt': raid_e12s_namespaceObject,'05-shb/raid/e1n.ts': e1n,'05-shb/raid/e1n.txt': raid_e1n_namespaceObject,'05-shb/raid/e1s.ts': e1s,'05-shb/raid/e1s.txt': raid_e1s_namespaceObject,'05-shb/raid/e2n.ts': e2n,'05-shb/raid/e2n.txt': raid_e2n_namespaceObject,'05-shb/raid/e2s.ts': e2s,'05-shb/raid/e2s.txt': raid_e2s_namespaceObject,'05-shb/raid/e3n.ts': e3n,'05-shb/raid/e3n.txt': raid_e3n_namespaceObject,'05-shb/raid/e3s.ts': e3s,'05-shb/raid/e3s.txt': raid_e3s_namespaceObject,'05-shb/raid/e4n.ts': e4n,'05-shb/raid/e4n.txt': raid_e4n_namespaceObject,'05-shb/raid/e4s.ts': e4s,'05-shb/raid/e4s.txt': raid_e4s_namespaceObject,'05-shb/raid/e5n.ts': e5n,'05-shb/raid/e5n.txt': raid_e5n_namespaceObject,'05-shb/raid/e5s.ts': e5s,'05-shb/raid/e5s.txt': raid_e5s_namespaceObject,'05-shb/raid/e6n.ts': e6n,'05-shb/raid/e6n.txt': raid_e6n_namespaceObject,'05-shb/raid/e6s.ts': e6s,'05-shb/raid/e6s.txt': raid_e6s_namespaceObject,'05-shb/raid/e7n.ts': e7n,'05-shb/raid/e7n.txt': raid_e7n_namespaceObject,'05-shb/raid/e7s.ts': e7s,'05-shb/raid/e7s.txt': raid_e7s_namespaceObject,'05-shb/raid/e8n.ts': e8n,'05-shb/raid/e8n.txt': raid_e8n_namespaceObject,'05-shb/raid/e8s.ts': e8s,'05-shb/raid/e8s.txt': raid_e8s_namespaceObject,'05-shb/raid/e9n.ts': e9n,'05-shb/raid/e9n.txt': raid_e9n_namespaceObject,'05-shb/raid/e9s.ts': e9s,'05-shb/raid/e9s.txt': raid_e9s_namespaceObject,'05-shb/trial/diamond_weapon-ex.ts': diamond_weapon_ex,'05-shb/trial/diamond_weapon-ex.txt': trial_diamond_weapon_ex_namespaceObject,'05-shb/trial/diamond_weapon.ts': diamond_weapon,'05-shb/trial/diamond_weapon.txt': trial_diamond_weapon_namespaceObject,'05-shb/trial/emerald_weapon-ex.ts': emerald_weapon_ex,'05-shb/trial/emerald_weapon-ex.txt': trial_emerald_weapon_ex_namespaceObject,'05-shb/trial/emerald_weapon.ts': emerald_weapon,'05-shb/trial/emerald_weapon.txt': trial_emerald_weapon_namespaceObject,'05-shb/trial/hades-ex.ts': hades_ex,'05-shb/trial/hades-ex.txt': trial_hades_ex_namespaceObject,'05-shb/trial/hades.ts': hades,'05-shb/trial/hades.txt': trial_hades_namespaceObject,'05-shb/trial/innocence-ex.ts': innocence_ex,'05-shb/trial/innocence-ex.txt': trial_innocence_ex_namespaceObject,'05-shb/trial/innocence.ts': innocence,'05-shb/trial/innocence.txt': trial_innocence_namespaceObject,'05-shb/trial/levi-un.ts': levi_un,'05-shb/trial/levi-un.txt': trial_levi_un_namespaceObject,'05-shb/trial/ruby_weapon-ex.ts': ruby_weapon_ex,'05-shb/trial/ruby_weapon-ex.txt': trial_ruby_weapon_ex_namespaceObject,'05-shb/trial/ruby_weapon.ts': ruby_weapon,'05-shb/trial/ruby_weapon.txt': trial_ruby_weapon_namespaceObject,'05-shb/trial/shiva-un.ts': shiva_un,'05-shb/trial/shiva-un.txt': trial_shiva_un_namespaceObject,'05-shb/trial/titan-un.ts': titan_un,'05-shb/trial/titan-un.txt': trial_titan_un_namespaceObject,'05-shb/trial/titania-ex.ts': titania_ex,'05-shb/trial/titania-ex.txt': trial_titania_ex_namespaceObject,'05-shb/trial/titania.ts': titania,'05-shb/trial/titania.txt': trial_titania_namespaceObject,'05-shb/trial/varis-ex.ts': varis_ex,'05-shb/trial/varis-ex.txt': trial_varis_ex_namespaceObject,'05-shb/trial/wol-ex.ts': wol_ex,'05-shb/trial/wol-ex.txt': trial_wol_ex_namespaceObject,'05-shb/trial/wol.ts': wol,'05-shb/trial/wol.txt': trial_wol_namespaceObject,'05-shb/ultimate/the_epic_of_alexander.ts': the_epic_of_alexander,'05-shb/ultimate/the_epic_of_alexander.txt': ultimate_the_epic_of_alexander_namespaceObject,'06-ew/alliance/aglaia.ts': aglaia,'06-ew/alliance/aglaia.txt': alliance_aglaia_namespaceObject,'06-ew/alliance/euphrosyne.ts': euphrosyne,'06-ew/alliance/euphrosyne.txt': alliance_euphrosyne_namespaceObject,'06-ew/alliance/thaleia.ts': thaleia,'06-ew/alliance/thaleia.txt': alliance_thaleia_namespaceObject,'06-ew/deepdungeon/eureka_orthos_floors_01-10.ts': eureka_orthos_floors_01_10,'06-ew/deepdungeon/eureka_orthos_floors_11-20.ts': eureka_orthos_floors_11_20,'06-ew/deepdungeon/eureka_orthos_floors_21-30.ts': eureka_orthos_floors_21_30,'06-ew/deepdungeon/eureka_orthos_floors_31-40.ts': eureka_orthos_floors_31_40,'06-ew/deepdungeon/eureka_orthos_floors_41-50.ts': eureka_orthos_floors_41_50,'06-ew/deepdungeon/eureka_orthos_floors_51-60.ts': eureka_orthos_floors_51_60,'06-ew/deepdungeon/eureka_orthos_floors_61-70.ts': eureka_orthos_floors_61_70,'06-ew/deepdungeon/eureka_orthos_floors_71-80.ts': eureka_orthos_floors_71_80,'06-ew/deepdungeon/eureka_orthos_floors_81-90.ts': eureka_orthos_floors_81_90,'06-ew/deepdungeon/eureka_orthos_floors_91-100.ts': eureka_orthos_floors_91_100,'06-ew/deepdungeon/eureka_orthos_general.ts': eureka_orthos_general,'06-ew/dungeon/aetherfont.ts': aetherfont,'06-ew/dungeon/aetherfont.txt': dungeon_aetherfont_namespaceObject,'06-ew/dungeon/aloalo_island.ts': aloalo_island,'06-ew/dungeon/aloalo_island.txt': dungeon_aloalo_island_namespaceObject,'06-ew/dungeon/alzadaals_legacy.ts': alzadaals_legacy,'06-ew/dungeon/alzadaals_legacy.txt': dungeon_alzadaals_legacy_namespaceObject,'06-ew/dungeon/another_aloalo_island-savage.ts': another_aloalo_island_savage,'06-ew/dungeon/another_aloalo_island-savage.txt': dungeon_another_aloalo_island_savage_namespaceObject,'06-ew/dungeon/another_aloalo_island.ts': another_aloalo_island,'06-ew/dungeon/another_aloalo_island.txt': dungeon_another_aloalo_island_namespaceObject,'06-ew/dungeon/another_mount_rokkon-savage.ts': another_mount_rokkon_savage,'06-ew/dungeon/another_mount_rokkon-savage.txt': dungeon_another_mount_rokkon_savage_namespaceObject,'06-ew/dungeon/another_mount_rokkon.ts': another_mount_rokkon,'06-ew/dungeon/another_mount_rokkon.txt': dungeon_another_mount_rokkon_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane-savage.ts': another_sildihn_subterrane_savage,'06-ew/dungeon/another_sildihn_subterrane-savage.txt': dungeon_another_sildihn_subterrane_savage_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane.ts': another_sildihn_subterrane,'06-ew/dungeon/another_sildihn_subterrane.txt': dungeon_another_sildihn_subterrane_namespaceObject,'06-ew/dungeon/ktisis_hyperboreia.ts': ktisis_hyperboreia,'06-ew/dungeon/ktisis_hyperboreia.txt': dungeon_ktisis_hyperboreia_namespaceObject,'06-ew/dungeon/lapis_manalis.ts': lapis_manalis,'06-ew/dungeon/lapis_manalis.txt': dungeon_lapis_manalis_namespaceObject,'06-ew/dungeon/mount_rokkon.ts': mount_rokkon,'06-ew/dungeon/mount_rokkon.txt': dungeon_mount_rokkon_namespaceObject,'06-ew/dungeon/smileton.ts': smileton,'06-ew/dungeon/smileton.txt': dungeon_smileton_namespaceObject,'06-ew/dungeon/stigma_dreamscape.ts': stigma_dreamscape,'06-ew/dungeon/stigma_dreamscape.txt': dungeon_stigma_dreamscape_namespaceObject,'06-ew/dungeon/the_aitiascope.ts': the_aitiascope,'06-ew/dungeon/the_aitiascope.txt': dungeon_the_aitiascope_namespaceObject,'06-ew/dungeon/the_dead_ends.ts': the_dead_ends,'06-ew/dungeon/the_dead_ends.txt': dungeon_the_dead_ends_namespaceObject,'06-ew/dungeon/the_fell_court_of_troia.ts': the_fell_court_of_troia,'06-ew/dungeon/the_fell_court_of_troia.txt': dungeon_the_fell_court_of_troia_namespaceObject,'06-ew/dungeon/the_lunar_subterrane.ts': the_lunar_subterrane,'06-ew/dungeon/the_lunar_subterrane.txt': dungeon_the_lunar_subterrane_namespaceObject,'06-ew/dungeon/the_sildihn_subterrane.ts': the_sildihn_subterrane,'06-ew/dungeon/the_sildihn_subterrane.txt': dungeon_the_sildihn_subterrane_namespaceObject,'06-ew/dungeon/the_tower_of_babil.ts': the_tower_of_babil,'06-ew/dungeon/the_tower_of_babil.txt': dungeon_the_tower_of_babil_namespaceObject,'06-ew/dungeon/the_tower_of_zot.ts': the_tower_of_zot,'06-ew/dungeon/the_tower_of_zot.txt': dungeon_the_tower_of_zot_namespaceObject,'06-ew/dungeon/vanaspati.ts': vanaspati,'06-ew/dungeon/vanaspati.txt': dungeon_vanaspati_namespaceObject,'06-ew/hunts/elpis.ts': elpis,'06-ew/hunts/garlemald.ts': garlemald,'06-ew/hunts/labyrinthos.ts': labyrinthos,'06-ew/hunts/mare_lamentorum.ts': mare_lamentorum,'06-ew/hunts/ss_rank.ts': hunts_ss_rank,'06-ew/hunts/thavnair.ts': thavnair,'06-ew/hunts/ultima_thule.ts': ultima_thule,'06-ew/map/the_excitatron_6000.ts': the_excitatron_6000,'06-ew/map/the_shifting_gymnasion_agonon.ts': the_shifting_gymnasion_agonon,'06-ew/raid/p10n.ts': p10n,'06-ew/raid/p10n.txt': raid_p10n_namespaceObject,'06-ew/raid/p10s.ts': p10s,'06-ew/raid/p10s.txt': raid_p10s_namespaceObject,'06-ew/raid/p11n.ts': p11n,'06-ew/raid/p11n.txt': raid_p11n_namespaceObject,'06-ew/raid/p11s.ts': p11s,'06-ew/raid/p11s.txt': raid_p11s_namespaceObject,'06-ew/raid/p12n.ts': p12n,'06-ew/raid/p12n.txt': raid_p12n_namespaceObject,'06-ew/raid/p12s.ts': p12s,'06-ew/raid/p12s.txt': raid_p12s_namespaceObject,'06-ew/raid/p1n.ts': p1n,'06-ew/raid/p1n.txt': raid_p1n_namespaceObject,'06-ew/raid/p1s.ts': p1s,'06-ew/raid/p1s.txt': raid_p1s_namespaceObject,'06-ew/raid/p2n.ts': p2n,'06-ew/raid/p2n.txt': raid_p2n_namespaceObject,'06-ew/raid/p2s.ts': p2s,'06-ew/raid/p2s.txt': raid_p2s_namespaceObject,'06-ew/raid/p3n.ts': p3n,'06-ew/raid/p3n.txt': raid_p3n_namespaceObject,'06-ew/raid/p3s.ts': p3s,'06-ew/raid/p3s.txt': raid_p3s_namespaceObject,'06-ew/raid/p4n.ts': p4n,'06-ew/raid/p4n.txt': raid_p4n_namespaceObject,'06-ew/raid/p4s.ts': p4s,'06-ew/raid/p4s.txt': raid_p4s_namespaceObject,'06-ew/raid/p5n.ts': p5n,'06-ew/raid/p5n.txt': raid_p5n_namespaceObject,'06-ew/raid/p5s.ts': p5s,'06-ew/raid/p5s.txt': raid_p5s_namespaceObject,'06-ew/raid/p6n.ts': p6n,'06-ew/raid/p6n.txt': raid_p6n_namespaceObject,'06-ew/raid/p6s.ts': p6s,'06-ew/raid/p6s.txt': raid_p6s_namespaceObject,'06-ew/raid/p7n.ts': p7n,'06-ew/raid/p7n.txt': raid_p7n_namespaceObject,'06-ew/raid/p7s.ts': p7s,'06-ew/raid/p7s.txt': raid_p7s_namespaceObject,'06-ew/raid/p8n.ts': p8n,'06-ew/raid/p8n.txt': raid_p8n_namespaceObject,'06-ew/raid/p8s.ts': p8s,'06-ew/raid/p8s.txt': raid_p8s_namespaceObject,'06-ew/raid/p9n.ts': p9n,'06-ew/raid/p9n.txt': raid_p9n_namespaceObject,'06-ew/raid/p9s.ts': p9s,'06-ew/raid/p9s.txt': raid_p9s_namespaceObject,'06-ew/trial/asura.ts': asura,'06-ew/trial/asura.txt': trial_asura_namespaceObject,'06-ew/trial/barbariccia-ex.ts': barbariccia_ex,'06-ew/trial/barbariccia-ex.txt': trial_barbariccia_ex_namespaceObject,'06-ew/trial/barbariccia.ts': barbariccia,'06-ew/trial/barbariccia.txt': trial_barbariccia_namespaceObject,'06-ew/trial/endsinger-ex.ts': endsinger_ex,'06-ew/trial/endsinger-ex.txt': trial_endsinger_ex_namespaceObject,'06-ew/trial/endsinger.ts': endsinger,'06-ew/trial/endsinger.txt': trial_endsinger_namespaceObject,'06-ew/trial/golbez-ex.ts': golbez_ex,'06-ew/trial/golbez-ex.txt': trial_golbez_ex_namespaceObject,'06-ew/trial/golbez.ts': golbez,'06-ew/trial/golbez.txt': trial_golbez_namespaceObject,'06-ew/trial/hydaelyn-ex.ts': hydaelyn_ex,'06-ew/trial/hydaelyn-ex.txt': trial_hydaelyn_ex_namespaceObject,'06-ew/trial/hydaelyn.ts': hydaelyn,'06-ew/trial/hydaelyn.txt': trial_hydaelyn_namespaceObject,'06-ew/trial/rubicante-ex.ts': rubicante_ex,'06-ew/trial/rubicante-ex.txt': trial_rubicante_ex_namespaceObject,'06-ew/trial/rubicante.ts': rubicante,'06-ew/trial/rubicante.txt': trial_rubicante_namespaceObject,'06-ew/trial/sephirot-un.ts': sephirot_un,'06-ew/trial/sephirot-un.txt': trial_sephirot_un_namespaceObject,'06-ew/trial/sophia-un.ts': sophia_un,'06-ew/trial/sophia-un.txt': trial_sophia_un_namespaceObject,'06-ew/trial/thordan-un.ts': thordan_un,'06-ew/trial/thordan-un.txt': trial_thordan_un_namespaceObject,'06-ew/trial/ultima-un.ts': ultima_un,'06-ew/trial/ultima-un.txt': trial_ultima_un_namespaceObject,'06-ew/trial/zeromus-ex.ts': zeromus_ex,'06-ew/trial/zeromus-ex.txt': trial_zeromus_ex_namespaceObject,'06-ew/trial/zeromus.ts': zeromus,'06-ew/trial/zeromus.txt': trial_zeromus_namespaceObject,'06-ew/trial/zodiark-ex.ts': zodiark_ex,'06-ew/trial/zodiark-ex.txt': trial_zodiark_ex_namespaceObject,'06-ew/trial/zodiark.ts': zodiark,'06-ew/trial/zodiark.txt': trial_zodiark_namespaceObject,'06-ew/trial/zurvan-un.ts': zurvan_un,'06-ew/trial/zurvan-un.txt': trial_zurvan_un_namespaceObject,'06-ew/ultimate/dragonsongs_reprise_ultimate.ts': dragonsongs_reprise_ultimate,'06-ew/ultimate/dragonsongs_reprise_ultimate.txt': ultimate_dragonsongs_reprise_ultimate_namespaceObject,'06-ew/ultimate/the_omega_protocol.ts': the_omega_protocol,'06-ew/ultimate/the_omega_protocol.txt': ultimate_the_omega_protocol_namespaceObject,'07-dt/alliance/cloud_of_darkness_chaotic.ts': cloud_of_darkness_chaotic,'07-dt/alliance/cloud_of_darkness_chaotic.txt': alliance_cloud_of_darkness_chaotic_namespaceObject,'07-dt/alliance/jeuno-first-walk.ts': jeuno_first_walk,'07-dt/alliance/jeuno-first-walk.txt': alliance_jeuno_first_walk_namespaceObject,'07-dt/deepdungeon/pilgrims_traverse_general.ts': pilgrims_traverse_general,'07-dt/deepdungeon/pilgrims_traverse_stones_01-10.ts': pilgrims_traverse_stones_01_10,'07-dt/deepdungeon/pilgrims_traverse_stones_11-20.ts': pilgrims_traverse_stones_11_20,'07-dt/deepdungeon/pilgrims_traverse_stones_21-30.ts': pilgrims_traverse_stones_21_30,'07-dt/deepdungeon/pilgrims_traverse_stones_31-40.ts': pilgrims_traverse_stones_31_40,'07-dt/deepdungeon/pilgrims_traverse_stones_41-50.ts': pilgrims_traverse_stones_41_50,'07-dt/deepdungeon/pilgrims_traverse_stones_51-60.ts': pilgrims_traverse_stones_51_60,'07-dt/deepdungeon/pilgrims_traverse_stones_61-70.ts': pilgrims_traverse_stones_61_70,'07-dt/deepdungeon/pilgrims_traverse_stones_71-80.ts': pilgrims_traverse_stones_71_80,'07-dt/deepdungeon/pilgrims_traverse_stones_81-90.ts': pilgrims_traverse_stones_81_90,'07-dt/deepdungeon/pilgrims_traverse_stones_91-100.ts': pilgrims_traverse_stones_91_100,'07-dt/deepdungeon/pilgrims_traverse_the_final_verse.ts': pilgrims_traverse_the_final_verse,'07-dt/deepdungeon/the_final_verse_quantum.ts': the_final_verse_quantum,'07-dt/deepdungeon/the_final_verse_quantum.txt': deepdungeon_the_final_verse_quantum_namespaceObject,'07-dt/dungeon/alexandria.ts': alexandria,'07-dt/dungeon/alexandria.txt': dungeon_alexandria_namespaceObject,'07-dt/dungeon/ihuykatumu.ts': ihuykatumu,'07-dt/dungeon/ihuykatumu.txt': dungeon_ihuykatumu_namespaceObject,'07-dt/dungeon/meso-terminal.ts': meso_terminal,'07-dt/dungeon/meso-terminal.txt': dungeon_meso_terminal_namespaceObject,'07-dt/dungeon/mistwake.ts': mistwake,'07-dt/dungeon/mistwake.txt': dungeon_mistwake_namespaceObject,'07-dt/dungeon/origenics.ts': origenics,'07-dt/dungeon/origenics.txt': dungeon_origenics_namespaceObject,'07-dt/dungeon/skydeep-cenote.ts': skydeep_cenote,'07-dt/dungeon/skydeep-cenote.txt': dungeon_skydeep_cenote_namespaceObject,'07-dt/dungeon/strayborough-deadwalk.ts': strayborough_deadwalk,'07-dt/dungeon/strayborough-deadwalk.txt': dungeon_strayborough_deadwalk_namespaceObject,'07-dt/dungeon/the_underkeep.ts': the_underkeep,'07-dt/dungeon/the_underkeep.txt': dungeon_the_underkeep_namespaceObject,'07-dt/dungeon/vanguard.ts': vanguard,'07-dt/dungeon/vanguard.txt': dungeon_vanguard_namespaceObject,'07-dt/dungeon/worqor-zormor.ts': worqor_zormor,'07-dt/dungeon/worqor-zormor.txt': dungeon_worqor_zormor_namespaceObject,'07-dt/dungeon/yuweyawata.ts': yuweyawata,'07-dt/dungeon/yuweyawata.txt': dungeon_yuweyawata_namespaceObject,'07-dt/eureka/occult_crescent_south_horn.ts': occult_crescent_south_horn,'07-dt/eureka/occult_crescent_south_horn.txt': eureka_occult_crescent_south_horn_namespaceObject,'07-dt/hunts/heritage_found.ts': heritage_found,'07-dt/hunts/kozamauka.ts': kozamauka,'07-dt/hunts/living_memory.ts': living_memory,'07-dt/hunts/shaaloani.ts': shaaloani,'07-dt/hunts/ss_rank.ts': _07_dt_hunts_ss_rank,'07-dt/hunts/urqopacha.ts': urqopacha,'07-dt/hunts/yaktel.ts': yaktel,'07-dt/map/cenote_ja_ja_gural.ts': cenote_ja_ja_gural,'07-dt/raid/r10n.ts': r10n,'07-dt/raid/r10n.txt': raid_r10n_namespaceObject,'07-dt/raid/r10s.ts': r10s,'07-dt/raid/r10s.txt': raid_r10s_namespaceObject,'07-dt/raid/r11n.ts': r11n,'07-dt/raid/r11n.txt': raid_r11n_namespaceObject,'07-dt/raid/r11s.ts': r11s,'07-dt/raid/r11s.txt': raid_r11s_namespaceObject,'07-dt/raid/r12n.ts': r12n,'07-dt/raid/r12n.txt': raid_r12n_namespaceObject,'07-dt/raid/r12s.ts': r12s,'07-dt/raid/r12s.txt': raid_r12s_namespaceObject,'07-dt/raid/r1n.ts': r1n,'07-dt/raid/r1n.txt': raid_r1n_namespaceObject,'07-dt/raid/r1s.ts': r1s,'07-dt/raid/r1s.txt': raid_r1s_namespaceObject,'07-dt/raid/r2n.ts': r2n,'07-dt/raid/r2n.txt': raid_r2n_namespaceObject,'07-dt/raid/r2s.ts': r2s,'07-dt/raid/r2s.txt': raid_r2s_namespaceObject,'07-dt/raid/r3n.ts': r3n,'07-dt/raid/r3n.txt': raid_r3n_namespaceObject,'07-dt/raid/r3s.ts': r3s,'07-dt/raid/r3s.txt': raid_r3s_namespaceObject,'07-dt/raid/r4n.ts': r4n,'07-dt/raid/r4n.txt': raid_r4n_namespaceObject,'07-dt/raid/r4s.ts': r4s,'07-dt/raid/r4s.txt': raid_r4s_namespaceObject,'07-dt/raid/r5n.ts': r5n,'07-dt/raid/r5n.txt': raid_r5n_namespaceObject,'07-dt/raid/r5s.ts': r5s,'07-dt/raid/r5s.txt': raid_r5s_namespaceObject,'07-dt/raid/r6n.ts': r6n,'07-dt/raid/r6n.txt': raid_r6n_namespaceObject,'07-dt/raid/r6s.ts': r6s,'07-dt/raid/r6s.txt': raid_r6s_namespaceObject,'07-dt/raid/r7n.ts': r7n,'07-dt/raid/r7n.txt': raid_r7n_namespaceObject,'07-dt/raid/r7s.ts': r7s,'07-dt/raid/r7s.txt': raid_r7s_namespaceObject,'07-dt/raid/r8n.ts': r8n,'07-dt/raid/r8n.txt': raid_r8n_namespaceObject,'07-dt/raid/r8s.ts': r8s,'07-dt/raid/r8s.txt': raid_r8s_namespaceObject,'07-dt/raid/r9n.ts': r9n,'07-dt/raid/r9n.txt': raid_r9n_namespaceObject,'07-dt/raid/r9s.ts': r9s,'07-dt/raid/r9s.txt': raid_r9s_namespaceObject,'07-dt/trial/arkveld-ex.ts': arkveld_ex,'07-dt/trial/arkveld-ex.txt': trial_arkveld_ex_namespaceObject,'07-dt/trial/arkveld.ts': arkveld,'07-dt/trial/arkveld.txt': trial_arkveld_namespaceObject,'07-dt/trial/byakko-un.ts': byakko_un,'07-dt/trial/byakko-un.txt': trial_byakko_un_namespaceObject,'07-dt/trial/doomtrain-ex.ts': doomtrain_ex,'07-dt/trial/doomtrain-ex.txt': trial_doomtrain_ex_namespaceObject,'07-dt/trial/doomtrain.ts': doomtrain,'07-dt/trial/doomtrain.txt': trial_doomtrain_namespaceObject,'07-dt/trial/enuo-ex.ts': enuo_ex,'07-dt/trial/enuo-ex.txt': trial_enuo_ex_namespaceObject,'07-dt/trial/enuo.ts': enuo,'07-dt/trial/enuo.txt': trial_enuo_namespaceObject,'07-dt/trial/necron-ex.ts': necron_ex,'07-dt/trial/necron-ex.txt': trial_necron_ex_namespaceObject,'07-dt/trial/queen-eternal-ex.ts': queen_eternal_ex,'07-dt/trial/queen-eternal-ex.txt': trial_queen_eternal_ex_namespaceObject,'07-dt/trial/queen-eternal.ts': queen_eternal,'07-dt/trial/queen-eternal.txt': trial_queen_eternal_namespaceObject,'07-dt/trial/seiryu-un.ts': seiryu_un,'07-dt/trial/seiryu-un.txt': trial_seiryu_un_namespaceObject,'07-dt/trial/shinryu-un.ts': shinryu_un,'07-dt/trial/shinryu-un.txt': trial_shinryu_un_namespaceObject,'07-dt/trial/suzaku-un.ts': suzaku_un,'07-dt/trial/suzaku-un.txt': trial_suzaku_un_namespaceObject,'07-dt/trial/tsukuyomi-un.ts': tsukuyomi_un,'07-dt/trial/tsukuyomi-un.txt': trial_tsukuyomi_un_namespaceObject,'07-dt/trial/valigarmanda-ex.ts': valigarmanda_ex,'07-dt/trial/valigarmanda-ex.txt': trial_valigarmanda_ex_namespaceObject,'07-dt/trial/valigarmanda.ts': valigarmanda,'07-dt/trial/valigarmanda.txt': trial_valigarmanda_namespaceObject,'07-dt/trial/zelenia-ex.ts': zelenia_ex,'07-dt/trial/zelenia-ex.txt': trial_zelenia_ex_namespaceObject,'07-dt/trial/zelenia.ts': zelenia,'07-dt/trial/zelenia.txt': trial_zelenia_namespaceObject,'07-dt/trial/zoraal-ja-ex.ts': zoraal_ja_ex,'07-dt/trial/zoraal-ja-ex.txt': trial_zoraal_ja_ex_namespaceObject,'07-dt/trial/zoraal-ja.ts': zoraal_ja,'07-dt/trial/zoraal-ja.txt': trial_zoraal_ja_namespaceObject,'07-dt/ultimate/futures_rewritten.ts': futures_rewritten,'07-dt/ultimate/futures_rewritten.txt': ultimate_futures_rewritten_namespaceObject,'99-custom/readme.txt': readme_namespaceObject,});
 
 /***/ })
 
