@@ -131,7 +131,7 @@ _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheSildihnSubterrane */ .Z.T
 // Chaotic Alliance Raids
 _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheCloudOfDarknessChaotic */ .Z.TheCloudOfDarknessChaotic,
 // Ultimate Raids
-_zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheUnendingCoilOfBahamutUltimate */ .Z.TheUnendingCoilOfBahamutUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheWeaponsRefrainUltimate */ .Z.TheWeaponsRefrainUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheEpicOfAlexanderUltimate */ .Z.TheEpicOfAlexanderUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].DragonsongsRepriseUltimate */ .Z.DragonsongsRepriseUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheOmegaProtocolUltimate */ .Z.TheOmegaProtocolUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].FuturesRewrittenUltimate */ .Z.FuturesRewrittenUltimate];
+_zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheUnendingCoilOfBahamutUltimate */ .Z.TheUnendingCoilOfBahamutUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheWeaponsRefrainUltimate */ .Z.TheWeaponsRefrainUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheEpicOfAlexanderUltimate */ .Z.TheEpicOfAlexanderUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].DragonsongsRepriseUltimate */ .Z.DragonsongsRepriseUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].TheOmegaProtocolUltimate */ .Z.TheOmegaProtocolUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].FuturesRewrittenUltimate */ .Z.FuturesRewrittenUltimate, _zone_id__WEBPACK_IMPORTED_MODULE_0__/* ["default"].DancingMadUltimate */ .Z.DancingMadUltimate];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contentList);
 
 /***/ }),
@@ -6103,6 +6103,7 @@ const data = {
   'CuriousGorgeMeetsHisMatch': 717,
   'CuttersCry': 1303,
   'CuttersCry72': 170,
+  'DancingMadUltimate': 1363,
   'DarkAsTheNightSky': 713,
   'DeathUntoDawn': 977,
   'DefeatAnOccupiedTarget': 545,
@@ -18699,6 +18700,22 @@ const data = {
     'offsetY': -100,
     'sizeFactor': 400,
     'weatherRate': 149
+  },
+  1363: {
+    'contentType': 28,
+    'exVersion': 5,
+    'name': {
+      'cn': '妖星乱舞绝境战',
+      'de': 'Tanzender Wahn (fatal)',
+      'en': 'Dancing Mad (Ultimate)',
+      'fr': 'Danse démente (fatal)',
+      'ja': '絶妖星乱舞',
+      'ko': '절 요성난무'
+    },
+    'offsetX': -100,
+    'offsetY': -100,
+    'sizeFactor': 400,
+    'weatherRate': 0
   },
   1366: {
     'contentType': 2,

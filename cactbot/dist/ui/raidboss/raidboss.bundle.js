@@ -5999,6 +5999,7 @@ const data = {
   'CuriousGorgeMeetsHisMatch': 717,
   'CuttersCry': 1303,
   'CuttersCry72': 170,
+  'DancingMadUltimate': 1363,
   'DarkAsTheNightSky': 713,
   'DeathUntoDawn': 977,
   'DefeatAnOccupiedTarget': 545,
@@ -18595,6 +18596,22 @@ const data = {
     'offsetY': -100,
     'sizeFactor': 400,
     'weatherRate': 149
+  },
+  1363: {
+    'contentType': 28,
+    'exVersion': 5,
+    'name': {
+      'cn': '妖星乱舞绝境战',
+      'de': 'Tanzender Wahn (fatal)',
+      'en': 'Dancing Mad (Ultimate)',
+      'fr': 'Danse démente (fatal)',
+      'ja': '絶妖星乱舞',
+      'ko': '절 요성난무'
+    },
+    'offsetX': -100,
+    'offsetY': -100,
+    'sizeFactor': 400,
+    'weatherRate': 0
   },
   1366: {
     'contentType': 2,
