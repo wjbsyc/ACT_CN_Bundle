@@ -2557,7 +2557,7 @@ const numberToOutputString = function (n) {
     fr: 'Tank cleaves sur VOUS',
     ja: 'MT・ST同時範囲攻撃(自分対象)',
     cn: '坦克范围死刑点名',
-    ko: '광역 탱버 대상자',
+    ko: '동시 광역 탱버 대상자',
     tc: '坦克範圍死刑點名'
   },
   avoidTankCleave: {
@@ -2657,7 +2657,7 @@ const numberToOutputString = function (n) {
     fr: 'Packez-vous',
     ja: '頭割り',
     cn: '分摊',
-    ko: '쉐어뎀',
+    ko: '쉐어',
     tc: '分攤'
   },
   getTogether: {
@@ -2676,7 +2676,7 @@ const numberToOutputString = function (n) {
     fr: 'Groupes sur les heals',
     ja: 'ヒラに頭割り',
     cn: '双奶分组分摊',
-    ko: '힐러 그룹 쉐어',
+    ko: '힐러 그룹',
     tc: '雙補分組分攤'
   },
   rolePositions: {
@@ -2856,7 +2856,7 @@ const numberToOutputString = function (n) {
     fr: 'Passez derrière',
     ja: '背面へ',
     cn: '去背后',
-    ko: '보스 뒤로',
+    ko: '대상 뒤로',
     tc: '去背後'
   },
   goFrontOrSides: {
@@ -2865,7 +2865,7 @@ const numberToOutputString = function (n) {
     fr: 'Allez Devant / Côtés',
     ja: '前／横へ',
     cn: '去前侧方',
-    ko: '보스 후방 피하기',
+    ko: '앞/옆으로',
     tc: '去前側方'
   },
   goFront: {
@@ -2884,7 +2884,7 @@ const numberToOutputString = function (n) {
     fr: 'En dessous',
     ja: 'ボスに貼り付く',
     cn: '去脚下',
-    ko: '보스 아래로',
+    ko: '대상 아래로',
     tc: '去腳下'
   },
   // in is more like "get close but maybe even melee range is fine"
@@ -2964,14 +2964,18 @@ const numberToOutputString = function (n) {
   },
   sidesThenFrontBack: {
     en: 'Sides => Front/Back',
+    de: 'Seiten => Vorne/Hinten',
     fr: 'Côtés => Devant/Derrière',
+    ja: '横 => 縦',
     cn: '两侧 => 前/后',
     ko: '양옆 => 앞/뒤',
     tc: '兩側 => 前/後'
   },
   frontBackThenSides: {
     en: 'Front/Back => Sides',
+    de: 'Vorne/Hinten => Seiten',
     fr: 'Devant/Derrière => Côtés',
+    ja: '縦 => 横',
     cn: '前/后 => 两侧',
     ko: '앞/뒤 => 양옆',
     tc: '前/後 => 兩側'
@@ -3135,7 +3139,7 @@ const numberToOutputString = function (n) {
     fr: 'Tuez l\'add',
     ja: '雑魚から倒して',
     cn: '击杀小怪',
-    ko: '쫄 잡기',
+    ko: '추가 쫄 잡기',
     tc: '擊殺小怪'
   },
   awayFromFront: {
@@ -3144,7 +3148,7 @@ const numberToOutputString = function (n) {
     fr: 'Éloignez-vous du devant',
     ja: '前方から離れる',
     cn: '远离正面',
-    ko: '보스 전방 피하기',
+    ko: '대상 전방 피하기',
     tc: '遠離正面'
   },
   sleepTarget: {
@@ -3317,7 +3321,7 @@ const numberToOutputString = function (n) {
     fr: 'Allez dans les tours',
     ja: '塔を踏む',
     cn: '踩塔',
-    ko: '기둥 들어가기',
+    ko: '탑 들어가기',
     tc: '踩塔'
   },
   unknown: {
@@ -3569,7 +3573,7 @@ const numberToOutputString = function (n) {
     fr: 'Tank',
     ja: 'タンク',
     cn: '坦克',
-    ko: '탱',
+    ko: '탱커',
     tc: '坦克'
   },
   healer: {
@@ -3578,7 +3582,7 @@ const numberToOutputString = function (n) {
     fr: 'Healer',
     ja: 'ヒーラー',
     cn: '治疗',
-    ko: '힐',
+    ko: '힐러',
     tc: '治療'
   },
   dps: {
@@ -22699,8 +22703,8 @@ class DamageTracker {
     this.ReloadTriggers();
   }
 }
-// EXTERNAL MODULE: ./ui/oopsyraidsy/data/oopsy_manifest.txt + 261 modules
-var oopsy_manifest = __webpack_require__(552);
+// EXTERNAL MODULE: ./ui/oopsyraidsy/data/oopsy_manifest.txt + 262 modules
+var oopsy_manifest = __webpack_require__(809);
 ;// CONCATENATED MODULE: ./ui/oopsyraidsy/mistake_collector.ts
 
 const broadcastSource = 'oopsyraidsy';

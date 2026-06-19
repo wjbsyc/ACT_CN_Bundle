@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunkcactbot"] = self["webpackChunkcactbot"] || []).push([[727],{
 
-/***/ 552:
+/***/ 809:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -21783,6 +21783,386 @@ const jeuno_first_walk_triggerSet = {
   }]
 };
 /* harmony default export */ const jeuno_first_walk = (jeuno_first_walk_triggerSet);
+;// CONCATENATED MODULE: ./ui/oopsyraidsy/data/07-dt/alliance/windurst-third-walk.ts
+
+
+// TODO: Check whether C3D2 Divine Arrow is used for both directions, or whether C3D1 is also used.
+// TODO: Add Hollow King tower failure
+const windurst_third_walk_triggerSet = {
+  zoneId: zone_id/* default.WindurstTheThirdWalk */.Z.WindurstTheThirdWalk,
+  initData: () => {
+    return {
+      hasHPDebuff: {}
+    };
+  },
+  damageWarn: {
+    // Shantotto
+    'Windurst Third Walk Shantotto Empirical Research': 'C420',
+    // Frontal line AoE
+    'Windurst Third Walk Shantotto Superior Stone Spawn': 'C412',
+    // Irregular stone shape summon
+    'Windurst Third Walk Shantotto Groundbreaking Quake Shove': 'C414',
+    // Stone wall crush, if player is aligned with the safespot
+    'Windurst Third Walk Shantotto Circumscribed Fire Initial': 'C419',
+    // First dynamo AoE
+    'Windurst Third Walk Shantotto Circumscribed Fire Subsequent': 'C41A',
+    // Follow-up dynamo AoEs
+    'Windurst Third Walk Shantotto Localized Blizzard': 'C41B',
+    // Chariot AoE
+    'Windurst Third Walk Shantotto Small Specimen': 'C408',
+    // Tethered circle AoEs
+    'Windurst Third Walk Shantotto Falling Rubble Small Circle': 'C40C',
+    // Random circle AoEs after intermission, 8y diameter
+    'Windurst Third Walk Shantotto Falling Rubble Large Circle': 'C40D',
+    // Random circle AoEs after intermission, 12y diameter
+    'Windurst Third Walk Shantotto Falling Rubble Small Rectangle': 'C40E',
+    // Random line AoEs after intermission, 6y x 25y
+    'Windurst Third Walk Shantotto Falling Rubble Large Rectangle': 'C40F',
+    // Random line AoEs after intermission, 10y x 35y
+
+    // Pre-Alexander trash
+    'Windurst Third Walk Acrolith Earthshatter': 'C3A5',
+    // Chariot AoE
+    'Windurst Third Walk Lamia Jaeger Transcendent Shot': 'C3A6',
+    // Line AoEs, 2 -> 1 pattern
+    'Windurst Third Walk Qutrub Forayer Feral Lunge': 'C532',
+    // Large circle AoEs
+    'Windurst Third Walk Pining Abazohn Whirling Slash': 'C5E3',
+    // Chariot AoE
+    'Windurst Third Walk Assault Bhoot Perdition': 'C3AE',
+    // Circle AoEs, checkerboard pattern
+    'Windurst Third Walk Nemean Lion Tourbillion': 'C3AB',
+    // Frontal half-arena cleave
+    'Windurst Third Walk Medusa Swarmsinger Dance To Dust Cardinal': 'C3B0',
+    // Cardinal exaflares
+    'Windurst Third Walk Medusa Swarmsinger Dance To Dust Intercardinal': 'C3B1',
+    // Intercardinal exaflares
+    'Windurst Third Walk Medusa Swarmsinger Right Shadow Slash': 'C3B2',
+    // Half-arena cleave
+    'Windurst Third Walk Medusa Swarmsinger Left Shadow Slash': 'C3B3',
+    // Half-arena cleave
+    'Windurst Third Walk Medusa Swarmsinger Disregard': 'C3B5',
+    // Crossed line AoEs, 2 -> 1 pattern
+
+    // Alexander
+    'Windurst Third Walk Alexander Divine Arrow Cone': 'C52E',
+    // Spinning cone AoE
+    'Windurst Third Walk Alexander Divine Arrow Counterclockwise Initial': 'C3D2',
+    // Initial cone, counterclockwise
+    'Windurst Third Walk Alexander Divine Arrow Radial 1': 'C3D3',
+    // Central circle AoE, in-to-out pattern
+    'Windurst Third Walk Alexander Divine Arrow Radial 2': 'C3D4',
+    // Small ring AoE, in-to-out pattern
+    'Windurst Third Walk Alexander Divine Arrow Radial 3': 'C3D5',
+    // Large ring AoE, in-to-out pattern
+    'Windurst Third Walk Alexander Divine Arrow Radial 4': 'C3D6',
+    // Large ring AoE, out-to-in pattern
+    'Windurst Third Walk Alexander Divine Arrow Radial 5': 'C3D7',
+    // Small ring AoE, out-to-in pattern
+    'Windurst Third Walk Alexander Divine Arrow Radial 6': 'C3D8',
+    // Central circle AoE, out-to-in pattern
+    'Windurst Third Walk Alexander Impartial Ruling 1': 'C3E2',
+    // Half-arena cleave, first hit (independent of direction)
+    'Windurst Third Walk Alexander Impartial Ruling 2': 'C3E3',
+    // Half-arena cleave, second hit (independent of direction)
+    'Windurst Third Walk Alexander Radiant Sacrament': 'C3DD',
+    // Exploding square AoEs
+    'Windurst Third Walk Alexander Divine Spear': 'C3DF',
+    // Triangle line drawn AoEs
+    'Windurst Third Walk Alexander Activate': 'C42B',
+    // Gordius unit spawn AoEs
+    'Windurst Third Walk Alexander Holy Flame': 'C3E6',
+    // Puddles during Gordius intermission
+    'Windurst Third Walk Gordius System Shock': 'C3E8',
+    // Chariot AoE
+    'Windurst Third Walk Gordius System Circuit Shock': 'C3F9',
+    // Dynamo AoE
+    'Windurst Third Walk Gordius System Repay': 'C3F6',
+    // Karmic Shielding retaliation
+    'Windurst Third Walk Gordius System Electrify': 'C3EC',
+    // Large chariot AoEs after tethering
+    'Windurst Third Walk Alexander Divine Arrow Crosshatch Vertical': 'C3D9',
+    // 3 vertical + 2 horizontal crosshatch lines
+    'Windurst Third Walk Alexander Divine Arrow Crosshatch Horizontal': 'C3DA',
+    // 2 vertical + 3 horizontal crosshatch lines
+
+    // Aw'aern and the Aw'zdei
+    'Windurst Third Walk Aw\'aern Glacier Splitter': 'C3B9',
+    // Frontal radial cone AoEs
+    'Windurst Third Walk Aw\'zdei Optical Induration': 'C3BA',
+    // Frontal cone AoE
+    'Windurst Third Walk Aw\'zdei Static Filament': 'C537',
+    // Circle AoEs
+
+    // Promathia
+    'Windurst Third Walk Promathia Explosion': 'C490',
+    // Large circle AoEs (from floor-marked puddle lines)
+    'Windurst Third Walk Promathia Wheel Of Impregnability': 'C493',
+    // Chariot AoE
+    'Windurst Third Walk Promathia Bastion Of Twilight': 'C494',
+    // Dynamo AoE
+    'Windurst Third Walk Promathia Pestilent Penance': 'C49B',
+    // Frontal rectangle AoE
+
+    'Windurst Third Walk Empty Thinker Winds Of Promyvion Clockwise': 'C4B1',
+    // Spinny laser, intermission
+    'Windurst Third Walk Empty Thinker Winds Of Promyvion Counterclockwise': 'C4B2',
+    // Spinny laser, intermission
+    'Windurst Third Walk Empty Wanderer Empty Beleaguer': 'C4AF',
+    // Circle AoEs, 2 -> 1 pattern, intermission
+    'Windurst Third Walk Empty Weeper Auroral Drape': 'C4B3',
+    // Square AoEs, intermission
+
+    'Windurst Third Walk Promathia Malevolent Blessing Cone': 'C498',
+    // Radial cone AoEs
+    'Windurst Third Walk Promathia Malevolent Blessing Half Arena': 'C499',
+    // Half arena cleave (independent of direction)
+    'Windurst Third Walk Link Of Promathia Pestilent Penance': 'C49C',
+    // Frontal line AoEs
+    'Windurst Third Walk Promathia Unmitigated Explosion': 'C4A0',
+    // Missed tower
+    'Windurst Third Walk Promathia Infernal Deliverance Puddles': 'C585',
+    // Puddle follow-up after towers
+
+    // Shinryu Paradox
+    'Windurst Third Walk Shinryu Cosmic Breath': 'BFD3',
+    // Upper platform denial
+    'Windurst Third Walk Shinryu Cosmic Tail': 'BFD6',
+    // Lower platform denial
+    'Windurst Third Walk Shinryu Starflare 1': 'BFE6',
+    // Crosshatch line AoEs hit 1
+    'Windurst Third Walk Shinryu Starflare 2': 'BFE7',
+    // Crosshatch line AoEs hit 2
+    'Windurst Third Walk Shinryu Cataclysmic Vortex': 'BFE3',
+    // Simon Says failure
+
+    // Hollow King
+    'Windurst Third Walk Hollow King Right Swordscross Orthogonal': 'C001',
+    'Windurst Third Walk Hollow King Left Swordscross Orthogonal': 'C002',
+    'Windurst Third Walk Hollow King Right Swordscross Diagonal': 'C003',
+    'Windurst Third Walk Hollow King Left Swordscross Diagonal': 'C004',
+    'Windurst Third Walk Hollow King Twin Blaze Circle': 'C007',
+    // Twin circle area denial
+    'Windurst Third Walk Hollow King Twin Blaze Donut': 'C008',
+    // Twin circle area denial
+    'Windurst Third Walk Hollow King Cataclysmic Blade Cones': 'C00A',
+    // Blue cone AoEs during headmarker debuffs
+    'Windurst Third Walk Hollow King Cataclysmic Blade Debuffs': 'C00B',
+    // Simon Says failure
+    'Windurst Third Walk Hollow King Atomic Ray': 'C00D',
+    // Timer line AoEs
+    'Windurst Third Walk Hollow King Burst Circle': 'C013',
+    // First concentric circle AoE
+    'Windurst Third Walk Hollow King Burst Small Donut': 'C014',
+    // Second concentric circle AoE
+    'Windurst Third Walk Hollow King Burst Large Donut': 'C015',
+    // Third concentric circle AoE
+    'Windurst Third Walk Hollow King Burst Cosmic Flame Initial': 'C010',
+    // Exaflare first hit
+    'Windurst Third Walk Hollow King Burst Cosmic Flame Subsequent': 'C011',
+    // Exaflare tracking hits
+    'Windurst Third Walk Hollow King Starflare 1': 'C017',
+    // Crosshatch line AoEs hit 1
+    'Windurst Third Walk Hollow King Starflare 2': 'C018' // Crosshatch line AoEs hit 2
+  },
+
+  damageFail: {
+    // Shantotto
+    'Windurst Third Walk Shantotto Painful Pressure': 'C415',
+    // Stone wall crush
+
+    // Shinryu
+    'Windurst Third Walk Shinryu Atomic Tail': 'BFEA' // Lower platform destruction
+  },
+
+  gainsEffectWarn: {
+    // Pre-Alexander Trash
+    'Windurst Third Walk Medusa Swarmsinger Petrificaction': '5E7' // Failed gaze attack
+  },
+
+  shareWarn: {
+    // Shantotto
+    'Windurst Third Walk Thunder And Error': 'C41C',
+    // Purple spread circles
+
+    // Pre-Alexander trash
+    'Windurst Third Walk Lamia No. 2 Pinning Shot': 'C3AA',
+    // Giant circular tank cleave
+
+    // Alexander
+    'Windurst Third Walk Alexander Banishga IV Spreads': 'C3F3',
+    // White spread circles
+
+    // Aw'aern and the Aw'zdei
+    'Windurst Third Walk Aw\'aern Auroral Wind': 'C546',
+    // Purple spread circles
+
+    // Promathia
+    'Windurst Third Walk Promathia Comet': 'C4A2',
+    // Standard circular tank cleave (3 instances at a time)
+    'Windurst Third Walk Promathia Meteor Buster': 'C4A4',
+    // Standard circular tank cleave (3 instances at a time)
+    'Windurst Third Walk Promathia Meteor Spread': 'C4A5',
+    // Orange spread circles
+
+    // Shinryu
+    'Windurst Third Walk Shinryu Dark Nova': 'BFF0',
+    // Standard circular tank cleave (3 instances at a time)
+
+    // Hollow King
+    'Windurst Third Walk Hollow King Dark Nova': 'C01A' // Standard circular tank cleave (3 instances at a time)
+  },
+
+  soloWarn: {
+    // Shantotto
+    'Windurst Third Walk Shantotto Vidohunir': 'C426',
+    // 3-player tank buster
+    'Windurst Third Walk Shantotto Startdust Specimen': 'C409',
+    // Single-hit stack marker
+    'Windurst Third Walk Shantotto Final Exam Initial': 'C423',
+    // 3-hit stack marker, first hit
+    'Windurst Third Walk Shantotto Final Exam Subsequent': 'C424',
+    // 3-hit stack marker, follow-up hits
+
+    // Alexander
+    'Windurst Third Walk Alexander Mega Holy Initial': 'C3EE',
+    // 3-hit stack marker, first hit
+    'Windurst Third Walk Alexander Mega Holy Subsequent': 'C3EF',
+    // 3-hit stack marker, follow-up hit
+
+    // Hollow King
+    'Windurst Third Walk Hollow King Super Nova': 'C01F' // 3-hit stack marker, all hits
+  },
+
+  triggers: [{
+    id: 'Windurst Third Walk Shantotto Aero Dynamics Ring Out',
+    type: 'Ability',
+    netRegex: netregexes/* default.ability */.ZP.ability({
+      id: 'C417',
+      capture: true
+    }),
+    deathReason: (_data, matches) => {
+      return {
+        id: matches.targetId,
+        name: matches.target,
+        text: {
+          en: 'Knocked off',
+          de: 'Runtergefallen',
+          fr: 'Renversé(e)',
+          ja: 'ノックバック',
+          cn: '击退坠落',
+          ko: '넉백',
+          tc: '擊退墜落'
+        }
+      };
+    }
+  }, {
+    // Promathia
+    id: 'Windurst Third Walk Memory Receptacle Empty Seed Ring Out',
+    type: 'Ability',
+    netRegex: netregexes/* default.ability */.ZP.ability({
+      id: 'C4AD',
+      capture: true
+    }),
+    deathReason: (_data, matches) => {
+      return {
+        id: matches.targetId,
+        name: matches.target,
+        text: {
+          en: 'Knocked off',
+          de: 'Runtergefallen',
+          fr: 'Renversé(e)',
+          ja: 'ノックバック',
+          cn: '击退坠落',
+          ko: '넉백',
+          tc: '擊退墜落'
+        }
+      };
+    }
+  }, {
+    // Hit by light with dark debuff
+    id: 'Windurst Third Walk Shinryu Twilight Radiance',
+    type: 'Ability',
+    netRegex: netregexes/* default.ability */.ZP.ability({
+      id: 'BFDB',
+      capture: true
+    }),
+    condition: (_data, matches) => parseInt(matches.flags) !== 1,
+    mistake: (_data, matches) => {
+      return {
+        type: 'warn',
+        blame: matches.target,
+        reportId: matches.targetId,
+        text: {
+          en: `${matches.target}: Wrong buff`,
+          cn: `${matches.target}: buff 错误`,
+          ko: `${matches.target}: 디버프 틀림`
+        }
+      };
+    }
+  }, {
+    // Hit by dark with light debuff
+    id: 'Windurst Third Walk Shinryu Twilight Shadow',
+    type: 'Ability',
+    netRegex: netregexes/* default.ability */.ZP.ability({
+      id: 'BFDC',
+      capture: true
+    }),
+    condition: (_data, matches) => parseInt(matches.flags) !== 1,
+    mistake: (_data, matches) => {
+      return {
+        type: 'warn',
+        blame: matches.target,
+        reportId: matches.targetId,
+        text: {
+          en: `${matches.target}: Wrong buff`,
+          cn: `${matches.target}: buff 错误`,
+          ko: `${matches.target}: 디버프 틀림`
+        }
+      };
+    }
+  }, {
+    id: 'Windurst Third Walk Hollow King Recovery Down Gain',
+    type: 'GainsEffect',
+    netRegex: netregexes/* default.gainsEffect */.ZP.gainsEffect({
+      effectId: '8BE'
+    }),
+    run: (data, matches) => {
+      data.hasHPDebuff[matches.targetId] = true;
+    }
+  }, {
+    id: 'Windurst Third Walk Hollow King Recovery Down Lose',
+    type: 'LosesEffect',
+    netRegex: netregexes/* default.losesEffect */.ZP.losesEffect({
+      effectId: '8BE'
+    }),
+    run: (data, matches) => {
+      data.hasHPDebuff[matches.targetId] = false;
+    }
+  }, {
+    // Taking a second tower with first debuff active
+    id: 'Windurst Third Walk Hollow King Celestial Trail',
+    type: 'Ability',
+    netRegex: netregexes/* default.ability */.ZP.ability({
+      id: 'BFF4',
+      capture: true
+    }),
+    condition: (data, matches) => data.hasHPDebuff[matches.targetId],
+    mistake: (_data, matches) => {
+      return {
+        type: 'warn',
+        blame: matches.target,
+        reportId: matches.targetId,
+        text: {
+          en: 'Tower with heal debuff',
+          cn: '带着治疗 debuff 踩塔',
+          ko: '회복 디버프 상태에서 탑 밟음'
+        }
+      };
+    }
+  }]
+};
+/* harmony default export */ const windurst_third_walk = (windurst_third_walk_triggerSet);
 ;// CONCATENATED MODULE: ./ui/oopsyraidsy/data/07-dt/dungeon/alexandria.ts
 
 const alexandria_triggerSet = {
@@ -24605,7 +24985,8 @@ const futures_rewritten_triggerSet = {
 
 
 
-/* harmony default export */ const oopsy_manifest = ({'00-misc/general.ts': general,'00-misc/test.ts': test,'02-arr/trial/ifrit-nm.ts': ifrit_nm,'02-arr/trial/levi-ex.ts': levi_ex,'02-arr/trial/shiva-ex.ts': shiva_ex,'02-arr/trial/shiva-hm.ts': shiva_hm,'02-arr/trial/titan-ex.ts': titan_ex,'02-arr/trial/titan-hm.ts': titan_hm,'02-arr/trial/titan-nm.ts': titan_nm,'02-arr/trial/ultima-ex.ts': ultima_ex,'03-hw/alliance/weeping_city.ts': weeping_city,'03-hw/dungeon/aetherochemical_research_facility.ts': aetherochemical_research_facility,'03-hw/dungeon/baelsars_wall.ts': baelsars_wall,'03-hw/dungeon/fractal_continuum.ts': fractal_continuum,'03-hw/dungeon/gubal_library_hard.ts': gubal_library_hard,'03-hw/dungeon/sohm_al_hard.ts': sohm_al_hard,'03-hw/dungeon/the_lost_city_of_amdapor_hard.ts': the_lost_city_of_amdapor_hard,'03-hw/raid/a10n.ts': a10n,'03-hw/raid/a12n.ts': a12n,'03-hw/raid/a3n.ts': a3n,'03-hw/raid/a6n.ts': a6n,'03-hw/trial/sephirot-ex.ts': sephirot_ex,'03-hw/trial/sophia-ex.ts': sophia_ex,'03-hw/trial/thordan-ex.ts': thordan_ex,'03-hw/trial/zurvan-ex.ts': zurvan_ex,'04-sb/alliance/orbonne_monastery.ts': orbonne_monastery,'04-sb/alliance/ridorana_lighthouse.ts': ridorana_lighthouse,'04-sb/alliance/royal_city_of_rabanastre.ts': royal_city_of_rabanastre,'04-sb/dungeon/ala_mhigo.ts': ala_mhigo,'04-sb/dungeon/bardams_mettle.ts': bardams_mettle,'04-sb/dungeon/castrum_abania.ts': castrum_abania,'04-sb/dungeon/doma_castle.ts': doma_castle,'04-sb/dungeon/drowned_city_of_skalla.ts': drowned_city_of_skalla,'04-sb/dungeon/fractal_continuum_hard.ts': fractal_continuum_hard,'04-sb/dungeon/ghimlyt_dark.ts': ghimlyt_dark,'04-sb/dungeon/hells_lid.ts': hells_lid,'04-sb/dungeon/kugane_castle.ts': kugane_castle,'04-sb/dungeon/shisui_of_the_violet_tides.ts': shisui_of_the_violet_tides,'04-sb/dungeon/sirensong_sea.ts': sirensong_sea,'04-sb/dungeon/st_mocianne_hard.ts': st_mocianne_hard,'04-sb/dungeon/swallows_compass.ts': swallows_compass,'04-sb/dungeon/temple_of_the_fist.ts': temple_of_the_fist,'04-sb/dungeon/the_burn.ts': the_burn,'04-sb/raid/o10n.ts': o10n,'04-sb/raid/o10s.ts': o10s,'04-sb/raid/o11n.ts': o11n,'04-sb/raid/o11s.ts': o11s,'04-sb/raid/o12n.ts': o12n,'04-sb/raid/o12s.ts': o12s,'04-sb/raid/o1n.ts': o1n,'04-sb/raid/o1s.ts': o1s,'04-sb/raid/o2n.ts': o2n,'04-sb/raid/o2s.ts': o2s,'04-sb/raid/o3n.ts': o3n,'04-sb/raid/o3s.ts': o3s,'04-sb/raid/o4n.ts': o4n,'04-sb/raid/o4s.ts': o4s,'04-sb/raid/o5n.ts': o5n,'04-sb/raid/o5s.ts': o5s,'04-sb/raid/o6n.ts': o6n,'04-sb/raid/o6s.ts': o6s,'04-sb/raid/o7n.ts': o7n,'04-sb/raid/o7s.ts': o7s,'04-sb/raid/o8n.ts': o8n,'04-sb/raid/o8s.ts': o8s,'04-sb/raid/o9n.ts': o9n,'04-sb/raid/o9s.ts': o9s,'04-sb/trial/byakko-ex.ts': byakko_ex,'04-sb/trial/byakko.ts': byakko,'04-sb/trial/lakshmi-ex.ts': lakshmi_ex,'04-sb/trial/lakshmi.ts': lakshmi,'04-sb/trial/rathalos-ex.ts': rathalos_ex,'04-sb/trial/rathalos.ts': rathalos,'04-sb/trial/seiryu-ex.ts': seiryu_ex,'04-sb/trial/seiryu.ts': seiryu,'04-sb/trial/shinryu-ex.ts': shinryu_ex,'04-sb/trial/shinryu.ts': shinryu,'04-sb/trial/susano-ex.ts': susano_ex,'04-sb/trial/susano.ts': susano,'04-sb/trial/suzaku-ex.ts': suzaku_ex,'04-sb/trial/suzaku.ts': suzaku,'04-sb/trial/tsukuyomi-ex.ts': tsukuyomi_ex,'04-sb/trial/tsukuyomi.ts': tsukuyomi,'04-sb/trial/yojimbo.ts': yojimbo,'04-sb/ultimate/ultima_weapon_ultimate.ts': ultima_weapon_ultimate,'04-sb/ultimate/unending_coil_ultimate.ts': unending_coil_ultimate,'05-shb/alliance/the_copied_factory.ts': the_copied_factory,'05-shb/alliance/the_puppets_bunker.ts': the_puppets_bunker,'05-shb/alliance/the_tower_at_paradigms_breach.ts': the_tower_at_paradigms_breach,'05-shb/dungeon/akadaemia_anyder.ts': akadaemia_anyder,'05-shb/dungeon/amaurot.ts': amaurot,'05-shb/dungeon/anamnesis_anyder.ts': anamnesis_anyder,'05-shb/dungeon/dohn_mheg.ts': dohn_mheg,'05-shb/dungeon/heroes_gauntlet.ts': heroes_gauntlet,'05-shb/dungeon/holminster_switch.ts': holminster_switch,'05-shb/dungeon/malikahs_well.ts': malikahs_well,'05-shb/dungeon/matoyas_relict.ts': matoyas_relict,'05-shb/dungeon/mt_gulg.ts': mt_gulg,'05-shb/dungeon/paglthan.ts': paglthan,'05-shb/dungeon/qitana_ravel.ts': qitana_ravel,'05-shb/dungeon/the_grand_cosmos.ts': the_grand_cosmos,'05-shb/dungeon/twinning.ts': twinning,'05-shb/eureka/delubrum_reginae.ts': delubrum_reginae,'05-shb/eureka/delubrum_reginae_savage.ts': delubrum_reginae_savage,'05-shb/raid/e10n.ts': e10n,'05-shb/raid/e10s.ts': e10s,'05-shb/raid/e11n.ts': e11n,'05-shb/raid/e11s.ts': e11s,'05-shb/raid/e12n.ts': e12n,'05-shb/raid/e12s.ts': e12s,'05-shb/raid/e1n.ts': e1n,'05-shb/raid/e1s.ts': e1s,'05-shb/raid/e2n.ts': e2n,'05-shb/raid/e2s.ts': e2s,'05-shb/raid/e3n.ts': e3n,'05-shb/raid/e3s.ts': e3s,'05-shb/raid/e4n.ts': e4n,'05-shb/raid/e4s.ts': e4s,'05-shb/raid/e5n.ts': e5n,'05-shb/raid/e5s.ts': e5s,'05-shb/raid/e6n.ts': e6n,'05-shb/raid/e6s.ts': e6s,'05-shb/raid/e7n.ts': e7n,'05-shb/raid/e7s.ts': e7s,'05-shb/raid/e8n.ts': e8n,'05-shb/raid/e8s.ts': e8s,'05-shb/raid/e9n.ts': e9n,'05-shb/raid/e9s.ts': e9s,'05-shb/trial/diamond_weapon-ex.ts': diamond_weapon_ex,'05-shb/trial/diamond_weapon.ts': diamond_weapon,'05-shb/trial/emerald_weapon-ex.ts': emerald_weapon_ex,'05-shb/trial/emerald_weapon.ts': emerald_weapon,'05-shb/trial/hades-ex.ts': hades_ex,'05-shb/trial/hades.ts': hades,'05-shb/trial/innocence-ex.ts': innocence_ex,'05-shb/trial/innocence.ts': innocence,'05-shb/trial/levi-un.ts': levi_un,'05-shb/trial/ruby_weapon-ex.ts': ruby_weapon_ex,'05-shb/trial/ruby_weapon.ts': ruby_weapon,'05-shb/trial/shiva-un.ts': shiva_un,'05-shb/trial/titan-un.ts': titan_un,'05-shb/trial/titania-ex.ts': titania_ex,'05-shb/trial/titania.ts': titania,'05-shb/trial/varis-ex.ts': varis_ex,'05-shb/trial/wol-ex.ts': wol_ex,'05-shb/trial/wol.ts': wol,'05-shb/ultimate/the_epic_of_alexander.ts': the_epic_of_alexander,'06-ew/alliance/aglaia.ts': aglaia,'06-ew/alliance/euphrosyne.ts': euphrosyne,'06-ew/alliance/thaleia.ts': thaleia,'06-ew/dungeon/aetherfont.ts': aetherfont,'06-ew/dungeon/aloalo_island.ts': aloalo_island,'06-ew/dungeon/alzadaals_legacy.ts': alzadaals_legacy,'06-ew/dungeon/another_aloalo_island-savage.ts': another_aloalo_island_savage,'06-ew/dungeon/another_aloalo_island.ts': another_aloalo_island,'06-ew/dungeon/another_mount_rokkon-savage.ts': another_mount_rokkon_savage,'06-ew/dungeon/another_mount_rokkon.ts': another_mount_rokkon,'06-ew/dungeon/another_sildihn_subterrane-savage.ts': another_sildihn_subterrane_savage,'06-ew/dungeon/another_sildihn_subterrane.ts': another_sildihn_subterrane,'06-ew/dungeon/ktisis_hyperboreia.ts': ktisis_hyperboreia,'06-ew/dungeon/lapis_manalis.ts': lapis_manalis,'06-ew/dungeon/mount_rokkon.ts': mount_rokkon,'06-ew/dungeon/smileton.ts': smileton,'06-ew/dungeon/stigma_dreamscape.ts': stigma_dreamscape,'06-ew/dungeon/the_aitiascope.ts': the_aitiascope,'06-ew/dungeon/the_dead_ends.ts': the_dead_ends,'06-ew/dungeon/the_fell_court_of_troia.ts': the_fell_court_of_troia,'06-ew/dungeon/the_lunar_subteranne.ts': the_lunar_subteranne,'06-ew/dungeon/the_sildihn_subterrane.ts': the_sildihn_subterrane,'06-ew/dungeon/the_tower_of_babil.ts': the_tower_of_babil,'06-ew/dungeon/the_tower_of_zot.ts': the_tower_of_zot,'06-ew/dungeon/vanaspati.ts': vanaspati,'06-ew/raid/p10n.ts': p10n,'06-ew/raid/p10s.ts': p10s,'06-ew/raid/p11n.ts': p11n,'06-ew/raid/p11s.ts': p11s,'06-ew/raid/p12n.ts': p12n,'06-ew/raid/p12s.ts': p12s,'06-ew/raid/p1n.ts': p1n,'06-ew/raid/p1s.ts': p1s,'06-ew/raid/p2n.ts': p2n,'06-ew/raid/p2s.ts': p2s,'06-ew/raid/p3n.ts': p3n,'06-ew/raid/p3s.ts': p3s,'06-ew/raid/p4n.ts': p4n,'06-ew/raid/p4s.ts': p4s,'06-ew/raid/p5n.ts': p5n,'06-ew/raid/p5s.ts': p5s,'06-ew/raid/p6n.ts': p6n,'06-ew/raid/p6s.ts': p6s,'06-ew/raid/p7n.ts': p7n,'06-ew/raid/p7s.ts': p7s,'06-ew/raid/p8n.ts': p8n,'06-ew/raid/p8s.ts': p8s,'06-ew/raid/p9n.ts': p9n,'06-ew/raid/p9s.ts': p9s,'06-ew/trial/asura.ts': asura,'06-ew/trial/barbariccia-ex.ts': barbariccia_ex,'06-ew/trial/barbariccia.ts': barbariccia,'06-ew/trial/endsinger-ex.ts': endsinger_ex,'06-ew/trial/endsinger.ts': endsinger,'06-ew/trial/golbez-ex.ts': golbez_ex,'06-ew/trial/golbez.ts': golbez,'06-ew/trial/hydaelyn-ex.ts': hydaelyn_ex,'06-ew/trial/hydaelyn.ts': hydaelyn,'06-ew/trial/rubicante-ex.ts': rubicante_ex,'06-ew/trial/rubicante.ts': rubicante,'06-ew/trial/sephirot-un.ts': sephirot_un,'06-ew/trial/sophia-un.ts': sophia_un,'06-ew/trial/thordan-un.ts': thordan_un,'06-ew/trial/ultima-un.ts': ultima_un,'06-ew/trial/zeromus-ex.ts': zeromus_ex,'06-ew/trial/zeromus.ts': zeromus,'06-ew/trial/zodiark-ex.ts': zodiark_ex,'06-ew/trial/zodiark.ts': zodiark,'06-ew/trial/zurvan-un.ts': zurvan_un,'06-ew/ultimate/dragonsongs_reprise_ultimate.ts': dragonsongs_reprise_ultimate,'06-ew/ultimate/the_omega_protocol.ts': the_omega_protocol,'07-dt/alliance/jeuno-first-walk.ts': jeuno_first_walk,'07-dt/dungeon/alexandria.ts': alexandria,'07-dt/dungeon/ihuykatumu.ts': ihuykatumu,'07-dt/dungeon/meso-terminal.ts': meso_terminal,'07-dt/dungeon/origenics.ts': origenics,'07-dt/dungeon/skydeep-cenote.ts': skydeep_cenote,'07-dt/dungeon/strayborough-deadwalk.ts': strayborough_deadwalk,'07-dt/dungeon/the_underkeep.ts': the_underkeep,'07-dt/dungeon/vanguard.ts': vanguard,'07-dt/dungeon/worqor-zormor.ts': worqor_zormor,'07-dt/dungeon/yuweyawata.ts': yuweyawata,'07-dt/raid/r10s.ts': r10s,'07-dt/raid/r11n.ts': r11n,'07-dt/raid/r11s.ts': r11s,'07-dt/raid/r1n.ts': r1n,'07-dt/raid/r1s.ts': r1s,'07-dt/raid/r2n.ts': r2n,'07-dt/raid/r2s.ts': r2s,'07-dt/raid/r3n.ts': r3n,'07-dt/raid/r3s.ts': r3s,'07-dt/raid/r4n.ts': r4n,'07-dt/raid/r4s.ts': r4s,'07-dt/raid/r5n.ts': r5n,'07-dt/raid/r5s.ts': r5s,'07-dt/raid/r6n.ts': r6n,'07-dt/raid/r6s.ts': r6s,'07-dt/raid/r7n.ts': r7n,'07-dt/raid/r7s.ts': r7s,'07-dt/raid/r8n.ts': r8n,'07-dt/raid/r8s.ts': r8s,'07-dt/raid/r9s.ts': r9s,'07-dt/trial/byakko-un.ts': byakko_un,'07-dt/trial/seiryu-un.ts': seiryu_un,'07-dt/trial/shinryu-un.ts': shinryu_un,'07-dt/trial/suzaku-un.ts': suzaku_un,'07-dt/trial/tsukuyomi-un.ts': tsukuyomi_un,'07-dt/trial/valigarmanda-ex.ts': valigarmanda_ex,'07-dt/trial/valigarmanda.ts': valigarmanda,'07-dt/trial/zelenia-ex.ts': zelenia_ex,'07-dt/trial/zelenia.ts': zelenia,'07-dt/trial/zoraal-ja-ex.ts': zoraal_ja_ex,'07-dt/trial/zoraal-ja.ts': zoraal_ja,'07-dt/ultimate/futures_rewritten.ts': futures_rewritten,});
+
+/* harmony default export */ const oopsy_manifest = ({'00-misc/general.ts': general,'00-misc/test.ts': test,'02-arr/trial/ifrit-nm.ts': ifrit_nm,'02-arr/trial/levi-ex.ts': levi_ex,'02-arr/trial/shiva-ex.ts': shiva_ex,'02-arr/trial/shiva-hm.ts': shiva_hm,'02-arr/trial/titan-ex.ts': titan_ex,'02-arr/trial/titan-hm.ts': titan_hm,'02-arr/trial/titan-nm.ts': titan_nm,'02-arr/trial/ultima-ex.ts': ultima_ex,'03-hw/alliance/weeping_city.ts': weeping_city,'03-hw/dungeon/aetherochemical_research_facility.ts': aetherochemical_research_facility,'03-hw/dungeon/baelsars_wall.ts': baelsars_wall,'03-hw/dungeon/fractal_continuum.ts': fractal_continuum,'03-hw/dungeon/gubal_library_hard.ts': gubal_library_hard,'03-hw/dungeon/sohm_al_hard.ts': sohm_al_hard,'03-hw/dungeon/the_lost_city_of_amdapor_hard.ts': the_lost_city_of_amdapor_hard,'03-hw/raid/a10n.ts': a10n,'03-hw/raid/a12n.ts': a12n,'03-hw/raid/a3n.ts': a3n,'03-hw/raid/a6n.ts': a6n,'03-hw/trial/sephirot-ex.ts': sephirot_ex,'03-hw/trial/sophia-ex.ts': sophia_ex,'03-hw/trial/thordan-ex.ts': thordan_ex,'03-hw/trial/zurvan-ex.ts': zurvan_ex,'04-sb/alliance/orbonne_monastery.ts': orbonne_monastery,'04-sb/alliance/ridorana_lighthouse.ts': ridorana_lighthouse,'04-sb/alliance/royal_city_of_rabanastre.ts': royal_city_of_rabanastre,'04-sb/dungeon/ala_mhigo.ts': ala_mhigo,'04-sb/dungeon/bardams_mettle.ts': bardams_mettle,'04-sb/dungeon/castrum_abania.ts': castrum_abania,'04-sb/dungeon/doma_castle.ts': doma_castle,'04-sb/dungeon/drowned_city_of_skalla.ts': drowned_city_of_skalla,'04-sb/dungeon/fractal_continuum_hard.ts': fractal_continuum_hard,'04-sb/dungeon/ghimlyt_dark.ts': ghimlyt_dark,'04-sb/dungeon/hells_lid.ts': hells_lid,'04-sb/dungeon/kugane_castle.ts': kugane_castle,'04-sb/dungeon/shisui_of_the_violet_tides.ts': shisui_of_the_violet_tides,'04-sb/dungeon/sirensong_sea.ts': sirensong_sea,'04-sb/dungeon/st_mocianne_hard.ts': st_mocianne_hard,'04-sb/dungeon/swallows_compass.ts': swallows_compass,'04-sb/dungeon/temple_of_the_fist.ts': temple_of_the_fist,'04-sb/dungeon/the_burn.ts': the_burn,'04-sb/raid/o10n.ts': o10n,'04-sb/raid/o10s.ts': o10s,'04-sb/raid/o11n.ts': o11n,'04-sb/raid/o11s.ts': o11s,'04-sb/raid/o12n.ts': o12n,'04-sb/raid/o12s.ts': o12s,'04-sb/raid/o1n.ts': o1n,'04-sb/raid/o1s.ts': o1s,'04-sb/raid/o2n.ts': o2n,'04-sb/raid/o2s.ts': o2s,'04-sb/raid/o3n.ts': o3n,'04-sb/raid/o3s.ts': o3s,'04-sb/raid/o4n.ts': o4n,'04-sb/raid/o4s.ts': o4s,'04-sb/raid/o5n.ts': o5n,'04-sb/raid/o5s.ts': o5s,'04-sb/raid/o6n.ts': o6n,'04-sb/raid/o6s.ts': o6s,'04-sb/raid/o7n.ts': o7n,'04-sb/raid/o7s.ts': o7s,'04-sb/raid/o8n.ts': o8n,'04-sb/raid/o8s.ts': o8s,'04-sb/raid/o9n.ts': o9n,'04-sb/raid/o9s.ts': o9s,'04-sb/trial/byakko-ex.ts': byakko_ex,'04-sb/trial/byakko.ts': byakko,'04-sb/trial/lakshmi-ex.ts': lakshmi_ex,'04-sb/trial/lakshmi.ts': lakshmi,'04-sb/trial/rathalos-ex.ts': rathalos_ex,'04-sb/trial/rathalos.ts': rathalos,'04-sb/trial/seiryu-ex.ts': seiryu_ex,'04-sb/trial/seiryu.ts': seiryu,'04-sb/trial/shinryu-ex.ts': shinryu_ex,'04-sb/trial/shinryu.ts': shinryu,'04-sb/trial/susano-ex.ts': susano_ex,'04-sb/trial/susano.ts': susano,'04-sb/trial/suzaku-ex.ts': suzaku_ex,'04-sb/trial/suzaku.ts': suzaku,'04-sb/trial/tsukuyomi-ex.ts': tsukuyomi_ex,'04-sb/trial/tsukuyomi.ts': tsukuyomi,'04-sb/trial/yojimbo.ts': yojimbo,'04-sb/ultimate/ultima_weapon_ultimate.ts': ultima_weapon_ultimate,'04-sb/ultimate/unending_coil_ultimate.ts': unending_coil_ultimate,'05-shb/alliance/the_copied_factory.ts': the_copied_factory,'05-shb/alliance/the_puppets_bunker.ts': the_puppets_bunker,'05-shb/alliance/the_tower_at_paradigms_breach.ts': the_tower_at_paradigms_breach,'05-shb/dungeon/akadaemia_anyder.ts': akadaemia_anyder,'05-shb/dungeon/amaurot.ts': amaurot,'05-shb/dungeon/anamnesis_anyder.ts': anamnesis_anyder,'05-shb/dungeon/dohn_mheg.ts': dohn_mheg,'05-shb/dungeon/heroes_gauntlet.ts': heroes_gauntlet,'05-shb/dungeon/holminster_switch.ts': holminster_switch,'05-shb/dungeon/malikahs_well.ts': malikahs_well,'05-shb/dungeon/matoyas_relict.ts': matoyas_relict,'05-shb/dungeon/mt_gulg.ts': mt_gulg,'05-shb/dungeon/paglthan.ts': paglthan,'05-shb/dungeon/qitana_ravel.ts': qitana_ravel,'05-shb/dungeon/the_grand_cosmos.ts': the_grand_cosmos,'05-shb/dungeon/twinning.ts': twinning,'05-shb/eureka/delubrum_reginae.ts': delubrum_reginae,'05-shb/eureka/delubrum_reginae_savage.ts': delubrum_reginae_savage,'05-shb/raid/e10n.ts': e10n,'05-shb/raid/e10s.ts': e10s,'05-shb/raid/e11n.ts': e11n,'05-shb/raid/e11s.ts': e11s,'05-shb/raid/e12n.ts': e12n,'05-shb/raid/e12s.ts': e12s,'05-shb/raid/e1n.ts': e1n,'05-shb/raid/e1s.ts': e1s,'05-shb/raid/e2n.ts': e2n,'05-shb/raid/e2s.ts': e2s,'05-shb/raid/e3n.ts': e3n,'05-shb/raid/e3s.ts': e3s,'05-shb/raid/e4n.ts': e4n,'05-shb/raid/e4s.ts': e4s,'05-shb/raid/e5n.ts': e5n,'05-shb/raid/e5s.ts': e5s,'05-shb/raid/e6n.ts': e6n,'05-shb/raid/e6s.ts': e6s,'05-shb/raid/e7n.ts': e7n,'05-shb/raid/e7s.ts': e7s,'05-shb/raid/e8n.ts': e8n,'05-shb/raid/e8s.ts': e8s,'05-shb/raid/e9n.ts': e9n,'05-shb/raid/e9s.ts': e9s,'05-shb/trial/diamond_weapon-ex.ts': diamond_weapon_ex,'05-shb/trial/diamond_weapon.ts': diamond_weapon,'05-shb/trial/emerald_weapon-ex.ts': emerald_weapon_ex,'05-shb/trial/emerald_weapon.ts': emerald_weapon,'05-shb/trial/hades-ex.ts': hades_ex,'05-shb/trial/hades.ts': hades,'05-shb/trial/innocence-ex.ts': innocence_ex,'05-shb/trial/innocence.ts': innocence,'05-shb/trial/levi-un.ts': levi_un,'05-shb/trial/ruby_weapon-ex.ts': ruby_weapon_ex,'05-shb/trial/ruby_weapon.ts': ruby_weapon,'05-shb/trial/shiva-un.ts': shiva_un,'05-shb/trial/titan-un.ts': titan_un,'05-shb/trial/titania-ex.ts': titania_ex,'05-shb/trial/titania.ts': titania,'05-shb/trial/varis-ex.ts': varis_ex,'05-shb/trial/wol-ex.ts': wol_ex,'05-shb/trial/wol.ts': wol,'05-shb/ultimate/the_epic_of_alexander.ts': the_epic_of_alexander,'06-ew/alliance/aglaia.ts': aglaia,'06-ew/alliance/euphrosyne.ts': euphrosyne,'06-ew/alliance/thaleia.ts': thaleia,'06-ew/dungeon/aetherfont.ts': aetherfont,'06-ew/dungeon/aloalo_island.ts': aloalo_island,'06-ew/dungeon/alzadaals_legacy.ts': alzadaals_legacy,'06-ew/dungeon/another_aloalo_island-savage.ts': another_aloalo_island_savage,'06-ew/dungeon/another_aloalo_island.ts': another_aloalo_island,'06-ew/dungeon/another_mount_rokkon-savage.ts': another_mount_rokkon_savage,'06-ew/dungeon/another_mount_rokkon.ts': another_mount_rokkon,'06-ew/dungeon/another_sildihn_subterrane-savage.ts': another_sildihn_subterrane_savage,'06-ew/dungeon/another_sildihn_subterrane.ts': another_sildihn_subterrane,'06-ew/dungeon/ktisis_hyperboreia.ts': ktisis_hyperboreia,'06-ew/dungeon/lapis_manalis.ts': lapis_manalis,'06-ew/dungeon/mount_rokkon.ts': mount_rokkon,'06-ew/dungeon/smileton.ts': smileton,'06-ew/dungeon/stigma_dreamscape.ts': stigma_dreamscape,'06-ew/dungeon/the_aitiascope.ts': the_aitiascope,'06-ew/dungeon/the_dead_ends.ts': the_dead_ends,'06-ew/dungeon/the_fell_court_of_troia.ts': the_fell_court_of_troia,'06-ew/dungeon/the_lunar_subteranne.ts': the_lunar_subteranne,'06-ew/dungeon/the_sildihn_subterrane.ts': the_sildihn_subterrane,'06-ew/dungeon/the_tower_of_babil.ts': the_tower_of_babil,'06-ew/dungeon/the_tower_of_zot.ts': the_tower_of_zot,'06-ew/dungeon/vanaspati.ts': vanaspati,'06-ew/raid/p10n.ts': p10n,'06-ew/raid/p10s.ts': p10s,'06-ew/raid/p11n.ts': p11n,'06-ew/raid/p11s.ts': p11s,'06-ew/raid/p12n.ts': p12n,'06-ew/raid/p12s.ts': p12s,'06-ew/raid/p1n.ts': p1n,'06-ew/raid/p1s.ts': p1s,'06-ew/raid/p2n.ts': p2n,'06-ew/raid/p2s.ts': p2s,'06-ew/raid/p3n.ts': p3n,'06-ew/raid/p3s.ts': p3s,'06-ew/raid/p4n.ts': p4n,'06-ew/raid/p4s.ts': p4s,'06-ew/raid/p5n.ts': p5n,'06-ew/raid/p5s.ts': p5s,'06-ew/raid/p6n.ts': p6n,'06-ew/raid/p6s.ts': p6s,'06-ew/raid/p7n.ts': p7n,'06-ew/raid/p7s.ts': p7s,'06-ew/raid/p8n.ts': p8n,'06-ew/raid/p8s.ts': p8s,'06-ew/raid/p9n.ts': p9n,'06-ew/raid/p9s.ts': p9s,'06-ew/trial/asura.ts': asura,'06-ew/trial/barbariccia-ex.ts': barbariccia_ex,'06-ew/trial/barbariccia.ts': barbariccia,'06-ew/trial/endsinger-ex.ts': endsinger_ex,'06-ew/trial/endsinger.ts': endsinger,'06-ew/trial/golbez-ex.ts': golbez_ex,'06-ew/trial/golbez.ts': golbez,'06-ew/trial/hydaelyn-ex.ts': hydaelyn_ex,'06-ew/trial/hydaelyn.ts': hydaelyn,'06-ew/trial/rubicante-ex.ts': rubicante_ex,'06-ew/trial/rubicante.ts': rubicante,'06-ew/trial/sephirot-un.ts': sephirot_un,'06-ew/trial/sophia-un.ts': sophia_un,'06-ew/trial/thordan-un.ts': thordan_un,'06-ew/trial/ultima-un.ts': ultima_un,'06-ew/trial/zeromus-ex.ts': zeromus_ex,'06-ew/trial/zeromus.ts': zeromus,'06-ew/trial/zodiark-ex.ts': zodiark_ex,'06-ew/trial/zodiark.ts': zodiark,'06-ew/trial/zurvan-un.ts': zurvan_un,'06-ew/ultimate/dragonsongs_reprise_ultimate.ts': dragonsongs_reprise_ultimate,'06-ew/ultimate/the_omega_protocol.ts': the_omega_protocol,'07-dt/alliance/jeuno-first-walk.ts': jeuno_first_walk,'07-dt/alliance/windurst-third-walk.ts': windurst_third_walk,'07-dt/dungeon/alexandria.ts': alexandria,'07-dt/dungeon/ihuykatumu.ts': ihuykatumu,'07-dt/dungeon/meso-terminal.ts': meso_terminal,'07-dt/dungeon/origenics.ts': origenics,'07-dt/dungeon/skydeep-cenote.ts': skydeep_cenote,'07-dt/dungeon/strayborough-deadwalk.ts': strayborough_deadwalk,'07-dt/dungeon/the_underkeep.ts': the_underkeep,'07-dt/dungeon/vanguard.ts': vanguard,'07-dt/dungeon/worqor-zormor.ts': worqor_zormor,'07-dt/dungeon/yuweyawata.ts': yuweyawata,'07-dt/raid/r10s.ts': r10s,'07-dt/raid/r11n.ts': r11n,'07-dt/raid/r11s.ts': r11s,'07-dt/raid/r1n.ts': r1n,'07-dt/raid/r1s.ts': r1s,'07-dt/raid/r2n.ts': r2n,'07-dt/raid/r2s.ts': r2s,'07-dt/raid/r3n.ts': r3n,'07-dt/raid/r3s.ts': r3s,'07-dt/raid/r4n.ts': r4n,'07-dt/raid/r4s.ts': r4s,'07-dt/raid/r5n.ts': r5n,'07-dt/raid/r5s.ts': r5s,'07-dt/raid/r6n.ts': r6n,'07-dt/raid/r6s.ts': r6s,'07-dt/raid/r7n.ts': r7n,'07-dt/raid/r7s.ts': r7s,'07-dt/raid/r8n.ts': r8n,'07-dt/raid/r8s.ts': r8s,'07-dt/raid/r9s.ts': r9s,'07-dt/trial/byakko-un.ts': byakko_un,'07-dt/trial/seiryu-un.ts': seiryu_un,'07-dt/trial/shinryu-un.ts': shinryu_un,'07-dt/trial/suzaku-un.ts': suzaku_un,'07-dt/trial/tsukuyomi-un.ts': tsukuyomi_un,'07-dt/trial/valigarmanda-ex.ts': valigarmanda_ex,'07-dt/trial/valigarmanda.ts': valigarmanda,'07-dt/trial/zelenia-ex.ts': zelenia_ex,'07-dt/trial/zelenia.ts': zelenia,'07-dt/trial/zoraal-ja-ex.ts': zoraal_ja_ex,'07-dt/trial/zoraal-ja.ts': zoraal_ja,'07-dt/ultimate/futures_rewritten.ts': futures_rewritten,});
 
 /***/ })
 
