@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunkcactbot"] = self["webpackChunkcactbot"] || []).push([[890],{
 
-/***/ 801:
+/***/ 221:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -3596,7 +3596,8 @@ const aurum_vale_triggerSet = {
     en: 'pre-7.4 rework',
     de: 'Vor der 7.4 Überarbeitung',
     cn: '7.4改版前',
-    ko: '7.4 개편 전'
+    ko: '7.4 개편 전',
+    tc: '7.4改版前'
   },
   triggers: [{
     id: 'Aurum Vale GoldLungs/Burrs',
@@ -40983,7 +40984,8 @@ const shisui_of_the_violet_tides_triggerSet = {
     en: 'pre-7.5 rework',
     de: 'Vor der 7.5 Überarbeitung',
     cn: '7.5改版前',
-    ko: '7.5 개편 전'
+    ko: '7.5 개편 전',
+    tc: '7.5改版前'
   },
   timelineFile: 'shisui_of_the_violet_tides.txt',
   triggers: [{
@@ -61975,7 +61977,8 @@ const shinryu_ex_triggerSet = {
         en: 'Ice: Stack + don\'t move',
         de: 'Eis: Sammeln + nicht bewegen',
         cn: '冰: 集合 + 不要动',
-        ko: '얼음: 모이기 + 이동 멈추기'
+        ko: '얼음: 모이기 + 이동 멈추기',
+        tc: '冰: 集合 + 不要動'
       }
     }
   }, {
@@ -62672,7 +62675,6 @@ const shinryu_ex_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
       'Cocoon': '光繭',
       'Icicle': '冰柱',
@@ -66353,7 +66355,7 @@ const ultima_weapon_ultimate_triggerSet = {
         // The two close nails are 45 degrees apart.
         if (next8Dir - this8Dir === 1 || this8Dir - next8Dir === 7) {
           const between16Dir = this8Dir * 2 + 1;
-          const outputKey = util/* Directions.output16Dir */.Ns.output16Dir[between16Dir] ?? 'unknown';
+          const outputKey = util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(between16Dir);
           return output.text({
             dir: output[outputKey]()
           });
@@ -69633,7 +69635,7 @@ const unending_coil_ultimate_triggerSet = {
       let naelIdx = towers.findIndex(t => posToAngle(t) >= naelAngle);
       if (naelIdx < 0) naelIdx += 8;
       const towerDir = towersMap[(wantedIdx + naelIdx) % 8];
-      const myTowerDir = towerDir !== undefined ? util/* Directions.output16Dir */.Ns.output16Dir[towerDir] ?? 'unknown' : 'unknown';
+      const myTowerDir = towerDir !== undefined ? util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(towerDir) : 'unknown';
       return output.tower({
         dir: output[myTowerDir]()
       });
@@ -211469,45 +211471,43 @@ const cloud_of_darkness_chaotic_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
       'Cloud Of Darkness': '黑暗之雲',
-      'Cloud of Darkness': '黑暗之雲'
-      // 'Cloudlet of Darkness': '', // FIXME '暗黑之破片云'
-      // 'Stygian Shadow': '', // FIXME '生于黑暗之物'
+      'Cloud of Darkness': '黑暗之雲',
+      'Cloudlet of Darkness': '黑暗之碎雨雲',
+      'Stygian Shadow': '暗之淤影'
     },
-
     'replaceText': {
-      // '--adds untargetable--': '', // FIXME '--小怪不可选中--'
-      // 'Active-pivot Particle Beam': '', // FIXME '回旋式波动炮'
+      '--adds untargetable--': '--小怪不可選中--',
+      'Active-pivot Particle Beam': '迴旋式波動砲',
       '(?<!En)Aero IV': '超勁風',
-      // 'Blade of Darkness': '', // FIXME '暗之刃'
-      // 'Break IV': '', // FIXME '超石化'
-      // 'Chaos-condensed Particle Beam': '', // FIXME '凝聚式波动炮'
-      // 'Core-lateral Phaser': '', // FIXME '正侧跳跃波动炮'
-      // 'Curse of Darkness': '', // FIXME '波动诅咒'
-      // 'Dark Dominion': '', // FIXME '深暗领域'
+      'Blade of Darkness': '暗之刃',
+      'Break IV': '超石化',
+      'Chaos-condensed Particle Beam': '凝聚式波動砲',
+      'Core-lateral Phaser': '正側跳躍波動砲',
+      'Curse of Darkness': '波動的詛咒',
+      'Dark Dominion': '深暗領域',
       'Dark-energy Particle Beam': '詛咒式波動砲',
-      // '(?<!En)Death IV': '', // FIXME '极死'
+      '(?<!En)Death IV': '極死',
       'Deluge of Darkness': '暗之大氾濫',
-      // 'Diffusive-force Particle Beam': '', // FIXME '分散式波动炮'
-      // 'Enaero IV': '', // FIXME '超附风'
-      // 'Endeath IV': '', // FIXME '超附死'
-      // 'Evaporation': '', // FIXME '云散'
+      'Diffusive-force Particle Beam': '分散式波動砲',
+      'Enaero IV': '附魔超勁風',
+      'Endeath IV': '附魔極死',
+      'Evaporation': '雲散',
       'Evil Seed': '種子彈',
-      // 'Excruciate': '', // FIXME '磔杀'
+      'Excruciate': '磔殺',
       'Feint Particle Beam': '潛地式波動砲',
       'Flare': '火光',
-      // 'Flood of Darkness': '', // FIXME '暗之泛滥'
-      // 'Ghastly Gloom': '', // FIXME '恐惧之云'
-      // 'Grim Embrace': '', // FIXME '阴冷拥抱'
-      // 'Lateral-core Phaser': '', // FIXME '侧正跳跃波动炮'
-      // 'Looming Chaos': '', // FIXME '混沌迫近'
+      'Flood of Darkness': '暗之氾濫',
+      'Ghastly Gloom': '恐懼之雲',
+      'Grim Embrace': '陰冷擁抱',
+      'Lateral-core Phaser': '側正跳躍波動砲',
+      'Looming Chaos': '混沌迫近',
       '(?<! )Particle Beam': '波動爆炸',
       'Particle Concentration': '波動球',
-      // '(?<! )Phaser': '', // FIXME '跳跃波动炮'
-      // 'Rapid-sequence Particle Beam': '', // FIXME '连射式波动炮'
-      // 'Razing-volley Particle Beam': '', // FIXME '齐射式波动炮'
+      '(?<! )Phaser': '跳躍波動砲',
+      'Rapid-sequence Particle Beam': '連射式波動砲',
+      'Razing-volley Particle Beam': '齊射式波動砲',
       'Thorny Vine': '荊棘叢生',
       'Unholy Darkness': '黑暗神聖',
       'Vortex': '吸引',
@@ -213515,11 +213515,1793 @@ const jeuno_first_walk_triggerSet = {
 const alliance_jeuno_first_walk_namespaceObject = "### JEUNO: THE FIRST WALK\r\n# ZoneId: 1248\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n0.0 \"--Reset--\" ActorControl { command: \"4000000F\" } window 0,1000000 jump 0\r\n\r\n# .*is no longer sealed\r\n0.0 \"--Reset--\" SystemLogMessage { id: \"7DE\" } window 0,1000000 jump 0\r\n\r\n#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#\r\n# Prishe Of The Distant Chains #\r\n#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#\r\n\r\n# -ii 9FE6 9FF1 9FF3 9FEB 9FEC 9FED A003 9FF5 9FFE 9FFF\r\n\r\n# A number of Prishe's abilities are two-part,\r\n# with a visual snapshot occurring before a damage event.\r\n# The snapshot locks in when the visual element resolves,\r\n# so we display the visual and then ignore the damage event.\r\n\r\n# The grand dais will be sealed off\r\n10000.0 \"--sync--\" SystemLogMessage { id: \"7DC\", param1: \"141E\" } window 10000,1\r\n10006.7 \"--sync--\" StartsUsing { id: \"9FE7\", source: \"Prishe of the Distant Chains\" } window 10006.7,10\r\n10011.1 \"Banishga\" Ability { id: \"9FE7\", source: \"Prishe of the Distant Chains\" }\r\n10018.3 \"--center--\" Ability { id: \"9FE5\", source: \"Prishe of the Distant Chains\" }\r\n10032.5 \"Knuckle Sandwich\" Ability { id: [\"9FE8\", \"9FE9\", \"9FEA\"], source: \"Prishe of the Distant Chains\" }\r\n10035.1 \"Brittle Impact\" Ability { id: [\"9FEE\", \"9FEF\", \"9FF0\"], source: \"Prishe of the Distant Chains\" }\r\n\r\n# This second Knuckle Sandwich shows up in a few Very Slow logs.\r\n10052.5 \"Knuckle Sandwich?\" Ability { id: [\"9FE8\", \"9FE9\", \"9FEA\"], source: \"Prishe of the Distant Chains\" }\r\n10054.9 \"Brittle Impact\" Ability { id: [\"9FEE\", \"9FEF\", \"9FF0\"], source: \"Prishe of the Distant Chains\" }\r\n10058.5 \"--sync--\" StartsUsing { id: \"9FFD\", source: \"Prishe of the Distant Chains\" } window 55.5,10\r\n10064.7 \"Nullifying Dropkick\" Ability { id: \"9FFD\", source: \"Prishe of the Distant Chains\" }\r\n10073.4 \"Banish Storm\" Ability { id: \"9FF2\", source: \"Prishe of the Distant Chains\" }\r\n10085.3 \"Banish x15\" duration 11.2 #Ability { id: \"9FF3\", source: \"Prishe of the Distant Chains\" }\r\n10093.5 \"Holy\" Ability { id: \"A002\", source: \"Prishe of the Distant Chains\" }\r\n\r\n10101.2 \"--center--\" Ability { id: \"9FE5\", source: \"Prishe of the Distant Chains\" }\r\n10107.5 \"Crystalline Thorns\" Ability { id: \"9FF4\", source: \"Prishe of the Distant Chains\" } window 104.5,10\r\n10122.9 \"Auroral Uppercut\" Ability { id: [\"9FF6\", \"9FF7\", \"9FF8\"], source: \"Prishe of the Distant Chains\" }\r\n10139.5 \"Banishga IV\" Ability { id: \"9FFA\", source: \"Prishe of the Distant Chains\" }\r\n10147.3 \"Explosion 1\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n10151.3 \"Explosion 2\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n10155.3 \"Explosion 3\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n10159.3 \"Explosion 4\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n10159.3 \"Explosion 5\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n10165.6 \"Crystalline Thorns\" Ability { id: \"9FF4\", source: \"Prishe of the Distant Chains\" }\r\n10167.7 \"--center--\" Ability { id: \"9FE5\", source: \"Prishe of the Distant Chains\" }\r\n10181.5 \"Auroral Uppercut\" Ability { id: [\"9FF6\", \"9FF7\", \"9FF8\"], source: \"Prishe of the Distant Chains\" }\r\n10198.8 \"Asuran Fists x8\" Ability { id: \"9FFC\", source: \"Prishe of the Distant Chains\" } duration 9\r\n10207.2 \"--sync--\" Ability { id: \"A000\", source: \"Prishe of the Distant Chains\" } # Asuran Fists final hit\r\n\r\n# From here, Prishe seems to have three different rotation blocks.\r\n# She can use Banishga, Banishga 4, or Banish Storm.\r\n# Each of these blocks closes with Asuran Fists,\r\n# but she doesn't always seem to use the final A000 hit.\r\n# More research is needed.\r\n10217.4 \"Banishga IV?\" StartsUsing { id: \"9FFA\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishgaIVBlock\"\r\n10218.1 \"Banish Storm?\" StartsUsing { id: \"9FF2\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishStormBlock\"\r\n10226.3 \"Banishga?\" StartsUsing { id: \"9FE7\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishgaBlock\"\r\n\r\n\r\n# Banishga block\r\n10995.3 label \"banishgaBlock\"\r\n10995.3 \"--sync--\" StartsUsing { id: \"9FE7\", source: \"Prishe of the Distant Chains\" }\r\n\r\n11000.0 \"Banishga\" Ability { id: \"9FE7\", source: \"Prishe of the Distant Chains\" }\r\n11007.2 \"--center--\" Ability { id: \"9FE5\", source: \"Prishe of the Distant Chains\" }\r\n11021.4 \"Knuckle Sandwich\" Ability { id: [\"9FE8\", \"9FE9\", \"9FEA\"], source: \"Prishe of the Distant Chains\" }\r\n11023.8 \"Brittle Impact\" Ability { id: [\"9FEE\", \"9FEF\", \"9FF0\"], source: \"Prishe of the Distant Chains\" }\r\n11033.6 \"Nullifying Dropkick\" Ability { id: \"9FFD\", source: \"Prishe of the Distant Chains\" }\r\n11042.3 \"Banish Storm\" Ability { id: \"9FF2\", source: \"Prishe of the Distant Chains\" } window 15,15\r\n11054.2 \"Banish x15\" duration 11.2 #Ability { id: \"9FF3\", source: \"Prishe of the Distant Chains\" }\r\n11062.4 \"Holy\" Ability { id: \"A002\", source: \"Prishe of the Distant Chains\" }\r\n11070.1 \"--center--\" Ability { id: \"9FE5\", source: \"Prishe of the Distant Chains\" }\r\n11076.3 \"Crystalline Thorns\" Ability { id: \"9FF4\", source: \"Prishe of the Distant Chains\" }\r\n11091.8 \"Auroral Uppercut\" Ability { id: [\"9FF6\", \"9FF7\", \"9FF8\"], source: \"Prishe of the Distant Chains\" }\r\n11108.4 \"Banishga IV\" Ability { id: \"9FFA\", source: \"Prishe of the Distant Chains\" } window 15,15\r\n11116.3 \"Explosion 1\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n11116.3 \"Explosion 2\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n11120.3 \"Explosion 3\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n11124.3 \"Explosion 4\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n11128.3 \"Explosion 5 \" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n11139.2 \"Asuran Fists x8\" Ability { id: \"9FFC\", source: \"Prishe of the Distant Chains\" } duration 9\r\n11147.6 \"--sync--\" Ability { id: \"A000\", source: \"Prishe of the Distant Chains\" } # Asuran Fists final hit\r\n\r\n11157.8 \"Banishga IV?\" StartsUsing { id: \"9FFA\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishgaIVBlock\"\r\n11158.5 \"Banish Storm?\" StartsUsing { id: \"9FF2\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishStormBlock\"\r\n11166.7 \"Banishga?\" StartsUsing { id: \"9FE7\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishgaBlock\"\r\n\r\n# Banish Storm block\r\n11997.0 label \"banishStormBlock\"\r\n11997.0 \"--sync--\" StartsUsing { id: \"9FF2\", source: \"Prishe of the Distant Chains\" }\r\n\r\n12000.0 \"Banish Storm\" Ability { id: \"9FF2\", source: \"Prishe of the Distant Chains\" }\r\n12006.1 \"--center--\" Ability { id: \"9FE5\", source: \"Prishe of the Distant Chains\" }\r\n12011.9 \"Banish x15\" duration 11.2 #Ability { id: \"9FF3\", source: \"Prishe of the Distant Chains\" }\r\n12020.3 \"Knuckle Sandwich\" Ability { id: [\"9FE8\", \"9FE9\", \"9FEA\"], source: \"Prishe of the Distant Chains\" }\r\n12022.7 \"Brittle Impact\" Ability { id: [\"9FEE\", \"9FEF\", \"9FF0\"], source: \"Prishe of the Distant Chains\" }\r\n12031.4 \"Nullifying Dropkick\" Ability { id: \"9FFD\", source: \"Prishe of the Distant Chains\" }\r\n# This Banishga IV cast seems to vary significantly on timing. Sync widely and hope for the best\r\n12034.4 \"--sync--\" StartsUsing { id: \"9FFA\", source: \"Prishe of the Distant Chains\" } window 10,10\r\n12039.1 \"Banishga IV\" Ability { id: \"9FFA\", source: \"Prishe of the Distant Chains\" }\r\n12046.2 \"--center--\" Ability { id: \"9FE5\", source: \"Prishe of the Distant Chains\" }\r\n12046.9 \"Explosion 1\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n12046.9 \"Explosion 2\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n12050.9 \"Explosion 3\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n12052.6 \"Crystalline Thorns\" Ability { id: \"9FF4\", source: \"Prishe of the Distant Chains\" }\r\n12054.8 \"Explosion 4\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n12058.8 \"Explosion 5\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n12068.1 \"Auroral Uppercut\" Ability { id: [\"9FF6\", \"9FF7\", \"9FF8\"], source: \"Prishe of the Distant Chains\" }\r\n12081.8 \"Holy\" Ability { id: \"A002\", source: \"Prishe of the Distant Chains\" }\r\n12091.5 \"Asuran Fists x8\" Ability { id: \"9FFC\", source: \"Prishe of the Distant Chains\" } duration 9\r\n12099.9 \"--sync--\" Ability { id: \"A000\", source: \"Prishe of the Distant Chains\" } # Asuran Fists final hit\r\n\r\n12110.2 \"Banishga IV?\" StartsUsing { id: \"9FFA\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishgaIVBlock\"\r\n12110.8 \"Banish Storm?\" StartsUsing { id: \"9FF2\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishStormBlock\"\r\n12119.0 \"Banishga?\" StartsUsing { id: \"9FE7\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishgaBlock\"\r\n\r\n\r\n# Banishga 4 block\r\n12995.3 label \"banishgaIVBlock\"\r\n12995.3 \"--sync--\" StartsUsing { id: \"9FFA\", source: \"Prishe of the Distant Chains\" }\r\n\r\n13000.0 \"Banishga IV\" Ability { id: \"9FFA\", source: \"Prishe of the Distant Chains\" }\r\n13002.1 \"--center--\" Ability { id: \"9FE5\", source: \"Prishe of the Distant Chains\" }\r\n13016.2 \"Knuckle Sandwich\" Ability { id: [\"9FE8\", \"9FE9\", \"9FEA\"], source: \"Prishe of the Distant Chains\" }\r\n13016.6 \"Explosion 1\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n13016.6 \"Explosion 2\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n13018.6 \"Brittle Impact\" Ability { id: [\"9FEE\", \"9FEF\", \"9FF0\"], source: \"Prishe of the Distant Chains\" }\r\n13020.6 \"Explosion 3\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n13024.6 \"Explosion 4\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n13028.6 \"Explosion 5\" #Ability { id: \"9FFB\", source: \"Luminous Remnant\" }\r\n13030.7 \"Holy\" Ability { id: \"A002\", source: \"Prishe of the Distant Chains\" }\r\n13040.8 \"Banish Storm\" Ability { id: \"9FF2\", source: \"Prishe of the Distant Chains\" } window 15,15\r\n13042.9 \"--center--\" Ability { id: \"9FE5\", source: \"Prishe of the Distant Chains\" }\r\n13049.2 \"Crystalline Thorns\" Ability { id: \"9FF4\", source: \"Prishe of the Distant Chains\" }\r\n13052.7 \"Banish x15\" duration 11.2 #Ability { id: \"9FF3\", source: \"Prishe of the Distant Chains\" }\r\n13064.7 \"Auroral Uppercut\" Ability { id: [\"9FF6\", \"9FF7\", \"9FF8\"], source: \"Prishe of the Distant Chains\" }\r\n13086.0 \"Nullifying Dropkick\" Ability { id: \"9FFD\", source: \"Prishe of the Distant Chains\" }\r\n13097.1 \"Asuran Fists x8\" Ability { id: \"9FFC\", source: \"Prishe of the Distant Chains\" } duration 9\r\n13105.5 \"--sync--\" Ability { id: \"A000\", source: \"Prishe of the Distant Chains\" } # Asuran Fists final hit\r\n\r\n13115.7 \"Banishga IV?\" StartsUsing { id: \"9FFA\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishgaIVBlock\"\r\n13116.4 \"Banish Storm?\" StartsUsing { id: \"9FF2\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishStormBlock\"\r\n13124.6 \"Banishga?\" StartsUsing { id: \"9FE7\", source: \"Prishe of the Distant Chains\" } window 20,20 jump \"banishgaBlock\"\r\n\r\n# IGNORED ABILITIES\r\n# 9FE6 --sync--: auto-attack\r\n# 9FEB Knuckle Sandwich: 1-tick inner circle AoE\r\n# 9FEC Knuckle Sandwich: 2-tick inner circle AoE\r\n# 9FED Knuckle Sandwich: 3-tick inner circle AoE\r\n# 9FF1 Nullifying Dropkick: Shared tank buster, circle stack (simultaneous with 9FFD)\r\n# 9FF3 Banish: Pathing circle AoEs\r\n# 9FF5 Thornbite: Thorns appear\r\n# 9FF9 Auroral Uppercut: Knockback execution\r\n# 9FFE Asuran Fists: Stack marker damage\r\n# 9FFF Asuran Fists: Stack marker damage\r\n# A003 Holy: Spread marker damage\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# 9FE5 --center--\r\n# 9FE6 --sync--: auto-attack\r\n# 9FE7 Banishga: Raidwide\r\n# 9FE8 Knuckle Sandwich: 1-tick visual\r\n# 9FE9 Knuckle Sandwich: 2-tick visual\r\n# 9FEA Knuckle Sandwich: 3-tick visual\r\n# 9FEB Knuckle Sandwich: 1-tick inner circle AoE\r\n# 9FEC Knuckle Sandwich: 2-tick inner circle AoE\r\n# 9FED Knuckle Sandwich: 3-tick inner circle AoE\r\n# 9FEE Brittle Impact: 1-tick outer donut AoE\r\n# 9FEF Brittle Impact: 2-tick outer donut AoE\r\n# 9FF0 Brittle Impact: 3-tick outer donut AoE\r\n# 9FF1 Nullifying Dropkick: Shared tank buster, circle stack (simultaneous with 9FFD)\r\n# 9FF2 Banish Storm: Visuals for pathing Banish circles\r\n# 9FF3 Banish: Pathing circle AoEs\r\n# 9FF4 Crystalline Thorns: Thorn generation cast\r\n# 9FF5 Thornbite: Thorns appear\r\n# 9FF6 Auroral Uppercut: 1-tick knockback visual\r\n# 9FF7 Auroral Uppercut: 2-tick knockback visual\r\n# 9FF8 Auroral Uppercut: 3-tick knockback visual\r\n# 9FF9 Auroral Uppercut: Knockback execution\r\n# 9FFA Banishga IV: Raidwide; summons orbs\r\n# 9FFB Explosion: Orb chariot AoEs\r\n# 9FFC Asuran Fists: Stack marker cast\r\n# 9FFD Nullifying Dropkick: Shared tank buster, circle stack (simultaneous with 9FF1)\r\n# 9FFE Asuran Fists: Stack marker damage\r\n# 9FFF Asuran Fists: Stack marker damage\r\n# A000 Asuran Fists: Stack marker final hit\r\n# A002 Holy: Spread marker cast\r\n# A003 Holy: Spread marker damage\r\n\r\n\r\n#~~~~~~~~~~~~~~~~~~~~~#\r\n# Fafnir The Forgotten#\r\n#~~~~~~~~~~~~~~~~~~~~~#\r\n\r\n# -ii 9BF2 9EB9 9F72 9F73 9F74 9F75 9F76 9F8B 9F8C 9F95 9F98 9F9C A156 A157 A158 A159 9F90 9F8E 9F6F\r\n# -ic \"Biting Wind\" \"Darter\" \"Ravaging Wind\"\r\n\r\n# The Hurricane Wing puddles follow an increasing \"ladder\" of abilities.\r\n# In -> out first round:: 9F7D, 9F7E, 9F7F, 9F80\r\n# In -> out second round: 9F87, 9F88, 9F89, 9F8A\r\n# Out -> in first round:  9F78, 9F79, 9F7A, 9F7B\r\n# Out -> in second round: 9F82, 9F83, 9F84, 9F85\r\n\r\n# Dragon's Aery will be sealed off\r\n20000.0 \"--sync--\" SystemLogMessage { id: \"7DC\", param1: \"141F\" } window 20000,1\r\n20011.1 \"Dark Matter Blast\" Ability { id: \"9F96\", source: \"Fafnir the Forgotten\" } window 20011.1,10\r\n20024.2 \"Offensive Posture\" Ability { id: [\"9F6B\",\"9F6E\", \"9F70\"], source: \"Fafnir the Forgotten\" }\r\n20025.2 \"Spike Flail\" Ability { id: \"A09A\", source: \"Fafnir the Forgotten\" }\r\n20038.3 \"Offensive Posture?\" Ability { id: [\"9F6B\",\"9F6E\", \"9F70\"], source: \"Fafnir the Forgotten\" }\r\n20039.5 \"Touchdown?\" Ability { id: \"A09C\", source: \"Fafnir the Forgotten\" }\r\n\r\n20044.5 \"--center--\" Ability { id: \"9F99\", source: \"Fafnir the Forgotten\" } # Shuddering Earth window 44.5,10\r\n20056.6 \"Offensive Posture\" Ability { id: [\"9F6B\",\"9F6E\", \"9F70\"], source: \"Fafnir the Forgotten\" }\r\n20057.8 \"Dragon Breath\" duration 4 #Ability { id: \"9F6F\", source: \"Fafnir the Forgotten\" }\r\n20075.1 \"Offensive Posture\" Ability { id: [\"9F6B\",\"9F6E\", \"9F70\"], source: \"Fafnir the Forgotten\" }\r\n20076.3 \"Touchdown\" Ability { id: \"A09C\", source: \"Fafnir the Forgotten\" }\r\n20087.3 \"Offensive Posture\" Ability { id: [\"9F6B\",\"9F6E\", \"9F70\"], source: \"Fafnir the Forgotten\" }\r\n20088.3 \"Spike Flail\" Ability { id: \"A09A\", source: \"Fafnir the Forgotten\" }\r\n20098.7 \"Baleful Breath x5\" Ability { id: \"9F94\", source: \"Fafnir the Forgotten\" } duration 7\r\n20105.5 \"--sync--\" Ability { id: \"9B76\", source: \"Fafnir the Forgotten\" } # Baleful Breath final hit\r\n20112.6 \"Sharp Spike\" Ability { id: \"9F97\", source: \"Fafnir the Forgotten\" }\r\n20114.0 \"--Darters spawn--\"\r\n20123.7 \"--center--\" Ability { id: \"9F99\", source: \"Fafnir the Forgotten\" } # Shuddering Earth\r\n20130.8 \"Hurricane Wing x10 (raidwides)\" Ability { id: \"9F71\", source: \"Fafnir the Forgotten\" } duration 11\r\n20143.4 \"--north--\" Ability { id: \"9F99\", source: \"Fafnir the Forgotten\" } # Shuddering Earth\r\n20149.0 \"Hurricane Wing 1 (rings)\" Ability { id: [\"9F78\", \"9F7D\"], source: \"Fafnir the Forgotten\" }\r\n20151.0 \"Hurricane Wing 2 (rings)\" Ability { id: [\"9F79\",\"9F7E\"], source: \"Fafnir the Forgotten\" }\r\n20152.9 \"Horrid Roar 1 (puddles)\" Ability { id: \"9F91\", source: \"Fafnir the Forgotten\" }\r\n20152.9 \"Hurricane Wing 3 (rings)\" Ability { id: [\"9F7A\", \"9F7F\"], source: \"Fafnir the Forgotten\" }\r\n20154.9 \"Hurricane Wing 4 (rings)\" Ability { id: [\"9F7B\", \"9F80\"], source: \"Fafnir the Forgotten\" }\r\n20157.9 \"Horrid Roar 1 (explode)\" Ability { id: \"9F92\", source: \"Fafnir the Forgotten\" }\r\n20159.9 \"Horrid Roar 2 (puddles)\" Ability { id: \"9F91\", source: \"Fafnir the Forgotten\" }\r\n20159.9 \"Hurricane Wing 1 (rings)\" Ability { id: [\"9F82\", \"9F87\"], source: \"Fafnir the Forgotten\" }\r\n20161.9 \"Hurricane Wing 2 (rings)\" Ability { id: [\"9F83\", \"9F88\"], source: \"Fafnir the Forgotten\" }\r\n20163.9 \"Hurricane Wing 3 (rings)\" Ability { id: [\"9F84\", \"9F89\"], source: \"Fafnir the Forgotten\" }\r\n20164.9 \"Horrid Roar 2 (explode)\" Ability { id: \"9F92\", source: \"Fafnir the Forgotten\" }\r\n20165.9 \"Hurricane Wing 4 (rings)\" Ability { id: [\"9F85\", \"9F8A\"], source: \"Fafnir the Forgotten\" }\r\n20167.0 \"Horrid Roar 3 (spread)\" Ability { id: \"9F91\", source: \"Fafnir the Forgotten\" }\r\n20171.0 \"Hurricane Wing 1 (rings)\" Ability { id: [\"9F82\", \"9F87\"], source: \"Fafnir the Forgotten\" }\r\n20173.0 \"Hurricane Wing 2 (rings)\" Ability { id: [\"9F83\", \"9F88\"], source: \"Fafnir the Forgotten\" }\r\n20173.1 \"Horrid Roar 3 (spreads explode)\" Ability { id: \"9F93\", source: \"Fafnir the Forgotten\" }\r\n20174.1 \"Horrid Roar 4 (puddles)\" Ability { id: \"9F91\", source: \"Fafnir the Forgotten\" }\r\n20175.0 \"Hurricane Wing 3 (rings)\" Ability { id: [\"9F84\", \"9F89\"], source: \"Fafnir the Forgotten\" }\r\n20177.0 \"Hurricane Wing 4 (rings)\" Ability { id: [\"9F85\", \"9F8A\"], source: \"Fafnir the Forgotten\" }\r\n20179.3 \"Horrid Roar 4 (explode)\" Ability { id: \"9F92\", source: \"Fafnir the Forgotten\" }\r\n20181.3 \"--center--\" Ability { id: \"9F6D\", source: \"Fafnir the Forgotten\" } window 15,15 # Baleful Nail\r\n20193.3 \"Offensive Posture\" Ability { id: [\"9F6B\",\"9F6E\", \"9F70\"], source: \"Fafnir the Forgotten\" }\r\n20194.3 \"Spike Flail\" Ability { id: \"A09A\", source: \"Fafnir the Forgotten\" }\r\n20204.6 \"Baleful Breath x5\" Ability { id: \"9F94\", source: \"Fafnir the Forgotten\" } duration 7\r\n20211.5 \"--sync--\" Ability { id: \"9B76\", source: \"Fafnir the Forgotten\" } # Baleful Breath final hit\r\n20219.7 \"--north--\" Ability { id: \"9F99\", source: \"Fafnir the Forgotten\" } # Shuddering Earth\r\n20230.1 \"Absolute Terror/Winged Terror\" Ability { id: [\"9F8D\", \"9F8F\"], source: \"Fafnir the Forgotten\" }\r\n20248.3 \"Winged Terror/Absolute Terror?\" Ability { id: [\"9F8F\", \"9F8D\"], source: \"Fafnir the Forgotten\" } # can be skipped with high DPS\r\n20259.5 \"Dark Matter Blast\" Ability { id: \"9F96\", source: \"Fafnir the Forgotten\" } window 30,30\r\n\r\n20268.7 label \"fafnirLoop\"\r\n20268.7 \"Horrid Roar (puddles)\" Ability { id: \"9F91\", source: \"Fafnir the Forgotten\" }\r\n20271.8 \"--center--\" Ability { id: \"9F99\", source: \"Fafnir the Forgotten\" } # Shuddering Earth\r\n20273.8 \"Horrid Roar (explode)\" Ability { id: \"9F92\", source: \"Fafnir the Forgotten\" }\r\n20281.8 \"Horrid Roar\" #Ability { id: \"9F92\", source: \"Fafnir the Forgotten\" }\r\n20284.7 \"Offensive Posture\" Ability { id: [\"9F6B\",\"9F6E\", \"9F70\"], source: \"Fafnir the Forgotten\" }\r\n20285.8 \"Horrid Roar (explode)\" Ability { id: \"9F92\", source: \"Fafnir the Forgotten\" }\r\n20285.9 \"Dragon Breath\" duration 4 #Ability { id: \"9F6F\", source: \"Fafnir the Forgotten\" }\r\n20301.0 \"Offensive Posture\" Ability { id: [\"9F6B\",\"9F6E\", \"9F70\"], source: \"Fafnir the Forgotten\" }\r\n20302.2 \"Spike Flail/Touchdown\" Ability { id: [\"A09A\", \"A09C\"], source: \"Fafnir the Forgotten\" }\r\n20309.2 \"Sharp Spike\" Ability { id: \"9F97\", source: \"Fafnir the Forgotten\" }\r\n20318.3 \"--center--\" Ability { id: \"9F99\", source: \"Fafnir the Forgotten\" } # Shuddering Earth\r\n20325.4 \"Hurricane Wing x10 (raidwides)\" Ability { id: \"9F71\", source: \"Fafnir the Forgotten\" } duration 11\r\n20338.1 \"--north--\" Ability { id: \"9F99\", source: \"Fafnir the Forgotten\" } # Shuddering Earth\r\n20343.7 \"Hurricane Wing 1 (rings)\" Ability { id: [\"9F78\", \"9F7D\"], source: \"Fafnir the Forgotten\" }\r\n20345.6 \"Horrid Roar 1 (puddles)\" Ability { id: \"9F91\", source: \"Fafnir the Forgotten\" }\r\n20345.7 \"Hurricane Wing 2 (rings)\" Ability { id: [\"9F79\",\"9F7E\"], source: \"Fafnir the Forgotten\" }\r\n20347.7 \"Hurricane Wing 3 (rings)\" Ability { id: [\"9F7A\", \"9F7F\"], source: \"Fafnir the Forgotten\" }\r\n20349.7 \"Hurricane Wing 4 (rings)\" Ability { id: [\"9F7B\", \"9F80\"], source: \"Fafnir the Forgotten\" }\r\n20350.7 \"Horrid Roar 1(explode)\" Ability { id: \"9F92\", source: \"Fafnir the Forgotten\" }\r\n20352.7 \"Horrid Roar 2 (puddles)\" Ability { id: \"9F91\", source: \"Fafnir the Forgotten\" }\r\n20354.7 \"Hurricane Wing 1 (rings)\" Ability { id: [\"9F82\", \"9F87\"], source: \"Fafnir the Forgotten\" }\r\n20356.7 \"Hurricane Wing 2 (rings)\" Ability { id: [\"9F83\", \"9F88\"], source: \"Fafnir the Forgotten\" }\r\n20357.8 \"Horrid Roar 2 (explode)\" Ability { id: \"9F92\", source: \"Fafnir the Forgotten\" }\r\n20358.7 \"Hurricane Wing 3 (rings)\" Ability { id: [\"9F84\", \"9F89\"], source: \"Fafnir the Forgotten\" }\r\n20359.8 \"Horrid Roar 3 (spread)\" Ability { id: \"9F91\", source: \"Fafnir the Forgotten\" }\r\n20360.7 \"Hurricane Wing 4 (rings)\" Ability { id: [\"9F85\", \"9F8A\"], source: \"Fafnir the Forgotten\" }\r\n20365.7 \"Hurricane Wing 1 (rings)\" Ability { id: [\"9F82\", \"9F87\"], source: \"Fafnir the Forgotten\" }\r\n20365.8 \"Horrid Roar 3 (spreads explode)\" Ability { id: \"9F93\", source: \"Fafnir the Forgotten\" }\r\n20367.7 \"Hurricane Wing 2 (rings)\" Ability { id: [\"9F83\", \"9F88\"], source: \"Fafnir the Forgotten\" }\r\n20369.7 \"Hurricane Wing 3 (rings)\" Ability { id: [\"9F84\", \"9F89\"], source: \"Fafnir the Forgotten\" }\r\n20371.7 \"Hurricane Wing 4 (rings)\" Ability { id: [\"9F85\", \"9F8A\"], source: \"Fafnir the Forgotten\" }\r\n20380.8 \"Absolute Terror/Winged Terror\" Ability { id: [\"9F8D\", \"9F8F\"], source: \"Fafnir the Forgotten\" }\r\n20382.8 \"--Darters spawn--\"\r\n20385.0 \"--center--\" Ability { id: \"9F6D\", source: \"Fafnir the Forgotten\" } # Baleful Nail\r\n20397.0 \"Offensive Posture\" Ability { id: [\"9F6B\",\"9F6E\", \"9F70\"], source: \"Fafnir the Forgotten\" }\r\n20398.0 \"Spike Flail\" Ability { id: \"A09A\", source: \"Fafnir the Forgotten\" }\r\n20408.4 \"Baleful Breath x5\" Ability { id: \"9F94\", source: \"Fafnir the Forgotten\" } duration 7\r\n20416.8 \"--sync--\" Ability { id: \"9B76\", source: \"Fafnir the Forgotten\" } # Baleful Breath final hit\r\n20428.9 \"Dark Matter Blast\" Ability { id: \"9F96\", source: \"Fafnir the Forgotten\" }\r\n20441.0 \"Horrid Roar (puddles)\" Ability { id: \"9F91\", source: \"Fafnir the Forgotten\" } window 30,30 forcejump \"fafnirLoop\"\r\n\r\n\r\n# IGNORED ABILITIES\r\n# 9BF2 Baleful Breath: Multi-hit stack marker castbar\r\n# 9EB9 --sync--: Auto-attack\r\n# 9F6F Dragon Breath: Outer ring fire breath\r\n# 9F72 Hurricane Wing: Cyclone raidwide, hit 2\r\n# 9F73 Hurricane Wing: Cyclone raidwide, hit 3\r\n# 9F74 Hurricane Wing: Cyclone raidwide, hit 4\r\n# 9F75 Hurricane Wing: Cyclone raidwide, hit 5\r\n# 9F76 Hurricane Wing: Cyclone raidwide, hit 6\r\n# 9F8B Great Whirlwind: Roving puddle AoEs, Ravaging Wind (big)\r\n# 9F8C Great Whirlwind: Roving puddle AoEs, BIting Wind (small)\r\n# 9F8E Absolute Terror: Hot Tail\r\n# 9F90 Winged Terror: Hot Wing\r\n# 9F95 Baleful Breath: Multi-hit stack marker middle hits\r\n# 9F98 Sharp Spike: Cleaving tank busters\r\n# 9F9C --sync--: Darter auto?\r\n# A156 Hurricane Wing: Cyclone raidwide, hit 7\r\n# A157 Hurricane Wing: Cyclone raidwide, hit 8\r\n# A158 Hurricane Wing: Cyclone raidwide, hit 9\r\n# A159 Hurricane Wing: Cyclone raidwide, hit 10\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# 9B76 Baleful Breath: Multi-hit stack marker, final hit\r\n# 9BC1 Great Whirlwind: Initial puddles, Ravaging Wind (big)\r\n# 9BC2 Great Whirlwind: Initial puddles, Biting Wind (small)\r\n# 9BF2 Baleful Breath: Multi-hit stack marker castbar\r\n# 9EB9 --sync--: Auto-attack\r\n# 9F6B Offensive Posture: Spike Flail windup\r\n# 9F6D Baleful Nail: Reposition\r\n# 9F6E Offensive Posture: Dragon breath windup\r\n# 9F6F Dragon Breath: Outer ring fire breath\r\n# 9F70 Offensive Posture: Touchdown windup\r\n# 9F71 Hurricane Wing: Cyclone raidwide, hit 1\r\n# 9F72 Hurricane Wing: Cyclone raidwide, hit 2\r\n# 9F73 Hurricane Wing: Cyclone raidwide, hit 3\r\n# 9F74 Hurricane Wing: Cyclone raidwide, hit 4\r\n# 9F75 Hurricane Wing: Cyclone raidwide, hit 5\r\n# 9F76 Hurricane Wing: Cyclone raidwide, hit 6\r\n# 9F78 Hurricane Wing: First cyclone ring, out to in, hit 1\r\n# 9F79 Hurricane Wing: First cyclone ring, out to in, hit 2\r\n# 9F7A Hurricane Wing: First cyclone ring, out to in, hit 3\r\n# 9F7B Hurricane Wing: First cyclone ring, out to in, hit 4\r\n# 9F7D Hurricane Wing: First cyclone ring, in to out, hit 1\r\n# 9F7E Hurricane Wing: First cyclone ring, in to out, hit 2\r\n# 9F7F Hurricane Wing: First cyclone ring, in to out, hit 3\r\n# 9F80 Hurricane Wing: First cyclone ring, in to out, hit 4\r\n# 9F82 Hurricane Wing: Second/third cyclone ring, out to in, hit 1\r\n# 9F83 Hurricane Wing: Second/third cyclone ring, out to in, hit 2\r\n# 9F84 Hurricane Wing: Second/third cyclone ring, out to in, hit 3\r\n# 9F85 Hurricane Wing: Second/third cyclone ring, out to in, hit 4\r\n# 9F87 Hurricane Wing: Second/third cyclone ring, in to out, hit 1\r\n# 9F88 Hurricane Wing: Second/third cyclone ring, in to out, hit 2\r\n# 9F89 Hurricane Wing: Second/third cyclone ring, in to out, hit 3\r\n# 9F8A Hurricane Wing: Second/third cyclone ring, in to out, hit 4\r\n# 9F8B Great Whirlwind: Roving puddle AoEs, Ravaging Wind (big)\r\n# 9F8C Great Whirlwind: Roving puddle AoEs, BIting Wind (small)\r\n# 9F8D Absolute Terror: Hot Tail castber\r\n# 9F8E Absolute Terror: Hot Tail\r\n# 9F8F Winged Terror: Hot Wing castbar\r\n# 9F90 Winged Terror: Hot Wing\r\n# 9F91 Horrid Roar: Castbar for puddles and spreads\r\n# 9F92 Horrid Roar: Targeted puddles\r\n# 9F93 Horrid Roar: Spread marker\r\n# 9F94 Baleful: Multi-hit stack marker first hit\r\n# 9F95 Baleful Breath: Multi-hit stack marker middle hits\r\n# 9F96 Dark Matter Blast: Raidwide\r\n# 9F97 Sharp Spike: Tank buster castbar\r\n# 9F98 Sharp Spike: Cleaving tank busters\r\n# 9F99 Shuddering Earth: Reposition\r\n# 9F9B Pestilent Sphere: Buster? Darter add\r\n# 9F9C --sync--: Darter auto?\r\n# A09A Spike Flail: 270-degree rear cone AoE\r\n# A09C Touchdown: Large circle AoE\r\n# A156 Hurricane Wing: Cyclone raidwide, hit 7\r\n# A157 Hurricane Wing: Cyclone raidwide, hit 8\r\n# A158 Hurricane Wing: Cyclone raidwide, hit 9\r\n# A159 Hurricane Wing: Cyclone raidwide, hit 10\r\n\r\n\r\n#~~~~~~~~~~~~#\r\n# Ark Angels #\r\n#~~~~~~~~~~~~#\r\n\r\n# -ii 9EAF A068 806D 806E A06F A073 A075 A077 A088 A090 A091 A092 A093\r\n\r\n# The La'loff Amphitheater will be sealed off\r\n30000.0 \"--sync--\" SystemLogMessage { id: \"7DC\", param1: \"1420\" } window 30000,1\r\n30004.1 \"--sync--\" Ability { id: [\"A062\", \"A063\", \"A064\"], source: [\"Ark Angel TT\", \"Ark Angel GK\", \"Ark Angel MR\"] } # The Decisive Battle\r\n30013.2 \"Cloudsplitter\" Ability { id: \"A076\", source: \"Ark Angel MR\" }\r\n30022.2 \"Meikyo Shisui\" Ability { id: \"A078\", source: \"Ark Angel GK\" }\r\n30026.2 \"Tachi: Yukikaze\" Ability { id: \"A079\", source: \"Ark Angel GK\" }\r\n30030.2 \"Tachi: Gekko\" Ability { id: \"A07A\", source: \"Ark Angel GK\" }\r\n30030.8 \"Tachi: Yukikaze\" Ability { id: \"A079\", source: \"Ark Angel GK\" }\r\n30035.1 \"Tachi: Kasha\" Ability { id: \"A07B\", source: \"Ark Angel GK\" }\r\n30038.1 \"Concerted Dissolution\" Ability { id: \"A07C\", source: \"Ark Angel GK\" }\r\n30043.7 \"Light's Chain\" Ability { id: \"A07D\", source: \"Ark Angel GK\" }\r\n30043.8 \"--TT jump--\" Ability { id: \"A064\", source: \"Ark Angel TT\" }\r\n30046.4 \"Meteor (castbar)\" StartsUsing { id: 'A08A', source: 'Ark Angel TT'} duration 10.7\r\n30057.1 \"Meteor?\" Ability { id: 'A08A', source: 'Ark Angel TT'}\r\n30058.9 \"--MR center--\" Ability { id: \"A06A\", source: \"Ark Angel MR\" }\r\n30065.1 \"Havoc Spiral\" Ability { id: \"A06B\", source: \"Ark Angel MR\" } duration 8\r\n30076.9 \"Spiral Finish\" Ability { id: \"A06C\", source: \"Ark Angel MR\" }\r\n30092.3 \"Dragonfall (cast)\" Ability { id: \"A07E\", source: \"Ark Angel GK\" }\r\n30092.5 \"Dragonfall 1 (stack)\" #Ability { id: \"A07F\", source: \"Ark Angel GK\" }\r\n30094.8 \"Dragonfall 2 (stack)\" #Ability { id: \"A07F\", source: \"Ark Angel GK\" }\r\n30097.1 \"Dragonfall 3 (stack)\" #Ability { id: \"A07F\", source: \"Ark Angel GK\" }\r\n30097.4 \"--TT jump--\" Ability { id: \"A064\", source: \"Ark Angel TT\" }\r\n30110.2 \"Guillotine\" Ability { id: \"A067\", source: \"Ark Angel TT\" } duration 5\r\n30114.4 \"--sync--\" Ability { id: \"A069\", source: \"Ark Angel TT\" } # Guillotine final hit\r\n30124.6 \"--all untargetable--\"\r\n30128.8 \"--EV + HM targetable--\"\r\n30135.0 \"Utsusemi\" Ability { id: \"A080\", source: \"Ark Angel HM\" }\r\n30137.0 \"Dominion Slash\" Ability { id: \"A085\", source: \"Ark Angel EV\" }\r\n30143.1 \"Mighty Strikes\" Ability { id: \"A081\", source: \"Ark Angel HM\" }\r\n30150.1 \"Critical Strikes\" Ability { id: \"A082\", source: \"Ark Angel HM\" }\r\n30152.5 \"--sync--\" Ability { id: \"A083\", source: \"Ark Angel HM\" } # Cross Reaver indicator\r\n30155.7 \"Divine Dominion\" Ability { id: \"A086\", source: \"Ark Angel EV\" }\r\n30155.9 \"Critical Strikes\" Ability { id: \"A082\", source: \"Ark Angel HM\" }\r\n30159.3 \"Cross Reaver\" Ability { id: \"A084\", source: \"Ark Angel HM\" }\r\n30168.5 \"Holy\" Ability { id: \"A089\", source: \"Ark Angel EV\" }\r\n30174.8 \"--EV + HM center--\" Ability { id: [\"9EA9\", \"A356\"], source: [\"Ark Angel EV\", \"Ark Angel HM\"] }\r\n30176.2 \"--EV untargetable--\"\r\n30176.2 \"Proud Palisade\" Ability { id: \"A448\", source: \"Ark Angel EV\" }\r\n30177.3 \"Mijin Gakure (cast)\" StartsUsing { id: \"A08C\", source: \"Ark Angel HM\" } duration 29.7\r\n30208.3 \"Mijin Gakure\" Ability { id: \"A08C\", source: \"Ark Angel HM\" }\r\n30217.6 \"--sync--\" Ability { id: \"A06A\", source: \"Ark Angel MR\" } window 50,10 # MR jumps to edge\r\n30221.8 \"Rampage x4 (line indicators)\" duration 3 #Ability { id: \"A071\", source: \"Ark Angel MR\" }\r\n30225.8 \"Rampage (circle indicator)\" Ability { id: \"A072\", source: \"Ark Angel MR\" }\r\n30226.7 \"--sync--\" Ability { id: \"A070\", source: \"Ark Angel MR\" } # Rampage castbar\r\n30226.9 \"Rampage x4 (line AoE)\" duration 3 #Ability { id: \"A073\", source: \"Ark Angel MR\" }\r\n30231.3 \"Rampage (circle AoE)\" Ability { id: \"A074\", source: \"Ark Angel MR\" }\r\n30235.5 \"--MR targetable--\"\r\n30235.5 \"--TT jump--\" Ability { id: \"A064\", source: \"Ark Angel TT\" }\r\n30248.3 \"Guillotine\" Ability { id: \"A067\", source: \"Ark Angel TT\" } duration 5\r\n30252.5 \"--sync--\" Ability { id: \"A069\", source: \"Ark Angel TT\" } # Guillotine\r\n30256.7 \"--GK targetable--\"\r\n30260.8 \"Meikyo Shisui\" Ability { id: \"A078\", source: \"Ark Angel GK\" }\r\n30264.8 \"Tachi: Yukikaze 1\" Ability { id: \"A079\", source: \"Ark Angel GK\" }\r\n30268.8 \"Tachi: Gekko\" Ability { id: \"A07A\", source: \"Ark Angel GK\" }\r\n30269.3 \"Tachi: Yukikaze 2\" Ability { id: \"A079\", source: \"Ark Angel GK\" }\r\n30273.6 \"Tachi: Kasha\" Ability { id: \"A07B\", source: \"Ark Angel GK\" }\r\n30276.6 \"Concerted Dissolution\" Ability { id: \"A07C\", source: \"Ark Angel GK\" }\r\n30279.2 \"--sync--\" Ability { id: \"A083\", source: \"Ark Angel HM\" } # Cross Reaver indicator\r\n30281.2 \"--TT jump--\" Ability { id: \"A064\", source: \"Ark Angel TT\" }\r\n30282.2 \"Light's Chain\" Ability { id: \"A07D\", source: \"Ark Angel GK\" }\r\n30283.8 \"Meteor (castbar)\" StartsUsing { id: 'A08A', source: 'Ark Angel TT'} duration 10.7\r\n30286.2 \"Cross Reaver\" Ability { id: \"A084\", source: \"Ark Angel HM\" }\r\n30294.5 \"Meteor?\" Ability { id: 'A08A', source: 'Ark Angel TT'}\r\n30303.6 \"Arrogance Incarnate x5\" Ability { id: \"A087\", source: \"Ark Angel EV\" } duration 5\r\n30314.4 \"Cloudsplitter\" Ability { id: \"A076\", source: \"Ark Angel MR\" }\r\n\r\n30325.7 label \"angelLoop\"\r\n30325.7 \"--MR jump--\" Ability { id: \"A06A\", source: \"Ark Angel MR\" }\r\n30330.1 \"Rampage x4 (line indicators)\" duration 3 #Ability { id: \"A071\", source: \"Ark Angel MR\" }\r\n30334.1 \"Rampage (circle indicator)\" Ability { id: \"A072\", source: \"Ark Angel MR\" }\r\n30335.0 \"--sync--\" Ability { id: \"A070\", source: \"Ark Angel MR\" } # Rampage castbar\r\n30335.2 \"Rampage x4 (line AoE)\" duration 3 #Ability { id: \"A073\", source: \"Ark Angel MR\" }\r\n30338.5 \"--TT jump--\" Ability { id: \"A064\", source: \"Ark Angel TT\" }\r\n30339.6 \"Rampage (circle AoE)\" Ability { id: \"A074\", source: \"Ark Angel MR\" }\r\n30351.1 \"Guillotine\" Ability { id: \"A067\", source: \"Ark Angel TT\" } duration 5\r\n30355.3 \"--sync--\" Ability { id: \"A069\", source: \"Ark Angel TT\" } # Guillotine\r\n30361.0 \"--HM center--\" Ability { id: \"9EA9\", source: \"Ark Angel HM\" }\r\n30367.3 \"Mighty Strikes\" Ability { id: \"A194\", source: \"Ark Angel HM\" }\r\n30369.4 \"Critical Reaver x4 (raidwide)\" duration 4 #Ability { id: \"A195\", source: \"Ark Angel HM\" }\r\n30387.2 \"Critical Reaver (big raidwide)?\" Ability { id: \"A13B\", source: \"Ark Angel HM\" }\r\n30401.3 \"Dominion Slash?\" Ability { id: \"A085\", source: \"Ark Angel EV\" }\r\n30403.3 \"--MR center--\" Ability { id: \"A06A\", source: \"Ark Angel MR\" } window 30,30\r\n30409.5 \"Havoc Spiral\" Ability { id: \"A06B\", source: \"Ark Angel MR\" } duration 8\r\n30419.9 \"Divine Dominion\" Ability { id: \"A086\", source: \"Ark Angel EV\" }\r\n30421.6 \"Spiral Finish\" Ability { id: \"A06C\", source: \"Ark Angel MR\" }\r\n30427.2 \"--TT jump--\" Ability { id: \"A064\", source: \"Ark Angel TT\" }\r\n30429.6 \"Meteor (castbar)\" StartsUsing { id: 'A08A', source: 'Ark Angel TT'} duration 10.7\r\n30440.3 \"Meteor?\" Ability { id: \"A08A\", source: \"Ark Angel TT\" }\r\n30450.6 \"Meikyo Shisui\" Ability { id: \"A078\", source: \"Ark Angel GK\" }\r\n30454.6 \"Tachi: Yukikaze 1 (grid)\" Ability { id: \"A079\", source: \"Ark Angel GK\" }\r\n30458.6 \"Tachi: Gekko (gaze)\" Ability { id: \"A07A\", source: \"Ark Angel GK\" }\r\n30459.2 \"Tachi: Yukikaze 2 (grid)\" Ability { id: \"A079\", source: \"Ark Angel GK\" }\r\n30463.5 \"Tachi: Kasha (circle)\" Ability { id: \"A07B\", source: \"Ark Angel GK\" }\r\n30466.5 \"Concerted Dissolution\" Ability { id: \"A07C\", source: \"Ark Angel GK\" }\r\n30467.4 \"--sync--\" Ability { id: \"A083\", source: \"Ark Angel HM\" } # Cross Reaver indicator\r\n30472.1 \"Light's Chain\" Ability { id: \"A07D\", source: \"Ark Angel GK\" }\r\n30474.4 \"Cross Reaver\" Ability { id: \"A084\", source: \"Ark Angel HM\" }\r\n30482.2 \"Cloudsplitter\" Ability { id: \"A076\", source: \"Ark Angel MR\" }\r\n30495.9 \"Raiton\" Ability { id: \"A095\", source: \"Ark Angel HM\" }\r\n30504.2 \"Dominion Slash\" Ability { id: \"A085\", source: \"Ark Angel EV\" }\r\n30516.2 \"--sync--\" Ability { id: \"A083\", source: \"Ark Angel HM\" } # Cross Reaver indicator\r\n30523.0 \"Divine Dominion\" Ability { id: \"A086\", source: \"Ark Angel EV\" }\r\n30523.2 \"Cross Reaver\" Ability { id: \"A084\", source: \"Ark Angel HM\" }\r\n30533.4 \"Dragonfall (cast)\" Ability { id: \"A07E\", source: \"Ark Angel GK\" }\r\n30533.7 \"Dragonfall 1 (stack)\" #Ability { id: \"A07F\", source: \"Ark Angel GK\" }\r\n30536.1 \"Dragonfall 2 (stack)\" #Ability { id: \"A07F\", source: \"Ark Angel GK\" }\r\n30538.4 \"Dragonfall 3 (stack)\" #Ability { id: \"A07F\", source: \"Ark Angel GK\" }\r\n30558.8 \"Arrogance Incarnate\" Ability { id: \"A087\", source: \"Ark Angel EV\" }\r\n\r\n30577.6 \"--MR jump--\" Ability { id: \"A06A\", source: \"Ark Angel MR\" } forcejump \"angelLoop\"\r\n\r\n\r\n# IGNORED ABILITIES\r\n# 9EAF Attack\r\n# A068 Guillotine: Initial frontal hits, TT\r\n# A06D Spiral Finish: Knockback, MR\r\n# A06F Havoc Spiral: Cone cyclone individual strikes, MR\r\n# A073 Rampage: Rampage line cast, MR\r\n# A075 Rampage: Rampage circle cast, MR\r\n# A077 Cloudsplitter: Tank cleave, MR\r\n# A088 Arrogance Incarnate: Multi-hit stack marker, EV\r\n# A090 Aethersplit: Unknown self-cast, GK\r\n# A091 Aethersplit: Unknown self-cast, GK\r\n# A092 Aethersplit: Unknown self-cast, GK\r\n# A093 Aethersplit: Unknown self-cast, GK\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# 366 attack\r\n# 5B5 attack\r\n# 9EA9 --sync-- : HM reposition\r\n# 9EAF --sync--: EV auto-attack\r\n# A061 the Decisive Battle: Inflicts Epic Hero debuff (Alpha)\r\n# A062 the Decisive Battle: Inflicts Vaunted Hero debuff (Gamma)\r\n# A063 the Decisive Battle: Inflict Fated Hero debuff (Beta)\r\n# A064 --sync--: TT reposition\r\n# A067 Guillotine: 270-degree frontal cone, TT\r\n# A068 Guillotine: Initial frontal hits, TT\r\n# A069 Guillotine: Final frontal hit, TT\r\n# A06A --sync--: MR reposition\r\n# A06B Havoc Spiral: Castbar for cone cyclone\r\n# A06C Spiral Finish: Knockback visuals, MR\r\n# A06D Spiral Finish: Knockback, MR\r\n# A06E Havoc Spiral: Cone cyclone activate, MR\r\n# A06F Havoc Spiral: Cone cyclone individual strikes, MR\r\n# A070 Rampage: Rampage castbar, MR\r\n# A071 --sync--: Rampage line indicator, MR\r\n# A072 --sync--: Rampage circle indicator, MR\r\n# A073 Rampage: Rampage line cast, MR\r\n# A074 Rampage: Reposition for Rampage circle, MR\r\n# A075 Rampage: Rampage circle cast, MR\r\n# A076 Cloudsplitter: Tank cleave cast, MR\r\n# A077 Cloudsplitter: Tank cleave, MR\r\n# A078 Meikyo Shisui: Wind-up for Yukikaze, GK\r\n# A079 Tachi: Yukikaze: Grid AoE, GK\r\n# A07A Tachi: Gekko: Gaze attack, GK\r\n# A07B Tachi: Kasha: Giant circle AoE, GK\r\n# A07C Concerted Dissolution: Pizza slize AoE, GK\r\n# A07D Light's Chain: Donut AoE, GK\r\n# A07E Dragonfall: Party stacks castbar, GK\r\n# A07F Dragonfall: Party stacks, GK\r\n# A080 Utsusemi: Chain castbar, HM\r\n# A081 Mighty Strikes: Small repeated circle AoEs, HM\r\n# A082 Critical Strikes: Mini-buster? HM\r\n# A083 Cross Reaver: Cross AoE indicator, HM\r\n# A084 Cross Reaver: Cross AoE, HM\r\n# A085 Dominion Slash: Raidwide, EV\r\n# A086 Divine Dominion: Chain clones disappear? EV\r\n# A087 Arrogance Incarnate: Multi-hit stack marker cast, EV\r\n# A088 Arrogance Incarnate: Multi-hit stack marker, EV\r\n# A089 Holy: Raidwide, EV\r\n# A08A Meteor: Heavy raidwide castbar, interruptible, TT\r\n# A08B Meteor: Heavy raidwide, TT. (Logs exist with it being used by MR, might be stale data)\r\n# A090 Aethersplit: Unknown self-cast, GK\r\n# A091 Aethersplit: Unknown self-cast, GK\r\n# A092 Aethersplit: Unknown self-cast, GK\r\n# A093 Aethersplit: Unknown self-cast, GK\r\n# A13B Critical Reaver: Heavy raidwide, interruptible, HM\r\n# A194 Mighty Strikes: Critical hit self-buff, HM\r\n# A195 Critical Reaver: Multi-hit raidwide, HM\r\n# A356 --sync--: EV reposition\r\n# A448 Proud Palisade: Summons Ark Shield, EV\r\n\r\n\r\n#~~~~~~~~~~~~~#\r\n# Shadow Lord #\r\n#~~~~~~~~~~~~~#\r\n\r\n# -ii A313 9F3E 9F3F 9F5D 9F61 9F5C 9F5D 9F5E 9F5F 9F60 9F46 9F47 9F48 9F49 A3AC 9F68 A444 A357 A358 A229 A23A A424 A425 A426 A427\r\n\r\n# The Throne Room will be sealed off\r\n40000.0 \"--sync--\" SystemLogMessage { id: \"7DC\", param1: \"1418\" } window 40000,1\r\n40022.1 \"Giga Slash 1\" Ability { id: [\"9F40\", \"94F2\"], source: \"Shadow Lord\" }\r\n40024.1 \"Giga Slash 2\" Ability { id: [\"9F41\", \"94F3\"], source: \"Shadow Lord\" }\r\n40028.1 \"--center--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40034.4 \"Umbra Smash\" Ability { id: \"9F5B\", source: \"Shadow Lord\" } duration 12\r\n40055.8 \"Giga Slash 1\" Ability { id: [\"9F40\", \"94F2\"], source: \"Shadow Lord\" }\r\n40057.8 \"Giga Slash 2\" Ability { id: [\"9F41\", \"94F3\"], source: \"Shadow Lord\" }\r\n40066.8 \"Flames of Hatred\" Ability { id: \"9F69\", source: \"Shadow Lord\" }\r\n40077.9 \"Implosion\" Ability { id: [\"9F44\", \"9F45\"], source: \"Shadow Lord\" }\r\n40081.0 \"--center--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40089.3 \"Cthonic Fury\" Ability { id: \"9F4A\", source: \"Shadow Lord\" } window 89,10\r\n40104.4 \"Burning Moat\" Ability { id: \"9F4D\", source: \"Shadow Lord\" }\r\n40114.4 \"Burning Court\" Ability { id: \"9F4C\", source: \"Shadow Lord\" }\r\n40123.4 \"Dark Nebula (cast)\" Ability { id: \"9F50\", source: \"Shadow Lord\" }\r\n40129.5 \"Dark Nebula (knockback)\" Ability { id: \"A23C\", source: \"Shadow Lord\" }\r\n40141.5 \"Implosion\" Ability { id: [\"9F44\", \"9F45\"], source: \"Shadow Lord\" }\r\n40151.6 \"Burning Court/Burning Moat\" Ability { id: [\"9F4C\", \"9F4D\"], source: \"Shadow Lord\" }\r\n40151.6 \"Burning Keep/Burning Battlements\" Ability { id: [\"9F4E\", \"9F4F\"], source: \"Shadow Lord\" }\r\n40163.6 \"Echoes of Agony x5\" Ability { id: \"A3AB\", source: \"Shadow Lord\" } duration 5\r\n40177.7 \"Cthonic Fury\" Ability { id: \"9F4B\", source: \"Shadow Lord\" }\r\n40180.8 \"--north--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40187.5 \"Nightfall\" Ability { id: \"A0B8\", source: \"Shadow Lord\" }\r\n40221.6 \"Tera Slash\" Ability { id: \"A0B9\", source: \"Shadow Lord\" } window 221,10\r\n40227.7 \"--center--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40248.7 \"Giga Slash: Nightfall 1\" Ability { id: [\"A42B\", \"A42D\"], source: \"Shadow Lord\" }\r\n40250.7 \"Giga Slash: Nightfall 2\" Ability { id: [\"A42C\", \"A42E\"], source: \"Shadow Lord\" }\r\n40252.7 \"Giga Slash: Nightfall 3\" Ability { id: [\"A428\", \"A429\"], source: \"Shadow Lord\" }\r\n\r\n# ~307s loop.\r\n40256.7 label \"lordLoop\"\r\n40256.7 \"--center--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40261.0 \"Shadow Spawn\" Ability { id: \"9F52\", source: \"Shadow Lord\" }\r\n40279.1 \"Giga Slash: Nightfall 1\" Ability { id: [\"A42B\", \"A42D\"], source: \"Shadow Lord\" }\r\n40281.1 \"Giga Slash: Nightfall 2\" Ability { id: [\"A42C\", \"A42E\"], source: \"Shadow Lord\" }\r\n40283.1 \"Giga Slash: Nightfall 3\" Ability { id: [\"A428\", \"A429\"], source: \"Shadow Lord\" }\r\n40289.1 \"--center--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40292.1 \"Giga Slash 1 (add)\" Ability { id: [\"9F40\", \"94F2\"], source: [\"Shadow Lord\"] }\r\n40294.1 \"Giga Slash 2 (add)\" Ability { id: [\"9F41\", \"94F3\"], source: \"Shadow Lord\" }\r\n40298.4 \"Implosion (boss)\" Ability { id: [\"9F44\", \"9F45\"], source: \"Shadow Lord\" }\r\n40303.1 \"Implosion (add)\" Ability { id: [\"9F44\", \"9F45\"], source: \"Lordly Shadow\" }\r\n40311.5 \"Unbridled Rage\" Ability { id: \"9F67\", source: \"Shadow Lord\" }\r\n40318.5 \"Dark Nova\" Ability { id: \"A177\", source: \"Shadow Lord\" } window 318,10\r\n40327.6 \"Echoes of Agony x7\" Ability { id: \"A3AB\", source: \"Shadow Lord\" } duration 7\r\n40341.7 \"--Binding Indicator 1--\" #Ability { id: \"A229\", source: \"Shadow Lord\" }\r\n40344.1 \"--Binding Indicator 2--\" #Ability { id: \"A229\", source: \"Shadow Lord\" }\r\n40346.5 \"--Binding Indicator 3--\" #Ability { id: \"A229\", source: \"Shadow Lord\" }\r\n40349.6 \"Binding Sigil (castbar)\" Ability { id: \"9F55\", source: \"Shadow Lord\" }\r\n40351.7 \"Soul Binding 1\" #Ability { id: \"A22A\", source: \"Shadow Lord\" }\r\n40354.1 \"Soul Binding 2\" #Ability { id: \"A22A\", source: \"Shadow Lord\" }\r\n40356.7 \"Soul Binding 3\" #Ability { id: \"A22A\", source: \"Shadow Lord\" }\r\n40357.7 \"--center--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40361.1 \"Burst\" Ability { id: \"A23B\", source: \"Shadow Lord\" }\r\n40368.1 \"Damning Strikes (castbar)\" Ability { id: \"9F57\", source: \"Shadow Lord\" }\r\n40370.6 \"Impact 1\" Ability { id: \"9F58\", source: \"Shadow Lord\" }\r\n40373.1 \"Impact 2\" Ability { id: \"A096\", source: \"Shadow Lord\" }\r\n40375.8 \"Impact 3\" Ability { id: \"A097\", source: \"Shadow Lord\" }\r\n40383.5 \"--center--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40391.8 \"Cthonic Fury\" Ability { id: \"9F4A\", source: \"Shadow Lord\" } window 30,30\r\n40397.9 \"Dark Nebula (castbar)\" Ability { id: \"9F50\", source: \"Shadow Lord\" }\r\n40412.0 \"Dark Nebula 1 (knockback)\" Ability { id: \"9F51\", source: \"Shadow Lord\" }\r\n40414.0 \"--corner--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40415.0 \"Dark Nebula 2 (knockback)\" Ability { id: \"9F51\", source: \"Shadow Lord\" }\r\n40418.0 \"Dark Nebula 3 (knockback)\" Ability { id: \"9F51\", source: \"Shadow Lord\" }\r\n40421.0 \"Dark Nebula 4 (knockback)\" Ability { id: \"9F51\", source: \"Shadow Lord\" }\r\n40431.4 \"Giga Slash: Nightfall 1\" Ability { id: [\"A42B\", \"A42D\"], source: \"Shadow Lord\" }\r\n40433.4 \"Giga Slash: Nightfall 2\" Ability { id: [\"A42C\", \"A42E\"], source: \"Shadow Lord\" }\r\n40435.4 \"Giga Slash: Nightfall 3\" Ability { id: [\"A428\", \"A429\"], source: \"Shadow Lord\" }\r\n40438.4 \"--center--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40445.4 \"Burning Court/Burning Moat\" Ability { id: [\"9F4C\", \"9F4D\"], source: \"Shadow Lord\" }\r\n40445.4 \"Burning Keep/Burning Battlements\" Ability { id: [\"9F4E\", \"9F4F\"], source: \"Shadow Lord\" }\r\n40456.8 \"Dark Nova\" Ability { id: \"A177\", source: \"Shadow Lord\" }\r\n40465.8 \"Cthonic Fury\" Ability { id: \"9F4B\", source: \"Shadow Lord\" }\r\n40469.0 \"--sync--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" }\r\n40473.3 \"Shadow Spawn\" Ability { id: \"9F52\", source: \"Shadow Lord\" }\r\n40481.4 \"Umbra Smash (single lines)\" Ability { id: \"9F5B\", source: \"Shadow Lord\" } duration 12\r\n40494.9 \"Umbra Smash (exalines)\" Ability { id: \"9F53\", source: \"Lordly Shadow\" } duration 7\r\n40508.9 \"Giga Slash: Nightfall 1\" Ability { id: [\"A42B\", \"A42D\"], source: \"Shadow Lord\" }\r\n40510.9 \"Giga Slash: Nightfall 2\" Ability { id: [\"A42C\", \"A42E\"], source: \"Shadow Lord\" }\r\n40512.9 \"Giga Slash: Nightfall 3\" Ability { id: [\"A428\", \"A429\"], source: \"Shadow Lord\" }\r\n40530.9 \"Doom Arc\" Ability { id: \"9F66\", source: \"Shadow Lord\" }\r\n40556.1 \"Giga Slash: Nightfall 1\" Ability { id: [\"A42B\", \"A42D\"], source: \"Shadow Lord\" }\r\n40558.1 \"Giga Slash: Nightfall 2\" Ability { id: [\"A42C\", \"A42E\"], source: \"Shadow Lord\" }\r\n40560.1 \"Giga Slash: Nightfall 3\" Ability { id: [\"A428\", \"A429\"], source: \"Shadow Lord\" }\r\n\r\n40564.1 \"--sync--\" Ability { id: \"9F6A\", source: \"Shadow Lord\" } forcejump \"lordLoop\"\r\n\r\n# IGNORED ABILITIES\r\n# 9F3E Giga Slash: Giga Slash castbar, left safe first\r\n# 9F3F Giga Slash: Giga Slash castbar, right safe first\r\n# 9F46 Implosion: Chariot AoE, with 9497 left cleave\r\n# 9F47 Implosion: Half-room left cleave\r\n# 9F48 Implosion: Chariot AoE, with 9F49 right cleave\r\n# 9F49 Implosion: Half-room right cleave\r\n# 9F5C Umbra Smash: Turning animation for Smash follow-ups?\r\n# 9F5D Umbra Smash: 4x line AoE, line 1\r\n# 9F5E Umbra Smash: 4x line AoE, line 2\r\n# 9F5F Umbra Smash: 4x line AoE, line 3\r\n# 9F60 Umbra Smash: 4x line AoE, line 4\r\n# 9F61 Umbra Wave: Line AoE\r\n# 9F68 Unbridled Rage: Tank lasers, non-shared\r\n# A229 --sync--: Exatrines indicator\r\n# A23A --sync--: Unknown, maybe related to Binding Sigil targets?\r\n# A313 --sync--: Auto-attack\r\n# A357 --sync--: Damning Strikes repositions 2/3\r\n# A358 --sync--: Damning Strikes reposition 1\r\n# A3AC Echoes of Agony: Multi-hit stack marker\r\n# A424 Giga Slash: Nightfall: Castbar, cleaving left -> right -> front\r\n# A425 Giga Slash: Nightfall: Castbar, cleaving left -> right -> back\r\n# A426 Giga Slash: Nightfall: Castbar, cleaving right -> left -> front\r\n# A427 Giga Slash: Nightfall: Castbar, cleaving right -> left -> back\r\n# A444 Damning Strikes: Tower animations 1/2?\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# 9F3E Giga Slash: Giga Slash castbar, left safe first\r\n# 9F3F Giga Slash: Giga Slash castbar, right safe first\r\n# 9F40 Giga Slash: Right cleave, wide safespot\r\n# 9F41 Giga Slash: Left cleave, narrow safespot\r\n# 9F42 Giga Slash: Left cleave, wide safespot\r\n# 9F43 Giga Slash: Right cleave, narrow safespot\r\n# 9F44 Implosion: Chariot + half-room AoE castbar, right safe\r\n# 9F45 Implosion: Chariot + half-room AoE castbar, left safe\r\n# 9F46 Implosion: Chariot AoE, with 9497 left cleave\r\n# 9F47 Implosion: Half-room left cleave\r\n# 9F48 Implosion: Chariot AoE, with 9F49 right cleave\r\n# 9F49 Implosion: Half-room right cleave\r\n# 9F4A Cthonic Fury: Intermission start raidwide\r\n# 9F4B Cthonic Fury: Intermission end raidwide\r\n# 9F4C Burning Court: Corner circle AoEs, intermission\r\n# 9F4D Burning Moat: Side rectangle AoEs, intermission\r\n# 9F4E Burning Keep: Outer square safe AoE, intermission\r\n# 9F4F Burning Battlements: Inner square safe AoE, intermission\r\n# 9F50 Dark Nebula: Knockback line castbar\r\n# 9F51 Dark Nebula: Knockback line\r\n# 9F52 Shadow Spawn: Summon adds\r\n# 9F53 Umbra Smash: Exalines cast\r\n# 9F54 Umbra Smash: Exalines\r\n# 9F55 Binding Sigil: Exatrine castbar\r\n# 9F57 Damning Strikes: Tower castbar\r\n# 9F58 Impact: Daming Strikes tower 1?\r\n# 9F59 Damning Strikes: Tower animation 3?\r\n# 9F5B Umbra Smash: 4x line AoE castbar\r\n# 9F5C Umbra Smash: Turning animation for Smash follow-ups?\r\n# 9F5D Umbra Smash: 4x line AoE, line 1\r\n# 9F5E Umbra Smash: 4x line AoE, line 2\r\n# 9F5F Umbra Smash: 4x line AoE, line 3\r\n# 9F60 Umbra Smash: 4x line AoE, line 4\r\n# 9F61 Umbra Wave: Line AoE\r\n# 9F66 Doom Arc: Raidwide + bleed\r\n# 9F67 Unbridled Rage: Tank lasers castbar\r\n# 9F68 Unbridled Rage: Tank lasers, non-shared\r\n# 9F69 Flames of Hatred: Raidwide\r\n# 9F6A --sync--: Reposition\r\n# A096 Impact: Daming Strikes tower 2?\r\n# A097 Impact: Daming Strikes tower 3?\r\n# A0B8 Nightfall: Tera Slash pre-cast\r\n# A0B9 Tera Slash: High-damage raidwide\r\n# A177 Dark Nova: Spread circles\r\n# A229 --sync--: Exatrines indicator\r\n# A22A Soul Binding: Exatrines\r\n# A23A --sync--: Unknown, maybe related to Binding Sigil targets?\r\n# A23B Burst: Knock-up attack on targets hit by Binding Sigil\r\n# A23C Dark Nebula: Knockback line\r\n# A313 --sync--: Auto-attack\r\n# A357 --sync--: Damning Strikes repositions 2/3\r\n# A358 --sync--: Damning Strikes reposition 1\r\n# A3AB Echoes of Agony: Multi-hit stack marker castbar\r\n# A3AC Echoes of Agony: Multi-hit stack marker\r\n# A424 Giga Slash: Nightfall: Castbar, cleaving left -> right -> front\r\n# A425 Giga Slash: Nightfall: Castbar, cleaving left -> right -> back\r\n# A426 Giga Slash: Nightfall: Castbar, cleaving right -> left -> front\r\n# A427 Giga Slash: Nightfall: Castbar, cleaving right -> left -> back\r\n# A428 Giga Slash: Nightfall: Front cleave, wide safespot\r\n# A429 Giga Slash: Nightfall: Rear cleave, wide safespot\r\n# A42B Giga Slash: Nightfall: Left cleave, wide safespot\r\n# A42C Giga Slash: Nightfall: Right cleave, narrow safespot\r\n# A42D Giga Slash: Nightfall: Right cleave, wide safespot\r\n# A42E Giga Slash: Nightfall: Left cleave, narrow safespot\r\n# A444 Damning Strikes: Tower animations 1/2?\r\n";
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/alliance/windurst-third-walk.ts
 
+
+
+
+
+
+// TODO: Math out the locations + safespots for Promathia intermission
+// TODO: Math out the patterns for Hollow King's Atomic Ray
+const windurst_third_walk_headMarkerData = {
+  // Common to Shantotto and Hollow King
+  // VFX: com_share4a1
+  'finalExamSuperNova': '0131',
+  // 3-hit stack
+
+  // SHANTOTTO
+  // VFX: m0926trg_t0a1
+  'vidohunir': '023A',
+  // Shared buster
+  // VFX: target_ae_5m_s5_0k2
+  'thunderAndError': '022E',
+  // Spread circles
+  // VFX: com_share3_6s0p
+  'stardustSpecimen': '013E',
+  // Single-hit stack
+
+  // TRASH: LAMIA AND FRIENDS
+  // VFX: tank_lockonae_13m_7s_01w
+  'pinningShot': '01F2',
+  // Giant circle buster, Lamia No.2 trash
+
+  // ALEXANDER RESURRECTED
+  // VFX: target_ae_shine_s5x
+  'banishga': '00D7',
+  // Spread circles
+  // VFX: tank_laser_5sec_lockon_c0a1
+  'divineBolt': '01D7',
+  // Laser buster
+  // VFX: com_share6m7s_1v
+  'megaHoly': '024E',
+  // 3-hit stack
+
+  // MINI-BOSS: AW'ERN & THE AW'ZDEI
+  // VFX: target_ae_s5f
+  'auroralWind': '008B',
+  // PROMATHIA
+  // VFX: loc06sp_05ak1
+  'meteor': '01D2',
+  // Standard spread circles
+
+  // Common to Promathia and Shinryu
+  // VFX: tank_lockonae_6m_5s_01t
+  'cometDarkNova': '0158',
+  // Circle buster, on 3 tanks, or top threat if one is dead
+
+  // SHINRYU PARADOX/HOLLOW KING
+  // VFX: z6r3_b4_lock_no_lk_7s_c0k2
+  'lookAway': '02A8',
+  // Slashed-circle eye icon
+  // VFX: z6r3_b4_lock_lk_7s_c0k2
+  'lookTowards': '02A9',
+  // Question mark circle eye icon
+  // VFX: z6r3_b4_lock_no_mv_7s_c0k2
+  'stillness': '02AA',
+  // Pause button icon
+  // VFX: z6r3_b4_lock_mv_7s_c0k2
+  'motion': '02AB' // Play button icon
+};
+
+const alexCWHeadMarkerData = ['02B3',
+// VFX: m1002_north01_c0g
+'02B4',
+// VFX: m1002_south01_c0g
+'02B5',
+// VFX: m1002_east01_c0g
+'02B6' // VFX: m1002_west01_c0g
+];
+
+const alexCCWHeadMarkerData = ['02B7',
+// VFX: m1002_north02_c0g
+'02B8',
+// VFX: m1002_south02_c0g
+'02B9',
+// VFX: m1002_east02_c0g
+'02BA' // VFX: m1002_west02_c0g
+];
+
+// Superior Stone always has a 1-2-1-3 pattern
+// on the north or south side of the arena,
+// while the other can variously be 3-2-2-1 or 1-2-3-1.
+
+// Four 257 MapEffect flags are used for the mechanic.
+// 00020001 telegraphs visuals for the shapes.
+// 00200010 generates the actual structures.
+// 00800040 telegraph visuals for the upcoming "slam shut".
+// 00080004 arena returns to normal.
+
+// Four 257 MapEffect locations have been observed.
+// Each seems to correspond to a specific 1-2-1-3 pattern north or south.
+// 3F and 41 seem to be used for the first and subsequent sets
+// of Superior Stone uses, or 40 and 42 seem to.
+
+// Pattern 1
+// |00020001|3F|
+// |00200010|3F|
+// |00800040|3F|
+// |00080004|3F|
+
+// |    ___|
+// |  _|
+// |_|
+//        _
+//    _  | |
+//  _| |_| |
+// |       |
+
+// Pattern 2
+// |00020001|41|
+// |00200010|41|
+// |00800040|41|
+// |00080004|41|
+
+// |_   _  |
+//   |_| | |
+//       |_|
+//      _
+//    _| |
+//  _|   |_
+// |       |
+
+// Pattern 3
+// |00020001|40|
+// |00200010|40|
+// |00800040|40|
+// |00080004|40|
+
+// |  _   _|
+// | | |_|
+// |_|    _
+//      _| |
+//  ___|   |
+// |       |
+
+// Pattern 4
+// |00020001|42|
+// |00200010|42|
+// |00800040|42|
+// |00080004|42|
+
+// |_     _|
+//   |  _|
+//   |_|
+//  _
+// | |  _
+// | |_| |_
+// |       |
+
+const shantottoStoneSafe = {
+  '3E': {
+    prox: 'close',
+    dir: 'dirE'
+  },
+  '40': {
+    prox: 'close',
+    dir: 'dirW'
+  },
+  '41': {
+    prox: 'far',
+    dir: 'dirW'
+  },
+  '42': {
+    prox: 'far',
+    dir: 'dirE'
+  }
+};
+
+// const alexanderCenter = {
+//   x: 0,
+//   y: 360,
+// } as const;
+
+// The arena for Alexander Resurrected is a square subdivided
+// into four smaller squares. Divine Spear creates a right-angle isoceles
+// triangle that denies one half of the square it spawns on.
+// The actors that cast each triangle are located at the right angle,
+// and there will always be either two at the center and two at the edges,
+// or zero at the center and four at the edges.
+// The actors face toward the area they are denying.
+// Radiant Sacrament MapEffect tile map:
+// 14 19 1E 23 28
+// 15 1A 1F 24 29
+// 16 1B 20 25 2A
+// 17 1C 21 26 2B
+// 18 1D 22 27 2C
+
+// This list is non-exhaustive.
+// Sacrament is always a 3-2 or 2-3 pattern of propagating lines,
+// so by checking an odd and an even tile on each side,
+// we know how the entire mechanic will resolve.
+// const sacramentEffectMap = {
+//   '19': {
+//     'location': '19',
+//     'direction': 'NNW',
+//   },
+//   '1E': {
+//     'location': '1E',
+//     'direction': 'N',
+//   },
+//   '29': {
+//     'location': '29',
+//     'direction': 'ENE',
+//   },
+//   '2A': {
+//     'location': '2A',
+//     'direction': 'E',
+//   },
+//   '27': {
+//     'location': '27',
+//     'direction': 'SSE',
+//   },
+//   '22': {
+//     'location': '22',
+//     'direction': 'S',
+//   },
+//   '17': {
+//     'location': '17',
+//     'direction': 'WSW',
+//   },
+//   '16': {
+//     'location': '16',
+//     'direction': 'W',
+//   },
+// } as const;
+const cardDirToOutputStrings = {
+  dirN: outputs/* default.north */.Z.north,
+  dirE: outputs/* default.east */.Z.east,
+  dirS: outputs/* default.south */.Z.south,
+  dirW: outputs/* default.west */.Z.west
+};
+
+// These values are rounded, not exact.
+const promathiaPuddleMap = [{
+  loc: 'dirS',
+  x: -820,
+  y: -805
+}, {
+  loc: 'dirSW',
+  x: -833,
+  y: -813
+}, {
+  loc: 'dirSE',
+  x: -807,
+  y: -813
+}, {
+  loc: 'dirNW',
+  x: -833,
+  y: -828
+}, {
+  loc: 'dirNE',
+  x: -807,
+  y: -828
+}, {
+  loc: 'dirN',
+  x: -820,
+  y: -835
+}];
+const promathiaExplosionOutputStrings = {
+  combo: {
+    en: '${dir1} / ${dir2}',
+    de: '${dir1} / ${dir2}',
+    fr: '${dir1} / ${dir2}',
+    ja: '${dir1} / ${dir2}',
+    cn: '${dir1} / ${dir2}',
+    ko: '${dir1} / ${dir2}',
+    tc: '${dir1} / ${dir2}'
+  },
+  // For situations where we will call a single direction,
+  // or a pair of cardinals, call the full names,
+  // as "Northeast" or "North/South".
+  // For pairs of intercardinals, call shortened names,
+  // as "NE/SW".
+  ...cardDirToOutputStrings,
+  ...util/* Directions.outputStringsIntercardDir */.Ns.outputStringsIntercardDir,
+  northeast: outputs/* default.northeast */.Z.northeast,
+  southeast: outputs/* default.southeast */.Z.southeast,
+  avoidExplosions: {
+    en: ' Avoid Puddle Explosions',
+    cn: ' 躲避爆炸圈圈',
+    ko: ' 장판 폭발 피하기'
+  }
+};
+
+// Return combatant's platform by number.
+// Using raw values here to attempt to minimize sign mistakes.
+const getPlatform = (x, y) => {
+  // South platform, center (-820, -807)
+  if (y > -818) return 0;
+  // NW platform, center (-831.26, -826.5)
+  if (x < -820 && y < -818) return 1;
+  // NE platform, center (-808.74, -826.5)
+  if (x > -820 && y < -818) return 2;
+  return -1;
+};
+const getEvenExplosionSafe = explosionDirs => {
+  if (explosionDirs?.includes('unknown')) return ['unknown'];
+  if (explosionDirs.length === 4) {
+    const allDirs = ['dirN', 'dirNE', 'dirSE', 'dirS', 'dirSW', 'dirNW'];
+    return allDirs.filter(dir => !explosionDirs.includes(dir));
+  }
+  if (explosionDirs.includes('dirN') || explosionDirs.includes('dirS')) return ['dirE', 'dirW'];
+  if (explosionDirs.includes('dirE') || explosionDirs.includes('dirW')) return ['dirN', 'dirS'];
+  if (explosionDirs.includes('dirNE') || explosionDirs.includes('dirSW')) return ['dirNW', 'dirSE'];
+  if (explosionDirs.includes('dirSE') || explosionDirs.includes('dirNW')) return ['dirSW', 'dirNE'];
+  return ['unknown'];
+};
 const windurst_third_walk_triggerSet = {
   id: 'Windurst: The Third Walk',
   zoneId: zone_id/* default.WindurstTheThirdWalk */.Z.WindurstTheThirdWalk,
   timelineFile: 'windurst-third-walk.txt',
-  triggers: [],
+  initData: () => {
+    return {
+      leyCollectionActive: false,
+      seenFirstBlizzard: false,
+      fireCount: 0,
+      leyLocations: {},
+      fireLocations: [],
+      spearEntities: [],
+      penanceActive: false,
+      cometTargets: [],
+      wheelBastionActive: false,
+      seenPromathiaIntermission: false,
+      myPlatformNum: -1,
+      earthboundHeavenActive: false,
+      explosionLocs: [],
+      multiExplosionCounter: 0,
+      blessingSafe: 'inactive',
+      fourthBossActive: false,
+      tookTrailTower: false
+    };
+  },
+  triggers: [
+  // ------------------------------------------------------------------------
+  // Shantotto the Demon
+  // ------------------------------------------------------------------------
+  {
+    id: 'Windurst Third Walk Shantotto Flare Play',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C427',
+      source: 'Shantotto The Demon',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'Windurst Third Walk Shantotto Vidohunir',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['vidohunir'],
+      capture: true
+    },
+    response: responses/* Responses.tankCleave */.n3.tankCleave()
+  }, {
+    id: 'Windurst Third Walk Shantotto Empirical Research',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C41E',
+      source: 'Shantotto The Demon',
+      capture: false
+    },
+    response: responses/* Responses.awayFromFront */.n3.awayFromFront()
+  }, {
+    id: 'Windurst Third Walk Shantotto Superior Stone AOE',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C411',
+      source: 'Shantotto The Demon',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'Windurst Third Walk Shantotto Superior Stone Crusher',
+    type: 'MapEffect',
+    netRegex: {
+      flags: '00800040',
+      location: Object.keys(shantottoStoneSafe),
+      capture: true
+    },
+    durationSeconds: 7,
+    // It's a long cast, so ensure it stays up a little longer.
+    alertText: (_data, matches, output) => {
+      const prox = shantottoStoneSafe[matches.location]?.prox;
+      const dir = shantottoStoneSafe[matches.location]?.dir;
+      if (prox === undefined || dir === undefined || dir === 'unknown') return output.unknown();
+      return output.combo({
+        dir: output[dir](),
+        prox: output[prox]()
+      });
+    },
+    outputStrings: {
+      combo: {
+        en: '${dir} + ${prox}',
+        cn: '${dir} + ${prox}',
+        ko: '${dir} + ${prox}'
+      },
+      ...cardDirToOutputStrings,
+      close: {
+        en: 'Get close',
+        cn: '靠近',
+        ko: '가까이 붙기'
+      },
+      far: {
+        en: 'Get far',
+        cn: '远离',
+        ko: '멀리 떨어지기'
+      },
+      unknown: {
+        en: 'Avoid rock crusher',
+        cn: '躲避岩石挤压',
+        ko: '바위 압착 피하기'
+      }
+    }
+  }, {
+    // Collecting data based on 271 ActorSetPos lines
+    // could be intensive.
+    // Only collect during Diagrammatic Doorway windows.
+    id: 'Windurst Third Walk Shantotto Entity Collection Activate',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C418',
+      source: 'Shantotto The Demon',
+      capture: false
+    },
+    run: data => data.leyCollectionActive = true
+  }, {
+    id: 'Windurst Third Walk Shantotto Ley Line Entity Collect',
+    type: 'ActorSetPos',
+    netRegex: {
+      id: '4[0-9A-F]{7}',
+      capture: true
+    },
+    condition: data => data.leyCollectionActive,
+    run: (data, matches) => data.leyLocations[matches.id] = {
+      x: parseFloat(matches.x),
+      y: parseFloat(matches.y),
+      heading: parseFloat(matches.heading)
+    }
+  }, {
+    // Shantotto will move to one of the two center Ley Lines,
+    // or to one of the corners, then telegraph
+    // a series of purple 0180 tethers between puddles
+    // where she will use Circumscribed Fire.
+    id: 'Windurst Third Walk Shantotto Ley Line Store',
+    type: 'Tether',
+    netRegex: {
+      id: ['017F', '0180'],
+      capture: true
+    },
+    run: (data, matches) => {
+      const sEntity = data.leyLocations[matches.sourceId];
+      const tEntity = data.leyLocations[matches.targetId];
+      if (sEntity === undefined || tEntity === undefined) {
+        console.error('Unable to find ley line entities');
+        return;
+      }
+      const sourceX = sEntity.x;
+      const sourceY = sEntity.y;
+      const destX = tEntity.x;
+      const destY = tEntity.y;
+
+      // Use the source location as the center for finding the destination.
+      const fireDir = util/* Directions.xyToCardinalDirOutput */.Ns.xyToCardinalDirOutput(destX, destY, sourceX, sourceY);
+      data.fireLocations.push(fireDir);
+    }
+  }, {
+    id: 'Windurst Third Walk Shantotto Circumscribed Fire Counter',
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['C419', 'C41A'],
+      source: 'Shantotto The Demon',
+      capture: false
+    },
+    run: data => data.fireCount += 1
+  }, {
+    id: 'Windurst Third Walk Shantotto Circumscribed Fire Initial Call',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C419',
+      source: 'Shantotto The Demon',
+      capture: false
+    },
+    response: responses/* Responses.getUnder */.n3.getUnder()
+  }, {
+    id: 'Windurst Third Walk Shantotto Circumscribed Fire Subsequent Call',
+    type: 'Ability',
+    netRegex: {
+      id: ['C419', 'C41A'],
+      source: 'Shantotto The Demon',
+      capture: false
+    },
+    condition: data => {
+      if (data.seenFirstBlizzard) return data.fireCount < 6;
+      return data.fireCount < 4;
+    },
+    suppressSeconds: 1,
+    // This can hit multiple people.
+    infoText: (data, _matches, output) => {
+      const nextDir = data.fireLocations.shift();
+      if (nextDir === undefined) return output.unknown();
+      return output.combo({
+        dir: output[nextDir](),
+        under: output.under()
+      });
+    },
+    outputStrings: {
+      combo: {
+        en: 'Move ${dir} + ${under}',
+        cn: '去${dir} + ${under}',
+        ko: '${dir}으로 이동 + ${under}'
+      },
+      under: outputs/* default.getUnder */.Z.getUnder,
+      unknown: {
+        en: 'Move to next circle',
+        cn: '去下一个圈圈',
+        ko: '다음 원으로 이동'
+      },
+      ...cardDirToOutputStrings
+    }
+  }, {
+    // The actual castbar for Localized Blizzard C41B is too short for trigger usage.
+    // Instead, count Circumscribed Fire uses.
+    // Shantotto casts Fire 3x before the first Blizzard,
+    // and 5x before all others.
+    id: 'Windurst Third Walk Shantotto Localized Blizzard',
+    type: 'Ability',
+    netRegex: {
+      id: 'C41A',
+      source: 'Shantotto The Demon',
+      capture: false
+    },
+    condition: data => {
+      if (data.seenFirstBlizzard) return data.fireCount === 6;
+      return data.fireCount === 4;
+    },
+    delaySeconds: 0.5,
+    suppressSeconds: 1,
+    // This can hit multiple people
+    response: responses/* Responses.getOut */.n3.getOut(),
+    run: data => {
+      data.leyCollectionActive = false;
+      data.seenFirstBlizzard = true;
+      data.fireCount = 0;
+      data.leyLocations = {};
+    }
+  }, {
+    id: 'Windurst Third Walk Shantotto Thunder And Error',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['thunderAndError'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    response: responses/* Responses.spread */.n3.spread()
+  }, {
+    id: 'Windurst Third Walk Shantotto Large Specimen',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C40A',
+      source: 'Shantotto The Demon',
+      capture: false
+    },
+    suppressSeconds: 1,
+    infoText: (_data, _matches, output) => output.proxAOE(),
+    outputStrings: {
+      proxAOE: {
+        en: 'Avoid Proximity AoEs',
+        cn: '远离距离衰减 AOE',
+        ko: '거리 감쇠 장판 피하기'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Shantotto Stardust Specimen',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['stardustSpecimen'],
+      capture: true
+    },
+    response: responses/* Responses.stackMarkerOn */.n3.stackMarkerOn()
+  }, {
+    id: 'Windurst Third Walk Shantotto Shockwave',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C40B',
+      source: 'Shantotto The Demon',
+      capture: true
+    },
+    delaySeconds: (_data, matches) => parseFloat(matches.castTime) - 5,
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'Windurst Third Walk Shantotto Hollow King Final Exam Super Nova',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['finalExamSuperNova'],
+      capture: true
+    },
+    response: responses/* Responses.stackMarkerOn */.n3.stackMarkerOn()
+  }, {
+    id: 'Windurst Third Walk Shantotto Easterly Winds',
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '1516',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    infoText: (_data, _matches, output) => output.knockWest(),
+    outputStrings: {
+      knockWest: {
+        en: 'Knockback west into wall',
+        cn: '向左击退至墙',
+        ko: '서쪽 벽으로 넉백'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Shantotto Westerly Winds',
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '1517',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    infoText: (_data, _matches, output) => output.knockEast(),
+    outputStrings: {
+      knockEast: {
+        en: 'Knockback east into wall',
+        cn: '向右击退至墙',
+        ko: '동쪽 벽으로 넉백'
+      }
+    }
+  },
+  // ------------------------------------------------------------------------
+  // Trash, boss 1 -> boss 2
+  // ------------------------------------------------------------------------
+
+  {
+    id: 'Windurst Third Walk Lamia No.2 Pinning Shot',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['pinningShot'],
+      capture: true
+    },
+    response: responses/* Responses.tankCleave */.n3.tankCleave()
+  }, {
+    id: 'Windurst Third Walk Nemean Lion Fulmination Khalkeos',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3AC',
+      source: 'Nemean Lion',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'Windurst Third Walk Medusa Swarmsinger Left Shadow Slash',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3B3',
+      source: 'Medusa Swarmsinger',
+      capture: false
+    },
+    response: responses/* Responses.goRight */.n3.goRight()
+  }, {
+    id: 'Windurst Third Walk Medusa Swarmsinger Right Shadow Slash',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3B2',
+      source: 'Medusa Swarmsinger',
+      capture: false
+    },
+    response: responses/* Responses.goLeft */.n3.goLeft()
+  }, {
+    id: 'Windurst Third Walk Medusa Swarmsinger Bellowing Grunt',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3B7',
+      source: 'Medusa Swarmsinger',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'Windurst Third Walk Medusa Swarmsinger Disregard',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3B4',
+      source: 'Medusa Swarmsinger',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'Windurst Third Walk Medusa Swarmsinger Petrifaction',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3B6',
+      source: 'Medusa Swarmsinger',
+      capture: true
+    },
+    response: responses/* Responses.lookAwayFromSource */.n3.lookAwayFromSource()
+  },
+  // ------------------------------------------------------------------------
+  // Alexander Resurrected
+  // ------------------------------------------------------------------------
+
+  {
+    id: 'Windurst Third Walk Alexander Banishga Raidwide',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C427',
+      source: 'Alexander Resurrected',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'Windurst Third Walk Alexander Banishga Spread',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['banishga'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    response: responses/* Responses.spread */.n3.spread()
+  }, {
+    id: 'Windurst Third Walk Alexander Divine Arrow Clockwise',
+    type: 'HeadMarker',
+    netRegex: {
+      id: alexCWHeadMarkerData,
+      capture: false
+    },
+    delaySeconds: 6,
+    // No headmarker cast times, call about 4s before mech starts
+    infoText: (_data, _matches, output) => {
+      return output.combo({
+        behind: output.getBehind(),
+        dir: output.clockwise()
+      });
+    },
+    outputStrings: {
+      combo: {
+        en: '${behind} => ${dir}',
+        de: '${behind} => ${dir}',
+        fr: '${behind} => ${dir}',
+        ja: '${behind} => ${dir}',
+        cn: '${behind} => ${dir}',
+        ko: '${behind} => ${dir}',
+        tc: '${behind} => ${dir}'
+      },
+      getBehind: outputs/* default.getBehind */.Z.getBehind,
+      clockwise: outputs/* default.clockwise */.Z.clockwise
+    }
+  }, {
+    id: 'Windurst Third Walk Alexander Divine Arrow Counterclockwise',
+    type: 'HeadMarker',
+    netRegex: {
+      id: alexCCWHeadMarkerData,
+      capture: false
+    },
+    delaySeconds: 6,
+    // No headmarker cast times, call about 4s before mech starts
+    infoText: (_data, _matches, output) => {
+      return output.combo({
+        behind: output.getBehind(),
+        dir: output.counterclockwise()
+      });
+    },
+    outputStrings: {
+      combo: {
+        en: '${behind} => ${dir}',
+        de: '${behind} => ${dir}',
+        fr: '${behind} => ${dir}',
+        ja: '${behind} => ${dir}',
+        cn: '${behind} => ${dir}',
+        ko: '${behind} => ${dir}',
+        tc: '${behind} => ${dir}'
+      },
+      getBehind: outputs/* default.getBehind */.Z.getBehind,
+      counterclockwise: outputs/* default.counterclockwise */.Z.counterclockwise
+    }
+  }, {
+    id: 'Windurst Third Walk Alexander Divine Spear Collect',
+    type: 'StartsUsingExtra',
+    netRegex: {
+      id: 'C3DF',
+      capture: true
+    },
+    run: (data, matches) => {
+      const entity = {
+        x: Math.round(parseFloat(matches.x)),
+        y: Math.round(parseFloat(matches.y)),
+        heading: parseFloat(matches.heading)
+      };
+      data.spearEntities.push(entity);
+    }
+  }, {
+    id: 'Windurst Third Walk Alexander Divine Spear Call',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3DF',
+      source: 'Alexander Resurrected',
+      capture: false
+    },
+    delaySeconds: 0.5,
+    suppressSeconds: 1,
+    infoText: (data, _matches, output) => {
+      if (data.spearEntities.length < 4) return output.unknownSpear();
+
+      // There will always be 0 or 2 entities in the center,
+      // forming either a "pinwheel" or an "arrow".
+      // First check which pattern we have.
+      const centerEntities = data.spearEntities.filter(entity => {
+        return entity.x === 0 && entity.y === 360;
+      });
+
+      // Throughout this function, we do not compare non-zero values directly.
+      // Always compare relatively, just in case a value
+      // that's not close to zero rounds in an unexpected direction.
+
+      // If none are centered, it's a pinwheel. Check the facing on the north
+      // one to determine whether it's clockwise or counterclockwise.
+      if (centerEntities.length === 0) {
+        const northEntity = data.spearEntities.find(entity => {
+          return entity.x === 0 && entity.y < 345;
+        });
+        if (northEntity === undefined) return output.unknownSpear();
+        // The north entity's heading will be one of 0.785 or -0.785,
+        // indicating SE or SW respectively.
+        // If positive, players should "lean" counterclockwise
+        // relative to the cardinals.
+        const leanRotation = northEntity.heading > 0 ? 'cw' : 'ccw';
+        return output.pinwheel({
+          rot: output[leanRotation]()
+        });
+      }
+
+      // The other possibility is two entities at the edge and two centered.
+      // In this case, it will be an arrow shape with one cardinal safe
+      // close on the boss.
+      // Check undefined here rather than length, bypassing an additional
+      // inline check that would otherwise be necessary.
+      if (centerEntities[0] !== undefined && centerEntities[1] !== undefined) {
+        const cHeading1 = centerEntities[0].heading;
+        const cHeading2 = centerEntities[1].heading;
+        const headingSum = Math.round(cHeading1 + cHeading2);
+
+        // North intercardinal and south intercardinal
+        // headings have the same value with opposite signs,
+        // negative west and positive east:
+        // NE: 2.356
+        // SE: 0.785
+        // SW: -0.785
+        // NW: -2.356
+
+        // North/South safe
+        // North: Headings 0.785 and -0.785
+        if (headingSum === 0 && Math.abs(cHeading1) < 1.5) return output.cardSafe({
+          dir: output.dirN()
+        });
+        // South: Headings 2.356 and -2.356
+        if (headingSum === 0 && Math.abs(cHeading1) > 1.5) return output.cardSafe({
+          dir: output.dirS()
+        });
+
+        // East/West safe.
+        // Summed intercardinal headings will be positive if
+        // the entities are both east, or negative if both are west.
+        // Call opposite that value.
+        const safeDir = headingSum < 0 ? 'dirE' : 'dirW';
+        return output.cardSafe({
+          dir: output[safeDir]()
+        });
+      }
+    },
+    outputStrings: {
+      pinwheel: {
+        en: 'Pinwheel: Lean ${rot} close',
+        cn: '旋转焰火：向${rot}侧靠近',
+        ko: '회전: ${rot}쪽으로 가까이 붙기'
+      },
+      cardSafe: {
+        en: 'Go ${dir} close',
+        cn: '去${dir}靠近',
+        ko: '${dir} 가까이 붙기'
+      },
+      ...cardDirToOutputStrings,
+      cw: outputs/* default.clockwise */.Z.clockwise,
+      ccw: outputs/* default.counterclockwise */.Z.counterclockwise,
+      unknownSpear: {
+        en: 'Avoid spear triangles',
+        cn: '躲避旋转扇形',
+        ko: '회전하는 부채꼴 피하기'
+      }
+    }
+  }, {
+    // Separate this out because we can't safely use an explicit condition
+    // for the call trigger due to it also requiring a delay.
+    id: 'Windurst Third Walk Alexander Divine Spear Cleanup',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3DF',
+      source: 'Alexander Resurrected',
+      capture: false
+    },
+    delaySeconds: 10,
+    run: data => data.spearEntities = []
+  }, {
+    id: 'Windurst Third Walk Alexander Impartial Ruling Left',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3E0',
+      source: 'Alexander Resurrected',
+      capture: false
+    },
+    response: responses/* Responses.goRightThenLeft */.n3.goRightThenLeft()
+  }, {
+    id: 'Windurst Third Walk Alexander Impartial Ruling Right',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3E1',
+      source: 'Alexander Resurrected',
+      capture: false
+    },
+    response: responses/* Responses.goLeftThenRight */.n3.goLeftThenRight()
+  }, {
+    id: 'Windurst Third Walk Alexander Karmic Shielding',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C5FE',
+      source: 'Gordius System',
+      capture: false
+    },
+    suppressSeconds: 1,
+    alarmText: (_data, _matches, output) => output.noShields(),
+    outputStrings: {
+      noShields: {
+        en: 'Attack only unshielded Gordius',
+        cn: '只攻击无护盾的戈耳狄系统',
+        ko: '보호막 없는 시스템만 공격'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Alexander Divine Judgment',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C3E9',
+      source: 'Alexander Resurrected',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'Windurst Third Walk Alexander Divine Bolt',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['divineBolt'],
+      capture: true
+    },
+    response: responses/* Responses.tankCleave */.n3.tankCleave()
+  },
+  // ------------------------------------------------------------------------
+  // Mini-boss: Aw'aern & the Aw'zdei
+  // ------------------------------------------------------------------------
+
+  {
+    id: 'Windurst Third Walk Aw\'aern Auroral Wind',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['auroralWind'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    response: responses/* Responses.spread */.n3.spread()
+  }, {
+    id: 'Windurst Third Walk Aw\'aern Impact Stream',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C535',
+      source: 'Aw\'aern',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  },
+  // ------------------------------------------------------------------------
+  // Promathia
+  // ------------------------------------------------------------------------
+
+  {
+    id: 'Windurst Third Walk Promathia Empty Salvation',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C48D',
+      source: 'Promathia',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    // Malevolent Blessing is sometimes used alongside Bastion and Wheel.
+    // We need to track whether they are active
+    // because if they are, we do not want to call
+    // Malevolent Blessing separately.
+    // C491: Wheel of Impregnability castbar
+    // C492: Bastion of Twilight castbar
+    id: 'Windurst Third Walk Promathia Wheel Bastion Activate',
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['C491', 'C492'],
+      source: 'Promathia',
+      capture: false
+    },
+    run: data => data.wheelBastionActive = true
+  }, {
+    // C493: Wheel of Impregnability
+    // C494: Bastion of Twilight
+    id: 'Windurst Third Walk Promathia Wheel Bastion Deactivate',
+    type: 'Ability',
+    netRegex: {
+      id: ['C493', 'C494'],
+      source: 'Promathia',
+      capture: false
+    },
+    run: data => data.wheelBastionActive = false
+  }, {
+    id: 'Windurst Third Walk Promathia Pestilent Penance Activate',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C49C',
+      source: 'Link Of Promathia',
+      capture: false
+    },
+    suppressSeconds: 5,
+    run: data => data.penanceActive = true
+  }, {
+    id: 'Windurst Third Walk Promathia Pestilent Penance Deactivate',
+    type: 'Ability',
+    netRegex: {
+      id: 'C49C',
+      source: 'Link Of Promathia',
+      capture: false
+    },
+    delaySeconds: 5,
+    suppressSeconds: 5,
+    run: data => data.penanceActive = false
+  }, {
+    id: 'Windurst Third Walk Promathia Wheel Of Impregnability',
+    type: 'Ability',
+    netRegex: {
+      id: 'C491',
+      source: 'Promathia',
+      capture: false
+    },
+    delaySeconds: 6,
+    // Used about 11 seconds prior, warn at 5s.
+    alertText: (data, _matches, output) => {
+      if (data.penanceActive) return output.wheelLasers({
+        out: output.outOfMelee(),
+        behind: output.behind()
+      });
+      if (data.blessingSafe !== 'inactive') {
+        const leftRight = data.blessingSafe;
+        return output.wheelBlessing({
+          out: output.outOfMelee(),
+          dir: output[leftRight]()
+        });
+      }
+      return output.outOfMelee();
+    },
+    outputStrings: {
+      wheelLasers: {
+        en: '${out} + ${behind} => avoid lasers',
+        cn: '${out} + ${behind} => 躲避激光',
+        ko: '${out} + ${behind} => 레이저 피하기'
+      },
+      wheelBlessing: {
+        en: '${out} + ${dir}',
+        cn: '${out} + ${dir}',
+        ko: '${out} + ${dir}'
+      },
+      behind: outputs/* default.getBehind */.Z.getBehind,
+      left: outputs/* default.left */.Z.left,
+      right: outputs/* default.right */.Z.right,
+      outOfMelee: outputs/* default.outOfMelee */.Z.outOfMelee
+    }
+  }, {
+    id: 'Windurst Third Walk Promathia Bastion Of Twilight',
+    type: 'Ability',
+    netRegex: {
+      id: 'C492',
+      source: 'Promathia',
+      capture: false
+    },
+    delaySeconds: 6,
+    // Used about 11 seconds prior, warn at 5s.
+    alertText: (data, _matches, output) => {
+      if (data.penanceActive) return output.bastionLasers({
+        behind: output.behind(),
+        under: output.under()
+      });
+      if (data.blessingSafe !== 'inactive') {
+        const leftRight = data.blessingSafe;
+        return output.bastionBlessing({
+          under: output.under(),
+          dir: output[leftRight]()
+        });
+      }
+      return output.basicBastion({
+        behind: output.behind(),
+        under: output.under()
+      });
+    },
+    outputStrings: {
+      // The first Bastion is always in combination with
+      // Promathia's Penance ability.
+      // Thereafter, any Penance uses from Promathia
+      // are accompanied by Link Of Promathia lasers.
+      basicBastion: {
+        en: '${behind} + ${under}',
+        de: '${behind} + ${under}',
+        fr: '${behind} + ${under}',
+        ja: '${behind} + ${under}',
+        cn: '${behind} + ${under}',
+        ko: '${behind} + ${under}',
+        tc: '${behind} + ${under}'
+      },
+      bastionLasers: {
+        en: '${behind} + ${under} => avoid lasers',
+        cn: '${behind} + ${under} => 躲避激光',
+        ko: '${behind} + ${under} => 레이저 피하기'
+      },
+      bastionBlessing: {
+        en: '${under} + ${dir}',
+        de: '${under} + ${dir}',
+        fr: '${under} + ${dir}',
+        ja: '${under} + ${dir}',
+        cn: '${under} + ${dir}',
+        ko: '${under} + ${dir}',
+        tc: '${under} + ${dir}'
+      },
+      behind: outputs/* default.getBehind */.Z.getBehind,
+      under: outputs/* default.getUnder */.Z.getUnder,
+      left: outputs/* default.left */.Z.left,
+      right: outputs/* default.right */.Z.right
+    }
+  }, {
+    id: 'Windurst Third Walk Promathia Shinryu Hollow King Comet Dark Nova Collect',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['cometDarkNova'],
+      capture: true
+    },
+    run: (data, matches) => data.cometTargets.push(matches.target)
+  }, {
+    id: 'Windurst Third Walk Promathia Comet Call',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['cometDarkNova'],
+      capture: false
+    },
+    delaySeconds: 0.5,
+    suppressSeconds: 5,
+    alertText: (data, _matches, output) => {
+      if (data.cometTargets.includes(data.me)) return output.cleaveOnYou();
+      return output.avoidCleave();
+    },
+    run: data => data.cometTargets = [],
+    outputStrings: {
+      cleaveOnYou: outputs/* default.tankCleaveOnYou */.Z.tankCleaveOnYou,
+      avoidCleave: outputs/* default.avoidTankCleaves */.Z.avoidTankCleaves
+    }
+  }, {
+    id: 'Windurst Third Walk Promathia Meteor',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['meteor'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    response: responses/* Responses.spread */.n3.spread()
+  }, {
+    id: 'Windurst Third Walk Promathia Infernal Deliverance Towers',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C49E',
+      source: 'Promathia',
+      capture: false
+    },
+    suppressSeconds: 1,
+    response: responses/* Responses.getTowers */.n3.getTowers()
+  }, {
+    id: 'Windurst Third Walk Promathia Infernal Deliverance Puddles',
+    type: 'Ability',
+    netRegex: {
+      id: 'C49F',
+      source: 'Promathia',
+      capture: false
+    },
+    suppressSeconds: 5,
+    response: responses/* Responses.moveAway */.n3.moveAway()
+  }, {
+    // Cue off False Genesis resolving.
+    // Update the player's platform if they die or move thereafter.
+    id: 'Windurst Third Walk Promathia Intermission First Platform',
+    type: 'Ability',
+    netRegex: {
+      id: 'C4A7',
+      source: 'Promathia',
+      capture: false
+    },
+    promise: async data => {
+      const combatants = (await (0,overlay_plugin_api/* callOverlayHandler */.ae)({
+        call: 'getCombatants',
+        names: [data.me]
+      })).combatants;
+      const me = combatants[0];
+      if (combatants.length !== 1 || me === undefined) {
+        console.error(`Windurst First Platform Data Error: Wrong combatants count ${combatants.length}`);
+        return;
+      }
+      data.myPlatformNum = getPlatform(me.PosX, me.PosY);
+    }
+  }, {
+    // Update the player's platform if they move platforms.
+    id: 'Windurst Third Walk Promathia Intermission Later Platforms',
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: 'A12',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    delaySeconds: 0.5,
+    // Avoid any risk of race conditions with player movement.
+    promise: async data => {
+      const combatants = (await (0,overlay_plugin_api/* callOverlayHandler */.ae)({
+        call: 'getCombatants',
+        names: [data.me]
+      })).combatants;
+      const me = combatants[0];
+      if (combatants.length !== 1 || me === undefined) {
+        console.error(`Windurst Later Platforms Data Error: Wrong combatants count ${combatants.length}`);
+        return;
+      }
+      data.myPlatformNum = getPlatform(me.PosX, me.PosY);
+    }
+  }, {
+    id: 'Windurst Third Walk Empty Thinker Winds Of Promyvion',
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['C4B0', 'C4B1'],
+      source: 'Empty Thinker',
+      capture: true
+    },
+    condition: (data, matches) => {
+      const thinkerPlatformNum = getPlatform(parseFloat(matches.x), parseFloat(matches.y));
+      return data.myPlatformNum === thinkerPlatformNum;
+    },
+    suppressSeconds: 5,
+    infoText: (_data, matches, output) => {
+      if (matches.id === 'C4B0') return output.clockwise();
+      return output.counterclockwise();
+    },
+    outputStrings: {
+      clockwise: outputs/* default.clockwise */.Z.clockwise,
+      counterclockwise: outputs/* default.counterclockwise */.Z.counterclockwise
+    }
+  }, {
+    id: 'Windurst Third Walk Empty Weeper Auroral Drape',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C4B3',
+      source: 'Empty Weeper',
+      capture: true
+    },
+    condition: (data, matches) => {
+      const weeperPlatformNum = getPlatform(parseFloat(matches.x), parseFloat(matches.y));
+      return data.myPlatformNum === weeperPlatformNum;
+    },
+    suppressSeconds: 5,
+    infoText: (_data, _matches, output) => output.avoidAuroral(),
+    outputStrings: {
+      avoidAuroral: {
+        en: 'Go To Safe Corner',
+        cn: '前往安全角落',
+        ko: '안전한 구석으로 이동'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Empty Wanderer Empty Beleaguer',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C4AF',
+      source: 'Empty Wanderer',
+      capture: true
+    },
+    condition: (data, matches) => {
+      const wandererPlatformNum = getPlatform(parseFloat(matches.x), parseFloat(matches.y));
+      return data.myPlatformNum === wandererPlatformNum;
+    },
+    suppressSeconds: 5,
+    infoText: (_data, _matches, output) => output.avoidBeleaguer(),
+    outputStrings: {
+      avoidBeleaguer: {
+        en: 'Dodge 2-1',
+        cn: '二穿一躲避',
+        ko: '2-1 피하기'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Promathia Deadly Rebirth',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C4AB',
+      source: 'Promathia',
+      capture: false
+    },
+    alertText: (_data, _matches, output) => output.aoePlusStun(),
+    run: data => data.seenPromathiaIntermission = true,
+    outputStrings: {
+      aoePlusStun: {
+        en: 'AoE + stun',
+        cn: 'AoE + 眩晕',
+        ko: '전체공격 + 기절'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Promathia Malevolent Blessing Left',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C497',
+      source: 'Promathia',
+      capture: false
+    },
+    alertText: (data, _matches, output) => {
+      if (!data.wheelBastionActive) return output.right();
+    },
+    run: data => data.blessingSafe = 'right',
+    outputStrings: {
+      right: outputs/* default.right */.Z.right
+    }
+  }, {
+    id: 'Windurst Third Walk Promathia Malevolent Blessing Right',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C496',
+      source: 'Promathia',
+      capture: false
+    },
+    alertText: (data, _matches, output) => {
+      if (!data.wheelBastionActive) return output.left();
+    },
+    run: data => data.blessingSafe = 'left',
+    outputStrings: {
+      left: outputs/* default.left */.Z.left
+    }
+  }, {
+    id: 'Windurst Third Walk Promathia Malevolent Blessing Deactivate',
+    type: 'Ability',
+    netRegex: {
+      id: ['C496', 'C497'],
+      source: 'Promathia',
+      capture: false
+    },
+    delaySeconds: 5,
+    run: data => data.blessingSafe = 'inactive'
+  },
+  // Empty Salvation signals the start of an Explosion segment.
+  // During these segments, there will either be an even number of explosions,
+  // preceded by a Fleeting Eternity cast, or there will be an odd number,
+  // preceded by an Earthbound Heaven cast.
+  // Track which one is active here.
+  {
+    id: 'Windurst Third Walk Promathia Fleeting Eternity Tracker',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C48E',
+      source: 'Promathia',
+      capture: false
+    },
+    run: data => data.earthboundHeavenActive = false
+  }, {
+    id: 'Windurst Third Walk Promathia Earthbound Heaven Tracker',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C49D',
+      source: 'Promathia',
+      capture: false
+    },
+    run: data => data.earthboundHeavenActive = true
+  }, {
+    // Store off the textual representation
+    // of each puddle, then use that to call a safe direction.
+    id: 'Windurst Third Walk Promathia Explosion Collector',
+    type: 'StartsUsingExtra',
+    netRegex: {
+      id: 'C490',
+      capture: true
+    },
+    run: (data, matches) => {
+      const x = Math.round(parseFloat(matches.x));
+      const y = Math.round(parseFloat(matches.y));
+      const puddle = promathiaPuddleMap.find(puddle => puddle.x === x && puddle.y === y);
+      if (puddle === undefined) data.explosionLocs.push('unknown');else {
+        data.explosionLocs.push(puddle.loc);
+      }
+    }
+  }, {
+    // Explosions prior to the intermission are single sets
+    // of two or four.
+    id: 'Windurst Third Walk Promathia Eternity Explosion Pre Intermission',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C490',
+      source: 'Promathia',
+      capture: false
+    },
+    condition: data => !data.seenPromathiaIntermission,
+    delaySeconds: 0.5,
+    suppressSeconds: 1,
+    infoText: (data, _matches, output) => {
+      const safeDirs = getEvenExplosionSafe(data.explosionLocs);
+      // In practice both elements will be defined, but the compiler doesn't know that.
+      if (safeDirs.includes('unknown') || safeDirs[0] === undefined || safeDirs[1] === undefined) return output.avoidExplosions();
+      return output.combo({
+        dir1: output[safeDirs[0]](),
+        dir2: output[safeDirs[1]]()
+      });
+    },
+    run: data => data.explosionLocs = [],
+    outputStrings: promathiaExplosionOutputStrings
+  }, {
+    // Post-intermission Eternity Explosions are in
+    // three sequential groups of two, opposite each other.
+
+    // All six points explode once each during this sequence.
+    // Each Explosion set is separated by 3 seconds.
+    // Delay calling sets 2/3 by 1.6 seconds to
+    // avoid overlap with 1/2.
+    id: 'Windurst Third Walk Promathia Eternity Explosion Post Intermission',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C490',
+      source: 'Promathia',
+      capture: false
+    },
+    condition: data => data.seenPromathiaIntermission && !data.earthboundHeavenActive,
+    delaySeconds: data => data.multiExplosionCounter === 0 ? 0.5 : 1.6,
+    suppressSeconds: 1,
+    infoText: (data, _matches, output) => {
+      const safeDirs = getEvenExplosionSafe(data.explosionLocs);
+      // In practice both elements will be defined, but the compiler doesn't know that.
+      if (safeDirs.includes('unknown') || safeDirs[0] === undefined || safeDirs[1] === undefined) return output.avoidExplosions();
+      return output.combo({
+        dir1: output[safeDirs[0]](),
+        dir2: output[safeDirs[1]]()
+      });
+    },
+    run: data => {
+      data.explosionLocs = [];
+      data.multiExplosionCounter = (data.multiExplosionCounter + 1) % 3;
+    },
+    outputStrings: promathiaExplosionOutputStrings
+  }, {
+    // Earthbound Heaven explosions spawn on three of the six hexagon points.
+    // This pattern always looks like this, with one open side west
+    // and two open sides NW and SW:
+
+    //    O
+    //   /
+    //  /
+    // O       O
+    //         |
+    //         |
+    // O       O
+    //  \
+    //   \
+    //    O
+
+    // Two explosions will always start close to each other.
+    // (There will never be a situation where all three
+    // start clockwise or counterclockwise on their puddle lines.)
+
+    // Find the two close to each other and call that direction.
+    id: 'Windurst Third Walk Promathia Earthbound Explosion',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C490',
+      source: 'Promathia',
+      capture: false
+    },
+    condition: data => data.earthboundHeavenActive,
+    delaySeconds: 0.5,
+    suppressSeconds: 2,
+    infoText: (data, _matches, output) => {
+      // If north and south puddles are exploding,
+      // the third puddle is east. Call west.
+      if (data.explosionLocs.includes('dirN') && data.explosionLocs.includes('dirS')) return output.dirW();
+      // If northeast and southwest are exploding,
+      // the third puddle is northwest. Call southeast.
+      if (data.explosionLocs.includes('dirNE') && data.explosionLocs.includes('dirSW')) return output.southeast();
+      // If northwest and southeast are exploding,
+      // the third puddle is southwest. Call northeast.
+      if (data.explosionLocs.includes('dirNW') && data.explosionLocs.includes('dirSE')) return output.northeast();
+      // If we fall through to here, something is wrong. Call generically.
+      return output.avoidExplosions();
+    },
+    run: data => data.explosionLocs = [],
+    outputStrings: promathiaExplosionOutputStrings
+  },
+  // ------------------------------------------------------------------------
+  // Shinryu Paradox / Hollow King
+  // ------------------------------------------------------------------------
+
+  {
+    id: 'Windurst Third Walk Shinryu Cosmic Breath',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BFD1',
+      source: 'Shinryu Paradox',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => output.goDown(),
+    outputStrings: {
+      goDown: {
+        en: 'Go lower platform',
+        cn: '去下平台',
+        ko: '아래 플랫폼으로 이동'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Shinryu Cosmic Tail',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BFD4',
+      source: 'Shinryu Paradox',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => output.goUp(),
+    outputStrings: {
+      goUp: {
+        en: 'Go upper platform',
+        cn: '去上平台',
+        ko: '위 플랫폼으로 이동'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Shinryu Waning Light Gain',
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '14E8',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    infoText: (_data, _matches, output) => output.lightLater(),
+    run: data => data.myAspect = 'light',
+    outputStrings: {
+      lightLater: {
+        en: 'Light safe later',
+        cn: '稍后光安全',
+        ko: '나중에 빛 안전'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Shinryu Waxing Dark Gain',
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '14E9',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    infoText: (_data, _matches, output) => output.darkLater(),
+    run: data => data.myAspect = 'dark',
+    outputStrings: {
+      darkLater: {
+        en: 'Dark safe later',
+        cn: '稍后暗安全',
+        ko: '나중에 어둠 안전'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Shinryu Twilight Nebula',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BFD9',
+      source: 'Shinryu Paradox',
+      capture: false
+    },
+    alertText: (data, _matches, output) => {
+      if (data.myAspect === 'light') return output.upLightSafe();
+      if (data.myAspect === 'dark') return output.downDarkSafe();
+      return output.unknownSafe();
+    },
+    outputStrings: {
+      upLightSafe: {
+        en: 'Up on light platform',
+        cn: '去上光平台',
+        ko: '위쪽 빛 플랫폼으로 이동'
+      },
+      downDarkSafe: {
+        en: 'Down on dark platform',
+        cn: '去下暗平台',
+        ko: '아래쪽 어둠 플랫폼으로 이동'
+      },
+      unknownSafe: {
+        en: 'Match platform + debuff color',
+        cn: '去 debuff 同色平台',
+        ko: '플랫폼과 디버프 색 맞추기'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Shinryu Cataclysmic Vortex Look Away',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['lookAway'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    response: responses/* Responses.lookAway */.n3.lookAway()
+  }, {
+    id: 'Windurst Third Walk Shinryu Cataclysmic Vortex Look Towards',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['lookTowards'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    response: responses/* Responses.lookTowards */.n3.lookTowards()
+  }, {
+    id: 'Windurst Third Walk Shinryu Cataclysmic Vortex Stillness',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['stillness'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    response: responses/* Responses.stopEverything */.n3.stopEverything('alert')
+  }, {
+    id: 'Windurst Third Walk Shinryu Cataclysmic Vortex Motion',
+    type: 'HeadMarker',
+    netRegex: {
+      id: windurst_third_walk_headMarkerData['motion'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    response: responses/* Responses.moveAround */.n3.moveAround()
+  }, {
+    id: 'Windurst Third Walk Shinryu Atomic Tail',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BFEA',
+      source: 'Shinryu Paradox',
+      capture: false
+    },
+    alertText: (_data, _matches, output) => output.goUp(),
+    outputStrings: {
+      goUp: {
+        en: 'Go upper platform',
+        cn: '去上平台',
+        ko: '위 플랫폼으로 이동'
+      }
+    }
+  }, {
+    id: 'Windurst Third Walk Hollow King Clashing',
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '4F7',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    run: data => data.tookTrailTower = true
+  }, {
+    id: 'Windurst Third Walk Hollow King Celestial Trail',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BFF4',
+      source: 'Hollow King',
+      capture: false
+    },
+    condition: data => !data.tookTrailTower,
+    suppressSeconds: 1,
+    response: responses/* Responses.getTowers */.n3.getTowers()
+  }, {
+    id: 'Windurst Third Walk Hollow King Empty Proclamation',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C01B',
+      source: 'Hollow King',
+      capture: false
+    },
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    // Both Swordscross abilities have a diagonal component.
+    // Call northwest or northeast specifically.
+    id: 'Windurst Third Walk Hollow King Left Swordscross',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C000',
+      source: 'Hollow King',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => output.northwest(),
+    outputStrings: {
+      northwest: outputs/* default.northwest */.Z.northwest
+    }
+  }, {
+    // Both Swordscross abilities have a diagonal component.
+    // Call northwest or northeast specifically.
+    id: 'Windurst Third Walk Hollow King Right Swordscross',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BFFF',
+      source: 'Hollow King',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => output.northeast(),
+    outputStrings: {
+      northeast: outputs/* default.northeast */.Z.northeast
+    }
+  }, {
+    id: 'Windurst Third Walk Hollow King Twin Blaze Left',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C005',
+      source: 'Hollow King',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => {
+      return output.getInAndLeft({
+        in: output.in(),
+        left: output.left()
+      });
+    },
+    outputStrings: {
+      getInAndLeft: {
+        en: '${in} + ${left}',
+        de: '${in} + ${left}',
+        fr: '${in} + ${left}',
+        ja: '${in} + ${left}',
+        cn: '${in} + ${left}',
+        ko: '${in} + ${left}',
+        tc: '${in} + ${left}'
+      },
+      in: outputs/* default.in */.Z["in"],
+      left: outputs/* default.left */.Z.left
+    }
+  }, {
+    id: 'Windurst Third Walk Hollow King Twin Blaze Right',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C006',
+      source: 'Hollow King',
+      capture: false
+    },
+    infoText: (_data, _matches, output) => {
+      return output.getInAndRight({
+        in: output.in(),
+        right: output.right()
+      });
+    },
+    outputStrings: {
+      getInAndRight: {
+        en: '${in} + ${right}',
+        de: '${in} + ${right}',
+        fr: '${in} + ${right}',
+        ja: '${in} + ${right}',
+        cn: '${in} + ${right}',
+        ko: '${in} + ${right}',
+        tc: '${in} + ${right}'
+      },
+      in: outputs/* default.in */.Z["in"],
+      right: outputs/* default.right */.Z.right
+    }
+  }, {
+    id: 'Windurst Third Walk Hollow King Cataclysmic Blade',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C009',
+      source: 'Hollow King',
+      capture: false
+    },
+    alertText: (_data, _matches, output) => output.avoidSwords(),
+    outputStrings: {
+      avoidSwords: {
+        en: 'Avoid sword cones',
+        cn: '躲避扇形剑击',
+        ko: '검 부채꼴 피하기'
+      }
+    }
+  }],
   timelineReplace: [{
     'locale': 'de',
     'missingTranslations': true,
@@ -213792,12 +215574,15 @@ const windurst_third_walk_triggerSet = {
     replaceSync: {
       'Alexander Resurrected': '巨神重现 亚历山大',
       'Arcane Sphere': '立体魔法阵',
+      'Aw\'aern': '阿瓦·艾恩',
       'Empty Thinker': '空虚思考之物',
       'Empty Wanderer': '空虚彷徨之物',
       'Empty Weeper': '空虚叹息之物',
       'Gordius System': '戈耳狄系统',
       'Hollow King': '虚无之王',
+      'Medusa Swarmsinger': '军团歌者 美杜莎',
       'Memory Receptacle': '记忆容器',
+      'Nemean Lion': '尼米亚猛狮',
       'Promathia': '普罗玛西亚',
       'Shantotto the Demon': '恶魔香托托',
       'Shinryu Paradox': '神龙',
@@ -213903,16 +215688,18 @@ const windurst_third_walk_triggerSet = {
     }
   }, {
     'locale': 'ko',
-    'missingTranslations': true,
     'replaceSync': {
       'Alexander Resurrected': '부활한 알렉산더',
       'Arcane Sphere': '신비로운 구체',
+      'Aw\'aern': '오아언',
       'Empty Thinker': '허무의 사색가',
       'Empty Wanderer': '허무의 방랑자',
       'Empty Weeper': '허무의 통곡자',
       'Gordius System': '고르디우스 시스템',
       'Hollow King': '공허의 왕',
+      'Medusa Swarmsinger': '메두사 군단가수',
       'Memory Receptacle': '기억의 그릇',
+      'Nemean Lion': '네메아 사자',
       'Promathia': '프로마시아',
       'Shantotto the Demon': '악마 샨토토',
       'Shinryu Paradox': '신룡'
@@ -213951,6 +215738,7 @@ const windurst_third_walk_triggerSet = {
       'Cataclysmic Blade': '파멸의 칼날',
       'Cataclysmic Vortex': '파멸의 소용돌이',
       'Celestial Trail': '천계의 궤적',
+      'Circuit Shock': '환형 방전',
       'Circumscribed Fire': '멀어지면 파이어',
       'Cloak of Twilight': '황혼 망토',
       'Comet': '혜성',
@@ -224910,21 +226698,20 @@ const the_underkeep_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
-      'Coordinate Bit': 'ヴァリアビット',
-      'Coordinate Turret': 'ヴァリア・タレット',
+      'Coordinate Bit': '靈變塊',
+      'Coordinate Turret': '靈變砲塔',
       'Gargant': '高康特',
       'Sand Sphere': '沙球',
-      'Soldier S0': 'ソルジャーS0',
-      'Valia Pira': 'ヴァリア・ピラ'
+      'Soldier S0': '士兵S0',
+      'Valia Pira': '靈變柱'
     },
     'replaceText': {
-      // '\\(cast\\)': '', // FIXME '(咏唱)'
+      '\\(cast\\)': '(詠唱)',
       'Aerial Ambush': '伏擊',
       'Almighty Racket': '強力之聲',
       'Bloodmarch': '轉移妖紅珠',
-      'Chilling Chirp': '恐嚇顫音',
+      'Chilling Chirp': '恐嚇蟲鳴',
       'Coordinate March': '啟動指令',
       'Deterrent Pulse': '靈變射線',
       'Earthsong': '大地之歌',
@@ -224933,10 +226720,10 @@ const the_underkeep_triggerSet = {
       'Electray': '雷轉質射線',
       'Enforcement Ray': '增援射線',
       'Entropic Sphere': '熵球',
-      'Field of Scorn': '末日衝擊',
+      'Field of Scorn': '厄運衝擊',
       'Hypercharged Light': '雷轉質光',
       'Neutralize Front Lines': '前方電中和',
-      'Ordered Fire': '支援炮擊',
+      'Ordered Fire': '支援砲擊',
       'Sector Bisector': '幻影半斬',
       'Sedimentary Debris': '崩落',
       'Sphere Shatter': '碎裂',
@@ -226777,7 +228564,214 @@ const yuweyawata_triggerSet = {
 /* harmony default export */ const yuweyawata = (yuweyawata_triggerSet);
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/dungeon/yuweyawata.txt
 const dungeon_yuweyawata_namespaceObject = "### YUWEYAWATA FIELD STATION\r\n# ZoneId: 1242\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n# .*is no longer sealed\r\n0.0 \"--Reset--\" SystemLogMessage { id: \"7DE\" } window 0,100000 jump 0\r\n\r\n#~~~~~~~~~~~~~~~~~~#\r\n# Lindblum Zaghnal #\r\n#~~~~~~~~~~~~~~~~~~#\r\n\r\n# -ii 9EB8 9EBA A0A2\r\n# -it \"Raw Electrope\"\r\n# -p 9EBB:1010.1\r\n\r\n# The Crystal Quarry will be sealed off\r\n1000.0 \"--sync--\" SystemLogMessage { id: \"7DC\", param1: \"1408\" } window 1000,1\r\n1005.1 \"--sync--\" StartsUsing { id: \"9EBB\", source: \"Lindblum Zaghnal\" }\r\n1010.1 \"Electrical Overload\" Ability { id: \"9EBB\", source: \"Lindblum Zaghnal\" }\r\n1017.5 \"--sync--\" Ability { id: \"9EAE\", source: \"Lindblum Zaghnal\" }\r\n1022.7 \"Gore\" Ability { id: \"A132\", source: \"Lindblum Zaghnal\" }\r\n1032.4 \"Line Voltage\" Ability { id: \"9EB1\", source: \"Lindblum Zaghnal\" }\r\n1035.4 \"Line Voltage\" Ability { id: \"9EB1\", source: \"Lindblum Zaghnal\" }\r\n1038.4 \"Line Voltage\" Ability { id: \"9EB1\", source: \"Lindblum Zaghnal\" }\r\n1043.8 \"Caber Toss\" Ability { id: \"9EB0\", source: \"Lindblum Zaghnal\" }\r\n1045.8 \"Cell Shock\" Ability { id: \"9EB2\", source: \"Lindblum Zaghnal\" }\r\n1047.1 \"Line Voltage (multiple)\" Ability { id: \"A0A1\", source: \"Lindblum Zaghnal\" } duration 7.6\r\n1048.3 \"--sync--\" Ability { id: \"9EB3\", source: \"Lindblum Zaghnal\" }\r\n1054.9 \"--sync--\" Ability { id: \"9EB3\", source: \"Lindblum Zaghnal\" }\r\n1057.2 \"Lightning Storm\" Ability { id: \"9EBC\", source: \"Lindblum Zaghnal\" }\r\n1057.8 \"--sync--\" Ability { id: \"9EBD\", source: \"Lindblum Zaghnal\" }\r\n1063.6 \"--sync--\" Ability { id: \"9EAE\", source: \"Lindblum Zaghnal\" }\r\n1068.9 \"Gore\" Ability { id: \"9EB6\", source: \"Lindblum Zaghnal\" }\r\n1071.0 \"Sparking Fissure\" Ability { id: \"A133\", source: \"Lindblum Zaghnal\" }\r\n1072.3 \"--adds 1 targetable--\"\r\n1079.0 \"Sparking Fissure\" Ability { id: \"9EB7\", source: \"Lindblum Zaghnal\" }\r\n1081.0 \"--adds 2 targetable--\"\r\n1088.1 \"Sparking Fissure\" Ability { id: \"9EB7\", source: \"Lindblum Zaghnal\" }\r\n1089.1 \"Lightning Bolt x3\" duration 2 #Ability { id: \"9EBE\", source: \"Lindblum Zaghnal\" }\r\n1089.5 \"--adds 3 targetable--\"\r\n1099.8 \"Lightning Bolt x3\" duration 2 #Ability { id: \"9EBE\", source: \"Lindblum Zaghnal\" }\r\n1110.5 \"Sparking Fissure (big)\" Ability { id: \"A12A\", source: \"Lindblum Zaghnal\" }\r\n1116.2 \"--sync--\" Ability { id: \"9EAE\", source: \"Lindblum Zaghnal\" }\r\n\r\n# loop\r\n1116.2 label \"zaghnal-loop\"\r\n1121.6 \"Gore\" Ability { id: \"A132\", source: \"Lindblum Zaghnal\" }\r\n1131.3 \"Line Voltage\" Ability { id: \"9EB1\", source: \"Lindblum Zaghnal\" }\r\n1134.3 \"Line Voltage\" Ability { id: \"9EB1\", source: \"Lindblum Zaghnal\" }\r\n1137.3 \"Line Voltage\" Ability { id: \"9EB1\", source: \"Lindblum Zaghnal\" }\r\n1142.7 \"Caber Toss\" Ability { id: \"9EB0\", source: \"Lindblum Zaghnal\" }\r\n1144.7 \"Cell Shock\" Ability { id: \"9EB2\", source: \"Lindblum Zaghnal\" }\r\n1146.0 \"Line Voltage (multiple)\" Ability { id: \"A0A1\", source: \"Lindblum Zaghnal\" } duration 7.6\r\n1147.2 \"--sync--\" Ability { id: \"9EB3\", source: \"Lindblum Zaghnal\" }\r\n1153.8 \"--sync--\" Ability { id: \"9EB3\", source: \"Lindblum Zaghnal\" }\r\n1156.1 \"Lightning Storm\" Ability { id: \"9EBC\", source: \"Lindblum Zaghnal\" }\r\n1156.7 \"--sync--\" Ability { id: \"9EBD\", source: \"Lindblum Zaghnal\" }\r\n1162.4 \"--sync--\" Ability { id: \"9EAE\", source: \"Lindblum Zaghnal\" }\r\n1169.7 \"Electrical Overload\" Ability { id: \"9EBB\", source: \"Lindblum Zaghnal\" }\r\n1182.5 \"Lightning Storm\" Ability { id: \"9EBC\", source: \"Lindblum Zaghnal\" }\r\n1182.9 \"--sync--\" Ability { id: \"9EBD\", source: \"Lindblum Zaghnal\" }\r\n1183.9 \"Lightning Bolt x3\" duration 2 #Ability { id: \"9EBE\", source: \"Lindblum Zaghnal\" }\r\n1193.9 \"--sync--\" Ability { id: \"9EAE\", source: \"Lindblum Zaghnal\" } forcejump \"zaghnal-loop\"\r\n\r\n# IGNORED ABILITIES\r\n# 9EB8 Sparking Fissure\r\n# 9EBA Electrify\r\n# A0A2 Line Voltage\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# 368 attack\r\n# 9EAE --sync--\r\n# 9EB0 Caber Toss - castbar of pillar being tossed\r\n# 9EB1 Line Voltage - multiple line aoes from pillar, gives vuln stack\r\n# 9EB2 Cell Shock - damage from circular pillar aoe, gives vuln stack\r\n# 9EB3 Line Voltage - fat line aoe, gives vuln stack\r\n# 9EB6 Gore - boss digging into ground\r\n# 9EB7 Sparking Fissure - no cast raidwide\r\n# 9EB8 Sparking Fissure - boss self-cast\r\n# 9EBA Electrify - raidwide from adds (interrupted on death), gives vuln stack\r\n# 9EBB Electrical Overload - raidwide\r\n# 9EBC Lightning Storm - self-cast, spread aoe markers\r\n# 9EBD Lightning Storm - damage from spread aoes\r\n# 9EBE Lightning Bolt - ground aoe, gives vuln stack\r\n# A0A1 Line Voltage - line aoe self-cast?\r\n# A0A2 Line Voltage - skinny line aoe, gives vuln stack\r\n# A12A Sparking Fissure - long cast big raidwide\r\n# A132 Gore - boss digging into pillar\r\n# A133 Sparking Fissure - short cast raidwide\r\n\r\n\r\n#~~~~~~~~~~~~~~~~~~~~#\r\n# Overseer Kanilokka #\r\n#~~~~~~~~~~~~~~~~~~~~#\r\n\r\n# -ii 9ED3\r\n# -it \"Overseer Kanilokka\"\r\n# -p 9ED2:2010.1\r\n\r\n# The Soul Center will be sealed off\r\n2000.0 \"--sync--\" SystemLogMessage { id: \"7DC\", param1: \"1409\" } window 2000,1\r\n2005.1 \"--sync--\" StartsUsing { id: \"9ED2\", source: \"Overseer Kanilokka\" }\r\n2010.1 \"Dark Souls\" Ability { id: \"9ED2\", source: \"Overseer Kanilokka\" }\r\n2019.0 \"Free Spirits\" Ability { id: \"9EBF\", source: \"Overseer Kanilokka\" }\r\n2020.0 \"--sync--\" Ability { id: \"9EC0\", source: \"Overseer Kanilokka\" }\r\n2025.1 \"Soulweave x8\" duration 10.6 #Ability { id: \"9EC2\", source: \"Preserved Soul\" }\r\n2040.4 \"Phantom Flood\" Ability { id: \"9EC3\", source: \"Overseer Kanilokka\" } window 10,10\r\n2041.7 \"--sync--\" Ability { id: \"9EC4\", source: \"Overseer Kanilokka\" }\r\n2053.5 \"Dark II\" Ability { id: \"9ECE\", source: \"Overseer Kanilokka\" }\r\n2053.9 \"--sync--\" Ability { id: \"9ED0\", source: \"Overseer Kanilokka\" }\r\n2055.9 \"Dark II\" Ability { id: \"9ECF\", source: \"Overseer Kanilokka\" }\r\n2056.3 \"--sync--\" Ability { id: \"9ED1\", source: \"Overseer Kanilokka\" }\r\n2062.3 \"Telltale Tears\" Ability { id: \"9EC9\", source: \"Overseer Kanilokka\" }\r\n2069.4 \"Lost Hope\" Ability { id: \"9EC5\", source: \"Overseer Kanilokka\" }\r\n2070.2 \"--untargetable--\"\r\n2086.5 \"Necrohazard\" Ability { id: \"9EC6\", source: \"Overseer Kanilokka\" }\r\n2088.1 \"--targetable--\"\r\n2096.8 \"Bloodburst\" Ability { id: \"9EC7\", source: \"Overseer Kanilokka\" }\r\n2106.9 \"Free Spirits\" Ability { id: \"9EBF\", source: \"Overseer Kanilokka\" }\r\n\r\n# loop\r\n2106.9 label \"kanilokka-loop\"\r\n2107.9 \"--sync--\" Ability { id: \"9EC0\", source: \"Overseer Kanilokka\" }\r\n2113.0 \"Soulweave x8\" duration 10.6 #Ability { id: \"9EC2\", source: \"Preserved Soul\" }\r\n2116.5 \"Telltale Tears\" Ability { id: \"9EC9\", source: \"Overseer Kanilokka\" } window 4,4\r\n2123.1 \"Telltale Tears\" Ability { id: \"9EC9\", source: \"Overseer Kanilokka\" }\r\n2130.6 \"Dark II\" Ability { id: \"9ECE\", source: \"Overseer Kanilokka\" } window 10,10\r\n2131.2 \"--sync--\" Ability { id: \"9ED0\", source: \"Overseer Kanilokka\" }\r\n2133.2 \"Dark II\" Ability { id: \"9ECF\", source: \"Overseer Kanilokka\" }\r\n2133.8 \"--sync--\" Ability { id: \"9ED1\", source: \"Overseer Kanilokka\" }\r\n2134.0 \"Soul Douse\" Ability { id: \"9ECB\", source: \"Overseer Kanilokka\" }\r\n2143.9 \"Dark Souls\" Ability { id: \"9ED2\", source: \"Overseer Kanilokka\" }\r\n2153.6 \"Bloodburst\" Ability { id: \"9EC7\", source: \"Overseer Kanilokka\" }\r\n2162.7 \"Bloodburst\" Ability { id: \"9EC7\", source: \"Overseer Kanilokka\" }\r\n2174.0 \"Free Spirits\" Ability { id: \"9EBF\", source: \"Overseer Kanilokka\" } forcejump \"kanilokka-loop\"\r\n\r\n# IGNORED ABILITIES\r\n# 9ED3 --sync--\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# 9EBF Free Spirits - boss self-cast\r\n# 9EC0 Free Spirits - raidwide, spawns bleed-wall surrounding arena\r\n# 9EC1 Soulweave - line aoe counter-clockwise, gives vuln stack\r\n# 9EC2 Soulweave - line aoe clockwise, gives vuln stack\r\n# 9EC3 Phantom Flood - boss self-cast\r\n# 9EC4 Phantom Flood - donut aoe, gives vuln stack\r\n# 9EC5 Lost Hope - inflicts Temporary Misdirection\r\n# 9EC6 Necrohazard - proximity raidwide from center of room, aggressive fall-off\r\n# 9EC7 Bloodburst - raidwide\r\n# 9EC9 Telltale Tears - spread aoes on dps/healer\r\n# 9ECB Soul Douse - party stack\r\n# 9ECE Dark II - boss-self cast?\r\n# 9ECF Dark II - boss-self cast?\r\n# 9ED0 Dark II - cone aoe damage (first set), gives vuln stack\r\n# 9ED1 Dark II - cone aoe damage (second set), gives vuln stack\r\n# 9ED2 Dark Souls - tankbuster\r\n# 9ED3 --sync-- - boss auto attack\r\n\r\n\r\n#~~~~~~~~~~~#\r\n# Lunipyati #\r\n#~~~~~~~~~~~#\r\n\r\n# -ii 9EAD\r\n# -p 9EA4:3011.4\r\n\r\n# The Dust Yoke will be sealed off\r\n3000.0 \"--sync--\" SystemLogMessage { id: \"7DC\", param1: \"140A\" } window 3000,1\r\n3006.4 \"--sync--\" StartsUsing { id: \"9EA4\", source: \"Lunipyati\" }\r\n3011.4 \"Raging Claw\" Ability { id: \"9EA4\", source: \"Lunipyati\" } duration 2.4\r\n3011.8 \"--sync--\" Ability { id: \"9EA5\", source: \"Lunipyati\" }\r\n3020.1 \"--sync--\" Ability { id: \"9EAC\", source: \"Lunipyati\" }\r\n3027.5 \"Leporine Loaf\" Ability { id: \"9E9B\", source: \"Lunipyati\" }\r\n3032.7 \"--sync--\" StartsUsing { id: \"9E9F\", source: \"Lunipyati\" } window 10,10 jump \"lunipyati-boulder-dance\"\r\n3037.7 \"--sync--\" StartsUsing { id: \"9E9E\", source: \"Lunipyati\" } window 10,10 jump \"lunipyati-leaping-earth\"\r\n\r\n# Leaping Earth first\r\n3100.0 label \"lunipyati-leaping-earth\"\r\n3101.5 \"Leaping Earth (arcs)\" duration 3.7 #Ability { id: \"9E9E\", source: \"Lunipyati\" }\r\n3101.8 \"--sync--\" Ability { id: \"9ED6\", source: \"Lunipyati\" }\r\n3105.3 \"--sync--\" Ability { id: \"9ED6\", source: \"Lunipyati\" }\r\n3112.7 \"Leaping Earth (arcs)\" duration 3.7 #Ability { id: \"9E9E\", source: \"Lunipyati\" }\r\n3113.3 \"--sync--\" Ability { id: \"9ED6\", source: \"Lunipyati\" }\r\n3116.8 \"--sync--\" Ability { id: \"9ED6\", source: \"Lunipyati\" }\r\n3122.8 \"Leaping Earth (spiral)\" duration 5.1 #Ability { id: \"9E9E\", source: \"Lunipyati\" }\r\n3123.2 \"--sync--\" Ability { id: \"9ED5\", source: \"Lunipyati\" }\r\n3138.8 \"Boulder Dance\" Ability { id: \"9E9F\", source: \"Lunipyati\" } duration 4.4\r\n3140.3 \"--sync--\" Ability { id: \"9EA0\", source: \"Lunipyati\" }\r\n3151.8 \"Boulder Dance\" Ability { id: \"9E9F\", source: \"Lunipyati\" } duration 4.4\r\n3153.3 \"--sync--\" Ability { id: \"9EA0\", source: \"Lunipyati\" }\r\n3158.8 \"Jagged Edge\" Ability { id: \"9EA7\", source: \"Lunipyati\" }\r\n3161.9 \"--sync--\" StartsUsing { id: \"9E9C\", source: \"Lunipyati\" } window 10,10 forcejump \"lunipyati-merge\"\r\n\r\n# Boulder Dance first\r\n3300.0 label \"lunipyati-boulder-dance\"\r\n3306.0 \"Boulder Dance\" Ability { id: \"9E9F\", source: \"Lunipyati\" } duration 4.4\r\n3307.3 \"--sync--\" Ability { id: \"9EA0\", source: \"Lunipyati\" }\r\n3319.0 \"Boulder Dance\" Ability { id: \"9E9F\", source: \"Lunipyati\" } duration 4.4\r\n3320.3 \"--sync--\" Ability { id: \"9EA0\", source: \"Lunipyati\" }\r\n3326.0 \"Jagged Edge\" Ability { id: \"9EA7\", source: \"Lunipyati\" }\r\n3337.7 \"Leaping Earth (arcs)\" duration 3.7 #Ability { id: \"9E9E\", source: \"Lunipyati\" }\r\n3338.0 \"--sync--\" Ability { id: \"9ED6\", source: \"Lunipyati\" }\r\n3341.4 \"--sync--\" Ability { id: \"9ED6\", source: \"Lunipyati\" }\r\n3348.8 \"Leaping Earth (arcs)\" duration 3.7 #Ability { id: \"9E9E\", source: \"Lunipyati\" }\r\n3349.4 \"--sync--\" Ability { id: \"9ED6\", source: \"Lunipyati\" }\r\n3352.9 \"--sync--\" Ability { id: \"9ED6\", source: \"Lunipyati\" }\r\n3358.9 \"Leaping Earth (spiral)\" duration 5.1 #Ability { id: \"9E9E\", source: \"Lunipyati\" }\r\n3359.3 \"--sync--\" Ability { id: \"9ED5\", source: \"Lunipyati\" }\r\n3366.9 \"--sync--\" StartsUsing { id: \"9E9C\", source: \"Lunipyati\" } window 10,10 forcejump \"lunipyati-merge\"\r\n\r\n# merge\r\n3500.0 label \"lunipyati-merge\"\r\n3507.0 \"Crater Carve\" Ability { id: \"9E9C\", source: \"Lunipyati\" }\r\n3509.1 \"--sync--\" Ability { id: \"9E9D\", source: \"Lunipyati\" }\r\n\r\n# loop\r\n3525.1 label \"lunipyati-loop\"\r\n3525.1 \"Beastly Roar\" Ability { id: \"9EA2\", source: \"Lunipyati\" }\r\n3526.7 \"Rock Blast\" duration 9 #Ability { id: \"9EA3\", source: \"Lunipyati\" }\r\n3535.3 \"--sync--\" Ability { id: \"9EAC\", source: \"Lunipyati\" }\r\n3542.0 \"Raging Claw\" Ability { id: \"9EA4\", source: \"Lunipyati\" } duration 2.4\r\n3542.4 \"--sync--\" Ability { id: \"9EA5\", source: \"Lunipyati\" }\r\n3547.5 \"Jagged Edge\" Ability { id: \"9EA7\", source: \"Lunipyati\" }\r\n3554.2 \"Turali Stone IV\" Ability { id: \"9EA8\", source: \"Lunipyati\" }\r\n3562.6 \"Sonic Howl\" Ability { id: \"9EAA\", source: \"Lunipyati\" }\r\n3571.7 \"Sonic Howl\" Ability { id: \"9EAA\", source: \"Lunipyati\" }\r\n3580.8 \"Slabber\" Ability { id: \"9EAB\", source: \"Lunipyati\" }\r\n3599.9 \"Beastly Roar\" Ability { id: \"9EA2\", source: \"Lunipyati\" } forcejump \"lunipyati-loop\"\r\n\r\n# IGNORED ABILITIES\r\n# 9EAD --sync--\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# 9E9B Leporine Loaf - raidwide, spawns bleed-wall surrounding arena\r\n# 9E9C Crater Carve - self-cast\r\n# 9E9D Crater Carve - damage, creates hole in center of arena\r\n# 9E9E Leaping Earth - damage from radiating spiral aoes\r\n# 9E9F Boulder Dance - damage from Boulder Dance source aoe, gives vuln stack\r\n# 9EA0 Boulder Dance - damage from Boulder Dance target aoe, gives vuln stack\r\n# 9EA1 Boulder Dance - continuous damage from standing in Boulder Dance aoe (source or target)\r\n# 9EA2 Beastly Roar - proximity raidwide from under boss\r\n# 9EA3 Rock Blast - chasing aoe from boss around edge of arena, gives vuln stack\r\n# 9EA4 Raging Claw - self-cast\r\n# 9EA5 Raging Claw - first frontal cleave (high damage)\r\n# 9EA6 Raging Claw - follow-up frontal cleaves (lesser damage)\r\n# 9EA7 Jagged Edge - spread aoes\r\n# 9EA8 Turali Stone IV - party stack\r\n# 9EAA Sonic Howl - raidwide\r\n# 9EAB Slabber - tankbuster\r\n# 9EAC --sync--\r\n# 9EAD --sync-- - boss auto attack\r\n# 9ED5 --sync--\r\n# 9ED6 --sync--\r\n";
+;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/eureka/occult_crescent_north_horn.ts
+
+// import PhantomJobUtils from '../../../../../resources/occult_crescent_common';
+
+// List of events:
+// https://github.com/xivapi/ffxiv-datamining/blob/master/csv/en/DynamicEvent.csv
+//
+// These ids are (unfortunately) gathered by hand and don't seem to correlate
+// to any particular bits of data.  However, there's a game log message when you
+// register for a CE and an 0x21 message with this id when you accept and
+// teleport in.  This avoids having to translate all of these names and also
+// guarantees that the player is actually in the CE for the purpose of
+// filtering triggers.
+const occult_crescent_north_horn_ceIds = {};
+
+/*
+const headMarkerData = {
+} as const;
+*/
+
+// Used to filter the GainsEffect for Phantom Job Tracker
+const phantomJobEffectIds = ['1092',
+// Freelancer
+'1106',
+// Knight
+'1107',
+// Berserker
+'1108',
+// Monk
+'1109',
+// Ranger
+'1110',
+// Oracle
+'1111',
+// Thief
+'110A',
+// Samurai
+'110B',
+// Bard
+'110C',
+// Geomancer
+'110D',
+// Time Mage
+'110E',
+// Cannonneer
+'110F',
+// Chemist
+'12C3',
+// Mystic Knight
+'12C4',
+// Gladiator
+'12C5',
+// Dancer
+'14D0',
+// Ninja
+'14D1',
+// White Mage
+'14D2',
+// Black Mage
+'14D3',
+// Dragoon
+'14D4',
+// Summoner
+'14D5',
+// Blue Mage
+'14D6',
+// Red Mage
+'14D7' // Necromancer
+];
+
+const occult_crescent_north_horn_triggerSet = {
+  id: 'TheOccultCrescentNorthHorn',
+  zoneId: zone_id/* default.TheOccultCrescentNorthHorn */.Z.TheOccultCrescentNorthHorn,
+  comments: {
+    en: 'Occult Crescent North Horn critical encounter triggers/timeline.',
+    cn: '蜃景幻界新月岛 北征之章 紧急遭遇战 触发器/时间轴。'
+  },
+  timelineFile: 'occult_crescent_north_horn.txt',
+  initData: () => ({}),
+  resetWhenOutOfCombat: false,
+  timelineTriggers: [],
+  triggers: [
+  // ---------------------- Setup --------------------------
+  {
+    id: 'Occult Crescent North Horn Critical Encounter',
+    type: 'ActorControl',
+    netRegex: {
+      command: '80000014'
+    },
+    run: (data, matches) => {
+      // This fires when you win, lose, or teleport out.
+      if (matches.data0 === '00') {
+        if (data.ce !== undefined && data.options.Debug) console.log(`Stop CE: ${data.ce}`);
+        // Stop any active timelines.
+        data.StopCombat();
+        // Prevent further triggers for any active CEs from firing.
+        delete data.ce;
+        return;
+      }
+      delete data.ce;
+      const ceId = matches.data0.toUpperCase();
+      for (const key in occult_crescent_north_horn_ceIds) {
+        if (occult_crescent_north_horn_ceIds[key] === ceId) {
+          if (data.options.Debug) console.log(`Start CE: ${key} (${ceId})`);
+          data.ce = key;
+          return;
+        }
+      }
+      if (data.options.Debug) console.log(`Start CE: ??? (${ceId})`);
+    }
+  }, {
+    id: 'Occult Crescent North Horn Phantom Job Tracker',
+    // count also contains a Phantom Job id and level, it's supposed to be two bytes but has weird padding in logs
+    // Expecting first two characters to be part of Phantom Job id, and the later two to be the level
+    // First digit (South Horn jobs) and first two (North Horn jobs) are the job:
+    // Introduced in North Horn:
+    // Necromancer = 17
+    // Red Mage = 16
+    // Blue Mage = 15
+    // Summoner = 14
+    // Dragoon = 13
+    // Black Mage = 12
+    // White Mage = 11
+    // Ninja = 10
+    // Introduced in South Horn:
+    // Dancer = F
+    // Gladiator = E
+    // Mystic Knight = D
+    // Thief = C
+    // Oracle = B
+    // Chemist = A
+    // Cannoneer = 9
+    // Time Mage = 8
+    // Geomancer = 7
+    // Bard = 6
+    // Samurai = 5
+    // Ranger = 4
+    // Monk = 3
+    // Berserker = 2
+    // Knight = 1
+    // Freelancer = null
+    // Freelancer level is accumulation of maxed jobs +1, can also be inferred from stacks of Phantom Mastery (1082)
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: [...phantomJobEffectIds],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    run: (data, matches) => {
+      data.phantomJob = matches.effectId;
+      const jobData = matches.count?.padStart(4, '0');
+
+      // Assuming this isn't possible given the filter on statuses
+      if (jobData === undefined) return;
+      data.phantomJobLevel = parseInt(jobData.slice(2), 16);
+    }
+  }
+  /*
+  {
+    id: 'Occult Crescent Forked Tower: Magic Clear Data',
+    type: 'SystemLogMessage',
+    // "is no longer sealed"
+    netRegex: { id: '7DE', capture: false },
+    run: (data) => ,
+  },
+  */
+  // ---------------------- CEs --------------------------
+  // ------------------- FATEs -----------------------
+  // ------------------- Forked Tower: Magic -----------------------
+  // -------------- Forked Tower: Magic (Extreme) ------------------
+  ],
+
+  timelineReplace: [{
+    'locale': 'en',
+    'replaceText': {}
+  }, {
+    'locale': 'de',
+    'replaceSync': {},
+    'replaceText': {}
+  }, {
+    'locale': 'fr',
+    'replaceSync': {},
+    'replaceText': {}
+  }, {
+    'locale': 'ja',
+    'replaceSync': {},
+    'replaceText': {}
+  }, {
+    'locale': 'cn',
+    'replaceSync': {},
+    'replaceText': {}
+  }, {
+    'locale': 'tc',
+    'replaceSync': {},
+    'replaceText': {}
+  }, {
+    'locale': 'ko',
+    'replaceSync': {},
+    'replaceText': {}
+  }]
+};
+/* harmony default export */ const occult_crescent_north_horn = (occult_crescent_north_horn_triggerSet);
+;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/eureka/occult_crescent_north_horn.txt
+const eureka_occult_crescent_north_horn_namespaceObject = "### Occult Crescent: North Horn\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n# Use zone-unseal and 0x21 Reset lines\r\n# Trigger set contains 'resetWhenOutOfCombat: false'\r\n\r\n0.0 \"--Reset--\" ActorControl { command: \"80000014\", data0: \"00\" } window 0,100000 jump 0\r\n# .*is no longer sealed\r\n0.0 \"--Reset--\" SystemLogMessage { id: \"7DE\" } window 0,100000 jump 0\r\n\r\n# Unlike with Bozja, you do not teleport into critical encounters from afar.\r\n# Instead players must run to the encounter spot. This makes the \"entry\"\r\n# into the critical encounter happen much later.\r\n";
+// EXTERNAL MODULE: ./resources/occult_crescent_common.ts
+var occult_crescent_common = __webpack_require__(788);
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/eureka/occult_crescent_south_horn.ts
+
 
 
 
@@ -227101,8 +229095,8 @@ const magitaurOutputStrings = {
   }
 };
 
-// Used to filter the GainsEffect
-const phantomJobEffectIds = ['1092',
+// Used to filter the GainsEffect for Phantom Job Tracker
+const occult_crescent_south_horn_phantomJobEffectIds = ['1092',
 // Freelancer
 '1106',
 // Knight
@@ -227132,140 +229126,24 @@ const phantomJobEffectIds = ['1092',
 // Mystic Knight
 '12C4',
 // Gladiator
-'12C5' // Dancer
+'12C5',
+// Dancer
+'14D0',
+// Ninja
+'14D1',
+// White Mage
+'14D2',
+// Black Mage
+'14D3',
+// Dragoon
+'14D4',
+// Summoner
+'14D5',
+// Blue Mage
+'14D6',
+// Red Mage
+'14D7' // Necromancer
 ];
-
-// Useful for matching on job name in condition trigger
-const phantomJobData = {
-  'freelancer': '1092',
-  'knight': '1106',
-  'berserker': '1107',
-  'monk': '1108',
-  'ranger': '1109',
-  'oracle': '1110',
-  'thief': '1111',
-  'samurai': '110A',
-  'bard': '110B',
-  'geomancer': '110C',
-  'timeMage': '110D',
-  'cannoneer': '110E',
-  'chemist': '110F',
-  'mysticKnight': '12C3',
-  'gladiator': '12C4',
-  'dancer': '12C5'
-};
-
-// Return if the player has a phantom job that can dispel
-// Phantom Time Mage Lv 4: Dispel
-const phantomCanDispel = (phantomJob, phantomJobLevel) => {
-  if (phantomJob === phantomJobData.timeMage && phantomJobLevel >= 4) return true;
-  return false;
-};
-
-// Return if the player has a phantom job that can slow
-// Phantom Time Mage Lv 1: Slowga
-/*
-const phantomCanSlow = (
-  phantomJob: string,
-  phantomJobLevel: number,
-): boolean => {
-  if (phantomJob === phantomJobData.timeMage && phantomJobLevel >= 1)
-    return true;
-  return false;
-};
-*/
-
-// Return if the player has a phantom job that can cleanse
-// Phantom Oracle Lv 2: Recuperation
-const phantomCanCleanse = (phantomJob, phantomJobLevel) => {
-  if (phantomJob === phantomJobData.oracle && phantomJobLevel >= 2) return true;
-  return false;
-};
-
-// Return if the player has a phantom job that can freeze time
-// Phantom Bard Lv 2: Romeo's Ballad (aoe)
-// Phantom Dancer Lv 1 may be able to use Dance with Tempting Tango proc (single-target)
-const phantomCanFreeze = (phantomJob, phantomJobLevel) => {
-  if (phantomJob === phantomJobData.bard && phantomJobLevel >= 2) return true;
-  if (phantomJob === phantomJobData.dancer && phantomJobLevel >= 1) return true;
-  return false;
-};
-
-// Return if the player has a phantom job that can suspend
-// Phantom Geomancer Lv 4: Suspend
-/*
-const phantomCanSuspend = (
-  phantomJob: string,
-  phantomJobLevel: number,
-): boolean => {
-  if (phantomJob === phantomJobData.geomancer && phantomJobLevel >= 4)
-    return true;
-  return false;
-};
-*/
-
-// Return if the player has a phantom job that can reduce tankbuster
-// Phantom Knight Lv 4: Phantom Guard + Enhanced Phantom Guard (90%)
-// Phantom Knight Lv 6: Pledge
-// Phantom Oracle Lv 6: Invulnerability
-// Phantom Dancer Lv 3: Steadfast Dance (10% MaxHP Barrier)
-// Phantom Dancer Lv 4: Mesmerize (40%)
-// Phantom Mystic Knight Lv 2: Magic Shell (20% MaxHP Barrier of caster)
-// Phantom Gladiator Lv 2: Defend (50%)
-/*
-const phantomCaresAboutTankbuster = (
-  phantomJob: string,
-  phantomJobLevel: number,
-): boolean => {
-  if (phantomJob === phantomJobData.knight && phantomJobLevel >= 4)
-    return true;
-  if (phantomJob === phantomJobData.oracle && phantomJobLevel >= 6)
-    return true;
-  if (phantomJob === phantomJobData.dancer && phantomJobLevel >= 3)
-    return true;
-  if (phantomJob === phantomJobData.mysticKnight && phantomJobLevel >= 2)
-    return true;
-  if (phantomJob === phantomJobData.gladiator && phantomJobLevel >= 2)
-    return true;
-  return false;
-};
-*/
-
-// Return if the player has a phantom job that can block physical damage
-// Phantom Samurai Lv 2: Shirahadori
-// Phantom Oracle Lv 6: Invulnerability
-/*
-const phantomCanBlockPhysical = (
-  phantomJob: string,
-  phantomJobLevel: number,
-): boolean => {
-  if (phantomJob === phantomJobData.samurai && phantomJobLevel >= 2)
-    return true;
-  if (phantomJob === phantomJobData.oracle && phantomJobLevel >= 6)
-    return true;
-  return false;
-};
-*/
-
-// Return if the player has a phantom job that helps with enemy aoes
-// Phantom Bard Lv 3: Mighty March (+20% MaxHP)
-// Phantom Ranger Lv 6: Occult Unicorn (40k AoE Shield)
-// Phantom Dancer Lv 4: Mesmerize (Require's target, 4s 40% damage reduction then 100s 10% damage reduction)
-// Phantom Geomance Lv 2 may be able to use Weather with Blessed Rain, Misty Mirage, Sunbath, or Cloudy Caress effects
-/*
-const phantomCaresAboutAOE = (
-  phantomJob: string,
-  phantomJobLevel: number,
-): boolean => {
-  if (phantomJob === phantomJobData.bard && phantomJobLevel >= 3)
-    return true;
-  if (phantomJob === phantomJobData.ranger && phantomJobLevel >= 6)
-    return true;
-  if (phantomJob === phantomJobData.dancer && phantomJobLevel >= 4)
-    return true;
-  return false;
-};
-*/
 
 const occult_crescent_south_horn_triggerSet = {
   id: 'TheOccultCrescentSouthHorn',
@@ -227534,7 +229412,7 @@ const occult_crescent_south_horn_triggerSet = {
   triggers: [
   // ---------------------- Setup --------------------------
   {
-    id: 'Occult Crescent Critical Encounter',
+    id: 'Occult Crescent South Horn Critical Encounter',
     type: 'ActorControl',
     netRegex: {
       command: '80000014'
@@ -227561,10 +229439,20 @@ const occult_crescent_south_horn_triggerSet = {
       if (data.options.Debug) console.log(`Start CE: ??? (${ceId})`);
     }
   }, {
-    id: 'Occult Crescent Phantom Job Tracker',
+    id: 'Occult Crescent South Horn Phantom Job Tracker',
     // count also contains a Phantom Job id and level, it's supposed to be two bytes but has weird padding in logs
     // Expecting first two characters to be part of Phantom Job id, and the later two to be the level
-    // First digit is the job:
+    // First digit (South Horn jobs) and first two (North Horn jobs) are the job:
+    // Introduced in North Horn:
+    // Necromancer = 17
+    // Red Mage = 16
+    // Blue Mage = 15
+    // Summoner = 14
+    // Dragoon = 13
+    // Black Mage = 12
+    // White Mage = 11
+    // Ninja = 10
+    // Introduced in South Horn:
     // Dancer = F
     // Gladiator = E
     // Mystic Knight = D
@@ -227584,7 +229472,7 @@ const occult_crescent_south_horn_triggerSet = {
     // Freelancer level is accumulation of maxed jobs +1, can also be inferred from stacks of Phantom Mastery (1082)
     type: 'GainsEffect',
     netRegex: {
-      effectId: [...phantomJobEffectIds],
+      effectId: [...occult_crescent_south_horn_phantomJobEffectIds],
       capture: true
     },
     condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
@@ -227686,7 +229574,7 @@ const occult_crescent_south_horn_triggerSet = {
     },
     condition: data => {
       if (data.phantomJob === undefined || data.phantomJobLevel === undefined) return false;
-      return phantomCanDispel(data.phantomJob, data.phantomJobLevel);
+      return occult_crescent_common/* default.canDispel */.Z.canDispel(data.phantomJob, data.phantomJobLevel);
     },
     infoText: (_data, matches, output) => output.dispel({
       name: matches.target
@@ -227782,7 +229670,7 @@ const occult_crescent_south_horn_triggerSet = {
     },
     condition: data => {
       if (data.phantomJob === undefined || data.phantomJobLevel === undefined) return false;
-      return phantomCanDispel(data.phantomJob, data.phantomJobLevel);
+      return occult_crescent_common/* default.canDispel */.Z.canDispel(data.phantomJob, data.phantomJobLevel);
     },
     infoText: (_data, matches, output) => output.dispel({
       name: matches.target
@@ -230396,7 +232284,7 @@ const occult_crescent_south_horn_triggerSet = {
       capture: true
     },
     condition: data => {
-      if (data.phantomJob === undefined || data.phantomJobLevel === undefined || phantomCanFreeze(data.phantomJob, data.phantomJobLevel)) return true;
+      if (data.phantomJob === undefined || data.phantomJobLevel === undefined || occult_crescent_common/* default.canFreeze */.Z.canFreeze(data.phantomJob, data.phantomJobLevel)) return true;
       return false;
     },
     promise: async (data, matches) => {
@@ -231916,7 +233804,7 @@ const occult_crescent_south_horn_triggerSet = {
       capture: true
     },
     condition: (data, matches) => {
-      if (data.me === matches.target && (data.phantomJob === undefined || data.phantomJobLevel === undefined || phantomCanCleanse(data.phantomJob, data.phantomJobLevel))) return true;
+      if (data.me === matches.target && (data.phantomJob === undefined || data.phantomJobLevel === undefined || occult_crescent_common/* default.canCleanse */.Z.canCleanse(data.phantomJob, data.phantomJobLevel))) return true;
       return false;
     },
     // 25s - 20s, plus some delay for buff/debuff propagation
@@ -246938,7 +248826,7 @@ const r12s_triggerSet = {
       const actor = data.actorPositions[matches.sourceId];
       if (actor === undefined) return output.getBehind();
       const dirNum = (util/* Directions.hdgTo16DirNum */.Ns.hdgTo16DirNum(actor.heading) + 8) % 16;
-      const dir = util/* Directions.output16Dir */.Ns.output16Dir[dirNum] ?? 'unknown';
+      const dir = util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(dirNum);
       return output.getBehindDir({
         dir: output[dir](),
         mech: output.getBehind()
@@ -247132,7 +249020,7 @@ const r12s_triggerSet = {
 
       // Adding 16 incase of negative values
       const newDirNum = (getNewDirNum(dirNum, matches.id) + 16 + 8) % 16;
-      const dir = util/* Directions.output16Dir */.Ns.output16Dir[newDirNum] ?? 'unknown';
+      const dir = util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(newDirNum);
       return output.getBehindDir({
         dir: output[dir](),
         mech: output.getBehind()
@@ -248141,7 +250029,7 @@ const r12s_triggerSet = {
       const actor = data.actorPositions[bossId];
       if (actor === undefined) return output.getBehind();
       const dirNum = (util/* Directions.hdgTo16DirNum */.Ns.hdgTo16DirNum(actor.heading) + 8) % 16;
-      const dir = util/* Directions.output16Dir */.Ns.output16Dir[dirNum] ?? 'unknown';
+      const dir = util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(dirNum);
       return output.getBehindDir({
         dir: output[dir](),
         mech: output.getBehind()
@@ -260299,29 +262187,28 @@ const r5n_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
-      'Dancing Green': 'ダンシング・グリーン'
+      'Dancing Green': '熱舞綠光'
     },
     'replaceText': {
-      // '\\(opposite\\)': '', // FIXME '(对面)'
-      '2-snap Twist': '二連舞步＆定格',
-      '4-snap Twist': '四連舞步＆定格',
+      '\\(opposite\\)': '(對面)',
+      '2-snap Twist': '二連指向＆定格',
+      '4-snap Twist': '四連指向＆定格',
       'Arcady Night Fever': '阿卡狄亞夜狂熱',
-      'Celebrate Good Times': '歡慶美妙時光',
-      'Deep Cut': '心曲刻錄',
+      'Celebrate Good Times': '歡慶時刻',
+      'Deep Cut': '經典銘心',
       'Disco Infernal': '激熱夜舞廳',
-      'Do the Hustle': '跳起哈娑舞',
+      'Do the Hustle': '搖擺哈娑',
       'Eighth Beats': '8拍節奏',
       'Ensemble Assemble': '伴舞團',
-      'Frogtourage': '青蛙舞者登場！',
+      'Frogtourage': '來吧！青蛙舞者！',
       'Full Beat': '1拍節奏',
       'Funky Floor': '熱舞場地',
       'Let\'s Dance!': '放縱勁舞！',
       'Let\'s Pose!': '定格時刻！',
-      'Moonburn': '月灼',
-      'Ride the Waves': '舞浪全開'
-      // 'Stone': '', // FIXME
+      'Moonburn': '太空熱步',
+      'Ride the Waves': '舞浪全開',
+      'Stone': ''
     }
   }, {
     'locale': 'ko',
@@ -261172,50 +263059,49 @@ const r5s_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
-      'Dancing Green': 'ダンシング・グリーン',
-      'Frogtourage': 'フロッグダンサー'
+      'Dancing Green': '熱舞綠光',
+      'Frogtourage': '青蛙舞者'
     },
     'replaceText': {
-      // '\\(Cleave\\)': '', // FIXME '(半场)'
-      // '\\(Echo\\)': '', // FIXME '(重复)'
-      // '\\(In\\+Protean\\+Echo\\)': '', // FIXME '(内+八方+重复)'
-      // '\\(Out\\+Protean\\+Echo\\)': '', // FIXME '(外+八方+重复)'
-      // '\\(Out\\+Protean\\)': '', // FIXME '(外+八方)'
-      // '\\(all\\)': '', // FIXME '(全体)'
-      // '\\(boss\\)': '', // FIXME '(BOSS)'
-      // '\\(dancers\\)': '', // FIXME '(分身)'
-      // '\\(enrage\\)': '', // FIXME '(狂暴)'
-      // '2-snap Twist & Drop the Needle/3-snap Twist & Drop the Needle/4-snap Twist & Drop the Needle': '', // FIXME '二/三/四连指向、定格＆播放' (RSV ID: 42208)
-      // 'Arcady Night Encore': '', // FIXME '返场夜狂热' (RSV ID: 41840)
-      'Arcady Night Fever': '在這停頓！',
-      // 'Back-up Dance': '', // FIXME '伴舞波动' (RSV ID: 42872)
-      'Celebrate Good Times': '歡慶美妙時光',
-      'Deep Cut': '心曲刻錄',
-      // 'Debuffs': '', // FIXME '毒'
+      '\\(Cleave\\)': '(半場)',
+      '\\(Echo\\)': '(重複)',
+      '\\(In\\+Protean\\+Echo\\)': '(內+八方+重複)',
+      '\\(Out\\+Protean\\+Echo\\)': '(外+八方+重複)',
+      '\\(Out\\+Protean\\)': '(外+八方)',
+      '\\(all\\)': '(全體)',
+      '\\(boss\\)': '(BOSS)',
+      '\\(dancers\\)': '(分身)',
+      '\\(enrage\\)': '(狂暴)',
+      '2-snap Twist & Drop the Needle/3-snap Twist & Drop the Needle/4-snap Twist & Drop the Needle': '二/三/四連指向、定格＆播放',
+      'Arcady Night Encore': '返場夜狂熱',
+      'Arcady Night Fever': '阿卡狄亞夜狂熱',
+      'Back-up Dance': '伴舞波動',
+      'Celebrate Good Times': '歡慶時刻',
+      'Deep Cut': '經典銘心',
+      'Debuffs': '毒',
       'Disco Infernal': '激熱夜舞廳',
-      'Do the Hustle': '跳起哈娑舞',
-      // '(?<!& )Drop the Needle': '', // FIXME '播放'
+      'Do the Hustle': '搖擺哈娑',
+      '(?<!& )Drop the Needle': '播放',
       'Eighth Beats': '8拍節奏',
       'Ensemble Assemble': '伴舞團',
-      // 'Fire': '', // FIXME
-      // 'Flip to A-side': '', // FIXME '放入A面'
-      // 'Flip to B-side': '', // FIXME '放入B面'
-      // 'Freak Out': '', // FIXME '音频爆炸'
-      // 'Frogtourage Finale': '', // FIXME '舞团终演' (RSV ID: 42209)
-      'Frogtourage(?! )': '青蛙舞者登場！',
+      'Fire': '火焰',
+      'Flip to A-side': '放入A面',
+      'Flip to B-side': '放入B面',
+      'Freak Out': '音頻爆炸',
+      'Frogtourage Finale': '舞團終演',
+      'Frogtourage(?! )': '來吧！青蛙舞者！',
       'Funky Floor': '熱舞場地',
-      // 'Get Down!': '', // FIXME '尽情舞蹈！'
-      // 'Hi-NRG Fever': '', // FIXME '高能夜狂热'
-      // 'Inside Out': '', // FIXME '内翻外转'
+      'Get Down!': '盡情舞蹈！',
+      'Hi-NRG Fever': '高能夜狂熱',
+      'Inside Out': '內翻外轉',
       'Let\'s Dance!(?! )': '放縱勁舞！',
-      // 'Let\'s Dance! Remix': '', // FIXME '彻夜狂欢，放纵劲舞！'
+      'Let\'s Dance! Remix': '徹夜狂歡, 放縱勁舞！',
       'Let\'s Pose!': '定格時刻！',
-      'Moonburn': '月灼',
-      // 'Outside In': '', // FIXME '外翻内转'
-      // 'Play A-side': '', // FIXME '播放A面'
-      // 'Play B-side': '', // FIXME '播放B面'
+      'Moonburn': '太空熱步',
+      'Outside In': '外翻內轉',
+      'Play A-side': '播放A面',
+      'Play B-side': '播放B面',
       'Quarter Beats': '4拍節奏',
       'Ride the Waves': '舞浪全開'
     }
@@ -261769,35 +263655,34 @@ const r6n_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
-      // 'Heaven Bomb': '', // FIXME '翅膀爆弹怪'
-      // 'Paint Bomb': '', // FIXME '涂鸦爆弹怪'
-      'Sugar Riot': 'シュガーライオット',
-      'Sweet Shot': 'シュガーズアロー',
-      'Tempest Piece': '積乱雲'
+      'Heaven Bomb': '翅膀炸彈',
+      'Paint Bomb': '塗鴉炸彈',
+      'Sugar Riot': '糖彩狂潮',
+      'Sweet Shot': '糖糖箭',
+      'Tempest Piece': '雷暴雲'
     },
     'replaceText': {
-      // '\\(cast\\)': '', // FIXME '(咏唱)'
-      // '\\(snapshot\\)': '', // FIXME '(快照)'
-      // '\\(spread\\)': '', // FIXME '(分散)'
+      '\\(cast\\)': '(詠唱)',
+      '\\(snapshot\\)': '(快照)',
+      '\\(spread\\)': '(分散)',
       'Burst': '爆炸',
       'Color Riot': '色彩暴亂',
-      // 'Cool Bomb': '', // FIXME '冷色爆弹怪'
+      'Cool Bomb': '冷色炸彈',
       'Double Style': '雙手塗鴉',
       'Highlightning': '界雷',
       'Layer': '添筆',
       'Lightning Bolt': '落雷',
-      'Mousse Mural': '慕斯怪之雨',
+      'Mousse Mural': '慕斯怪大雨',
       'Mousse Touch-up': '慕斯怪小雨',
-      'Pudding Party': '布丁聚會',
+      'Pudding Party': '布丁派對',
       'Rush': '突進',
       'Single Style': '單手塗鴉',
       'Spray Pain': '飛針',
-      'Sugarscape': '沙地繪景',
-      'Taste of Fire': '糖果火焰',
-      'Taste of Thunder': '糖果雷電'
-      // 'Warm Bomb': '', // FIXME '暖色爆弹怪'
+      'Sugarscape': '糖心繪景',
+      'Taste of Fire': '糖糖火焰',
+      'Taste of Thunder': '糖糖雷電',
+      'Warm Bomb': '暖色炸彈'
     }
   }, {
     'locale': 'ko',
@@ -262069,7 +263954,7 @@ const r6s_triggerSet = {
         ja: 'ボス背面のサークル上に',
         cn: '站在目标圈上 (远离坦克死刑)',
         ko: '보스 히트박스 경계에 있기 (광역 탱버 피하기)',
-        tc: '站在目標圈上 (遠離坦剋死刑)'
+        tc: '站在目標圈上 (遠離坦克死刑)'
       },
       warmCleave: {
         en: 'Tank cleave on YOU (${dir} => get hit by Red)',
@@ -262078,7 +263963,7 @@ const r6s_triggerSet = {
         ja: 'タンク攻撃 (${dir} => 赤に当たる)',
         cn: '坦克死刑 (${dir} => 吃红色)',
         ko: '광역 탱버 대상자 (${dir} => 빨간색 맞기)',
-        tc: '坦剋死刑 (${dir} => 吃紅色)'
+        tc: '坦克死刑 (${dir} => 吃紅色)'
       },
       coolCleave: {
         en: 'Tank cleave on YOU (${dir} => get hit by Blue)',
@@ -262087,7 +263972,7 @@ const r6s_triggerSet = {
         ja: 'タンク攻撃 (${dir} => 青に当たる)',
         cn: '坦克死刑 (${dir} => 吃蓝色)',
         ko: '광역 탱버 대상자 (${dir} => 파란색 맞기)',
-        tc: '坦剋死刑 (${dir} => 吃藍色)'
+        tc: '坦克死刑 (${dir} => 吃藍色)'
       },
       tankCleave: outputs/* default.tankCleaveOnYou */.Z.tankCleaveOnYou,
       in: outputs/* default.in */.Z["in"],
@@ -262280,7 +264165,7 @@ const r6s_triggerSet = {
         ja: '爆弾を流砂に捨てる',
         cn: '流沙里放置炸弹',
         ko: '늪에 폭탄 놓기',
-        tc: '流沙裡放置炸彈'
+        tc: '流沙里放置炸彈'
       },
       wingedBomb: {
         en: 'Aim bomb towards quicksand',
@@ -262912,28 +264797,27 @@ const r6s_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
-      'Mouthwatering Morbol': 'シュガーズモルボル',
-      'Sugar Riot': 'シュガーライオット',
-      'Sweet Shot': 'シュガーズアロー'
+      'Mouthwatering Morbol': '糖糖毛爾波爾',
+      'Sugar Riot': '糖彩狂潮',
+      'Sweet Shot': '糖糖箭'
     },
     'replaceText': {
-      // '\\(cast\\)': '', // FIXME '(咏唱)'
-      // '\\(snapshot\\)': '', // FIXME '(快照)'
-      // '--2x Feather Ray targetable--': '', // FIXME '--2x 羽环鳐 可选中--'
-      // '--2x Mu targetable--': '', // FIXME '--2x 亩鼠 可选中--'
-      // '--Gimme Cat targetable--': '', // FIXME '--索取猫 可选中--'
-      // '--Jabberwock targetable--': '', // FIXME '--炸脖龙 可选中--'
-      // '--Yan targetable--': '', // FIXME '--羊 可选中--'
-      // '--jump\\?--': '', // FIXME '--跳?--'
+      '\\(cast\\)': '(詠唱)',
+      '\\(snapshot\\)': '(快照)',
+      '--2x Feather Ray targetable--': '--2x 羽環鰩 可選中--',
+      '--2x Mu targetable--': '--2x 畝鼠 可選中--',
+      '--Gimme Cat targetable--': '--索取貓 可選中--',
+      '--Jabberwock targetable--': '--賈巴沃克 可選中--',
+      '--Yan targetable--': '--羊 可選中--',
+      '--jump\\?--': '--跳?--',
       'Artistic Anarchy': '藝術大亂鬥',
       'Bad Breath': '臭氣',
       'Brûlée': '熱耗散',
       'Burst': '爆炸',
       'Color Clash': '色彩衝擊',
       'Color Riot': '色彩暴亂',
-      // 'Cool Bomb': '', // FIXME '冷色爆弹怪'
+      'Cool Bomb': '冷色炸彈',
       'Crowd Brûlée': '重熱擴散',
       'Dark Mist': '暗黑霧',
       'Double Style': '雙手塗鴉',
@@ -262943,21 +264827,21 @@ const r6s_triggerSet = {
       'Lightning Bolt': '落雷',
       'Lightning Storm': '百雷',
       'Live Painting': '即興繪畫',
-      'Moussacre': '慕斯怪大進軍',
+      'Moussacre': '慕斯慕斯衝',
       'Mousse Drip': '啪嘰慕斯怪',
-      'Mousse Mural': '慕斯怪之雨',
+      'Mousse Mural': '慕斯怪大雨',
       'Pudding Graf': '咣噹布丁',
-      'Pudding Party': '布丁聚會',
+      'Pudding Party': '布丁派對',
       'Ready Ore Not': '送你原石',
       'Rush': '突進',
       'Single Style': '單手塗鴉',
-      'Soul Sugar': '糖果之魂',
+      'Soul Sugar': '糖糖之魂',
       'Spray Pain': '飛針',
       'Sticky Mousse': '黏黏慕斯怪',
-      'Sugarscape': '沙地繪景',
-      'Taste of Fire': '糖果火焰',
-      'Taste of Thunder': '糖果雷電',
-      // 'Warm Bomb': '', // FIXME '暖色爆弹怪'
+      'Sugarscape': '糖心繪景',
+      'Taste of Fire': '雙手塗鴉',
+      'Taste of Thunder': '糖糖雷電',
+      'Warm Bomb': '暖色炸彈',
       'Wingmark': '翅膀標記'
     }
   }, {
@@ -263214,7 +265098,7 @@ const r7s_triggerSet = {
         ja: '${stoneringer} => パーティ ${inOut}, タンク頭割りを避ける',
         cn: '${stoneringer} => 小队 ${inOut}, 远离坦克死刑',
         ko: '${stoneringer} => 본대 ${inOut}, 탱버 피하기',
-        tc: '${stoneringer} => 小隊 ${inOut}, 遠離坦剋死刑'
+        tc: '${stoneringer} => 小隊 ${inOut}, 遠離坦克死刑'
       },
       in: outputs/* default.in */.Z["in"],
       out: outputs/* default.out */.Z.out,
@@ -264021,25 +265905,24 @@ const r7s_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
-      'Blooming Abomination': 'アボミネータースプラウト',
-      'Brute Abombinator': 'ブルートアボミネーター'
+      'Blooming Abomination': '憎惡花芽',
+      'Brute Abombinator': '野蠻憎惡'
     },
     'replaceText': {
-      // '--middile--': '', // FIXME '--中间--'
-      // '\\(adds': '', // FIXME '(小怪'
-      // 'cast\\)': '', // FIXME '咏唱)'
-      // '\\(enrage\\)': '', // FIXME '(狂暴)'
-      // '\\(puddles': '', // FIXME '(圈'
-      // '\\(seeds drop\\)': '', // FIXME '(种子落下)'
+      '--middile--': '--中間--',
+      '\\(adds': '(小怪',
+      'cast\\)': '詠唱)',
+      '\\(enrage\\)': '(狂暴)',
+      '\\(puddles': '(圈',
+      '\\(seeds drop\\)': '(種子落下)',
       'Abominable Blink': '野蠻電火花',
       'Brutal Impact': '野蠻碎擊',
       'Brutal Smash': '野蠻揮打',
       'Brutish Swing': '野蠻橫掃',
       'Crossing Crosswinds': '交叉突風',
-      'Debris Deathmatch': '荊棘生死戰·牆面',
-      'Demolition Deathmatch': '荊棘生死戰·樓體',
+      'Debris Deathmatch': '荊棘生死戰：牆面',
+      'Demolition Deathmatch': '荊棘生死戰：樓體',
       'Electrogenetic Force': '雷擊',
       'Explosion': '爆炸',
       'Glower Power': '野蠻怒視',
@@ -264047,7 +265930,7 @@ const r7s_triggerSet = {
       'Hurricane Force': '颶風',
       '(?<! )Impact': '衝擊',
       'Killer Seeds': '種彈重擊',
-      'Lashing Lariat': '藤蔓碎頸臂',
+      'Lashing Lariat': '藤蔓金臂鉤',
       'Neo Bombarian Special': '新生超豪華野蠻大亂擊',
       'Pollen': '花粉',
       'Powerslam': '強震衝',
@@ -264057,8 +265940,8 @@ const r7s_triggerSet = {
       'Roots of Evil': '荊棘蔓延',
       'Sinister Seeds': '種彈播撒',
       'Slaminator': '野蠻衝',
-      // 'Smash Here': '', // FIXME '近侧挥打'
-      // 'Smash There': '', // FIXME '远侧挥打'
+      'Smash Here': '近側揮打',
+      'Smash There': '遠側揮打',
       'Special Bombarian Special': '究極超豪華野蠻大亂擊',
       'Spore Sac': '孢囊',
       'Sporesplosion': '孢子雲',
@@ -264239,7 +266122,7 @@ const r8n_triggerSet = {
       data.reignDir = (util/* Directions.hdgTo16DirNum */.Ns.hdgTo16DirNum(actor.Heading) + 8) % 16;
     },
     infoText: (data, _matches, output) => {
-      const dir = output[util/* Directions.output16Dir */.Ns.output16Dir[data.reignDir ?? -1] ?? 'unknown']();
+      const dir = output[util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(data.reignDir ?? -1)]();
       return output.inDir({
         dir: dir
       });
@@ -264668,19 +266551,18 @@ const r8n_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
-      'Gleaming Fang': '光の牙',
-      'Howling Blade': 'ハウリングブレード',
-      'Moonlit Shadow': 'ハウリングブレードの幻影',
-      'Wolf of Stone': '土の狼頭',
-      'Wolf of Wind': '風の狼頭'
+      'Gleaming Fang': '光牙',
+      'Howling Blade': '呼嘯之劍',
+      'Moonlit Shadow': '呼嘯之劍的幻影',
+      'Wolf of Stone': '土狼首',
+      'Wolf of Wind': '風狼首'
     },
     'replaceText': {
-      // '\\(castbar\\)': '', // FIXME '(咏唱栏)'
-      // '\\(circles\\)': '', // FIXME '(圆形)'
-      // '\\(cone\\)': '', // FIXME '(扇形)'
-      // '\\(line\\)': '', // FIXME '(直线)'
+      '\\(castbar\\)': '(詠唱欄)',
+      '\\(circles\\)': '(圓形)',
+      '\\(cone\\)': '(扇形)',
+      '\\(line\\)': '(直線)',
       'Bare Fangs': '光牙召喚',
       'Beckon Moonlight': '幻狼召喚',
       'Extraplanar Pursuit': '空間斬',
@@ -265289,7 +267171,7 @@ const r8s_triggerSet = {
       }
     },
     infoText: (data, matches, output) => {
-      const dir = output[util/* Directions.output16Dir */.Ns.output16Dir[data.reignDir ?? -1] ?? 'unknown']();
+      const dir = output[util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(data.reignDir ?? -1)]();
       switch (matches.id) {
         case eminentReign1:
         case eminentReign2:
@@ -265553,7 +267435,7 @@ const r8s_triggerSet = {
 
       // Assume towerDirs from Fang if received bad coords for towers
       if (data.towerDirs === undefined) {
-        if (y > 99 && y < 100) data.towerDirs === 'NS';else if (x > 99 && x < 101) data.towerDirs === 'EW';else return;
+        if (y > 99 && y < 100) data.towerDirs = 'NS';else if (x > 99 && x < 101) data.towerDirs = 'EW';else return;
       }
       const towerDirs = data.towerDirs;
       if (towerfallSafeDirs === 'SENW' && (towerDirs === 'EW' && y < 100 || towerDirs === 'NS' && x < 100)) data.towerfallSafeDir = 'dirNW';else if (towerfallSafeDirs === 'SENW' && (towerDirs === 'EW' && y > 100 || towerDirs === 'NS' && x > 100)) data.towerfallSafeDir = 'dirSE';else if (towerfallSafeDirs === 'NESW' && (towerDirs === 'EW' && y < 100 || towerDirs === 'NS' && x > 100)) data.towerfallSafeDir = 'dirNE';else if (towerfallSafeDirs === 'NESW' && (towerDirs === 'EW' && y > 100 || towerDirs === 'NS' && x < 100)) data.towerfallSafeDir = 'dirSW';else data.towerfallSafeDir = 'unknown';
@@ -266286,7 +268168,7 @@ const r8s_triggerSet = {
     },
     infoText: (data, _matches, output) => {
       const inout = output[data.herosBlowInOut ?? 'unknown']();
-      const dir = output[util/* Directions.output16Dir */.Ns.output16Dir[data.herosBlowSafeDir ?? -1] ?? 'unknown']();
+      const dir = output[util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(data.herosBlowSafeDir ?? -1)]();
       return output.text({
         inout: inout,
         dir: dir
@@ -267248,66 +269130,65 @@ const r8s_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
-      'Gleaming Fang': '光の牙',
-      'Howling Blade': 'ハウリングブレード',
-      'Moonlit Shadow': 'ハウリングブレードの幻影',
-      'Wolf Of Stone': '土の狼頭',
-      'Wolf of Stone': '土の狼頭',
-      'Wolf of Wind': '風の狼頭'
+      'Gleaming Fang': '光牙',
+      'Howling Blade': '呼嘯之劍',
+      'Moonlit Shadow': '呼嘯之劍的幻影',
+      'Wolf Of Stone': '土狼首',
+      'Wolf of Stone': '土狼首',
+      'Wolf of Wind': '風狼首'
     },
     'replaceText': {
-      // '--adds-targetable--': '', // FIXME '--小怪可选中--'
-      // '--shadow ': '', // FIXME '--幻影 '
-      // '--tank/line aoes--': '', // FIXME '--坦克/直线 AOE--'
-      // '\\(circles\\)': '', // FIXME '(圆形)'
-      // '\\(cones\\)': '', // FIXME '(扇形)'
-      // '\\(enrage\\)': '', // FIXME '(狂暴)'
-      // '\\(Platform\\)': '', // FIXME '(平台)'
-      // '\\(Towers\\)': '', // FIXME '(塔)'
+      '--adds-targetable--': '--小怪可選中--',
+      '--shadow ': '--幻影 ',
+      '--tank/line aoes--': '--坦克/直線 AOE--',
+      '\\(circles\\)': '(圓形)',
+      '\\(cones\\)': '(扇形)',
+      '\\(enrage\\)': '(狂暴)',
+      '\\(Platform\\)': '(平台)',
+      '\\(Towers\\)': '(塔)',
       'Aero III': '大勁風',
-      // 'Aerotemporal Blast': '', // FIXME '定时风击' (RSV ID: 42088)
-      // 'Alpha Stone': '', // FIXME '光狼之土'
-      // 'Alpha Wind': '', // FIXME '光狼之风'
+      'Aerotemporal Blast': '定時風擊',
+      'Alpha Stone': '光狼之土',
+      'Alpha Wind': '光狼之風',
       'Bare Fangs': '光牙召喚',
       'Beckon Moonlight': '幻狼召喚',
-      // 'Breath of Decay': '', // FIXME '千年风啸'
-      // 'Champion\'s Circuit': '', // FIXME '回天动地'
-      // 'Elemental Purge': '', // FIXME '风震魔印' (RSV ID: 42087)
-      // 'Eminent Reign': '', // FIXME '扫击群狼剑'
-      // 'Extraplanar Feast': '', // FIXME '空间灭斩'
+      'Breath of Decay': '千年風嘯',
+      'Champion\'s Circuit': '回天動地',
+      'Elemental Purge': '風震魔印',
+      'Eminent Reign': '掃擊群狼劍',
+      'Extraplanar Feast': '空間滅斬',
       'Extraplanar Pursuit': '空間斬',
       'Fanged Charge': '突進光牙',
-      // 'Forlorn Stone': '', // FIXME '土之狼吼'
-      // 'Forlorn Wind': '', // FIXME '风之狼吼'
-      // 'Geotemporal Blast': '', // FIXME '定时震击' (RSV ID: 42089)
-      // 'Gleaming Barrage': '', // FIXME '连击闪光炮' (RSV ID: 42102)
-      // 'Gleaming Beam': '', // FIXME '闪光炮' (RSV ID: 42078)
+      'Forlorn Stone': '土之狼吼',
+      'Forlorn Wind': '風之狼吼',
+      'Geotemporal Blast': '定時震擊',
+      'Gleaming Barrage': '連擊閃光炮',
+      'Gleaming Beam': '閃光炮',
       'Great Divide': '一刀兩斷',
       'Gust': '狂風',
       'Heavensearth': '大震擊',
-      // 'Hero\'s Blow': '', // FIXME '铠袖一触'
-      // 'Howling Eight': '', // FIXME '八连光弹' (RSV ID: 42132)
-      // 'Howling Havoc': '', // FIXME '风尘咆哮' (RSV ID: 41948)
-      // 'Hunter\'s Harvest': '', // FIXME '贪狼之剑'
-      // 'Lone Wolf\'s Lament': '', // FIXME '独狼的诅咒'
-      // 'Millennial Decay': '', // FIXME '千年风化' (RSV ID: 41906)
+      'Hero\'s Blow': '鎧袖一觸',
+      'Howling Eight': '八連光彈',
+      'Howling Havoc': '風塵咆哮',
+      'Hunter\'s Harvest': '貪狼之劍',
+      'Lone Wolf\'s Lament': '獨狼的詛咒',
+      'Millennial Decay': '千年風化',
       'Moonbeam\'s Bite': '幻狼劍',
-      // 'Mooncleaver': '', // FIXME '刚刃一闪' (RSV ID: 42085)
-      // 'Pack Predation': '', // FIXME '光狼阵' (RSV ID: 41932)
-      // 'Prowling Gale': '', // FIXME '风狼阵' (RSV ID: 42117)
-      'Quake III': '魔光',
+      'Mooncleaver': '剛刃一閃',
+      'Pack Predation': '光狼陣',
+      'Prowling Gale': '風狼陣',
+      'Quake III': '大地槌',
       'Ravenous Saber': '風塵光狼斬',
-      // 'Revolutionary Reign': '', // FIXME '旋击群狼剑'
-      // 'Rise of the Howling Wind': '', // FIXME '魔狼战形·飓风之相' (RSV ID: 43050)
-      // 'Rise of the Hunter\'s Blade': '', // FIXME '魔狼战形·咒刃之相'
+      'Revolutionary Reign': '旋擊群狼劍',
+      'Rise of the Howling Wind': '魔狼戰形·颶風之相',
+      'Rise of the Hunter\'s Blade': '魔狼戰形·咒刃之相',
       'Roaring Wind': '風狼豪波',
       'Shadowchase': '殘影劍',
-      // 'Stalking Stone': '', // FIXME '光狼地烈波'
-      // 'Stalking Wind': '', // FIXME '光狼风烈波'
-      // 'Starcleaver': '', // FIXME '刚刃一闪・终' (RSV ID: 42141)
-      // 'Stonefang': '', // FIXME '土之魔技'
+      'Stalking Stone': '光狼地烈波',
+      'Stalking Wind': '光狼風烈波',
+      'Starcleaver': '剛刃一閃・終',
+      'Stonefang': '土之魔技',
       'Suspended Stone': '大岩石',
       'Tactical Pack': '光狼召喚',
       'Terrestrial Rage': '大地之怒',
@@ -267315,13 +269196,13 @@ const r8s_triggerSet = {
       'Titanic Pursuit': '斬空劍',
       'Towerfall': '崩塌',
       'Tracking Tremors': '連震擊',
-      // 'Twinbite': '', // FIXME '双牙击' (RSV ID: 42189)
-      // 'Twofold Tempest': '', // FIXME '双牙暴风击' (RSV ID: 42100)
-      // 'Ultraviolent Ray': '', // FIXME '魔光'
+      'Twinbite': '雙牙擊',
+      'Twofold Tempest': '雙牙暴風擊',
+      'Ultraviolent Ray': '魔光',
       'Weal of Stone': '地烈波',
       'Wind Surge': '風爆',
-      // 'Windfang': '', // FIXME '风之魔技'
-      // 'Winds of Decay': '', // FIXME '千年狂风' (RSV ID: 41909)
+      'Windfang': '風之魔技',
+      'Winds of Decay': '千年狂風',
       'Wolves\' Reign': '群狼劍'
     }
   }, {
@@ -267755,7 +269636,7 @@ const r9n_triggerSet = {
       const adjustRads = moveRads[dLen];
       let endAngle = angle + adjustRads * (cw === 'cw' ? -1 : 1);
       if (endAngle < -Math.PI) endAngle += Math.PI * 2;else if (endAngle > Math.PI) endAngle -= Math.PI * 2;
-      data.bats[dLen].push(util/* Directions.output16Dir */.Ns.output16Dir[util/* Directions.hdgTo16DirNum */.Ns.hdgTo16DirNum(endAngle)] ?? 'unknown');
+      data.bats[dLen].push(util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(util/* Directions.hdgTo16DirNum */.Ns.hdgTo16DirNum(endAngle)));
     }
   }, {
     id: 'R9N Blast Beat Inner',
@@ -268280,7 +270161,7 @@ const r9s_triggerSet = {
       const adjustRads = moveRads[dLen];
       let endAngle = angle + adjustRads * (cw === 'cw' ? -1 : 1);
       if (endAngle < -Math.PI) endAngle += Math.PI * 2;else if (endAngle > Math.PI) endAngle -= Math.PI * 2;
-      data.bats[dLen].push(util/* Directions.output16Dir */.Ns.output16Dir[util/* Directions.hdgTo16DirNum */.Ns.hdgTo16DirNum(endAngle)] ?? 'unknown');
+      data.bats[dLen].push(util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(util/* Directions.hdgTo16DirNum */.Ns.hdgTo16DirNum(endAngle)));
     }
   }, {
     id: 'R9S Blast Beat Inner',
@@ -270160,7 +272041,7 @@ const doomtrain_ex_triggerSet = {
         addCleaveDir += Math.PI * 2;
       }
       const dirNum = util/* Directions.hdgTo16DirNum */.Ns.hdgTo16DirNum(addCleaveDir);
-      data.addTrainDir = dirNum !== undefined ? util/* Directions.output16Dir */.Ns.output16Dir[dirNum] ?? 'unknown' : 'unknown';
+      data.addTrainDir = dirNum !== undefined ? util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(dirNum) : 'unknown';
       return output.text({
         dir: output[data.addTrainDir]()
       });
@@ -271088,7 +272969,7 @@ const doomtrain_triggerSet = {
         addCleaveDir += Math.PI * 2;
       }
       const dirNum = util/* Directions.hdgTo16DirNum */.Ns.hdgTo16DirNum(addCleaveDir);
-      const addTrainDir = dirNum !== undefined ? util/* Directions.output16Dir */.Ns.output16Dir[dirNum] ?? 'unknown' : 'unknown';
+      const addTrainDir = dirNum !== undefined ? util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(dirNum) : 'unknown';
       return output.text({
         dir: output[addTrainDir]()
       });
@@ -272738,7 +274619,7 @@ const enuo_triggerSet = {
       // Convert to 16, add 1
       const safeDir16Num = (safeDir8Num * 2 + 1) % 16;
       return output.goDir({
-        dir: output[util/* Directions.output16Dir */.Ns.output16Dir[safeDir16Num] ?? 'unknown']()
+        dir: output[util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(safeDir16Num)]()
       });
     },
     outputStrings: {
@@ -276710,7 +278591,8 @@ const shinryu_un_triggerSet = {
         en: 'Ice: Stack + don\'t move',
         de: 'Eis: Sammeln + nicht bewegen',
         cn: '冰: 集合 + 不要动',
-        ko: '얼음: 모이기 + 이동 멈추기'
+        ko: '얼음: 모이기 + 이동 멈추기',
+        tc: '冰: 集合 + 不要動'
       }
     }
   }, {
@@ -277406,7 +279288,6 @@ const shinryu_un_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
       'Cocoon': '光繭',
       'Icicle': '冰柱',
@@ -280569,7 +282450,8 @@ const zelenia_ex_triggerSet = {
       en: 'Escelons Fall Strategy',
       de: 'Aufsteigendes Kreuz Strategy',
       cn: '凌空错策略',
-      ko: '클라임 크로스 전략'
+      ko: '클라임 크로스 전략',
+      tc: '淩空錯策略'
     },
     comment: {
       en: `Strategy for resolving Escelons' Fall 1 and 3.
@@ -280601,7 +282483,13 @@ const zelenia_ex_triggerSet = {
             없음 - 첫 번째 유도만 호출.
             딜러 안 - 딜러는 항상 안쪽에서 시작, 탱힐은 항상 바깥쪽에서 시작.
             탱힐 먼저 - 탱힐이 첫 번째 공격을 유도.
-            딜러 먼저 - 딜러가 첫 번째 공격을 유도.`
+            딜러 먼저 - 딜러가 첫 번째 공격을 유도.`,
+      tc: `淩空錯1和3處理策略.
+
+            無 - 僅播報第一次引導.
+            輸出在內 - DPS 始終圈內開始, T 奶始終圈外開始.
+            T 奶先 - T 奶引導第一次攻擊.
+            DPS 先 - DPS 引導第一次攻擊.`
     },
     type: 'select',
     options: {
@@ -280634,6 +282522,12 @@ const zelenia_ex_triggerSet = {
         '딜러 안': 'dpsIn',
         '탱힐 먼저': 'supportFirst',
         '딜러 먼저': 'dpsFirst'
+      },
+      tc: {
+        '無': 'none',
+        '輸出在內': 'dpsIn',
+        'T 奶先': 'supportFirst',
+        'DPS 先': 'dpsFirst'
       }
     },
     default: 'none'
@@ -280753,42 +282647,48 @@ const zelenia_ex_triggerSet = {
         de: 'Nah ködert zuerst',
         fr: 'Proche déposent en premier',
         cn: '先靠近引导',
-        ko: '가까이 유도 먼저'
+        ko: '가까이 유도 먼저',
+        tc: '先靠近引導'
       },
       far: {
         en: 'Far bait first',
         de: 'Fern ködert zuerst',
         fr: 'Loin déposent en premier',
         cn: '先远离引导',
-        ko: '멀리 유도 먼저'
+        ko: '멀리 유도 먼저',
+        tc: '先遠離引導'
       },
       out: {
         en: 'Start out',
         de: 'Starte außen',
         fr: 'Commencez à l\'extérieur',
         cn: '圈外开始',
-        ko: '바깥 시작'
+        ko: '바깥 시작',
+        tc: '圈外開始'
       },
       in: {
         en: 'Start in',
         de: 'Starte innen',
         fr: 'Commencez à l\'intérieur',
         cn: '圈内开始',
-        ko: '안 시작'
+        ko: '안 시작',
+        tc: '圈內開始'
       },
       swapAfterFirst: {
         en: '${first}, Swap after first+third',
         de: '${first}, Wechseln nach erstem+dritten',
         fr: '${first}, swap après le premier et troisième',
         cn: '${first}, 第1次和第3次后交换',
-        ko: '${first}, 1번째와 3번째 후 교대'
+        ko: '${first}, 1번째와 3번째 후 교대',
+        tc: '${first}, 第1次和第3次後交換'
       },
       swapAfterSecond: {
         en: '${first}, Swap after second',
         de: '${first}, Wechseln nach dem zweiten',
         fr: '${first}, swap après le second',
         cn: '${first}, 第2次后交换',
-        ko: '${first}, 2번째 후 교대'
+        ko: '${first}, 2번째 후 교대',
+        tc: '${first}, 第2次後交換'
       }
     }
   }, {
@@ -281537,26 +283437,25 @@ const zelenia_ex_triggerSet = {
     }
   }, {
     'locale': 'tc',
-    'missingTranslations': true,
     'replaceSync': {
-      'Briar Thorn': 'クライムハザード',
-      'Zelenia(?!\')': 'ゼレニア',
-      'Zelenia\'s Shade': 'ゼレニアの幻影'
+      'Briar Thorn': '淩空破',
+      'Zelenia(?!\')': '澤蓮尼亞',
+      'Zelenia\'s Shade': '澤蓮尼亞的幻影'
     },
     'replaceText': {
-      // '\\(cast\\)': '', // FIXME '(咏唱)'
-      // '\\(chakrams\\)': '', // FIXME '(预兆)'
-      // '\\(enrage\\?\\)': '', // FIXME '(狂暴?)'
-      // '\\(enrage\\)': '', // FIXME '(狂暴)'
-      // '\\(markers\\)': '', // FIXME '(标记)'
-      // '\\(resolves\\)': '', // FIXME '(判定)'
-      // '\\(snapshot\\)': '', // FIXME '(快照)'
+      '\\(cast\\)': '(詠唱)',
+      '\\(chakrams\\)': '(預兆)',
+      '\\(enrage\\?\\)': '(狂暴?)',
+      '\\(enrage\\)': '(狂暴)',
+      '\\(markers\\)': '(標記)',
+      '\\(resolves\\)': '(判定)',
+      '\\(snapshot\\)': '(快照)',
       'Alexandrian Banish II(?!I)': '王國中放逐',
       'Alexandrian Banish III': '王國強放逐',
       'Alexandrian Holy': '王國神聖',
-      'Alexandrian Thunder II(?!I)': '王國・中雷電',
-      'Alexandrian Thunder III': '王國・大雷電',
-      'Alexandrian Thunder IV': '王國・超雷電',
+      'Alexandrian Thunder II(?!I)': '王國中雷電',
+      'Alexandrian Thunder III': '王國大雷電',
+      'Alexandrian Thunder IV': '王國超雷電',
       'Blessed Barricade': '聖護壁',
       'Bud of Valor': '幻影生成',
       'Emblazon': '活性紋',
@@ -281575,7 +283474,7 @@ const zelenia_ex_triggerSet = {
       'Roseblood: 4th Bloom': '魔法陣展開·四式',
       'Roseblood: 5th Bloom': '魔法陣展開·五式',
       'Roseblood: 6th Bloom': '魔法陣展開·六式',
-      'Shock': '震驚',
+      'Shock': '落雷擊',
       'Spearpoint Push': '突擊',
       'Specter of the Lost': '破靈之劍',
       'Stock Break': '破防之劍',
@@ -284014,8 +285913,9 @@ const trial_zoraal_ja_namespaceObject = "### Everkeep\r\n# ZoneId: 1200\r\n\r\n#
 
 
 
+// TODO: P2 Old AAAABBBB plan was found at https://raidplan.io/plan/kj2d734d36es2ugs, would like to find replacement
+// TODO: P3 Better Blackhole no-config support via debuff tracking?
 // TODO: Earlier phase tracking for P5 (counting the jumps to middle?)
-
 const dancing_mad_phases = {
   'C24C': 'p2',
   // Ultimate Embrace, God Kefka
@@ -284026,9 +285926,13 @@ const dancing_mad_phases = {
   'BB40': 'p5' // Ultima Repeater, Ultima Kefka
 };
 
-// const centerX = 100;
-// const centerY = 100;
-
+const dancing_mad_centerX = 100;
+const dancing_mad_centerY = 100;
+const forsakenHeadmarkerIdToName = {
+  '02CB': 'stack',
+  '02CD': 'cone',
+  '02CC': 'spread'
+};
 const dancing_mad_headMarkerData = {
   // Phase 1 Boss
   'fakeFire': '02A1',
@@ -284053,118 +285957,84 @@ const dancing_mad_headMarkerData = {
   // When standing in Path of Light tower, causes BAC0 Spelldriver (3-person stack)
   'conePath': '02CD',
   // When standing in Path of Light tower, causes BAC2 Spellwave (cone targetting nearest player)
-  'spreadPath': '02CC' // When standing in Path of Light tower, causes BAC1 Spellscatter (small aoe on the player)
+  'spreadPath': '02CC',
+  // When standing in Path of Light tower, causes BAC1 Spellscatter (small aoe on the player)
+  // Phase 3 Tethers
+  'exdeathTether': '0040',
+  // Exdeath "pulls energy" from Graven Image with BNpcID 4C31 with BB12 Thunder III
+  'blackHoleTether': '0054',
+  // Phase 3 Players
+  'limitCutBlue1': '0150',
+  'limitCutRed2': '0151',
+  'limitCutBlue3': '0152',
+  'limitCutRed4': '0153',
+  'limitCutBlue5': '01B5',
+  'limitCutRed6': '01B6',
+  'limitCutBlue7': '01B7',
+  'limitCutRed8': '01B8',
+  'stompStack': '00A1'
 };
-
-const mysteryMagicOutputStrings = {
-  puddle: {
-    en: 'Bait Puddle',
-    de: 'Fläche ködern',
-    fr: 'Déposez',
-    ja: 'AOE誘導',
-    cn: '诱导AOE',
-    ko: '장판 유도',
-    tc: '誘導AOE'
+const mysteryMagicIceOutputStrings = {
+  trueIce: {
+    en: 'Avoid Tell',
+    cn: '躲避扇形',
+    ko: '예고 피하기'
   },
+  fakeIce: {
+    en: 'In Cone',
+    cn: '进入扇形',
+    ko: '부채꼴 안으로'
+  }
+};
+const mysteryMagicFireOutputStrings = {
   spread: outputs/* default.spread */.Z.spread,
-  middle: outputs/* default.goIntoMiddle */.Z.goIntoMiddle,
   stack: {
     en: 'Stack',
     de: 'Stacken',
     fr: 'Packez-vous',
     ja: 'スタック',
-    cn: '集合',
+    cn: '分摊',
     ko: '쉐어',
     tc: '集合'
-  },
+  }
+};
+const mysteryMagicThunderOutputStrings = {
   trueThunder: {
     en: 'Avoid Tell',
+    cn: '躲避直线',
     ko: '예고 피하기'
   },
   fakeThunder: {
     en: 'In Line',
+    cn: '进入直线',
     ko: '직선 안으로'
-  },
-  trueIce: {
-    en: 'Avoid Tell',
-    ko: '예고 피하기'
-  },
-  fakeIce: {
-    en: 'In Cone',
-    ko: '부채꼴 안으로'
-  },
-  trueIcePuddle: {
-    en: '${mech1} + ${mech2} => ${mech3}',
-    ko: '${mech1} + ${mech2} => ${mech3}'
-  },
-  fakeIcePuddle: {
-    en: '${mech1} + ${mech2} => ${mech3}',
-    ko: '${mech1} + ${mech2} => ${mech3}'
-  },
-  stackTrueIce: {
-    en: '${mech} + ${ice}',
-    ko: '${mech} + ${ice}'
-  },
-  stackFakeIce: {
-    en: '${mech} + ${ice}',
-    ko: '${mech} + ${ice}'
-  },
-  spreadTrueIce: {
-    en: '${mech} + ${ice}',
-    ko: '${mech} + ${ice}'
-  },
-  spreadFakeIce: {
-    en: '${mech} + ${ice}',
-    ko: '${mech} + ${ice}'
-  },
+  }
+};
+const mysteryMagicIceThunderOutputStrings = {
+  ...mysteryMagicIceOutputStrings,
+  ...mysteryMagicThunderOutputStrings,
   trueIceTrueThunder: {
     en: 'Avoid Tells',
+    cn: '躲避扇形+直线',
     ko: '예고 다 피하기'
   },
   fakeIceTrueThunder: {
     en: 'Cone (only)',
+    cn: '仅扇形',
     ko: '부채꼴만'
   },
   trueIceFakeThunder: {
     en: 'Line (only)',
+    cn: '仅直线',
     ko: '직선만'
   },
   fakeIceFakeThunder: {
     en: 'Cone + Line',
+    cn: '扇形+直线',
     ko: '부채꼴 + 직선'
-  },
-  stackTrueThunderLook: {
-    en: '${mech} + ${thunder} + ${look}',
-    ko: '${mech} + ${thunder} + ${look}'
-  },
-  stackFakeThunderLook: {
-    en: '${mech} + ${thunder} + ${look}',
-    ko: '${mech} + ${thunder} + ${look}'
-  },
-  spreadTrueThunderLook: {
-    en: '${mech} + ${thunder} + ${look}',
-    ko: '${mech} + ${thunder} + ${look}'
-  },
-  spreadFakeThunderLook: {
-    en: '${mech} + ${thunder} + ${look}',
-    ko: '${mech} + ${thunder} + ${look}'
-  },
-  stackTrueThunder: {
-    en: '${mech} + ${thunder}',
-    ko: '${mech} + ${thunder}'
-  },
-  stackFakeThunder: {
-    en: '${mech} + ${thunder}',
-    ko: '${mech} + ${thunder}'
-  },
-  spreadTrueThunder: {
-    en: '${mech} + ${thunder}',
-    ko: '${mech} + ${thunder}'
-  },
-  spreadFakeThunder: {
-    en: '${mech} + ${thunder}',
-    ko: '${mech} + ${thunder}'
-  },
+  }
+};
+const mysteryMagicLookOutputStrings = {
   lookAway: {
     en: 'Look Away From Statue',
     de: 'Von Statue wegschauen',
@@ -284187,31 +286057,577 @@ const mysteryMagicOutputStrings = {
 const trapOutputStrings = {
   you: {
     en: 'YOU',
+    cn: '你',
     ko: '나'
   },
   knockbackFrom1: {
     en: 'Knockback from ${players}',
+    cn: '被${players}击退',
     ko: '${players}에서 넉백'
   },
   knockbackFrom2: {
     en: 'Knockback from ${players}',
+    cn: '被${players}击退',
     ko: '${players}에서 넉백'
   },
   knockbackFrom3: {
     en: 'Knockback from ${players} => Debuffs',
+    cn: '被${players}击退 => Debuff',
     ko: '${players}에서 넉백 => 디버프'
   },
   knockbackFrom3Sleep: {
     en: 'Knockback from ${players} => Sleep',
+    cn: '被${players}击退 => 睡眠',
     ko: '${players}에서 넉백 => 수면'
   },
   knockbackFrom3Confuse: {
     en: 'Knockback from ${players} => Confuse',
+    cn: '被${players}击退 => 混乱',
     ko: '${players}에서 넉백 => 혼란'
   },
   knockbackFromLater: {
     en: 'Knockback from ${players} (later)',
+    cn: '被${players}击退 (稍后)',
     ko: '${players}에서 넉백 (나중에)'
+  }
+};
+
+// Get Partner's HeadMarker following HTMR Priority
+// Requires data and Forsaken Group
+// Will return the forsaken headmarker of partner:
+// Tanks + Healers are partners
+// Melee DPS + Range/Caster are Partners
+// Tanks look for healer as they are left unless healer has it
+// Melee DPS look for the Range/Caster as they are left if ranged has it
+// Range/Caster looks for existence of a Melee DPS in case there is fake melee
+const getHTMRPartnerMarker = (data, group) => {
+  // Healer role should not be parsed with this function
+  // as they have highest priority left
+  if (data.role === 'healer') return 'unknown';
+
+  // Functions for determining party member DPS subroles
+  const isRangedDPS = x => {
+    const jobName = data.party.jobName(x);
+    if (jobName === undefined) return false;
+    return util/* default.isRangedDpsJob */.ZP.isRangedDpsJob(jobName) || util/* default.isCasterDpsJob */.ZP.isCasterDpsJob(jobName);
+  };
+  const isMeleeDPS = x => {
+    const jobName = data.party.jobName(x);
+    if (jobName === undefined) return false;
+    return util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(jobName);
+  };
+  // Function to dynamically determine which role to check
+  const getRoleFunction = role => {
+    // Only a healer will supercede the tank
+    if (role === 'tank') return data.party.isHealer.bind(data.party);
+    if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return isRangedDPS;
+    // If we find a melee in our group we are the ranged priority
+    // Partner should be a melee dps, for optimal comp
+    return isMeleeDPS;
+  };
+  const playerHeadmarkers = data.forsakenPlayerHeadmarkers;
+
+  // Check each player in the group if they are our partner
+  const isMyPartner = getRoleFunction(data.role);
+  const member1 = group[0] ?? '';
+  const member2 = group[1] ?? '';
+  const member3 = group[2] ?? '';
+  const partner = isMyPartner(member1) ? member1 : isMyPartner(member2) ? member2 : isMyPartner(member3) ? member3 : 'unknown';
+
+  // Return partner's marker
+  return playerHeadmarkers[partner ?? 0] ?? 'unknown';
+};
+const forsakenOutputStrings = {
+  spreadBowtie: outputs/* default.spread */.Z.spread,
+  tower: outputs/* default.getTowers */.Z.getTowers,
+  leftTower: {
+    en: 'Left Tower',
+    cn: '踩左塔',
+    ko: '왼쪽 탑'
+  },
+  rightTower: {
+    en: 'Right Tower',
+    cn: '踩右塔',
+    ko: '오른쪽 탑'
+  },
+  towerOrBeNear: {
+    // Used in even towers with no strategy
+    en: '${tower} / ${near}',
+    cn: '${tower} / ${near}',
+    ko: '${tower} / ${near}'
+  },
+  avoid: {
+    en: 'Avoid towers',
+    de: 'Türme vermeiden',
+    fr: 'Évitez les tours',
+    ja: '塔回避',
+    cn: '远离塔',
+    ko: '탑 피하기',
+    tc: '遠離塔'
+  },
+  outOfHitbox: outputs/* default.outOfHitbox */.Z.outOfHitbox,
+  innerHitbox: {
+    en: 'Inner Hitbox',
+    cn: '目标圈内环',
+    ko: '안쪽 히트박스'
+  },
+  outerHitbox: {
+    en: 'Outer Hitbox',
+    cn: '目标圈外环',
+    ko: '바깥쪽 히트박스'
+  },
+  cone: {
+    en: 'Cone on YOU',
+    cn: '扇形点名',
+    ko: '나에게 부채꼴'
+  },
+  spread: {
+    en: 'Spread on YOU',
+    cn: '分散点名',
+    ko: '나에게 산개징'
+  },
+  stack: outputs/* default.stackOnYou */.Z.stackOnYou,
+  num: {
+    en: '${num}: ',
+    de: '${num}: ',
+    fr: '${num}: ',
+    ja: '${num}: ',
+    cn: '${num}: ',
+    ko: '${num}: ',
+    tc: '${num}: '
+  },
+  you: {
+    en: 'YOU',
+    cn: '你',
+    ko: '나'
+  },
+  beNear: {
+    en: 'Be Near',
+    de: 'Sei Nahe',
+    cn: '站近',
+    ko: '가까이 있기'
+  },
+  beFar: {
+    en: 'Be Far',
+    de: 'Sei Fern',
+    cn: '站远',
+    ko: '멀리 있기'
+  },
+  stackOnYou: outputs/* default.stackOnYou */.Z.stackOnYou,
+  stackOnYouLocation: {
+    // Used only in first tower
+    en: '${stack} ${location}',
+    cn: '${stack} ${location}',
+    ko: '${stack} ${location}'
+  },
+  stackOnPlayer: {
+    // Used only in first tower (role-based)
+    en: 'Stack is on ${player}',
+    cn: '分摊点${player}',
+    ko: '${player}에게 쉐어'
+  },
+  stacksOnPlayers: {
+    en: 'Stacks on ${players}',
+    cn: '分摊点${players}',
+    ko: '${players}에게 쉐어'
+  },
+  stacksOnPlayersTower: {
+    // Used after first tower for when partner couldn't be found or none config
+    en: '${num}${stack} + ${tower}',
+    cn: '${num}${stack} + ${tower}',
+    ko: '${num}${stack} + ${tower}'
+  },
+  stackOnYouTower: {
+    // Used in first tower only
+    en: '${num}${tower} + ${marker}',
+    cn: '${num}${tower} + ${marker}',
+    ko: '${num}${tower} + ${marker}'
+  },
+  markerOnYouStacksOnPlayers: {
+    // Used only for first tower
+    en: '${num}${marker} + ${stacks}',
+    cn: '${num}${marker} + ${stacks}',
+    ko: '${num}${marker} + ${stacks}'
+  },
+  markerOnYouTowerOdds: {
+    // Used for Odd Towers (excluding first set)
+    en: '${num}${marker} + ${tower} + ${nearfar}',
+    cn: '${num}${marker} + ${tower} + ${nearfar}',
+    ko: '${num}${marker} + ${tower} + ${nearfar}'
+  },
+  markerOnYouTowerEvens: {
+    // Used for Cones + Spreads (no stacks taking the towers)
+    en: '${num}${marker} + ${tower} + ${nearfar}',
+    cn: '${num}${marker} + ${tower} + ${nearfar}',
+    ko: '${num}${marker} + ${tower} + ${nearfar}'
+  },
+  baitLeftConeOutOdds: {
+    en: '${num}Bait Left Cone Out',
+    cn: '${num}左扇形向外引导',
+    ko: '${num}왼쪽 부채꼴 바깥으로 유도'
+  },
+  baitLeftConeLeftEvens: {
+    en: '${num}Bait Left Cone Left',
+    cn: '${num}左扇形向左引导',
+    ko: '${num}왼쪽 부채꼴 왼쪽으로 유도'
+  },
+  leftStack: {
+    en: '${num}Left Stack',
+    cn: '${num}左分摊',
+    ko: '${num}왼쪽 쉐어'
+  },
+  rightStack: {
+    en: '${num}Right Stack',
+    cn: '${num}右分摊',
+    ko: '${num}오른쪽 쉐어'
+  },
+  bait: {
+    en: '${num}Bait Cone Right or Clone Near',
+    cn: '${num}向右引导扇形或靠近分身',
+    ko: '${num}오른쪽 부채꼴 유도 또는 분신 유도'
+  },
+  baitConeFromPlayer: {
+    en: 'Bait Cone from ${player}',
+    cn: '引导${player}的扇形',
+    ko: '${player}의 부채꼴 유도'
+  },
+  spreadWithPlayer: {
+    en: 'Spread with ${player}',
+    cn: '与${player}分散',
+    ko: '${player}와 산개'
+  },
+  baitCloneOppositeTowers: {
+    en: '${num}Bait Clone Opposite Towers Near',
+    cn: '${num}靠近引导塔对面分身',
+    ko: '${num}탑 반대쪽에서 분신 가까이 유도'
+  },
+  mechsBowtie: {
+    en: '${num}${mech1} + ${mech2}',
+    cn: '${num}${mech1} + ${mech2}',
+    ko: '${num}${mech1} + ${mech2}'
+  },
+  mechs3Bowtie: {
+    en: '${num}${mech1} + ${mech2} + ${mech3}',
+    cn: '${num}${mech1} + ${mech2} + ${mech3}',
+    ko: '${num}${mech1} + ${mech2} + ${mech3}'
+  },
+  numBeNearSpreadBowtie: {
+    en: '${num}${near} + ${spread}',
+    cn: '${num}${near} + ${spread}',
+    ko: '${num}${near} + ${spread}'
+  },
+  baitLeftConeOutBowtie: {
+    en: '${num}Bait Left Cone Out',
+    cn: '${num}左扇形向外引导',
+    ko: '${num}왼쪽 부채꼴 바깥으로 유도'
+  },
+  baitLeftConeLeftBowtie: {
+    en: '${num}Bait Left Cone Left',
+    cn: '${num}左扇形向左引导',
+    ko: '${num}왼쪽 부채꼴 왼쪽으로 유도'
+  },
+  getHitBySpreadRightBowtie: {
+    // Used only in 5th tower for AAAABBBB
+    en: '${num}Get Right + Hit by Spread',
+    cn: '${num}向右+吃分散',
+    ko: '${num}오른쪽으로 + 산개징 맞기'
+  },
+  spreadTowersBowtie: {
+    // Used only in last tower for AAAABBBB
+    en: '${num}${tower} + ${spread}',
+    cn: '${num}${tower} + ${spread}',
+    ko: '${num}${tower} + ${spread}'
+  },
+  markerOnYouNoStrategy: {
+    // Odd Towers
+    en: '${num}${marker}',
+    cn: '${num}${marker}',
+    ko: '${num}${marker}'
+  },
+  mechsNoStrategy: {
+    en: '${num}${marker} + ${mechs}',
+    cn: '${num}${marker} + ${mechs}',
+    ko: '${num}${marker} + ${mechs}'
+  },
+  baitNoStrategy: {
+    // No marker and no strategy was selected
+    en: '${num}Bait Cone or Clone Near',
+    cn: '${num}引导扇形或靠近分身',
+    ko: '${num}부채꼴 유도 또는 분신 유도'
+  },
+  baitConeOrStackNoStrategy: {
+    en: '${num}Bait Cone or Stack',
+    cn: '${num}引导扇形或分摊',
+    ko: '${num}부채꼴 유도 또는 쉐어'
+  }
+};
+const exdeathLocaleNames = {
+  en: 'Exdeath',
+  de: 'Exdeath',
+  fr: 'Exdeath',
+  ja: 'エクスデス',
+  cn: '艾克斯迪司',
+  ko: '엑스데스',
+  tc: '艾克斯迪司'
+};
+const chaosLocaleNames = {
+  en: 'Chaos',
+  de: 'Chaos',
+  fr: 'Chaos',
+  ja: 'カオス',
+  cn: '卡奥斯',
+  ko: '카오스',
+  tc: '卡奧斯'
+};
+const boaOutputStrings = {
+  ...util/* Directions.outputStringsIntercardDir */.Ns.outputStringsIntercardDir,
+  in: outputs/* default.in */.Z["in"],
+  out: outputs/* default.out */.Z.out,
+  moveBossThenMech: {
+    en: 'Move ${boss} => ${mech}',
+    cn: '向 ${boss} 移动 => ${mech}',
+    ko: '${boss} 이동 => ${mech}'
+  },
+  exdeathMiddle: {
+    en: '${exdeath} Middle',
+    cn: '${exdeath} 中间',
+    ko: '${exdeath} 중앙'
+  },
+  chaosDir: {
+    en: '${chaos} to ${dir}',
+    cn: '${chaos} 向 ${dir}',
+    ko: '${chaos} ${dir}으로'
+  },
+  moveExdeathThenMech: {
+    en: 'Move ${exdeath} to ${long} => ${mech}',
+    cn: '向 ${exdeath} 移动 ${long} => ${mech}',
+    ko: '${exdeath} ${long}쪽 이동 => ${mech}'
+  },
+  crystals: {
+    en: '${short} => ${long} => ${wind} (later)',
+    cn: '${short} => ${long} => ${wind} (稍后)',
+    ko: '${short} => ${long} => ${wind} (나중)'
+  },
+  shortLongCrystals: {
+    en: '${short} => ${long}',
+    cn: '${short} => ${long}',
+    ko: '${short} => ${long}'
+  },
+  crystalsMech: {
+    en: '${crystals}; ${mech}',
+    cn: '${crystals}; ${mech}',
+    ko: '${crystals}; ${mech}'
+  },
+  fire: {
+    en: 'Fire ${dir}',
+    cn: '火 ${dir}',
+    ko: '불 ${dir}'
+  },
+  water: {
+    en: 'Water ${dir}',
+    cn: '水 ${dir}',
+    ko: '물 ${dir}'
+  },
+  wind: {
+    en: 'Wind ${dir}',
+    cn: '风 ${dir}',
+    ko: '바람 ${dir}'
+  },
+  tail: {
+    en: 'Face ${name}',
+    cn: '面向 ${name}',
+    ko: '${name} 바라보기'
+  },
+  head: outputs/* default.lookAwayFromTarget */.Z.lookAwayFromTarget,
+  you: {
+    en: 'YOU',
+    cn: '你',
+    ko: '나'
+  },
+  baitFireDonut: {
+    en: 'Bait Fire Donut',
+    cn: '引导火月环',
+    ko: '불 도넛 유도'
+  },
+  baitWaterAoe: {
+    en: 'Bait Water AOE',
+    cn: '引导水AOE',
+    ko: '물 장판 유도'
+  },
+  baitCrystal: {
+    en: 'Bait ${crystal} ${inout}',
+    cn: '引导 ${crystal} ${inout}',
+    ko: '${crystal} ${inout} 유도'
+  },
+  fireOnPlayersCrystalDirNum: {
+    en: '${spread}/${dir} => ${bait}',
+    cn: '${spread}/${dir} => ${bait}',
+    ko: '${spread}/${dir} => ${bait}'
+  },
+  fireOnPlayers: {
+    en: 'Spread on ${players}',
+    cn: '分散点 ${players}',
+    ko: '${players}에게 산개징'
+  },
+  waterOnPlayersCrystalDirNum: {
+    en: '${donut}/${dir} => ${bait}',
+    cn: '${donut}/${dir} => ${bait}',
+    ko: '${donut}/${dir} => ${bait}'
+  },
+  waterOnPlayers: {
+    en: 'Donut on ${players}',
+    cn: '月环点 ${players}',
+    ko: '${players}에게 도넛징'
+  },
+  mechThenMech: {
+    en: '${mech1} => ${mech2}',
+    cn: '${mech1} => ${mech2}',
+    ko: '${mech1} => ${mech2}'
+  },
+  getMiddleNearPlayer: {
+    en: 'Get Middle Near ${player}',
+    cn: '去中间靠近 ${player}',
+    ko: '${player} 근처 중앙으로'
+  },
+  getHitByDonut: outputs/* default.goIntoMiddle */.Z.goIntoMiddle,
+  knockbackToDir: {
+    en: 'Knockback to ${dir} ${facing}',
+    cn: '向 ${dir} 击退 ${facing}',
+    ko: '${dir}으로 넉백 ${facing}'
+  },
+  beNearWind: {
+    en: 'Be Near ${dir}',
+    cn: '靠近 ${dir}',
+    ko: '${dir} 근처로'
+  },
+  stackPartner: outputs/* default.stackPartner */.Z.stackPartner,
+  donutLater: {
+    en: 'Donut (later)',
+    cn: '月环 (稍后)',
+    ko: '도넛 (나중)'
+  },
+  roleStacks: {
+    en: 'Role Stacks',
+    de: 'Rollengruppe sammeln',
+    fr: 'Package par rôle',
+    cn: '职能分摊',
+    ko: '역할별 쉐어',
+    tc: '職能分攤'
+  },
+  beNearExdeath: {
+    en: 'Be Near ${name}',
+    cn: '靠近 ${name}',
+    ko: '${name} 근처로'
+  },
+  baitJump: {
+    en: 'Bait Jump',
+    cn: '引导跳',
+    ko: '점프 유도'
+  }
+};
+
+// Used to return clockwise from Kefka ordering of Black Hole Tethers
+const getCWOrderFromN = (n, dirNums) => {
+  // Calculate distance from cardinal
+  const getCWDistance = (start, end) => {
+    const diff = end - start;
+    return diff < 0 ? diff + 4 : diff;
+  };
+  return [...dirNums].sort((a, b) => {
+    return getCWDistance(n, a) - getCWDistance(n, b);
+  });
+};
+const blackHoleOutputStrings = {
+  ...util/* Directions.outputStringsCardinalDir */.Ns.outputStringsCardinalDir,
+  num: {
+    en: '${num}: ',
+    de: '${num}: ',
+    fr: '${num}: ',
+    ja: '${num}: ',
+    cn: '${num}: ',
+    ko: '${num}: ',
+    tc: '${num}: '
+  },
+  nothing: {
+    en: '${num}',
+    de: '${num}',
+    fr: '${num}',
+    ja: '${num}',
+    cn: '${num}',
+    ko: '${num}',
+    tc: '${num}'
+  },
+  getDirTether: {
+    en: '${num}Get ${dir} Tether',
+    cn: '${num} 接 ${dir} 线',
+    ko: '${num}${dir} 선 가져오기'
+  },
+  getDirTethers: {
+    en: '${num}Get ${dir1}/${dir2} Tethers',
+    cn: '${num} 接 ${dir1}/${dir2} 线',
+    ko: '${num}${dir1}/${dir2} 선 가져오기'
+  },
+  getBothTethers: {
+    // Instead of Clockwise 1/Clockwise 2
+    en: '${num}Get Both Tethers',
+    cn: '${num} 接两条线',
+    ko: '${num}선 둘 다 가져오기'
+  },
+  keepTether: {
+    en: '${num}Keep Tether',
+    cn: '${num} 保持线',
+    ko: '${num}선 유지'
+  },
+  passTether: {
+    en: '${num}Pass Tether',
+    cn: '${num} 传递线',
+    ko: '${num}선 넘기기'
+  },
+  clockwiseOne: {
+    en: 'Clockwise 1',
+    cn: '顺时针 1',
+    ko: '시계방향 1'
+  },
+  clockwiseTwo: {
+    en: 'Clockwise 2',
+    cn: '顺时针 2',
+    ko: '시계방향 2'
+  },
+  clockwiseThree: {
+    // Player could change this to CCW 1
+    en: 'Clockwise 3',
+    cn: '顺时针 3',
+    ko: '시계방향 3'
+  },
+  middleThenGetDirTether: {
+    en: '${num}Middle => Get ${dir} Tether',
+    cn: '${num} 中间 => 接 ${dir} 线',
+    ko: '${num}중앙 => ${dir} 선 가져오기'
+  },
+  middleThenGetDirTethers: {
+    en: '${num}Middle => Get ${dir1}/${dir2} Tethers',
+    cn: '${num} 中间 => 接 ${dir1}/${dir2} 线',
+    ko: '${num}중앙 => ${dir1}/${dir2} 선 가져오기'
+  },
+  middleThenGetBothTethers: {
+    en: '${num}Middle => Get Both Tethers',
+    cn: '${num} 中间 => 接两条线',
+    ko: '${num}중앙 => 선 둘 다 가져오기'
+  },
+  oneBlackHole: {
+    en: '${num}${dir}',
+    cn: '${num}${dir}',
+    ko: '${num}${dir}'
+  },
+  twoBlackHoles: {
+    en: '${num}${dir1}/${dir2}',
+    cn: '${num}${dir1}/${dir2}',
+    ko: '${num}${dir1}/${dir2}'
+  },
+  threeBlackHoles: {
+    en: '${num}${dir1}/${dir2}/${dir3}',
+    cn: '${num}${dir1}/${dir2}/${dir3}',
+    ko: '${num}${dir1}/${dir2}/${dir3}'
   }
 };
 const dancing_mad_triggerSet = {
@@ -284223,12 +286639,16 @@ const dancing_mad_triggerSet = {
       en: `Outputs up to 12 locations to drop first arrow. Second call will be relative to first<br />
           Clockwise: <a href="https://pastebin.com/7fs57PyQ" target="_blank">Kefka Bin</a><br />
           Filipino Box: <a href="https://raidplan.io/plan/5rf2uhud5ztsbud5" target="_blank">Raidplan</a><br />`,
+      cn: `输出最多12个首个箭头放置的位置。第二次将相对于首个位置播报<br />
+          顺时针: <a href="https://pastebin.com/7fs57PyQ" target="_blank">Kefka Bin</a><br />
+          Filipino Box: <a href="https://raidplan.io/plan/5rf2uhud5ztsbud5" target="_blank">Raidplan</a><br />`,
       ko: `최대 12곳의 후보 장소 중에서 첫 번째 화살표를 설치할 위치를 알립니다. 두 번째 호출은 첫 번째 위치를 기준으로 합니다.<br />
           시계 방향: <a href="https://pastebin.com/7fs57PyQ" target="_blank">Kefka Bin</a><br />
           Filipino Box: <a href="https://raidplan.io/plan/5rf2uhud5ztsbud5" target="_blank">Raidplan</a><br />`
     },
     name: {
       en: 'P1 Graven Image 3 Tele-Portent Strategy',
+      cn: 'P1众神之像3传送策略',
       ko: '1페이즈 신들의 상 3 텔레포 전략'
     },
     type: 'select',
@@ -284238,6 +286658,11 @@ const dancing_mad_triggerSet = {
         'Filipino Box (Intercardinals)': 'filipino',
         'Call Debuffs only': 'none'
       },
+      cn: {
+        '顺时针大圈': 'clockwise',
+        'Filipino Box (对角)': 'filipino',
+        '仅报Debuff': 'none'
+      },
       ko: {
         '시계 방향 큰 네모': 'clockwise',
         'Filipino Box (대각선)': 'filipino',
@@ -284245,6 +286670,191 @@ const dancing_mad_triggerSet = {
       }
     },
     default: 'none'
+  }, {
+    id: 'forsaken',
+    comment: {
+      en: `There should be two groups of four players, choose tower soak order<br />
+          Kroxy-Rinon 3/4/1: <a href="https://pastebin.com/7fs57PyQ" target="_blank">Kefka Bin</a><br />
+          Modified ABBA: <a href="https://raidplan.io/plan/b5tgewax4kb746sf" target="_blank">Raidplan</a><br />
+          Bowtie AAAABBBB 4/4: Using same priority as the kroxy-rinon. (Will require Tank LB3)<br />
+          Default will be Cones + Support Stack Left and Spread + DPS Stack Right, relative towers to facing in`,
+      cn: `玩家分为两个四人小组，选择踩塔顺序<br />
+          Kroxy-Rinon 3/4/1: <a href="https://pastebin.com/7fs57PyQ" target="_blank">Kefka Bin</a><br />
+          改良 ABBA: <a href="https://raidplan.io/plan/b5tgewax4kb746sf" target="_blank">Raidplan</a><br />
+          Bowtie AAAABBBB 4/4: 使用与kroxy-rinon相同的优先级(需要坦克 LB3)<br />
+          默认设置为:扇形+支援职业分摊左塔,分散+DPS 分摊右塔(相对塔面向内)`,
+      ko: `4명씩 두 그룹으로 나눠 순서를 정해 탑을 처리합니다.<br />
+          Kroxy-Rinon 3/4/1: <a href="https://pastebin.com/7fs57PyQ" target="_blank">Kefka Bin</a><br />
+          변형 ABBA: <a href="https://raidplan.io/plan/b5tgewax4kb746sf" target="_blank">Raidplan</a><br />
+          Bowtie AAAABBBB 4/4: kroxy-rinon과 같은 우선순위를 사용합니다. (3단 탱리밋 필요)<br />
+          기본값은 바라보는 방향 기준으로 부채꼴 + 탱힐 쉐어 왼쪽, 산개 + 딜러 쉐어 오른쪽입니다.`
+    },
+    name: {
+      en: 'P2 Forsaken Strategy',
+      cn: 'P2遗弃末世策略',
+      ko: '2페이즈 행방불명 전략'
+    },
+    type: 'select',
+    options: {
+      en: {
+        'AAABBBBA (3/4/1), Kroxy-Rinon': 'kroxy-rinon',
+        'ABBAABBA (1/2/2/2/1), Modified': 'abba',
+        'AAAABBBB (4/4), Bowtie': 'bowtie',
+        'Generic Calls': 'none'
+      },
+      cn: {
+        'AAABBBBA (3/4/1), Kroxy-Rinon': 'kroxy-rinon',
+        'ABBAABBA (1/2/2/2/1), 改良': 'abba',
+        'AAAABBBB (4/4), Bowtie': 'bowtie',
+        '通用报点': 'none'
+      },
+      ko: {
+        'AAABBBBA (3/4/1), Kroxy-Rinon': 'kroxy-rinon',
+        'ABBAABBA (1/2/2/2/1), 변형': 'abba',
+        'AAAABBBB (4/4), Bowtie': 'bowtie',
+        '기본값': 'none'
+      }
+    },
+    default: 'none'
+  }, {
+    id: 'boa',
+    comment: {
+      en: `Tank LB3: Ranged players bait Short => Long Crystal, party resolves debuffs at Wind Crystal. Role stack the wind baits after Vacuum Wave<br />
+        Entropy/Dynamic Fluid Bait (Default): Follows <a href="https://raidplan.io/plan/9assfrb4fcvwat9e" target="_blank">SG3K Raidplan</a>: Entropy/Fluid bait their crystals and get hit by crystal's aoe<br />
+        None: Only calls debuffs and locations`,
+      cn: `坦克 LB3: 远程玩家诱导短 => 长水晶，小队在风水晶处理debuff。真空波动画后按职能分摊风诱导。<br />
+        混沌涡旋/混沌之水诱导(默认): 遵循 <a href="https://raidplan.io/plan/9assfrb4fcvwat9e" target="_blank">SG3K Raidplan</a>: 混沌涡旋/混沌之水各自水晶诱导并吃水晶AOE<br />
+        无: 仅播报debuff和位置。`,
+      ko: `탱커 3단 리밋: 원거리 직업이 짧은 수정 => 긴 수정을 유도하고, 본대는 바람 수정에서 디버프를 처리합니다. 진공파 이후 바람 유도는 역할별 쉐어로 처리합니다.<br />
+        불/물 유도 (기본값): <a href="https://raidplan.io/plan/9assfrb4fcvwat9e" target="_blank">SG3K 레이드플랜</a>을 따릅니다. 불/물 대상자가 각 수정을 유도하고 수정 장판에 맞습니다.<br />
+        없음: 디버프와 위치만 알립니다.`
+    },
+    name: {
+      en: 'P3 Bowels of Agony Strategy',
+      cn: 'P3 深层痛楚策略',
+      ko: '3페이즈 고통의 심핵 전략'
+    },
+    type: 'select',
+    options: {
+      en: {
+        'Tank LB3': 'lb3',
+        'Entropy/Dynamic Fluid Bait': 'sg3k',
+        'Generic Calls': 'none'
+      },
+      cn: {
+        '坦克 LB3': 'lb3',
+        '混沌涡旋/混沌之水诱导': 'sg3k',
+        '通用播报': 'none'
+      },
+      ko: {
+        '탱커 3단 리밋': 'lb3',
+        '불/물 유도': 'sg3k',
+        '기본 알림': 'none'
+      }
+    },
+    default: 'sg3k'
+  }, {
+    id: 'accretion',
+    comment: {
+      en: `Order in which players will be told to heal for resolving Accretion debuffs`,
+      cn: `处理泥土 debuffs 时提示玩家治疗的顺序`,
+      ko: `혼돈의 진흙 디버프를 처리하기 위해 회복할 플레이어 순서입니다.`
+    },
+    name: {
+      en: 'P3 Accretion Heal Order',
+      cn: 'P3 泥土治疗顺序',
+      ko: '3페이즈 혼돈의 진흙 회복 순서'
+    },
+    type: 'select',
+    options: {
+      en: {
+        'First In Line => Second In Line': 'line',
+        'Healer => DPS': 'role'
+      },
+      cn: {
+        '第一行 => 第二行': 'line',
+        '治疗 => DPS': 'role'
+      },
+      ko: {
+        '첫 번째 줄 => 두 번째 줄': 'line',
+        '힐러 => 딜러': 'role'
+      }
+    },
+    default: 'role'
+  }, {
+    id: 'blackHole',
+    comment: {
+      en: `Tether priority configured relative to Kefka: DPS CW, Support 2nd CW, Accretion 3rd CW<br />
+        D>S>A: #1 DPS, #1 Support, #1 Accretion, #2 DPS, #2 Support, #2 Accretion, #3 DPS, #3 Support<br />
+        S>D>A: #1 Support, #1 DPS, #1 Accretion, #2 Support, #2 DPS, #2 Accretion, #3 Support, #2 DPS<br />
+        D>S>A Double Tether: BH1 & BH 4 only 1 person grab tethers. BH1 #1 Support, #1 DPS; BH4 #3 Support, #3 DPS<br />
+        Generic: Calls the Nothingness set number and tether directions in CW order from Kefka`,
+      cn: `以凯夫卡为基准的连线优先级配置: DPS顺时针, T奶第2顺时针, 泥土第3顺时针<br />
+        D>S>A: #1 DPS, #1 T奶, #1 泥土, #2 DPS, #2 T奶, #2 泥土, #3 DPS, #3 T奶<br />
+        S>D>A: #1 T奶, #1 DPS, #1 泥土, #2 T奶, #2 DPS, #2 泥土, #3 T奶, #2 DPS<br />
+        D>S>A 双线: 黑洞1与黑洞4仅1人拿连线。黑洞1 #1 T奶, #1 DPS; 黑洞4 #3 T奶, #3 DPS<br />
+        通用: 播报虚无组编号及以凯夫卡为基准顺时针`,
+      ko: `케프카 기준 선 우선순위: 딜러는 시계 방향 첫 번째, 탱힐은 두 번째, 혼돈의 진흙 대상자는 세 번째<br />
+        딜러>탱힐>진흙: 1번 딜러, 1번 탱힐, 1번 진흙, 2번 딜러, 2번 탱힐, 2번 진흙, 3번 딜러, 3번 탱힐<br />
+        탱힐>딜러>진흙: 1번 탱힐, 1번 딜러, 1번 진흙, 2번 탱힐, 2번 딜러, 2번 진흙, 3번 탱힐, 3번 딜러<br />
+        딜러>탱힐>진흙 선 2개: 1번과 4번 블랙홀만 한 명이 선을 가져갑니다. 1번 블랙홀은 1번 탱힐과 1번 딜러, 4번 블랙홀은 3번 탱힐과 3번 딜러<br />
+        기본값: 무의 파동 세트 번호와 케프카 기준 시계 방향 선 위치를 알립니다.`
+    },
+    name: {
+      en: 'P3 Black Hole Order',
+      cn: 'P3 黑洞顺序',
+      ko: '3페이즈 블랙홀 순서'
+    },
+    type: 'select',
+    options: {
+      en: {
+        'D>S>A': 'dsa',
+        'S>D>A': 'sda',
+        'D>S>A Double Tether': 'modified',
+        'Generic calls': 'none'
+      },
+      cn: {
+        'D>S>A': 'dsa',
+        'S>D>A': 'sda',
+        'D>S>A 双线': 'modified',
+        '通用播报': 'none'
+      },
+      ko: {
+        '딜러>탱힐>진흙': 'dsa',
+        '탱힐>딜러>진흙': 'sda',
+        '딜러>탱힐>진흙 선 2개': 'modified',
+        '기본값': 'none'
+      }
+    },
+    default: 'none'
+  }, {
+    id: 'blackHoleTether',
+    comment: {
+      en: `Whether to call true north or clockwise number from Kefka`,
+      cn: `以真北或凯夫卡顺时针编号进行播报`,
+      ko: `절대 방위와 케프카 기준 시계 방향 번호 중 사용할 알림을 선택합니다.`
+    },
+    name: {
+      en: 'P3 Black Hole Tether True North or Clockwise Number',
+      cn: 'P3 黑洞连线真北或顺时针编号',
+      ko: '3페이즈 블랙홀 선 절대 방위 또는 시계 방향 번호'
+    },
+    type: 'select',
+    options: {
+      en: {
+        'True North': 'true',
+        'Clockwise Number': 'clock'
+      },
+      cn: {
+        '真北': 'true',
+        '顺时针编号': 'clock'
+      },
+      ko: {
+        '절대 방위': 'true',
+        '시계 방향 번호': 'clock'
+      }
+    },
+    default: 'true'
   }],
   timelineFile: 'dancing_mad.txt',
   initData: () => {
@@ -284259,11 +286869,41 @@ const dancing_mad_triggerSet = {
       eyeTowerIds: [],
       fakeEyeTowerIds: [],
       waveCannonTargets: [],
-      doubleTroubleTrapTargets: []
+      doubleTroubleTrapTargets: [],
       // Phase 2
+      pathOfLightCounter: 1,
+      pathOfLightStackPlayers: [],
+      forsakenPlayerHeadmarkers: {},
+      isForsakenGroupA: false,
+      forsakenGroupA: [],
+      forsakenGroupB: [],
+      trineDirNums: [],
+      // Phase 3
+      windCrystalNext: false,
+      fireElementPlayers: [],
+      waterElementPlayers: [],
+      inLine: {},
+      hadAccretion: false,
+      blackHoleIdDirNums: {},
+      nothingnessTracker: 1,
+      blackHoleTetherDirNums: [],
+      isSecondPuddle: false,
+      isKnockDown2: false,
+      blizzardStarted: false,
+      // Phase 4
+      grandCrossCount: 0,
+      shortShriekPlayers: [],
+      longShriekPlayers: [],
+      shortForkedPlayers: [],
+      longForkedPlayers: [],
+      shortCompressedPlayers: [],
+      longCompressedPlayers: [],
+      firstShortBombPlayers: [],
+      firstLongBombPlayers: [],
+      secondShortBombPlayers: [],
+      secondLongBombPlayers: []
     };
   },
-
   triggers: [{
     id: 'DMU Phase Tracker',
     type: 'StartsUsing',
@@ -284273,7 +286913,8 @@ const dancing_mad_triggerSet = {
     run: (data, matches) => data.phase = dancing_mad_phases[matches.id] ?? 'unknown'
   }, {
     id: 'DMU ActorSetPos Tracker',
-    // Only in use for P1 Graven Image tethers
+    // P1 Graven Image tethers
+    // P3 Max actor location
     type: 'ActorSetPos',
     netRegex: {
       id: '4[0-9A-Fa-f]{7}',
@@ -284311,11 +286952,13 @@ const dancing_mad_triggerSet = {
       avoidCleaves: outputs/* default.avoidTankCleaves */.Z.avoidTankCleaves,
       cleaveOnPlayer: {
         en: 'Tank Cleave on ${player}',
+        cn: '坦克顺劈点${player}',
         ko: '${player}에게 광역 탱버'
       },
       cleaveSwap: {
         // Defaulting to same output as cleaveOnPlayer
         en: 'Tank Cleave on ${player}',
+        cn: '坦克顺劈点${player}',
         ko: '${player}에게 광역 탱버'
       }
     }
@@ -284401,7 +287044,7 @@ const dancing_mad_triggerSet = {
       pulse: outputs/* default.knockback */.Z.knockback // Cannot be immuned, happens within 6s of tether
     }
   }, {
-    id: 'DMU P1 Mystery Magic Collect',
+    id: 'DMU P1 and P4 Mystery Magic Collect',
     type: 'HeadMarker',
     netRegex: {
       id: [dancing_mad_headMarkerData['trueFire'], dancing_mad_headMarkerData['trueIce'], dancing_mad_headMarkerData['trueThunder'], dancing_mad_headMarkerData['fakeFire'], dancing_mad_headMarkerData['fakeIce'], dancing_mad_headMarkerData['fakeThunder']],
@@ -284469,7 +287112,30 @@ const dancing_mad_triggerSet = {
         });
       }
     },
-    outputStrings: mysteryMagicOutputStrings
+    outputStrings: {
+      ...mysteryMagicIceOutputStrings,
+      ...mysteryMagicFireOutputStrings,
+      stackTrueIce: {
+        en: '${mech} + ${ice}',
+        cn: '${mech} + ${ice}',
+        ko: '${mech} + ${ice}'
+      },
+      stackFakeIce: {
+        en: '${mech} + ${ice}',
+        cn: '${mech} + ${ice}',
+        ko: '${mech} + ${ice}'
+      },
+      spreadTrueIce: {
+        en: '${mech} + ${ice}',
+        cn: '${mech} + ${ice}',
+        ko: '${mech} + ${ice}'
+      },
+      spreadFakeIce: {
+        en: '${mech} + ${ice}',
+        cn: '${mech} + ${ice}',
+        ko: '${mech} + ${ice}'
+      }
+    }
   }, {
     id: 'DMU P1 Graven Image Tether Cleanup',
     // Clear on Ability:
@@ -284556,6 +287222,7 @@ const dancing_mad_triggerSet = {
     outputStrings: {
       waveCannonLine: {
         en: 'E/W Spread',
+        cn: '左/右分散',
         ko: '동/서 산개'
       }
     }
@@ -284609,6 +287276,7 @@ const dancing_mad_triggerSet = {
         },
         extra: {
           en: 'Extra Tower',
+          cn: '额外塔',
           ko: '남는 탑'
         }
       };
@@ -284717,8 +287385,9 @@ const dancing_mad_triggerSet = {
     },
     outputStrings: trapOutputStrings
   }, {
-    id: 'DMU P1 Mystery Magic Ice and Thunder',
-    // Set 2: Only Ice and Thunder should be set
+    id: 'DMU P1 and P4 Mystery Magic Ice and Thunder',
+    // P1 Set 2: Only Ice and Thunder should be set
+    // P4 All BA94 Mystery Magic casts
     type: 'StartsUsing',
     netRegex: {
       id: 'BA94',
@@ -284734,7 +287403,7 @@ const dancing_mad_triggerSet = {
       }
       return data.isIceTrue ? output.trueIceFakeThunder() : output.fakeIceFakeThunder();
     },
-    outputStrings: mysteryMagicOutputStrings
+    outputStrings: mysteryMagicIceThunderOutputStrings
   }, {
     id: 'DMU P1 Light of Judgment',
     type: 'StartsUsing',
@@ -284759,8 +287428,9 @@ const dancing_mad_triggerSet = {
     response: responses/* Responses.tankBuster */.n3.tankBuster()
   }, {
     id: 'DMU P1 Mystery Magic Ice, and Gravitas and Vitrophyre Tethers 1',
-    // Occurs between Set 2 and Set 3
-    // BA95 Blizzard Blowout III cast
+    // BA95 Blizzard III Blowout
+    // Set 3: P1 Ice Only, and Gravitas and Vitrophyre Tethers
+    // Occurs between Graven Image Set 2 and Set 3
     type: 'StartsUsing',
     netRegex: {
       id: 'BA95',
@@ -284768,7 +287438,7 @@ const dancing_mad_triggerSet = {
       capture: false
     },
     condition: data => {
-      if (data.isIceTrue !== undefined && data.isThunderTrue === undefined && data.isFireTrue === undefined) return true;
+      if (data.isIceTrue !== undefined && data.isThunderTrue === undefined && data.isFireTrue === undefined && data.phase === 'p1') return true;
       return false;
     },
     infoText: (data, _matches, output) => {
@@ -284783,7 +287453,31 @@ const dancing_mad_triggerSet = {
         mech3: hasVitrophyre ? output.spread() : output.middle()
       });
     },
-    outputStrings: mysteryMagicOutputStrings
+    outputStrings: {
+      ...mysteryMagicIceOutputStrings,
+      ...mysteryMagicLookOutputStrings,
+      puddle: {
+        en: 'Bait Puddle',
+        de: 'Fläche ködern',
+        fr: 'Déposez',
+        ja: 'AOE誘導',
+        cn: '诱导AOE',
+        ko: '장판 유도',
+        tc: '誘導AOE'
+      },
+      middle: outputs/* default.goIntoMiddle */.Z.goIntoMiddle,
+      spread: outputs/* default.spread */.Z.spread,
+      trueIcePuddle: {
+        en: '${mech1} + ${mech2} => ${mech3}',
+        cn: '${mech1} + ${mech2} => ${mech3}',
+        ko: '${mech1} + ${mech2} => ${mech3}'
+      },
+      fakeIcePuddle: {
+        en: '${mech1} + ${mech2} => ${mech3}',
+        cn: '${mech1} + ${mech2} => ${mech3}',
+        ko: '${mech1} + ${mech2} => ${mech3}'
+      }
+    }
   }, {
     id: 'DMU P1 Vitrophyre',
     // Trigger on BAAC Gravitas, ~4s to get away
@@ -284801,10 +287495,12 @@ const dancing_mad_triggerSet = {
     outputStrings: {
       avoidTethers: {
         en: 'Avoid Tethered Players',
+        cn: '避开连线玩家',
         ko: '선 대상자 피하기'
       },
       spread: {
         en: 'Spread (avoid puddles)',
+        cn: '分散(避开圈圈)',
         ko: '산개 (장판 피하기)'
       }
     }
@@ -284916,10 +287612,12 @@ const dancing_mad_triggerSet = {
       },
       gravitas: {
         en: '${mech1} => ${mech2}',
+        cn: '${mech1} => ${mech2}',
         ko: '${mech1} => ${mech2}'
       },
       vitrophyre: {
         en: '${mech1} => ${mech2}',
+        cn: '${mech1} => ${mech2}',
         ko: '${mech1} => ${mech2}'
       }
     }
@@ -285117,101 +287815,122 @@ const dancing_mad_triggerSet = {
       southwest: outputs/* default.southwest */.Z.southwest,
       west: outputs/* default.west */.Z.west,
       northwest: outputs/* default.northwest */.Z.northwest,
-      unknown: outputs/* default.unknown */.Z.unknown,
       upup: {
         en: 'Up Portents',
+        cn: '上箭头',
         ko: '위쪽 화살표'
       },
       downdown: {
         en: 'Down Portents',
+        cn: '下箭头',
         ko: '아래쪽 화살표'
       },
       rightright: {
         en: 'Right Portents',
+        cn: '右箭头',
         ko: '오른쪽 화살표'
       },
       leftleft: {
         en: 'Left Portents',
+        cn: '左箭头',
         ko: '왼쪽 화살표'
       },
       downleft: {
         en: 'Down => Left Portent',
+        cn: '下 => 左箭头',
         ko: '아래 => 왼쪽 화살표'
       },
       downright: {
         en: 'Down => Right Portent',
+        cn: '下 => 右箭头',
         ko: '아래 => 오른쪽 화살표'
       },
       rightup: {
         en: 'Right => Up Portent',
+        cn: '右 => 上箭头',
         ko: '오른쪽 => 위 화살표'
       },
       rightdown: {
         en: 'Right => Down Portent',
+        cn: '右 => 下箭头',
         ko: '오른쪽 => 아래 화살표'
       },
       leftup: {
         en: 'Left => Up Portent',
+        cn: '左 => 上箭头',
         ko: '왼쪽 => 위 화살표'
       },
       leftdown: {
         en: 'Left => Down Portent',
+        cn: '左 => 下箭头',
         ko: '왼쪽 => 아래 화살표'
       },
       upright: {
         en: 'Up => Right Portent',
+        cn: '上 => 右箭头',
         ko: '위 => 오른쪽 화살표'
       },
       upleft: {
         en: 'Up => Left Portent',
+        cn: '上 => 左箭头',
         ko: '위 => 왼쪽 화살표'
       },
       clockwise: {
         en: '${dir1} => ${dir2}',
+        cn: '${dir1} => ${dir2}',
         ko: '${dir1} => ${dir2}'
       },
       filipino: {
         en: '${dir1} => ${dir2}',
+        cn: '${dir1} => ${dir2}',
         ko: '${dir1} => ${dir2}'
       },
       southeastOut: {
         // upup for Filipino
         en: 'Southeast Out',
+        cn: '右下外',
         ko: '남동쪽 밖'
       },
       northwestOut: {
         // downdown for Filipino
         en: 'Northwest Out',
+        cn: '左上外',
         ko: '북서쪽 밖'
       },
       southwestOut: {
         // rightright for Filipino
         en: 'Southwest Out',
+        cn: '左下外',
         ko: '남서쪽 밖'
       },
       northeastOut: {
         // leftleft for Filipino
         en: 'Northeast Out',
+        cn: '右上外',
         ko: '북동쪽 밖'
       },
       southeastIn: {
         // downright for Filipino
         en: 'Southeast In',
+        cn: '右下内',
         ko: '남동쪽 안'
       },
       northeastIn: {
         // rightup for Filipino
         en: 'Northeast In',
+        cn: '右上内',
         ko: '북동쪽 안'
       },
       southwestIn: {
         // leftdown for Filipino
         en: 'Southwest In',
+        cn: '左下内',
         ko: '남서쪽 안'
       },
       northwestIn: {
         // upleft for Filipino
         en: 'Northwest In',
+        cn: '左上内',
         ko: '북서쪽 안'
       }
     }
@@ -285315,10 +288034,12 @@ const dancing_mad_triggerSet = {
       },
       indulgent: {
         en: 'Confuse Tether on YOU',
+        cn: '混乱连线点名',
         ko: '혼란 선 대상자'
       },
       idyllic: {
         en: 'Sleep Tether on YOU',
+        cn: '睡眠连线点名',
         ko: '수면 선 대상자'
       }
     }
@@ -285358,12 +288079,28 @@ const dancing_mad_triggerSet = {
       },
       indulgent: {
         en: 'Confuse Tether on YOU',
+        cn: '混乱连线点名',
         ko: '혼란 선 대상자'
       },
       idyllic: {
         en: 'Sleep Tether on YOU',
+        cn: '睡眠连线点名',
         ko: '수면 선 대상자'
       }
+    }
+  }, {
+    id: 'DMU P1 Ave Maria / Indolent Will Collect',
+    // Collect for reminder with Mystery Magic
+    type: 'ActorControlExtra',
+    netRegex: {
+      category: '019D',
+      param1: '40',
+      param2: '80',
+      capture: true
+    },
+    run: (data, matches) => {
+      const id = matches.id;
+      if (data.eyeTowerIds.includes(id) || data.fakeEyeTowerIds.includes(matches.id)) data.isTowerLookAway = data.eyeTowerIds.includes(id);
     }
   }, {
     id: 'DMU P1 Ave Maria (Early)',
@@ -285386,6 +288123,7 @@ const dancing_mad_triggerSet = {
     outputStrings: {
       lookAtLater: {
         en: 'Look At Statue (later)',
+        cn: '面对神像(稍后)',
         ko: '시선 바라보기 (나중에)'
       }
     }
@@ -285406,6 +288144,7 @@ const dancing_mad_triggerSet = {
     outputStrings: {
       lookAwayLater: {
         en: 'Look Away From Statue (later)',
+        cn: '背对神像(稍后)',
         ko: '시선 피하기 (나중에)'
       }
     }
@@ -285424,18 +288163,28 @@ const dancing_mad_triggerSet = {
     },
     infoText: (data, _matches, output) => {
       const fireMarker = data.fireMarker;
-      const look = data.isTowerLookAway ? output.lookAway() : output.lookAt();
-      if (fireMarker === dancing_mad_headMarkerData['dorito'] && data.isFireTrue || fireMarker === dancing_mad_headMarkerData['stack'] && !data.isFireTrue) return data.isThunderTrue ? output.spreadTrueThunderLook({
-        mech: output.spread(),
-        thunder: output.trueThunder(),
-        look: look
-      }) : output.spreadFakeThunderLook({
-        mech: output.spread(),
-        thunder: output.fakeThunder(),
-        look: look
-      });
+      const isTowerLookAway = data.isTowerLookAway;
+      const look = isTowerLookAway ? output.lookAway() : output.lookAt();
+      if (fireMarker === dancing_mad_headMarkerData['dorito'] && data.isFireTrue || fireMarker === dancing_mad_headMarkerData['stack'] && !data.isFireTrue) {
+        if (isTowerLookAway !== undefined) return data.isThunderTrue ? output.spreadTrueThunderLook({
+          mech: output.spread(),
+          thunder: output.trueThunder(),
+          look: look
+        }) : output.spreadFakeThunderLook({
+          mech: output.spread(),
+          thunder: output.fakeThunder(),
+          look: look
+        });
+        return data.isThunderTrue ? output.spreadTrueThunder({
+          mech: output.spread(),
+          thunder: output.trueThunder()
+        }) : output.spreadFakeThunder({
+          mech: output.spread(),
+          thunder: output.fakeThunder()
+        });
+      }
       if (fireMarker === dancing_mad_headMarkerData['dorito'] && !data.isFireTrue || fireMarker === dancing_mad_headMarkerData['stack'] && data.isFireTrue) {
-        return data.isThunderTrue ? output.stackTrueThunderLook({
+        if (isTowerLookAway !== undefined) return data.isThunderTrue ? output.stackTrueThunderLook({
           mech: output.stack(),
           thunder: output.trueThunder(),
           look: look
@@ -285444,31 +288193,6 @@ const dancing_mad_triggerSet = {
           thunder: output.fakeThunder(),
           look: look
         });
-      }
-    },
-    outputStrings: mysteryMagicOutputStrings
-  }, {
-    id: 'DMU P4 Mystery Magic Fire and Thunder',
-    type: 'StartsUsing',
-    netRegex: {
-      id: 'BA94',
-      source: 'Kefka',
-      capture: false
-    },
-    condition: data => {
-      if (data.isFireTrue !== undefined && data.isThunderTrue !== undefined && data.phase === 'p4') return true;
-      return false;
-    },
-    infoText: (data, _matches, output) => {
-      const fireMarker = data.fireMarker;
-      if (fireMarker === dancing_mad_headMarkerData['dorito'] && data.isFireTrue || fireMarker === dancing_mad_headMarkerData['stack'] && !data.isFireTrue) return data.isThunderTrue ? output.spreadTrueThunder({
-        mech: output.spread(),
-        thunder: output.trueThunder()
-      }) : output.spreadFakeThunder({
-        mech: output.spread(),
-        thunder: output.fakeThunder()
-      });
-      if (fireMarker === dancing_mad_headMarkerData['dorito'] && !data.isFireTrue || fireMarker === dancing_mad_headMarkerData['stack'] && data.isFireTrue) {
         return data.isThunderTrue ? output.stackTrueThunder({
           mech: output.stack(),
           thunder: output.trueThunder()
@@ -285478,16 +288202,63 @@ const dancing_mad_triggerSet = {
         });
       }
     },
-    outputStrings: mysteryMagicOutputStrings
+    outputStrings: {
+      ...mysteryMagicFireOutputStrings,
+      ...mysteryMagicThunderOutputStrings,
+      ...mysteryMagicLookOutputStrings,
+      stackTrueThunderLook: {
+        en: '${mech} + ${thunder} + ${look}',
+        cn: '${mech} + ${thunder} + ${look}',
+        ko: '${mech} + ${thunder} + ${look}'
+      },
+      stackFakeThunderLook: {
+        en: '${mech} + ${thunder} + ${look}',
+        cn: '${mech} + ${thunder} + ${look}',
+        ko: '${mech} + ${thunder} + ${look}'
+      },
+      spreadTrueThunderLook: {
+        en: '${mech} + ${thunder} + ${look}',
+        cn: '${mech} + ${thunder} + ${look}',
+        ko: '${mech} + ${thunder} + ${look}'
+      },
+      spreadFakeThunderLook: {
+        en: '${mech} + ${thunder} + ${look}',
+        cn: '${mech} + ${thunder} + ${look}',
+        ko: '${mech} + ${thunder} + ${look}'
+      },
+      stackTrueThunder: {
+        en: '${mech} + ${thunder}',
+        cn: '${mech} + ${thunder}',
+        ko: '${mech} + ${thunder}'
+      },
+      stackFakeThunder: {
+        en: '${mech} + ${thunder}',
+        cn: '${mech} + ${thunder}',
+        ko: '${mech} + ${thunder}'
+      },
+      spreadTrueThunder: {
+        en: '${mech} + ${thunder}',
+        cn: '${mech} + ${thunder}',
+        ko: '${mech} + ${thunder}'
+      },
+      spreadFakeThunder: {
+        en: '${mech} + ${thunder}',
+        cn: '${mech} + ${thunder}',
+        ko: '${mech} + ${thunder}'
+      }
+    }
   }, {
-    id: 'DMU P1 Mystery Magic Cleanup',
+    id: 'DMU P1 and P4 Mystery Magic Cleanup',
     // C622 Light of Judgment to reset for the Graven Image 2
+    // BB14 Grand Cross to reset between Myster Magic casts
     type: 'StartsUsing',
     netRegex: {
-      id: ['BA94', 'C622'],
-      source: 'Kefka',
+      id: ['BA94', 'C622', 'BB14'],
+      source: ['Kefka', 'Neo Exdeath'],
       capture: false
     },
+    delaySeconds: 0.2,
+    // BB14 could trigger delete prior to P4's BA94 output
     run: data => {
       delete data.isFireTrue;
       delete data.isIceTrue;
@@ -285515,41 +288286,307 @@ const dancing_mad_triggerSet = {
     durationSeconds: 6.7,
     response: responses/* Responses.bigAoe */.n3.bigAoe('alert')
   }, {
-    id: 'DMU P2 Path of Light Headmarker',
+    id: 'DMU P2 Spell\'s Trouble Clear Current Headmarker',
+    // Each player gets 4 of these, using this to track when to clear from
+    // Track when last one is lost
+    type: 'LosesEffect',
+    netRegex: {
+      effectId: '13DB',
+      capture: true
+    },
+    run: (data, matches) => {
+      const target = matches.target;
+      data.pathOfLightStackPlayers = data.pathOfLightStackPlayers.filter(t => t !== target);
+      delete data.forsakenPlayerHeadmarkers[target];
+    }
+  }, {
+    id: 'DMU P2 Path of Light Headmarker Tracker',
+    // When standing in Path of Light tower, causes BAC0 Spelldriver (3-person stack)
+    // When standing in Path of Light tower, causes BAC2 Spellwave (cone targetting nearest player)
+    // When standing in Path of Light tower, causes BAC1 Spellscatter (small aoe on the player)
+    // Headmarkers update ~2.5s prior to 13DB Spell's Trouble debuff count decrementing
+    //
+    // Stacks cannot exist with Even towers, there isn't enough players for near Baits
+    // However, it is still possible to do an odd tower without having stacks
+    // This seems to be treated as a special case as we find tower 7 give 4 stacks
+    //
+    // Possible Group solutions:
+    // AAABBBBA
+    // ABBAABBA
+    // AAAABBBB, requires Tank LB3 due to forced 4 stacks from tower 7
     type: 'HeadMarker',
     netRegex: {
       id: [dancing_mad_headMarkerData['stackPath'], dancing_mad_headMarkerData['conePath'], dancing_mad_headMarkerData['spreadPath']],
       capture: true
     },
-    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
-    infoText: (_data, matches, output) => {
+    run: (data, matches) => {
       const id = matches.id;
-      const markers = {
-        '02CB': 'stack',
-        '02CD': 'cone',
-        '02CC': 'spread'
-      };
-      const marker = markers[id];
-      if (marker === undefined) return;
-      return output[marker]();
-    },
-    outputStrings: {
-      stack: {
-        en: 'Stack Path on YOU',
-        ko: '쉐어징 대상자'
-      },
-      cone: {
-        en: 'Cone Path on YOU',
-        ko: '부채꼴징 대상자'
-      },
-      spread: {
-        en: 'Spread Path on YOU',
-        ko: '산개징 대상자'
+      const target = matches.target;
+
+      // Clear previous Headmarker if set
+      data.pathOfLightStackPlayers = data.pathOfLightStackPlayers.filter(t => t !== target);
+      data.forsakenPlayerHeadmarkers[matches.target] = forsakenHeadmarkerIdToName[id] ?? 'unknown';
+
+      // On first headmarker, start everyone in same group
+      // Excluding self as this reduces number of lookups to find partner
+      if (data.pathOfLightCounter === 1 && data.me !== matches.target) data.forsakenGroupB.push(matches.target);
+
+      // If the groups are uneven a tower was missed and it's probably a wipe
+      if (data.pathOfLightCounter === 2) {
+        // Remove from Group B
+        data.forsakenGroupB = data.forsakenGroupB.filter(t => t !== target);
+        if (data.me === matches.target) data.isForsakenGroupA = true;else data.forsakenGroupA.push(matches.target);
       }
+      if (id === dancing_mad_headMarkerData['stackPath']) data.pathOfLightStackPlayers.push(target);
     }
   }, {
-    id: 'DMU P2 Future\'s End/Past\'s End',
+    id: 'DMU P2 Path of Light Towers 1',
+    // First Tower:
+    // 2 Soak markers
+    // 3 Cone markers (same role)
+    // 3 Spread markers (same role)
+    // If not marked for soak, check role of soak marked players, if matches
+    // player, add to output. Player will then know if they need to soak
+    // Unfortunately we do not know partners until the first tower is taken
+    type: 'HeadMarker',
+    netRegex: {
+      id: [dancing_mad_headMarkerData['stackPath'], dancing_mad_headMarkerData['conePath'], dancing_mad_headMarkerData['spreadPath']],
+      capture: true
+    },
+    condition: (data, matches) => {
+      return data.me === matches.target && data.pathOfLightCounter === 1;
+    },
+    delaySeconds: 0.1,
+    // Delay for party headmarker collect
+    durationSeconds: 9,
+    infoText: (data, matches, output) => {
+      const id = matches.id;
+      const marker = forsakenHeadmarkerIdToName[id];
+      if (marker === undefined) return;
+      const num = output.num({
+        num: data.pathOfLightCounter
+      });
+      const config = data.triggerSetConfig.forsaken;
+      if (marker === 'stack') {
+        // These players must get a tower
+        if (config !== 'none') {
+          if (data.role === 'healer' || data.role === 'tank') return output.stackOnYouTower({
+            num: num,
+            tower: output.leftTower(),
+            marker: output.stackOnYouLocation({
+              stack: output.stackOnYou(),
+              location: output.outerHitbox()
+            })
+          });
+          return output.stackOnYouTower({
+            num: num,
+            tower: output.rightTower(),
+            marker: output.stackOnYouLocation({
+              stack: output.stackOnYou(),
+              location: output.innerHitbox()
+            })
+          });
+        }
+
+        // Assuming no strategy avoids stack soaking tower in first set
+        return output.stackOnYouTower({
+          num: num,
+          tower: output.tower(),
+          marker: output.stackOnYou()
+        });
+      }
+      const stack1 = data.pathOfLightStackPlayers[0] ?? 'unknown';
+      const stack2 = data.pathOfLightStackPlayers[1] ?? 'unknown';
+      const stack1IsDPS = data.party.isDPS(stack1);
+      const stack2IsDPS = data.party.isDPS(stack2);
+      const myRoleIsDPS = data.party.isDPS(data.me);
+
+      // If both stack players are the same role, output both players
+      // This would be a non-standard composition
+      if (myRoleIsDPS === stack1IsDPS && myRoleIsDPS === stack2IsDPS) {
+        const players = data.pathOfLightStackPlayers.map(player => {
+          return data.party.member(player);
+        });
+        const msg = players?.join(', ');
+        return output.markerOnYouStacksOnPlayers({
+          num: num,
+          marker: output[marker](),
+          stacks: output.stacksOnPlayers({
+            players: msg
+          })
+        });
+      }
+
+      // Our partner will be the role that matches us
+      // If not, then assuredly the strategy used something like conga line for each role
+      const possiblePartner = data.party.member(myRoleIsDPS === stack1IsDPS ? stack1 : stack2);
+      return output.markerOnYouStacksOnPlayers({
+        num: num,
+        marker: output[marker](),
+        stacks: output.stackOnPlayer({
+          player: possiblePartner
+        })
+      });
+    },
+    outputStrings: forsakenOutputStrings
+  }, {
+    id: 'DMU P2 Path of Light Counter',
+    // Used to track which step of the paths we are own
+    // 4 Players soak Odd Towers, 4 Players soak Even Towers
+    // Headmarkers get applied to those hit ~0.5s after
+    type: 'Ability',
+    netRegex: {
+      id: 'BABE',
+      source: 'Kefka',
+      capture: false
+    },
+    suppressSeconds: 1,
+    run: data => data.pathOfLightCounter = data.pathOfLightCounter + 1
+  }, {
+    id: 'DMU P2 Path of Light Towers 2',
+    // Expecting 2 Cones and 2 Spreads soak towers
+    //
+    // Headmarkers come out ~2s before Future's/Past's End
+    type: 'HeadMarker',
+    netRegex: {
+      id: [dancing_mad_headMarkerData['stackPath'], dancing_mad_headMarkerData['conePath'], dancing_mad_headMarkerData['spreadPath']],
+      capture: false
+    },
+    condition: data => data.pathOfLightCounter === 2,
+    delaySeconds: 0.1,
+    // Delay for party headmarker collect
+    durationSeconds: 9,
+    suppressSeconds: 1,
+    infoText: (data, _matches, output) => {
+      const playerHeadmarkers = data.forsakenPlayerHeadmarkers;
+      const num = output.num({
+        num: data.pathOfLightCounter
+      });
+      const marker = playerHeadmarkers[data.me] ?? 'unknown'; // Current headmarker
+      const config = data.triggerSetConfig.forsaken;
+      const isForsakenGroupA = data.isForsakenGroupA;
+
+      // Modified ABBA and Kroxy-Rinon Baits
+      if (!isForsakenGroupA && config === 'kroxy-rinon' || isForsakenGroupA && config === 'abba') {
+        if (data.role === 'healer') return output.baitLeftConeLeftEvens({
+          num: num
+        });
+        if (data.role === 'tank') return output.baitCloneOppositeTowers({
+          num: num
+        });
+        // DPS Unknown party composition
+        return output.bait({
+          num: num
+        });
+      }
+
+      // ABBA (unmodified) and AAAABBBB, Baits
+      if (config === 'bowtie' && !data.isForsakenGroupA) {
+        // Group A Avoids Towers (ABBA)
+        // Group B Avoids Towers (AAAABBBB)
+        return output.mechsBowtie({
+          num: num,
+          mech1: output.beNear(),
+          mech2: output.avoid()
+        });
+      }
+
+      // If someone has stack from beginning
+      if (config !== 'none' && (marker === 'stack' || marker === 'unknown')) return;
+
+      // Modified ABBA and Kroxy-Rinon Tower Soaks
+      if (isForsakenGroupA && config === 'kroxy-rinon' || !isForsakenGroupA && config === 'abba') {
+        // Spread Players have to be far in the tower, cones need to bait end
+        const nearFar = marker === 'spread' ? output.beFar() : output.beNear();
+        switch (data.role) {
+          case 'healer':
+            return output.markerOnYouTowerEvens({
+              num: num,
+              marker: output[marker](),
+              tower: output.leftTower(),
+              nearfar: nearFar
+            });
+          default:
+            {
+              const group = config === 'kroxy-rinon' ? data.forsakenGroupA : data.forsakenGroupB;
+              const pMarker = getHTMRPartnerMarker(data, group);
+
+              // Could not get priority
+              if (pMarker === 'unknown') break;
+              if (data.role === 'tank') return output.markerOnYouTowerEvens({
+                num: num,
+                marker: output[marker](),
+                tower: pMarker === marker ? output.rightTower() : output.leftTower(),
+                nearfar: nearFar
+              });
+              if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return output.markerOnYouTowerEvens({
+                num: num,
+                marker: output[marker](),
+                tower: pMarker === marker ? output.leftTower() : output.rightTower(),
+                nearfar: nearFar
+              });
+
+              // Ranged DPS highest priority right
+              return output.markerOnYouTowerEvens({
+                num: num,
+                marker: output[marker](),
+                tower: output.rightTower(),
+                nearfar: nearFar
+              });
+            }
+        }
+        // Unable to determine priority
+        return output.markerOnYouTowerEvens({
+          num: num,
+          marker: output[marker](),
+          tower: output.tower(),
+          nearfar: nearFar
+        });
+      }
+
+      // ABBA (unmodified) and AAAABBBB, Soaks
+      if (config === 'bowtie' && isForsakenGroupA) {
+        // Tower soakers don't bait ends
+        // Group B Soaks Towers (ABBA)
+        // Group A Soaks Towers (AAAA)
+        const group = data.forsakenGroupA;
+        // Partner is whoever has the same marker
+        const partner = playerHeadmarkers[group[0] ?? 0] === marker ? group[0] : playerHeadmarkers[group[1] ?? 0] === marker ? group[1] : group[2]; // Or unknown matched
+        const name = data.party.member(partner);
+        if (marker === 'spread') return output.mechs3Bowtie({
+          num: num,
+          mech1: output.rightTower(),
+          mech2: output.spreadWithPlayer({
+            player: name
+          }),
+          mech3: output.outOfHitbox()
+        });
+        if (marker === 'cone') return output.mechs3Bowtie({
+          num: num,
+          mech1: output.leftTower(),
+          mech2: output.baitConeFromPlayer({
+            player: name
+          }),
+          mech3: output.outOfHitbox()
+        });
+      }
+
+      // No strategy selected
+      // Many options: Tower, Bait Cone, Share Stack?
+      return output.mechsNoStrategy({
+        num: num,
+        marker: output[marker](),
+        mechs: output.towerOrBeNear({
+          tower: output.tower(),
+          near: output.beNear()
+        })
+      });
+    },
+    outputStrings: forsakenOutputStrings
+  }, {
+    id: 'DMU P2 Future\'s End/Past\'s End (Early)',
     // There are four end casts
+    // This output will need to be short as in 1.4s another trigger will fire
     type: 'StartsUsing',
     netRegex: {
       id: ['BAD2', 'BAD3'],
@@ -285562,13 +288599,1253 @@ const dancing_mad_triggerSet = {
     outputStrings: {
       future: {
         en: 'Future',
+        cn: '未来',
         ko: '미래'
       },
       past: {
         en: 'Past',
+        cn: '过去',
         ko: '과거'
       }
     }
+  }, {
+    id: 'DMU P2 All Things Ending Baits',
+    // Using the following spells for timing:
+    // BAD2 Future's End => Need to bait BADC All Things Ending
+    // BAD3 Past's End => Need to bait BADD All Things Ending
+    // There are four end casts, each 10s apart
+    // BAD2 and BAD3 are the castbar, damage doesn't go out until later
+    // TODO: Get Tower Locations
+    type: 'Ability',
+    netRegex: {
+      id: ['BAD2', 'BAD3'],
+      source: 'Kefka',
+      capture: true
+    },
+    delaySeconds: 1.7,
+    // Time until headmarker and future/past damage
+    alertText: (data, matches, output) => {
+      const isFuture = matches.id === 'BAD2';
+      const count = data.pathOfLightCounter;
+      const playerHeadmarkers = data.forsakenPlayerHeadmarkers;
+      const marker = playerHeadmarkers[data.me] ?? 'unknown'; // Current headmarker
+      const config = data.triggerSetConfig.forsaken;
+      const isForsakenGroupA = data.isForsakenGroupA;
+      const time = isFuture ? output.future() : output.past();
+      if (count === 3) {
+        // Stacks should soak towers
+        if (marker === 'stack') {
+          if (isForsakenGroupA && (config === 'kroxy-rinon' || config === 'bowtie') || !isForsakenGroupA && config === 'abba') {
+            switch (data.role) {
+              case 'healer':
+                return output.baitThenMarkerTower({
+                  bait: time,
+                  marker: output[marker](),
+                  tower: output.leftTower()
+                });
+              default:
+                {
+                  const group = config === 'kroxy-rinon' ? data.forsakenGroupA : data.forsakenGroupB;
+                  const pMarker = getHTMRPartnerMarker(data, group);
+
+                  // Could not get priority
+                  if (pMarker === 'unknown') break; // Fallback to none config
+                  if (data.role === 'tank') return output.baitThenMarkerTower({
+                    bait: time,
+                    marker: output[marker](),
+                    tower: pMarker === marker ? output.rightTower() : output.leftTower()
+                  });
+                  if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return output.baitThenMarkerTower({
+                    bait: time,
+                    marker: output[marker](),
+                    tower: pMarker === marker ? output.leftTower() : output.rightTower()
+                  });
+
+                  // Ranged is highest priority right
+                  return output.baitThenMarkerTower({
+                    bait: time,
+                    marker: output[marker](),
+                    tower: output.rightTower()
+                  });
+                }
+            }
+          }
+          // None config
+          // Need to know for priority
+          const players = data.pathOfLightStackPlayers.map(player => {
+            if (player === data.me) return output.you();
+            return data.party.member(player);
+          });
+          const msg = players?.join(', ');
+
+          // Assuming none config soaks
+          return output.baitThenStacks({
+            bait: time,
+            stacks: output.stacksOnPlayers({
+              players: msg
+            })
+          });
+        }
+
+        // Tower soakers, non stack markers
+        if (isForsakenGroupA && (config === 'kroxy-rinon' || config === 'bowtie') || !isForsakenGroupA && config === 'abba') {
+          return output.baitThenMarkerTower({
+            bait: time,
+            marker: output[marker](),
+            tower: marker === 'cone' ? output.leftTower() : output.rightTower()
+          });
+        }
+
+        // Baits and Stacks
+        if (!isForsakenGroupA && (config === 'kroxy-rinon' || config === 'bowtie') || isForsakenGroupA && config === 'abba') {
+          // So long as it is standard party composition...
+          if (data.role === 'tank') return output.baitThenMech({
+            bait: time,
+            mech: output.leftStack()
+          });
+          if (data.role === 'healer') return output.baitThenMech({
+            bait: time,
+            mech: output.leftBaitOut()
+          });
+          // 2 DPS in stack
+          return output.baitThenMech({
+            bait: time,
+            mech: output.rightStack()
+          });
+        }
+
+        // No config
+        return output.baitThenMarker({
+          bait: time,
+          marker: output[marker]()
+        });
+      } else if (count === 5) {
+        // Baits and Stacks
+        if (isForsakenGroupA && config === 'kroxy-rinon' || !isForsakenGroupA && config === 'abba') {
+          // So long as it is standard party composition...
+          if (data.role === 'tank') return output.baitThenMech({
+            bait: time,
+            mech: output.leftStack()
+          });
+          if (data.role === 'healer') return output.baitThenMech({
+            bait: time,
+            mech: output.leftBaitOut()
+          });
+          // 2 DPS in stack
+          return output.baitThenMech({
+            bait: time,
+            mech: output.rightStack()
+          });
+        }
+        if (config === 'bowtie') {
+          // Bowtie has people bait cones, but cones could bait eachother if they wanted
+          if (!isForsakenGroupA) {
+            return output.baitThenMarkerTower({
+              bait: time,
+              marker: output[marker](),
+              tower: marker === 'cone' ? output.leftTower() : output.rightTower()
+            });
+          }
+          if (data.role === 'tank') return output.baitThenMech({
+            bait: time,
+            mech: output.leftBaitLeftBowtie()
+          });
+          if (data.role === 'healer') return output.baitThenMech({
+            bait: time,
+            mech: output.leftBaitOutBowtie()
+          });
+          // 2 DPS in spread
+          return output.baitThenMech({
+            bait: time,
+            mech: output.getHitRightSpreadBowtie()
+          });
+        }
+
+        // Tower Soaks
+        // In AAAABBBB, there is no stack
+        if (marker === 'stack') {
+          if (config !== 'none') {
+            switch (data.role) {
+              case 'healer':
+                return output.baitThenMarkerTower({
+                  bait: time,
+                  marker: output[marker](),
+                  tower: output.leftTower()
+                });
+              default:
+                {
+                  const group = config === 'abba' ? data.forsakenGroupA : data.forsakenGroupB;
+                  const pMarker = getHTMRPartnerMarker(data, group);
+
+                  // Could not get priority
+                  if (pMarker === 'unknown') break; // Fallback to none config
+                  if (data.role === 'tank') return output.baitThenMarkerTower({
+                    bait: time,
+                    marker: output[marker](),
+                    tower: pMarker === marker ? output.rightTower() : output.leftTower()
+                  });
+                  if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return output.baitThenMarkerTower({
+                    bait: time,
+                    marker: output[marker](),
+                    tower: pMarker === marker ? output.leftTower() : output.rightTower()
+                  });
+
+                  // Ranged is highest priority right
+                  return output.baitThenMarkerTower({
+                    bait: time,
+                    marker: output[marker](),
+                    tower: output.rightTower()
+                  });
+                }
+            }
+          }
+          // None config
+          // Need to know for priority
+          const players = data.pathOfLightStackPlayers.map(player => {
+            if (player === data.me) return output.you();
+            return data.party.member(player);
+          });
+          const msg = players?.join(', ');
+
+          // Assuming none config soaks
+          return output.baitThenStacks({
+            bait: time,
+            stacks: output.stacksOnPlayers({
+              players: msg
+            })
+          });
+        }
+
+        // This ends up being Group B || Group A for respective config
+        if (config === 'kroxy-rinon' || config === 'abba') {
+          return output.baitThenMarkerTower({
+            bait: time,
+            marker: output[marker](),
+            tower: marker === 'cone' ? output.leftTower() : output.rightTower()
+          });
+        }
+
+        // No config
+        return output.baitThenMarker({
+          bait: time,
+          marker: output[marker]()
+        });
+      } else if (count === 7) {
+        if (isForsakenGroupA && config !== 'none') {
+          // So long as it is standard party composition...
+          if (data.role === 'tank') return output.baitThenMech({
+            bait: time,
+            mech: output.leftStack()
+          });
+          if (data.role === 'healer') return output.baitThenMech({
+            bait: time,
+            mech: output.leftBaitOut()
+          });
+          // 2 DPS in stack
+          return output.baitThenMech({
+            bait: time,
+            mech: output.rightStack()
+          });
+        }
+        if (marker === 'stack') {
+          if (config !== 'none') {
+            switch (data.role) {
+              case 'healer':
+                return output.baitThenMarkerTower({
+                  bait: time,
+                  marker: output[marker](),
+                  tower: output.leftTower()
+                });
+              default:
+                {
+                  const pMarker = getHTMRPartnerMarker(data, data.forsakenGroupB);
+
+                  // Could not get priority
+                  if (pMarker === 'unknown') break; // Fallback to none config
+                  if (data.role === 'tank') return output.baitThenMarkerTower({
+                    bait: time,
+                    marker: output[marker](),
+                    tower: pMarker === marker ? output.rightTower() : output.leftTower()
+                  });
+                  if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return output.baitThenMarkerTower({
+                    bait: time,
+                    marker: output[marker](),
+                    tower: pMarker === marker ? output.leftTower() : output.rightTower()
+                  });
+
+                  // Ranged is highest priority right
+                  return output.baitThenMarkerTower({
+                    bait: time,
+                    marker: output[marker](),
+                    tower: output.rightTower()
+                  });
+                }
+            }
+          }
+          // None config
+          // Need to know for priority
+          const players = data.pathOfLightStackPlayers.map(player => {
+            if (player === data.me) return output.you();
+            return data.party.member(player);
+          });
+          const msg = players?.join(', ');
+
+          // Assuming none config soaks
+          return output.baitThenStacks({
+            bait: time,
+            stacks: output.stacksOnPlayers({
+              players: msg
+            })
+          });
+        }
+        if (config !== 'none') return output.baitThenMarkerTower({
+          bait: time,
+          marker: output[marker](),
+          tower: marker === 'cone' ? output.leftTower() : output.rightTower()
+        });
+        // No config
+        return output.baitThenMarker({
+          bait: time,
+          marker: output[marker]()
+        });
+      }
+      return isFuture ? output.lastFuture({
+        action: output.behind()
+      }) : output.lastPast({
+        action: output.stay()
+      });
+    },
+    outputStrings: {
+      tower: outputs/* default.getTowers */.Z.getTowers,
+      behind: outputs/* default.getBehind */.Z.getBehind,
+      cone: {
+        en: 'Cone on YOU',
+        cn: '扇形点名',
+        ko: '나에게 부채꼴'
+      },
+      spread: {
+        en: 'Spread on YOU',
+        cn: '分散点名',
+        ko: '나에게 산개징'
+      },
+      stack: outputs/* default.stackOnYou */.Z.stackOnYou,
+      you: {
+        en: 'YOU',
+        cn: '你',
+        ko: '나'
+      },
+      stacksOnPlayers: {
+        en: 'Stacks on ${players}',
+        cn: '分摊点${players}',
+        ko: '${players}에게 쉐어'
+      },
+      stay: {
+        en: 'Stay',
+        de: 'Bleib stehen',
+        fr: 'Restez',
+        cn: '停',
+        ko: '대기',
+        tc: '停'
+      },
+      leftTower: {
+        en: 'Left Tower',
+        cn: '左塔',
+        ko: '왼쪽 탑'
+      },
+      rightTower: {
+        en: 'Right Tower',
+        cn: '右塔',
+        ko: '오른쪽 탑'
+      },
+      leftStack: {
+        en: 'Left Stack',
+        cn: '左分摊',
+        ko: '왼쪽 쉐어'
+      },
+      rightStack: {
+        en: 'Right Stack',
+        cn: '右分摊',
+        ko: '오른쪽 쉐어'
+      },
+      leftBaitOut: {
+        en: 'Left Bait Out',
+        cn: '左侧向外引导',
+        ko: '왼쪽 유도 바깥으로'
+      },
+      baitOrStack: {
+        en: 'Bait/Stack',
+        cn: '引导/分摊',
+        ko: '유도/쉐어'
+      },
+      future: {
+        en: 'Bait opposite Towers',
+        cn: '向塔的反方向引导',
+        ko: '탑 반대쪽으로 유도'
+      },
+      past: {
+        en: 'Bait between Towers',
+        cn: '向塔之间引导',
+        ko: '탑 사이로 유도'
+      },
+      baitThenMarker: {
+        en: '${bait} => ${marker}',
+        cn: '${bait} => ${marker}',
+        ko: '${bait} => ${marker}'
+      },
+      baitThenMech: {
+        en: '${bait} => ${mech}',
+        cn: '${bait} => ${mech}',
+        ko: '${bait} => ${mech}'
+      },
+      baitThenMarkerTower: {
+        en: '${bait} => ${marker} ${tower}',
+        cn: '${bait} => ${marker} ${tower}',
+        ko: '${bait} => ${marker} ${tower}'
+      },
+      baitThenTower: {
+        en: '${bait} => ${tower}',
+        cn: '${bait} => ${tower}',
+        ko: '${bait} => ${tower}'
+      },
+      baitThenStacks: {
+        en: '${bait} => ${stacks}',
+        cn: '${bait} => ${stacks}',
+        ko: '${bait} => ${stacks}'
+      },
+      lastFuture: {
+        en: 'Bait => ${action}',
+        cn: '引导 => ${action}',
+        ko: '유도 => ${action}'
+      },
+      lastPast: {
+        en: 'Bait => ${action}',
+        cn: '引导 => ${action}',
+        ko: '유도 => ${action}'
+      },
+      getHitRightSpreadBowtie: {
+        en: 'Hit by Right Spread',
+        cn: '吃右侧分散',
+        ko: '오른쪽 산개 맞기'
+      },
+      leftBaitLeftBowtie: {
+        en: 'Left Bait Left',
+        cn: '左侧向左引导',
+        ko: '왼쪽 유도 왼쪽으로'
+      },
+      leftBaitOutBowtie: {
+        en: 'Left Bait Out',
+        cn: '左侧向外引导',
+        ko: '왼쪽 유도 바깥으로'
+      }
+    }
+  }, {
+    id: 'DMU P2 Path of Light Towers 3',
+    // BADC All Things Ending (Future)
+    // BADD All Things Ending (Past)
+    // Expecting 2 Stacks, 1 Cone, and 1 Spread soak towers
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['BADC', 'BADD'],
+      source: 'Kefka',
+      capture: false
+    },
+    condition: data => data.pathOfLightCounter === 3,
+    suppressSeconds: 1,
+    alertText: (data, _matches, output) => {
+      const playerHeadmarkers = data.forsakenPlayerHeadmarkers;
+      const num = output.num({
+        num: data.pathOfLightCounter
+      });
+      const marker = playerHeadmarkers[data.me] ?? 'unknown'; // Current headmarker
+      const config = data.triggerSetConfig.forsaken;
+      const isForsakenGroupA = data.isForsakenGroupA;
+
+      // Stacks should soak towers
+      if (marker === 'stack') {
+        if (isForsakenGroupA && (config === 'kroxy-rinon' || config === 'bowtie') || !isForsakenGroupA && config === 'abba' || config === 'none') {
+          switch (data.role) {
+            case 'healer':
+              return output.markerOnYouTowerOdds({
+                num: num,
+                marker: output[marker](),
+                tower: output.leftTower(),
+                nearfar: output.outerHitbox()
+              });
+            default:
+              {
+                const group = config === 'kroxy-rinon' ? data.forsakenGroupA : data.forsakenGroupB;
+                const pMarker = getHTMRPartnerMarker(data, group);
+
+                // Could not get priority
+                if (pMarker === 'unknown') break; // Fallback to none config
+                if (data.role === 'tank') return output.markerOnYouTowerOdds({
+                  num: num,
+                  marker: output[marker](),
+                  tower: pMarker === marker ? output.rightTower() : output.leftTower(),
+                  nearfar: pMarker === marker ? output.innerHitbox() : output.outerHitbox()
+                });
+                if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return output.markerOnYouTowerOdds({
+                  num: num,
+                  marker: output[marker](),
+                  tower: pMarker === marker ? output.leftTower() : output.rightTower(),
+                  nearfar: pMarker === marker ? output.outerHitbox() : output.innerHitbox()
+                });
+
+                // Ranged is highest priority right
+                return output.markerOnYouTowerOdds({
+                  num: num,
+                  marker: output[marker](),
+                  tower: output.rightTower(),
+                  nearfar: output.innerHitbox()
+                });
+              }
+          }
+        }
+        // None config
+        // Need to know for priority
+        const players = data.pathOfLightStackPlayers.map(player => {
+          if (player === data.me) return output.you();
+          return data.party.member(player);
+        });
+        const msg = players?.join(', ');
+
+        // Assuming none config soaks
+        return output.stacksOnPlayersTower({
+          num: num,
+          stack: output.stacksOnPlayers({
+            players: msg
+          }),
+          tower: output.tower()
+        });
+      }
+
+      // Tower soakers, non stack markers
+      if (isForsakenGroupA && (config === 'kroxy-rinon' || config === 'bowtie') || !isForsakenGroupA && config === 'abba') {
+        return output.markerOnYouTowerOdds({
+          num: num,
+          marker: output[marker](),
+          tower: marker === 'cone' ? output.leftTower() : output.rightTower(),
+          nearfar: output.beFar()
+        });
+      }
+
+      // Baits and Stacks
+      if (!isForsakenGroupA && (config === 'kroxy-rinon' || config === 'bowtie') || isForsakenGroupA && config === 'abba') {
+        // So long as it is standard party composition...
+        if (data.role === 'tank') return output.leftStack({
+          num: num
+        });
+        if (data.role === 'healer') return output.baitLeftConeOutOdds({
+          num: num
+        });
+        // 2 DPS in stack
+        return output.rightStack({
+          num: num
+        });
+      }
+
+      // No strategy selected
+      return output.markerOnYouNoStrategy({
+        num: num,
+        marker: output[marker]()
+      });
+    },
+    outputStrings: forsakenOutputStrings
+  }, {
+    id: 'DMU P2 Path of Light Towers 4',
+    // This set should not contain stack markers
+    // If stacks exist, they came from first set
+    // Expecting 2 Cones and 2 Spreads soak towers
+    //
+    // Headmarkers come out ~2s before Future's/Past's End
+    type: 'HeadMarker',
+    netRegex: {
+      id: [dancing_mad_headMarkerData['stackPath'], dancing_mad_headMarkerData['conePath'], dancing_mad_headMarkerData['spreadPath']],
+      capture: false
+    },
+    condition: data => data.pathOfLightCounter === 4,
+    delaySeconds: 0.1,
+    // Delay for party headmarker collect
+    durationSeconds: 9,
+    suppressSeconds: 1,
+    infoText: (data, _matches, output) => {
+      const playerHeadmarkers = data.forsakenPlayerHeadmarkers;
+      const num = output.num({
+        num: data.pathOfLightCounter
+      });
+      const marker = playerHeadmarkers[data.me] ?? 'unknown'; // Current headmarker
+      const config = data.triggerSetConfig.forsaken;
+      const isForsakenGroupA = data.isForsakenGroupA;
+
+      // Baits
+      if (isForsakenGroupA && config === 'kroxy-rinon' || !isForsakenGroupA && config === 'abba') {
+        if (data.role === 'healer') return output.baitLeftConeLeftEvens({
+          num: num
+        });
+        if (data.role === 'tank') return output.baitCloneOppositeTowers({
+          num: num
+        });
+        // DPS Unknown party composition
+        return output.bait({
+          num: num
+        });
+      }
+
+      // AAAABBBB, Baits
+      if (config === 'bowtie' && !isForsakenGroupA) {
+        // Group B Avoids Towers
+        return output.mechsBowtie({
+          num: num,
+          mech1: output.beNear(),
+          mech2: output.avoid()
+        });
+      }
+
+      // If someone has stack from beginning
+      if (config !== 'none' && (marker === 'stack' || marker === 'unknown')) return;
+
+      // AAAABBBB, Soaks
+      if (config === 'bowtie' && isForsakenGroupA) {
+        // Tower soakers don't bait ends
+        // Group A Soaks Towers
+        const group = data.forsakenGroupA;
+        // Partner is whoever has the same marker
+        const partner = playerHeadmarkers[group[0] ?? 0] === marker ? group[0] : playerHeadmarkers[group[1] ?? 0] === marker ? group[1] : group[2]; // Or unknown matched
+        const name = data.party.member(partner);
+        if (marker === 'spread') return output.mechs3Bowtie({
+          num: num,
+          mech1: output.rightTower(),
+          mech2: output.spreadWithPlayer({
+            player: name
+          }),
+          mech3: output.outOfHitbox()
+        });
+        if (marker === 'cone') return output.mechs3Bowtie({
+          num: num,
+          mech1: output.leftTower(),
+          mech2: output.baitConeFromPlayer({
+            player: name
+          }),
+          mech3: output.outOfHitbox()
+        });
+      }
+
+      // Tower Soaks
+      if (config === 'kroxy-rinon' || config === 'abba') {
+        // Spread Players have to be far in the tower, cones need to bait end
+        const nearFar = marker === 'spread' ? output.beFar() : output.beNear();
+        switch (data.role) {
+          case 'healer':
+            return output.markerOnYouTowerEvens({
+              num: num,
+              marker: output[marker](),
+              tower: output.leftTower(),
+              nearfar: nearFar
+            });
+          default:
+            {
+              const pMarker = getHTMRPartnerMarker(data, data.forsakenGroupB);
+
+              // Could not get priority
+              if (pMarker === 'unknown') break;
+              if (data.role === 'tank') return output.markerOnYouTowerEvens({
+                num: num,
+                marker: output[marker](),
+                tower: pMarker === marker ? output.rightTower() : output.leftTower(),
+                nearfar: nearFar
+              });
+              if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return output.markerOnYouTowerEvens({
+                num: num,
+                marker: output[marker](),
+                tower: pMarker === marker ? output.leftTower() : output.rightTower(),
+                nearfar: nearFar
+              });
+
+              // Ranged DPS highest priority right
+              return output.markerOnYouTowerEvens({
+                num: num,
+                marker: output[marker](),
+                tower: output.rightTower(),
+                nearfar: nearFar
+              });
+            }
+        }
+        // Unable to determine priority
+        return output.markerOnYouTowerEvens({
+          num: num,
+          marker: output[marker](),
+          tower: output.tower(),
+          nearfar: nearFar
+        });
+      }
+
+      // No strategy selected
+      // Many options: Tower, Bait Cone, Share Stack?
+      return output.mechsNoStrategy({
+        num: num,
+        marker: output[marker](),
+        mechs: output.towerOrBeNear({
+          tower: output.tower(),
+          near: output.beNear()
+        })
+      });
+    },
+    outputStrings: forsakenOutputStrings
+  }, {
+    id: 'DMU P2 Path of Light Towers 5',
+    // BADC All Things Ending (Future)
+    // BADD All Things Ending (Past)
+    // Expecting 2 Stacks, 1 Cone, and 1 Spread soak towers
+    // However, AAAABBBB has 2 Cones and 2 Spreads soak towers
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['BADC', 'BADD'],
+      source: 'Kefka',
+      capture: false
+    },
+    condition: data => data.pathOfLightCounter === 5,
+    suppressSeconds: 1,
+    alertText: (data, _matches, output) => {
+      const playerHeadmarkers = data.forsakenPlayerHeadmarkers;
+      const num = output.num({
+        num: data.pathOfLightCounter
+      });
+      const marker = playerHeadmarkers[data.me] ?? 'unknown'; // Current headmarker
+      const config = data.triggerSetConfig.forsaken;
+      const isForsakenGroupA = data.isForsakenGroupA;
+
+      // Baits and Stacks
+      if (isForsakenGroupA && config === 'kroxy-rinon' || !isForsakenGroupA && config === 'abba') {
+        // So long as it is standard party composition...
+        if (data.role === 'tank') return output.leftStack({
+          num: num
+        });
+        if (data.role === 'healer') return output.baitLeftConeOutOdds({
+          num: num
+        });
+        return output.rightStack({
+          num: num
+        });
+      }
+      if (config === 'bowtie') {
+        // Bowtie has  people bait cones, but cones could bait eachother if they wanted
+        if (!isForsakenGroupA) {
+          return output.markerOnYouTowerOdds({
+            num: num,
+            marker: output[marker](),
+            tower: marker === 'cone' ? output.leftTower() : output.rightTower(),
+            nearfar: output.beFar()
+          });
+        }
+        if (data.role === 'tank') return output.baitLeftConeLeftBowtie({
+          num: num
+        });
+        if (data.role === 'healer') return output.baitLeftConeOutBowtie({
+          num: num
+        });
+        return output.getHitBySpreadRightBowtie({
+          num: num
+        });
+      }
+
+      // Tower Soaks
+      // In AAAABBBB, there is no stack
+      if (marker === 'stack') {
+        if (config !== 'none') {
+          switch (data.role) {
+            case 'healer':
+              return output.markerOnYouTowerOdds({
+                num: num,
+                marker: output[marker](),
+                tower: output.leftTower(),
+                nearfar: output.outerHitbox()
+              });
+            default:
+              {
+                const group = config === 'abba' ? data.forsakenGroupA : data.forsakenGroupB;
+                const pMarker = getHTMRPartnerMarker(data, group);
+
+                // Could not get priority
+                if (pMarker === 'unknown') break; // Fallback to none config
+                if (data.role === 'tank') return output.markerOnYouTowerOdds({
+                  num: num,
+                  marker: output[marker](),
+                  tower: pMarker === marker ? output.rightTower() : output.leftTower(),
+                  nearfar: pMarker === marker ? output.innerHitbox() : output.outerHitbox()
+                });
+                if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return output.markerOnYouTowerOdds({
+                  num: num,
+                  marker: output[marker](),
+                  tower: pMarker === marker ? output.leftTower() : output.rightTower(),
+                  nearfar: pMarker === marker ? output.outerHitbox() : output.innerHitbox()
+                });
+
+                // Ranged is highest priority right
+                return output.markerOnYouTowerOdds({
+                  num: num,
+                  marker: output[marker](),
+                  tower: output.rightTower(),
+                  nearfar: output.innerHitbox()
+                });
+              }
+          }
+        }
+        // None config
+        // Need to know for priority
+        const players = data.pathOfLightStackPlayers.map(player => {
+          if (player === data.me) return output.you();
+          return data.party.member(player);
+        });
+        const msg = players?.join(', ');
+
+        // Assuming none config soaks
+        return output.stacksOnPlayersTower({
+          num: num,
+          stack: output.stacksOnPlayers({
+            players: msg
+          }),
+          tower: output.tower()
+        });
+      }
+
+      // This ends up being Group B || Group A for respective config
+      if (config === 'kroxy-rinon' || config === 'abba') {
+        return output.markerOnYouTowerOdds({
+          num: num,
+          marker: output[marker](),
+          tower: marker === 'cone' ? output.leftTower() : output.rightTower(),
+          nearfar: output.beFar()
+        });
+      }
+
+      // No strategy
+      if (marker === 'unknown') return output.baitConeOrStackNoStrategy({
+        num: num
+      });
+      return output.markerOnYouNoStrategy({
+        num: num,
+        marker: output[marker]()
+      });
+    },
+    outputStrings: forsakenOutputStrings
+  }, {
+    id: 'DMU P2 Path of Light Towers 6',
+    // Expecting 2 Cones and 2 Spreads soak towers
+    //
+    // Headmarkers come out ~2s before Future's/Past's End
+    type: 'HeadMarker',
+    netRegex: {
+      id: [dancing_mad_headMarkerData['stackPath'], dancing_mad_headMarkerData['conePath'], dancing_mad_headMarkerData['spreadPath']],
+      capture: false
+    },
+    condition: data => data.pathOfLightCounter === 6,
+    delaySeconds: 0.1,
+    // Delay for party headmarker collect
+    durationSeconds: 9,
+    suppressSeconds: 1,
+    infoText: (data, _matches, output) => {
+      const playerHeadmarkers = data.forsakenPlayerHeadmarkers;
+      const num = output.num({
+        num: data.pathOfLightCounter
+      });
+      const marker = playerHeadmarkers[data.me] ?? 'unknown'; // Current headmarker
+      const config = data.triggerSetConfig.forsaken;
+      const isForsakenGroupA = data.isForsakenGroupA;
+
+      // Baits
+      if (isForsakenGroupA && (config === 'kroxy-rinon' || config === 'abba')) {
+        if (data.role === 'healer') return output.baitLeftConeLeftEvens({
+          num: num
+        });
+        if (data.role === 'tank') return output.baitCloneOppositeTowers({
+          num: num
+        });
+        // DPS Unknown party composition
+        return output.bait({
+          num: num
+        });
+      }
+      if (config === 'bowtie') {
+        // Group A Baits Ends
+        if (isForsakenGroupA) return output.numBeNearSpreadBowtie({
+          num: num,
+          near: output.beNear(),
+          spread: output.spreadBowtie()
+        });
+
+        // Tower soakers don't bait ends
+        // Group B Soaks Towers
+        const group = data.forsakenGroupB;
+        // Partner is whoever has the same marker
+        const partner = playerHeadmarkers[group[0] ?? 0] === marker ? group[0] : playerHeadmarkers[group[1] ?? 0] === marker ? group[1] : group[2]; // Or unknown matched
+        const name = data.party.member(partner);
+        if (marker === 'spread') return output.mechs3Bowtie({
+          num: num,
+          mech1: output.rightTower(),
+          mech2: output.spreadWithPlayer({
+            player: name
+          }),
+          mech3: output.outOfHitbox()
+        });
+        if (marker === 'cone') return output.mechs3Bowtie({
+          num: num,
+          mech1: output.leftTower(),
+          mech2: output.baitConeFromPlayer({
+            player: name
+          }),
+          mech3: output.outOfHitbox()
+        });
+      }
+
+      // Group B
+      if (config === 'kroxy-rinon' || config === 'abba') {
+        // Spread Players have to be far in the tower, cones need to bait end
+        const nearFar = marker === 'spread' ? output.beFar() : output.beNear();
+        switch (data.role) {
+          case 'healer':
+            return output.markerOnYouTowerEvens({
+              num: num,
+              marker: output[marker](),
+              tower: output.leftTower(),
+              nearfar: nearFar
+            });
+          default:
+            {
+              const pMarker = getHTMRPartnerMarker(data, data.forsakenGroupB);
+
+              // Could not get priority
+              if (pMarker === 'unknown') break;
+              if (data.role === 'tank') return output.markerOnYouTowerEvens({
+                num: num,
+                marker: output[marker](),
+                tower: pMarker === marker ? output.rightTower() : output.leftTower(),
+                nearfar: nearFar
+              });
+              if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return output.markerOnYouTowerEvens({
+                num: num,
+                marker: output[marker](),
+                tower: pMarker === marker ? output.leftTower() : output.rightTower(),
+                nearfar: nearFar
+              });
+
+              // Ranged DPS highest priority right
+              return output.markerOnYouTowerEvens({
+                num: num,
+                marker: output[marker](),
+                tower: output.rightTower(),
+                nearfar: nearFar
+              });
+            }
+        }
+        // Unable to determine priority
+        return output.markerOnYouTowerEvens({
+          num: num,
+          marker: output[marker](),
+          tower: output.tower(),
+          nearfar: nearFar
+        });
+      }
+
+      // No strategy selected
+      // Many options: Tower, Bait Cone, Share Stack?
+      if (marker === 'unknown') return output.baitNoStrategy({
+        num: num
+      });
+      return output.mechsNoStrategy({
+        num: num,
+        marker: output[marker](),
+        mechs: output.towerOrBeNear({
+          tower: output.tower(),
+          near: output.beNear()
+        })
+      });
+    },
+    outputStrings: forsakenOutputStrings
+  }, {
+    id: 'DMU P2 Path of Light Towers 7',
+    // BADC All Things Ending (Future)
+    // BADD All Things Ending (Past)
+    // Expecting 2 Stacks, 1 Cone, and 1 Spread soak towers
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['BADC', 'BADD'],
+      source: 'Kefka',
+      capture: false
+    },
+    condition: data => data.pathOfLightCounter === 7,
+    suppressSeconds: 1,
+    alertText: (data, _matches, output) => {
+      const playerHeadmarkers = data.forsakenPlayerHeadmarkers;
+      const num = output.num({
+        num: data.pathOfLightCounter
+      });
+      const marker = playerHeadmarkers[data.me] ?? 'unknown'; // Current headmarker
+      const config = data.triggerSetConfig.forsaken;
+
+      // Baits and Stacks
+      if (data.isForsakenGroupA && config !== 'none') {
+        // So long as it is standard party composition...
+        if (data.role === 'tank') return output.leftStack({
+          num: num
+        });
+        if (data.role === 'healer') return output.baitLeftConeOutOdds({
+          num: num
+        });
+        return output.rightStack({
+          num: num
+        });
+      }
+
+      // Tower soaks
+      if (marker === 'stack') {
+        if (config !== 'none') {
+          switch (data.role) {
+            case 'healer':
+              return output.markerOnYouTowerOdds({
+                num: num,
+                marker: output[marker](),
+                tower: output.leftTower(),
+                nearfar: output.outerHitbox()
+              });
+            default:
+              {
+                const pMarker = getHTMRPartnerMarker(data, data.forsakenGroupB);
+
+                // Could not get priority
+                if (pMarker === 'unknown') break; // Fallback to none config
+                if (data.role === 'tank') return output.markerOnYouTowerOdds({
+                  num: num,
+                  marker: output[marker](),
+                  tower: pMarker === marker ? output.rightTower() : output.leftTower(),
+                  nearfar: pMarker === marker ? output.innerHitbox() : output.outerHitbox()
+                });
+                if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return output.markerOnYouTowerOdds({
+                  num: num,
+                  marker: output[marker](),
+                  tower: pMarker === marker ? output.leftTower() : output.rightTower(),
+                  nearfar: pMarker === marker ? output.outerHitbox() : output.innerHitbox()
+                });
+
+                // Ranged is highest priority right
+                return output.markerOnYouTowerOdds({
+                  num: num,
+                  marker: output[marker](),
+                  tower: output.rightTower(),
+                  nearfar: output.innerHitbox()
+                });
+              }
+          }
+        }
+        // None config
+        // Need to know for priority
+        const players = data.pathOfLightStackPlayers.map(player => {
+          if (player === data.me) return output.you();
+          return data.party.member(player);
+        });
+        const msg = players?.join(', ');
+
+        // Assuming none config soaks
+        return output.stacksOnPlayersTower({
+          num: num,
+          stack: output.stacksOnPlayers({
+            players: msg
+          }),
+          tower: output.tower()
+        });
+      }
+
+      // Cone/Stack Tower Soaks
+      // Group B
+      if (config !== 'none') return output.markerOnYouTowerOdds({
+        num: num,
+        marker: output[marker](),
+        tower: marker === 'cone' ? output.leftTower() : output.rightTower(),
+        nearfar: output.beFar()
+      });
+
+      // No strategy
+      if (marker === 'unknown') return output.baitConeOrStackNoStrategy({
+        num: num
+      });
+      return output.markerOnYouNoStrategy({
+        num: num,
+        marker: output[marker]()
+      });
+    },
+    outputStrings: forsakenOutputStrings
+  }, {
+    id: 'DMU P2 Path of Light Towers 8',
+    // Shouldn't be new headmarkers from previous towers
+    // This set should not contain stack markers
+    // Expecting 2 Cones and 2 Spreads soak towers
+    // However AAAABBBB will have 4 Stacks soak towers
+    //
+    // Track based on tower soak or fail
+    // BABF The River of Light
+    // BAC0 Spelldriver
+    // BAC1 Spellscatter
+    // BAC2 Spellwave
+    type: 'Ability',
+    netRegex: {
+      id: ['BABF', 'BAC0', 'BAC1', 'BAC2'],
+      source: 'Kefka',
+      capture: false
+    },
+    condition: data => data.pathOfLightCounter === 8,
+    delaySeconds: 0.1,
+    // Delay for party headmarker collect
+    durationSeconds: 9,
+    suppressSeconds: 9999,
+    infoText: (data, _matches, output) => {
+      const playerHeadmarkers = data.forsakenPlayerHeadmarkers;
+      const num = output.num({
+        num: data.pathOfLightCounter
+      });
+      const marker = playerHeadmarkers[data.me] ?? 'unknown'; // Current headmarker
+      const config = data.triggerSetConfig.forsaken;
+      if (data.isForsakenGroupA) {
+        // Tower Soaks for ABBABBA and AAABBBBA
+        if (config === 'kroxy-rinon' || config === 'abba') {
+          // This means player from A accidentally took tower previously
+          if (marker === 'stack' || marker === 'unknown') return;
+
+          // Spread Players have to be far in the tower, cones need to bait end
+          const nearFar = marker === 'spread' ? output.beFar() : output.beNear();
+          switch (data.role) {
+            case 'healer':
+              return output.markerOnYouTowerEvens({
+                num: num,
+                marker: output[marker](),
+                tower: output.leftTower(),
+                nearfar: nearFar
+              });
+            default:
+              {
+                const pMarker = getHTMRPartnerMarker(data, data.forsakenGroupA);
+
+                // Could not get priority
+                if (pMarker === 'unknown') break;
+                if (data.role === 'tank') return output.markerOnYouTowerEvens({
+                  num: num,
+                  marker: output[marker](),
+                  tower: pMarker === marker ? output.rightTower() : output.leftTower(),
+                  nearfar: nearFar
+                });
+                if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) return output.markerOnYouTowerEvens({
+                  num: num,
+                  marker: output[marker](),
+                  tower: pMarker === marker ? output.leftTower() : output.rightTower(),
+                  nearfar: nearFar
+                });
+
+                // Ranged DPS highest priority right
+                return output.markerOnYouTowerEvens({
+                  num: num,
+                  marker: output[marker](),
+                  tower: output.rightTower(),
+                  nearfar: nearFar
+                });
+              }
+          }
+          // Unable to determine priority
+          return output.markerOnYouTowerEvens({
+            num: num,
+            marker: output[marker](),
+            tower: output.tower(),
+            nearfar: nearFar
+          });
+        }
+
+        // End Baits for AAAABBBB
+        if (config === 'bowtie') return output.numBeNearSpreadBowtie({
+          num: num,
+          near: output.beNear(),
+          spread: output.spreadBowtie()
+        });
+      }
+
+      // Baits for ABBAABBA and AAABBBBA
+      if (config === 'kroxy-rinon' || config === 'abba') {
+        if (data.role === 'healer') return output.baitLeftConeLeftEvens({
+          num: num
+        });
+        if (data.role === 'tank') return output.baitCloneOppositeTowers({
+          num: num
+        });
+        return output.bait({
+          num: num
+        });
+      }
+      if (config === 'bowtie') {
+        // Each person in Group B will have a stack marker
+        if (data.role === 'healer' || data.role === 'tank') return output.spreadTowersBowtie({
+          num: num,
+          tower: output.leftTower(),
+          spread: output.spreadBowtie()
+        });
+        return output.spreadTowersBowtie({
+          num: num,
+          tower: output.rightTower(),
+          spread: output.spreadBowtie()
+        });
+      }
+
+      // No strategy selected
+      // Many options: Tower, Bait Cone, Share Stack?
+      if (marker === 'unknown') return output.baitNoStrategy({
+        num: num
+      });
+      return output.mechsNoStrategy({
+        num: num,
+        marker: output[marker](),
+        mechs: output.towerOrBeNear({
+          tower: output.tower(),
+          near: output.beNear()
+        })
+      });
+    },
+    outputStrings: forsakenOutputStrings
+  }, {
+    id: 'DMU P2 Path of Light Tower 8 AAAABBBB Special',
+    // BAD2 Future's End or BAD3 Past's End will go off same time as 4 players
+    // take a 3-person stack solo
+    // For some reason the phase is coded such that the 7th tower will give 4 stacks
+    // under this scenario
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['BAD2', 'BAD3'],
+      source: 'Kefka',
+      capture: true
+    },
+    condition: data => {
+      return data.role === 'tank' && data.pathOfLightCounter === 8 && data.triggerSetConfig.forsaken === 'bowtie';
+    },
+    delaySeconds: (_data, matches) => parseFloat(matches.castTime) - 3,
+    // 6.4s castTime, this is 4s before damage
+    alarmText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'TANK LB!!',
+        de: 'TANK LB!!',
+        fr: 'LB TANK !!',
+        ja: 'タンクLB!!',
+        cn: '坦克LB!!',
+        ko: '탱리밋!!',
+        tc: '坦克LB!!'
+      }
+    }
+  }, {
+    id: 'DMU P2 Last All Things Ending Followup',
+    // BADC All Things Ending (Future)
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BADC',
+      source: 'Kefka',
+      capture: false
+    },
+    condition: data => data.pathOfLightCounter === 9,
+    suppressSeconds: 1,
+    response: responses/* Responses.getBehind */.n3.getBehind()
   }, {
     id: 'DMU P2 Light of Judgment',
     type: 'StartsUsing',
@@ -285579,7 +289856,110 @@ const dancing_mad_triggerSet = {
     },
     response: responses/* Responses.bigAoe */.n3.bigAoe('alert')
   }, {
-    id: 'DMU Single Wing of Destruction',
+    id: 'DMU P2 Trine Collector',
+    // Kefkabin solution: https://raidplan.io/plan/apkh6ytq72w8pt3v
+    // Trines are added ~0.5s after BADF Trine ability
+    // They have BNpcID 1EBFB3 and 1EBFB2.
+    // Pattern 1:
+    // Set 1: Northwest-ish(88.45, 90), South-ish (97.11, 115), North-ish(102.89, 85)
+    // Set 2: Southeast-ish (115.55, 110)
+    // Set 3: West-ish (85.57, 105), Middle (100,100)*, East-ish(114.43, 95)
+    //
+    // Pattern 2:
+    // Set 1: Southeast-ish(111.55, 110), South-ish (97.11, 115) East-ish (114.43,95)
+    // Set 2: North-ish (102.89, 85)
+    // Set 3: West-ish (85.57, 105), Northwest-ish(88.45, 90), Middle (100, 100)*
+    //
+    // Pattern 3:
+    // Set 1: South-ish (97.11, 115), Southeast-ish (111.55, 110), East-ish (114.43, 95)
+    // Set 2: Northwest-ish (88.45, 90)
+    // Set 3: West-ish (85.57, 105), Middle (100, 100)*, North-ish (102.89, 85)
+    //
+    // Pattern 4:
+    // Set 1: Northwest-ish(88.45, 90), South-ish (97.11, 115), North-ish(102.89, 85)
+    // Set 2: East-ish (114.43, 95)
+    // Set 3: West-ish (85.57, 105), Middle (100,100)*, Southeast-ish (111.55, 110)
+    //
+    // There's probably more patterns
+    // * Guaranteed in set 3, and its heading points West or East
+    //
+    // 273 ActorControlExtra lines that follow:
+    // 019D|10|20 => Falling down animation?
+    // 019D|40|80 => Landed animation? (~1.4s after add)
+    // 019D|4|8 => Explosion animation?
+    //
+    // Trines starts with 3 Trines spawning, then 1, then 3 More
+    // BACD/BACE Wings of Destruction halfroom cleave happens while 3rd set is landing
+    // As Trines 1 detonate, the near/far tankbuster C487 Wings of Destruction begins casting
+    // At the 3rd detonation, the tankbuster will snapshot
+    type: 'CombatantMemory',
+    netRegex: {
+      change: 'Add',
+      pair: [{
+        key: 'BNpcID',
+        value: ['1EBFB2', '1EBFB3']
+      }],
+      capture: true
+    },
+    run: (data, matches) => {
+      // Need heading of middle trine for near tank bait and/or greedy melee
+      // Heading is defined by the BNpcID
+      // 1EBFB3 => West
+      // 1EBFB2 => East
+      const x = parseFloat(matches.pairPosX ?? '0');
+      const y = parseFloat(matches.pairPosY ?? '0');
+
+      // Exception for center trine
+      if (data.trineDirNums.length === 3) {
+        if (x > 99 && x < 101) {
+          data.middleTrineFacing = matches.pairBNpcID === '1EBFB2' ? 'east' : 'west';
+          return;
+        }
+      }
+
+      // Not storing the last two sets' x,y coords
+      if (data.trineDirNums.length !== 3) {
+        const dirNum = util/* Directions.xyTo16DirNum */.Ns.xyTo16DirNum(x, y, dancing_mad_centerX, dancing_mad_centerY);
+        data.trineDirNums.push(dirNum);
+      }
+    }
+  }, {
+    id: 'DMU P2 Trines 1 (Early)',
+    type: 'CombatantMemory',
+    netRegex: {
+      change: 'Add',
+      pair: [{
+        key: 'BNpcID',
+        value: ['1EBFB2', '1EBFB3']
+      }],
+      capture: false
+    },
+    condition: data => data.trineDirNums.length === 3,
+    durationSeconds: 12,
+    // Detonation occurs ~12.9s
+    suppressSeconds: 99999,
+    infoText: (data, _matches, output) => {
+      const dirNums = data.trineDirNums;
+      const sorted = dirNums.sort((a, b) => a - b); // Sorts clockwise
+      const trine1 = sorted[0] !== undefined ? util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(sorted[0]) : 'unknown';
+      const trine2 = sorted[1] !== undefined ? util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(sorted[1]) : 'unknown';
+      const trine3 = sorted[2] !== undefined ? util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(sorted[2]) : 'unknown';
+      return output.safeSpots({
+        dir1: output[trine1](),
+        dir2: output[trine2](),
+        dir3: output[trine3]()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings16Dir */.Ns.outputStrings16Dir,
+      safeSpots: {
+        en: '${dir1}/${dir2}/${dir3} Later',
+        cn: '稍后 ${dir1}/${dir2}/${dir3}',
+        ko: '${dir1}/${dir2}/${dir3} 나중에'
+      }
+    }
+  }, {
+    id: 'DMU P2 Single Wing of Destruction',
     // BACD Wings of Destruction, Left wing highlight
     // BACE Wingso of Desctruction, Right wing highlight
     // Halfroom cleaves
@@ -285598,6 +289978,72 @@ const dancing_mad_triggerSet = {
       left: outputs/* default.left */.Z.left
     }
   }, {
+    id: 'DMU P2 Wings of Destruction',
+    // In DMU, players need to move for trines at same time as the tankbuster call
+    // Melee most likely won't be able to hit the boss due to trine aoes
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C487',
+      source: 'Kefka',
+      capture: false
+    },
+    alertText: (data, _matches, output) => {
+      const dirNums = data.trineDirNums;
+      const sorted = dirNums.sort((a, b) => a - b); // Sorts clockwise
+      const trine1 = sorted[0] !== undefined ? util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(sorted[0]) : 'unknown';
+      const trine2 = sorted[1] !== undefined ? util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(sorted[1]) : 'unknown';
+      const trine3 = sorted[2] !== undefined ? util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(sorted[2]) : 'unknown';
+      return output.dirWings({
+        dirs: output.safeSpots({
+          dir1: output[trine1](),
+          dir2: output[trine2](),
+          dir3: output[trine3]()
+        }),
+        wings: data.role !== 'tank' ? output.wingsParty() : data.middleTrineFacing ? output.wingsTrine({
+          wings: output.wingsTank(),
+          trine: output[data.middleTrineFacing]()
+        }) : output.wingsTank()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings16Dir */.Ns.outputStrings16Dir,
+      safeSpots: {
+        en: '${dir1}/${dir2}/${dir3}',
+        cn: '${dir1}/${dir2}/${dir3}',
+        ko: '${dir1}/${dir2}/${dir3}'
+      },
+      wingsTrine: {
+        en: '${wings} + ${trine}',
+        cn: '${wings} + ${trine}',
+        ko: '${wings} + ${trine}'
+      },
+      dirWings: {
+        en: '${dirs} + ${wings}',
+        cn: '${dirs} + ${wings}',
+        ko: '${dirs} + ${wings}'
+      },
+      wingsParty: {
+        en: 'Outer 2 Rings',
+        cn: '外侧第2环',
+        ko: '바깥쪽 2번째 원'
+      },
+      wingsTank: {
+        en: 'Be Near/Far',
+        cn: '靠近/远离',
+        ko: '가까이/멀리 있기'
+      },
+      east: {
+        en: 'Eastward Trine',
+        cn: '右侧异三角',
+        ko: '동쪽 트라인'
+      },
+      west: {
+        en: 'Westward Trine',
+        cn: '左侧异三角',
+        ko: '서쪽 트라인'
+      }
+    }
+  }, {
     id: 'DMU P2 Aero III Assault',
     // Knockback from boss that can't be resisted
     // Applies 306 Down for the Count
@@ -285609,12 +290055,26 @@ const dancing_mad_triggerSet = {
     },
     response: responses/* Responses.getUnder */.n3.getUnder('alert')
   }, {
-    id: 'DMU P3 Epic Hero/Fated Hero Debuffs',
-    // Applied to 4 nearest players when Chaos and Exdeath finish casting
-    // C2E2/C2E3 The Decisive Battle
+    id: 'DMU P3 Epic Hero/Fated Hero Collect',
+    // When Chaos finishes casting C2E2 The Decisive Battle:
+    //   4 nearest players to Chaos receive 1060 Epic Hero
+    //   4 furthest players from Cahos receive 1062 Fated Hero
     // 1060 Epic Hero: Can only damage Chaos, preferred by Melee DPS
     // 1062 Fated Hero: Can only damage Exdeath, preferred by Ranged DPS
     // These fall off once Exdeath casts BB12 Thunder III
+    // After Chaos' BB05 Big Bang, they fall off when one of the two bosses dies
+    // Additionally, the bosses are 0.1% HP limited until end of Chaos' BB05 Big Bang
+    //
+    // This collect is here to track which boss the tank is on for boss positioning
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['1060', '1062'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    run: (data, matches) => data.heroDebuff = matches.effectId === '1060' ? 'chaos' : 'exdeath'
+  }, {
+    id: 'DMU P3 Epic Hero/Fated Hero Debuffs',
     type: 'GainsEffect',
     netRegex: {
       effectId: ['1060', '1062'],
@@ -285627,10 +290087,12 @@ const dancing_mad_triggerSet = {
     outputStrings: {
       epic: {
         en: 'Attack Chaos',
+        cn: '攻击卡奥斯',
         ko: '카오스 공격'
       },
       fated: {
         en: 'Attack Exdeath',
+        cn: '攻击艾克斯迪司',
         ko: '엑스데스 공격'
       }
     }
@@ -285644,28 +290106,856 @@ const dancing_mad_triggerSet = {
     },
     response: responses/* Responses.aoe */.n3.aoe()
   }, {
-    id: 'DMU P3 Headwind/Tailwind Debuffs',
+    id: 'DMU P3 Entropy and Dynamic Fluid Debuff Collector',
     // Applied at BAF2 Bowels of Agony
-    // Debuffs trigger if hit by certain sources, causing a knockback
-    // 642 Headwind: Face away from damage source
-    // 643 Tailwind: Face towards damage source
+    // 640 Entropy: On expiration player is hit with point blank AoE and fire
+    // crystal targets two closest players with donut AoEs
+    // 641 Dynamic Flood: On expiration creates donut AoE around the player
+    // and water crystal targets two closest players with point-blank AoEs
+    //
+    // Entropy or Dynamic Fluid will have 19s and the other 46s duration
+    // At the same time, elemental crystals spawn at intercardinals
+    // Fire and Water Crystals will be opposite each other
+    // Wind Crystal will be between on the opposite side
+    //
+    // Exdeath Tank needs to go to element that has the long timer
+    // Chaos Tank needs to go between wind crystal and element with short timer
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['640', '641'],
+      capture: true
+    },
+    run: (data, matches) => {
+      const id = matches.effectId;
+      if (data.isFireShort === undefined) {
+        const isShort = parseFloat(matches.duration) < 20;
+        data.isFireShort = isShort && id === '640' || !isShort && id === '641' ? true : false;
+      }
+      if (data.me === matches.target) data.myElement = id === '640' ? 'fire' : 'water';
+      if (id === '640') data.fireElementPlayers.push(matches.target);else data.waterElementPlayers.push(matches.target);
+    }
+  }, {
+    id: 'DMU P3 Headwind/Tailwind Debuff Collector',
+    // Applied at BAF2 Bowels of Agony
+    // 642 Headwind: Face away from knockback source, wind crystal targets
+    // nearest player with 2-person stack
+    // 643 Tailwind: Face towards knockback source, wind crystal targets
+    // nearest player with 2-person stack
+    // These have a 68s duration
     type: 'GainsEffect',
     netRegex: {
       effectId: ['642', '643'],
       capture: true
     },
     condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
-    infoText: (_data, matches, output) => {
-      return matches.effectId === '642' ? output.headwind() : output.tailwind();
+    run: (data, matches) => data.myWind = matches.effectId === '642' ? 'head' : 'tail'
+  }, {
+    id: 'DMU P3 Bowels of Agony Debuffs and Short Element',
+    // Triggers on 642 Headwind or 643 Tailwind as all players get at least one of these
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['642', '643'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    delaySeconds: 0.1,
+    // Delayed for Dynamic Fluid/Entropy debuff collect
+    durationSeconds: 14.9,
+    // Until Dynamic Fluid/Entropy trigger
+    infoText: (data, matches, output) => {
+      const myElement = data.myElement;
+      const short = data.isFireShort ? output.shortFire() : output.shortWater();
+      const wind = matches.effectId === '642' ? output.headwind() : output.tailwind();
+      if (myElement !== undefined) return output.withElement({
+        short: short,
+        element: output[myElement](),
+        wind: wind
+      });
+      return output.withoutElement({
+        short: short,
+        wind: wind
+      });
     },
     outputStrings: {
+      shortFire: {
+        en: 'Short Fire',
+        cn: '短火',
+        ko: '짧은 불'
+      },
+      shortWater: {
+        en: 'Short Water',
+        cn: '短水',
+        ko: '짧은 물'
+      },
+      fire: {
+        en: 'Fire',
+        cn: '火',
+        ko: '불'
+      },
+      water: {
+        en: 'Water',
+        cn: '水',
+        ko: '물'
+      },
       headwind: {
         en: 'Headwind on YOU',
+        cn: '混沌之风点名',
         ko: '혼돈의 바람 대상자'
       },
       tailwind: {
-        en: 'Tailwind on You',
+        en: 'Tailwind on YOU',
+        cn: '混沌之逆风点名',
         ko: '혼돈의 역풍 대상자'
+      },
+      withElement: {
+        en: '${short}: ${element} + ${wind}',
+        cn: '${short}: ${element} + ${wind}',
+        ko: '${short}: ${element} + ${wind}'
+      },
+      withoutElement: {
+        en: '${short}: ${wind}',
+        cn: '${short}: ${wind}',
+        ko: '${short}: ${wind}'
+      }
+    }
+  }, {
+    id: 'DMU P3 Crystal Location Collector',
+    // Crystals are added at same time as BAF2 Bowels of Agony
+    //
+    // First set spawns at intercardinals
+    // Wind will be inbetween Fire and Water
+    // The following are their BNpcIDs:
+    // 1EC03A => Fire (Red Triangle) Crystal
+    // 1EC03B => Water (Blue Square) Crystal
+    // 1EC03C => Wind (Green Diamond) Crystal
+    //
+    // Later the Earth Crystal will spawn in the center
+    // 1EC03D => Earth (Yellow Arrowhead) Crystal
+    // They are removed once players lose their respective debuffs
+    type: 'CombatantMemory',
+    netRegex: {
+      change: 'Add',
+      pair: [{
+        key: 'BNpcID',
+        value: ['1EC03A', '1EC03B', '1EC03C']
+      }],
+      capture: true
+    },
+    run: (data, matches) => {
+      const x = parseFloat(matches.pairPosX ?? '0');
+      const y = parseFloat(matches.pairPosY ?? '0');
+      const bnpcid = matches.pairBNpcID;
+      const dirNum = util/* Directions.xyTo4DirIntercardNum */.Ns.xyTo4DirIntercardNum(x, y, dancing_mad_centerX, dancing_mad_centerY);
+      if (bnpcid === '1EC03A') data.fireCrystalDirNum = dirNum;else if (bnpcid === '1EC03B') data.waterCrystalDirNum = dirNum;else data.windCrystalDirNum = dirNum;
+    }
+  }, {
+    id: 'DMU P3 Short Crystal and Crystal Locations',
+    type: 'CombatantMemory',
+    netRegex: {
+      change: 'Add',
+      pair: [{
+        key: 'BNpcID',
+        value: '1EC03C'
+      }],
+      capture: false
+    },
+    delaySeconds: 3,
+    // To prevent overlap with debuffs and time for collect
+    durationSeconds: 16,
+    // Duration of the first debuff
+    suppressSeconds: 1,
+    infoText: (data, _matches, output) => {
+      const config = data.triggerSetConfig.boa;
+      const fireDirNum = data.fireCrystalDirNum;
+      const waterDirNum = data.waterCrystalDirNum;
+      const windDirNum = data.windCrystalDirNum;
+      const heroDebuff = data.heroDebuff;
+      const fireDir = fireDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(fireDirNum);
+      const waterDir = waterDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(waterDirNum);
+      const windDir = windDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(windDirNum);
+      const fShort = data.isFireShort;
+      const fire = output.fire({
+        dir: output[fireDir]()
+      });
+      const water = output.water({
+        dir: output[waterDir]()
+      });
+      const wind = output.wind({
+        dir: output[windDir]()
+      });
+      if (config !== 'none') {
+        const myElement = data.myElement;
+        // Tank will need to first position Exdeath for Thunder III AOE
+        if (data.role === 'tank') {
+          const exdeathName = exdeathLocaleNames[data.parserLang];
+          if (config === 'sg3k') {
+            if (myElement === 'fire') {
+              if (fShort) {
+                if (heroDebuff === 'chaos') return output.baitCrystal({
+                  crystal: fire,
+                  inout: output.in()
+                });
+                return output.moveExdeathThenMech({
+                  exdeath: exdeathName,
+                  long: water,
+                  mech: output.baitCrystal({
+                    crystal: fire,
+                    inout: output.in()
+                  })
+                });
+              }
+
+              // Get player expected to be inner water bait
+              const players = data.waterElementPlayers.filter(player => data.party.isDPS(player));
+              const player = data.party.member(players[0]);
+              if (heroDebuff === 'chaos') return output.getMiddleNearPlayer({
+                player: player
+              });
+              return output.moveExdeathThenMech({
+                exdeath: exdeathName,
+                long: fire,
+                mech: output.getMiddleNearPlayer({
+                  player: player
+                })
+              });
+            }
+            if (myElement === 'water') {
+              if (fShort) {
+                if (heroDebuff === 'chaos') return output.getHitByDonut();
+                return output.moveExdeathThenMech({
+                  exdeath: exdeathName,
+                  long: water,
+                  mech: output.getHitByDonut()
+                });
+              }
+              if (heroDebuff === 'chaos') return output.baitCrystal({
+                crystal: water,
+                inout: output.in()
+              });
+              return output.moveExdeathThenMech({
+                exdeath: exdeathName,
+                long: fire,
+                mech: output.baitCrystal({
+                  crystal: water,
+                  inout: output.in()
+                })
+              });
+            }
+          }
+
+          // LB3 Config
+          const chaosName = chaosLocaleNames[data.parserLang];
+          const boss = heroDebuff === 'chaos' ? output.chaosDir({
+            chaos: chaosName,
+            dir: wind
+          }) : heroDebuff === 'exdeath' ? output.exdeathMiddle({
+            exdeath: exdeathName
+          }) : undefined;
+          if (boss === undefined) return output.beNearWind({
+            dir: wind
+          });
+          return output.moveBossThenMech({
+            boss: boss,
+            mech: output.beNearWind({
+              dir: wind
+            })
+          });
+        }
+        if (config === 'sg3k') {
+          if (myElement === 'fire') {
+            if (fShort) return output.crystalsMech({
+              crystals: output.shortLongCrystals({
+                short: fire,
+                long: water
+              }),
+              mech: output.baitCrystal({
+                crystal: fire,
+                inout: data.role === 'dps' ? output.in() : output.out()
+              })
+            });
+
+            // Get player expected to be inner water bait
+            const players = data.waterElementPlayers.filter(player => data.party.isDPS(player));
+            const player = data.party.member(players[0]);
+            return output.crystalsMech({
+              crystals: output.shortLongCrystals({
+                short: water,
+                long: fire
+              }),
+              mech: output.getMiddleNearPlayer({
+                player: player
+              })
+            });
+          }
+          if (myElement === 'water') {
+            if (fShort) return output.crystalsMech({
+              crystals: output.shortLongCrystals({
+                short: fire,
+                long: water
+              }),
+              mech: output.getHitByDonut()
+            });
+            return output.crystalsMech({
+              crystals: output.shortLongCrystals({
+                short: water,
+                long: fire
+              }),
+              mech: output.baitCrystal({
+                crystal: water,
+                inout: data.role === 'dps' ? output.in() : output.out()
+              })
+            });
+          }
+          return output.crystalsMech({
+            crystals: output.shortLongCrystals({
+              short: fShort ? fire : water,
+              long: fShort ? water : fire
+            }),
+            mech: output.beNearWind({
+              dir: wind
+            })
+          });
+        }
+
+        // LB3 Config
+        if (data.role !== 'dps' || util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job)) {
+          return output.crystalsMech({
+            crystals: output.shortLongCrystals({
+              short: fShort ? fire : water,
+              long: fShort ? water : fire
+            }),
+            mech: output.beNearWind({
+              dir: wind
+            })
+          });
+        }
+        // Ranged DPS Bait
+        return output.crystalsMech({
+          crystals: output.shortLongCrystals({
+            short: fShort ? fire : water,
+            long: fShort ? water : fire
+          }),
+          mech: output.baitCrystal({
+            crystal: fShort ? fire : water,
+            inout: output.out()
+          })
+        });
+      }
+      return output.crystals({
+        short: fShort ? fire : water,
+        long: fShort ? water : fire,
+        wind: wind
+      });
+    },
+    outputStrings: boaOutputStrings
+  }, {
+    id: 'DMU P3 Entropy and Fire Crystal',
+    // Late goes off 2s after BAFF Shockwave
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '640',
+      capture: true
+    },
+    delaySeconds: (_data, matches) => parseFloat(matches.duration) - 4,
+    // 6s after Lat/Long when Late
+    suppressSeconds: 1,
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = boaOutputStrings;
+      const config = data.triggerSetConfig.boa;
+      const fireDirNum = data.fireCrystalDirNum;
+      const waterDirNum = data.waterCrystalDirNum;
+      const windDirNum = data.windCrystalDirNum;
+      const fireDir = fireDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(fireDirNum);
+      const waterDir = waterDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(waterDirNum);
+      const windDir = windDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(windDirNum);
+      const fShort = data.isFireShort;
+      const myElement = data.myElement;
+      const myWind = data.myWind;
+      const fire = output.fire({
+        dir: output[fireDir]()
+      });
+      const water = output.water({
+        dir: output[waterDir]()
+      });
+      const wind = output.wind({
+        dir: output[windDir]()
+      });
+      const players = data.fireElementPlayers.map(player => {
+        if (player === data.me) return output.you();
+        return data.party.member(player);
+      });
+      const msg = players?.join(', ');
+      const spread = output.fireOnPlayers({
+        players: msg
+      });
+      const isRangedDPS = util/* default.isRangedDpsJob */.ZP.isRangedDpsJob(data.job) || util/* default.isCasterDpsJob */.ZP.isCasterDpsJob(data.job);
+      let severity = 'infoText';
+      if (config === 'lb3' && isRangedDPS) severity = 'alertText';else if (myElement === 'fire') severity = 'alertText';
+      if (fShort) {
+        if (config === 'lb3') {
+          const isNotRanged = data.role !== 'dps' || util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job);
+          const mech1 = isNotRanged ? spread : output.baitCrystal({
+            crystal: fire,
+            inout: output.out()
+          });
+          const mech2 = isNotRanged ? output.donutLater() : output.baitCrystal({
+            crystal: water,
+            inout: output.out()
+          });
+          return {
+            [severity]: output.mechThenMech({
+              mech1: mech1,
+              mech2: mech2
+            })
+          };
+        }
+        if (config === 'sg3k') {
+          // Get player expected to be inner water bait
+          const players = data.waterElementPlayers.filter(player => data.party.isDPS(player));
+          const player = data.party.member(players[0]);
+          const mech1 = myElement === 'fire' ? output.baitCrystal({
+            crystal: fire,
+            inout: data.role === 'dps' ? output.in() : output.out()
+          }) : myElement === 'water' ? output.getHitByDonut() : output.beNearWind({
+            dir: wind
+          });
+          const mech2 = myElement === 'fire' ? output.getMiddleNearPlayer({
+            player: player
+          }) : myElement === 'water' ? output.knockbackToDir({
+            facing: output[myWind ?? 'unknown']({
+              name: output[fireDir]()
+            }),
+            dir: output[waterDir]()
+          }) : output.stackPartner();
+          return {
+            [severity]: output.mechThenMech({
+              mech1: mech1,
+              mech2: mech2
+            })
+          };
+        }
+      }
+      const exdeathName = exdeathLocaleNames[data.parserLang];
+      if (config === 'lb3') {
+        const isNotRanged = data.role !== 'dps' || util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job);
+        const mech1 = isNotRanged ? spread : output.baitCrystal({
+          crystal: fire,
+          inout: output.out()
+        });
+        const mech2 = util/* default.isRangedDpsJob */.ZP.isRangedDpsJob(data.job) ? output.baitJump() : output.beNearExdeath({
+          name: exdeathName
+        });
+        return {
+          [severity]: output.mechThenMech({
+            mech1: mech1,
+            mech2: mech2
+          })
+        };
+      }
+      if (config === 'sg3k') {
+        // Players will need to get to opposite side of Wind Crystal
+        const exDeathDir = windDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum((windDirNum + 2) % 4);
+        const mech1 = myElement === 'fire' ? output.baitCrystal({
+          crystal: fire,
+          inout: data.role === 'dps' ? output.in() : output.out()
+        }) : myElement === 'water' ? output.getHitByDonut() : output.beNearWind({
+          dir: wind
+        });
+        const mech2 = myElement === 'fire' ? output.beNearExdeath({
+          name: exdeathName
+        }) : myElement === 'water' ? output.knockbackToDir({
+          facing: output[myWind ?? 'unknown']({
+            name: output[fireDir]()
+          }),
+          dir: output[exDeathDir]()
+        }) : output.stackPartner();
+        return {
+          [severity]: output.mechThenMech({
+            mech1: mech1,
+            mech2: mech2
+          })
+        };
+      }
+      return {
+        [severity]: output.fireOnPlayersCrystalDirNum({
+          spread: spread,
+          dir: fire,
+          bait: output.baitFireDonut()
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Dynamic Fluid and Water Crystal',
+    // Late goes off 2s after BAFF Shockwave
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '641',
+      capture: true
+    },
+    delaySeconds: (_data, matches) => parseFloat(matches.duration) - 4,
+    // 6s after Lat/Long when Late
+    suppressSeconds: 1,
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = boaOutputStrings;
+      const config = data.triggerSetConfig.boa;
+      const fireDirNum = data.fireCrystalDirNum;
+      const waterDirNum = data.waterCrystalDirNum;
+      const windDirNum = data.windCrystalDirNum;
+      const fireDir = fireDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(fireDirNum);
+      const waterDir = waterDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(waterDirNum);
+      const windDir = windDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(windDirNum);
+      const fShort = data.isFireShort;
+      const myElement = data.myElement;
+      const myWind = data.myWind;
+      const fire = output.fire({
+        dir: output[fireDir]()
+      });
+      const water = output.water({
+        dir: output[waterDir]()
+      });
+      const wind = output.wind({
+        dir: output[windDir]()
+      });
+      const isRangedDPS = util/* default.isRangedDpsJob */.ZP.isRangedDpsJob(data.job) || util/* default.isCasterDpsJob */.ZP.isCasterDpsJob(data.job);
+      let severity = 'infoText';
+      if (config === 'lb3' && isRangedDPS) severity = 'alertText';else if (myElement === 'water') severity = 'alertText';
+      const players = data.waterElementPlayers.map(player => {
+        if (player === data.me) return output.you();
+        return data.party.member(player);
+      });
+      const msg = players?.join(', ');
+      const donut = output.waterOnPlayers({
+        players: msg
+      });
+      if (!fShort) {
+        if (config === 'lb3') {
+          const isNotRanged = data.role !== 'dps' || util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job);
+          const mech1 = isNotRanged ? donut : output.baitCrystal({
+            crystal: water,
+            inout: output.out()
+          });
+          const mech2 = isNotRanged ? output.roleStacks() : output.baitCrystal({
+            crystal: fire,
+            inout: output.out()
+          });
+          return {
+            [severity]: output.mechThenMech({
+              mech1: mech1,
+              mech2: mech2
+            })
+          };
+        }
+        if (config === 'sg3k') {
+          // Get player expected to be inner water bait
+          const players = data.waterElementPlayers.filter(player => data.party.isDPS(player));
+          const player = data.party.member(players[0]);
+          const mech1 = myElement === 'fire' ? output.getMiddleNearPlayer({
+            player: player
+          }) : myElement === 'water' ? output.baitCrystal({
+            crystal: water,
+            inout: data.role === 'dps' ? output.in() : output.out()
+          }) : output.beNearWind({
+            dir: wind
+          });
+          const mech2 = myElement === 'fire' ? output.knockbackToDir({
+            facing: output[myWind ?? 'unknown']({
+              name: output[waterDir]()
+            }),
+            dir: output[fireDir]()
+          }) : myElement === 'water' ? output.getHitByDonut() : output.stackPartner();
+          return {
+            [severity]: output.mechThenMech({
+              mech1: mech1,
+              mech2: mech2
+            })
+          };
+        }
+      }
+      const exdeathName = exdeathLocaleNames[data.parserLang];
+      if (config === 'lb3') {
+        const isNotRanged = data.role !== 'dps' || util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job);
+        const mech1 = isNotRanged ? donut : output.baitCrystal({
+          crystal: water,
+          inout: output.out()
+        });
+        const mech2 = util/* default.isRangedDpsJob */.ZP.isRangedDpsJob(data.job) ? output.baitJump() : output.beNearExdeath({
+          name: exdeathName
+        });
+        return {
+          [severity]: output.mechThenMech({
+            mech1: mech1,
+            mech2: mech2
+          })
+        };
+      }
+      if (config === 'sg3k') {
+        // Get player expected to be inner water bait
+        const players = data.waterElementPlayers.filter(player => data.party.isDPS(player));
+        const player = data.party.member(players[0]);
+        // Players will need to get to opposite side of Wind Crystal
+        const exDeathDir = windDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum((windDirNum + 2) % 4);
+        const mech1 = myElement === 'fire' ? output.getMiddleNearPlayer({
+          player: player
+        }) : myElement === 'water' ? output.baitCrystal({
+          crystal: water,
+          inout: data.role === 'dps' ? output.in() : output.out()
+        }) : output.beNearWind({
+          dir: wind
+        });
+        const mech2 = myElement === 'fire' ? output.beNearExdeath({
+          name: exdeathName
+        }) : myElement === 'water' ? output.knockbackToDir({
+          facing: output[myWind ?? 'unknown']({
+            name: output[waterDir]()
+          }),
+          dir: output[exDeathDir]()
+        }) : output.stackPartner();
+        return {
+          [severity]: output.mechThenMech({
+            mech1: mech1,
+            mech2: mech2
+          })
+        };
+      }
+      return {
+        [severity]: output.waterOnPlayersCrystalDirNum({
+          donut: donut,
+          dir: water,
+          bait: output.baitWaterAoe()
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Long Crystal and Wind Crystal Locations',
+    // Inform that long is next, location it will Be
+    // One of these spells will trigger:
+    // BAF3 Stray Flames
+    // BAF6 Stray Spray
+    type: 'Ability',
+    netRegex: {
+      id: ['BAF3', 'BAF6'],
+      source: 'Chaos',
+      capture: true
+    },
+    condition: (data, matches) => {
+      const fShort = data.isFireShort;
+      const id = matches.id;
+      // Ensure this only outputs if expected crystal went off
+      return fShort && id === 'BAF3' || !fShort && id === 'BAF6';
+    },
+    durationSeconds: 27,
+    // Duration of the first debuff
+    suppressSeconds: 99999,
+    infoText: (data, _matches, output) => {
+      const fShort = data.isFireShort;
+      const longCrystalDirNum = fShort ? data.waterCrystalDirNum : data.fireCrystalDirNum;
+      const windDirNum = data.windCrystalDirNum;
+      const longDir = longCrystalDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(longCrystalDirNum);
+      const windDir = windDirNum === undefined ? 'unknown' : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(windDirNum);
+      return output.crystals({
+        long: fShort ? output.water({
+          dir: output[longDir]()
+        }) : output.fire({
+          dir: output[longDir]()
+        }),
+        wind: output.wind({
+          dir: output[windDir]()
+        })
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStringsIntercardDir */.Ns.outputStringsIntercardDir,
+      fire: {
+        en: 'Fire ${dir}',
+        cn: '火 ${dir}',
+        ko: '불 ${dir}'
+      },
+      water: {
+        en: 'Water ${dir}',
+        cn: '水 ${dir}',
+        ko: '물 ${dir}'
+      },
+      wind: {
+        en: 'Wind ${dir}',
+        cn: '风 ${dir}',
+        ko: '바람 ${dir}'
+      },
+      crystals: {
+        en: '${long} => ${wind} (later)',
+        cn: '${long} => ${wind} (稍后)',
+        ko: '${long} => ${wind} (나중)'
+      }
+    }
+  }, {
+    id: 'DMU P3 Wind Crystal Next Flag',
+    // By the BAFF Shockwave, the next BAF3 Stray Flames / BAF6 Stray Spray
+    // Will mean we will need to resolve the wind crystal next
+    type: 'Ability',
+    netRegex: {
+      id: 'BAFF',
+      source: 'Chaos',
+      capture: false
+    },
+    suppressSeconds: 99999,
+    run: data => data.windCrystalNext = true
+  }, {
+    id: 'DMU P3 Wind Crystal Location',
+    // Inform that wind is next
+    // One of these spells will trigger:
+    // BAF3 Stray Flames
+    // BAF6 Stray Spray
+    // For LB3 Config, defaulting to four 2-player stacks
+    // One 8-player stack is more popular and requires more mit
+    type: 'Ability',
+    netRegex: {
+      id: ['BAF3', 'BAF6'],
+      source: 'Chaos',
+      capture: false
+    },
+    condition: data => data.windCrystalNext,
+    suppressSeconds: 99999,
+    infoText: (data, _matches, output) => {
+      const windDirNum = data.windCrystalDirNum;
+      const config = data.triggerSetConfig.boa;
+      let windDir = 'unknown';
+      if (windDirNum !== undefined) {
+        if (config !== 'lb3') {
+          // Players form 4 2-person stacks around wind crystal
+          windDir = util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(windDirNum);
+        } else if (data.role === 'healer') windDir = util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum((windDirNum + 3) % 4); // Wrap-around
+        else if (util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job) || data.role === 'tank') windDir = util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum((windDirNum + 2) % 4); // Opposite of Wind Crystal
+        else windDir = util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum((windDirNum + 1) % 4); // Ranged DPS
+      }
+
+      return config !== 'lb3' ? output.wind({
+        dir: output[windDir]()
+      }) : output.knockbackToDir({
+        dir: output[windDir]()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStringsIntercardDir */.Ns.outputStringsIntercardDir,
+      wind: {
+        en: 'Knockback to Wind ${dir} (later)',
+        cn: '向 ${dir} 风击退(稍后)',
+        ko: '바람 ${dir}으로 넉백 (나중)'
+      },
+      knockbackToDir: {
+        en: 'Knockback to ${dir} (later)',
+        cn: '向 ${dir} 击退(稍后)',
+        ko: '${dir}으로 넉백 (나중)'
+      }
+    }
+  }, {
+    id: 'DMU P3 Headwind/Tailwind Cleanup',
+    // If players resolve winds prior to Exdeath's Vacuum Wave
+    // Long debuffs could get knocked back into the other crystal
+    // Short Debuffs could run to other crystal's donut if fire or stack/bait if water
+    // The remaining 4 players will have to resolve during knockback
+    // Note that each time these are lost, the wind crystal triggers nearest player with 2-person stack
+    type: 'LosesEffect',
+    netRegex: {
+      effectId: ['642', '643'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    run: data => delete data.myWind
+  }, {
+    id: 'DMU P3 Thunder III AOE',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BB12',
+      source: 'Exdeath',
+      capture: true
+    },
+    durationSeconds: (_data, matches) => parseFloat(matches.castTime),
+    // 7s castTime
+    infoText: (_data, matches, output) => {
+      const boss = matches.source;
+      return output.awayFromBoss({
+        boss: boss
+      });
+    },
+    outputStrings: {
+      awayFromBoss: {
+        en: 'Away from ${boss}',
+        cn: '远离 ${boss}',
+        ko: '${boss}에게서 멀리'
+      }
+    }
+  }, {
+    id: 'DMU P3 Thunder III Tankbuster',
+    // Tankbuster that targets nearest player and then nearest again after 3s
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BB09',
+      source: 'Exdeath',
+      capture: true
+    },
+    response: (data, matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = {
+        avoid: {
+          en: '${boss}: ${cleaves}',
+          cn: '${boss}: ${cleaves}',
+          ko: '${boss}: ${cleaves}'
+        },
+        tankCleaveNearThenSwap: {
+          en: 'Near ${boss}: ${cleave} => ${swap}',
+          cn: '靠近 ${boss}: ${cleave} => ${swap}}',
+          ko: '${boss} 근처: ${cleave} => ${swap}'
+        },
+        tankCleave: outputs/* default.tankCleave */.Z.tankCleave,
+        avoidTankCleaves: outputs/* default.avoidTankCleaves */.Z.avoidTankCleaves,
+        tankSwap: outputs/* default.tankSwap */.Z.tankSwap
+      };
+      const severity = data.role === 'tank' || data.role === 'healer' ? 'alertText' : 'infoText';
+      const boss = matches.source;
+      if (data.role === 'tank') return {
+        [severity]: output.tankCleaveNearThenSwap({
+          boss: boss,
+          cleave: output.tankCleave(),
+          swap: output.tankSwap()
+        })
+      };
+      return {
+        [severity]: output.avoid({
+          boss: boss,
+          cleaves: output.avoidTankCleaves()
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Thunder III Tank Swap',
+    type: 'Ability',
+    netRegex: {
+      id: 'BB09',
+      source: 'Exdeath',
+      capture: true
+    },
+    condition: data => data.role === 'tank',
+    suppressSeconds: 4,
+    alertText: (data, matches, output) => {
+      const boss = matches.source;
+      if (matches.target === data.me) return output.awayFromBoss({
+        boss: boss
+      });
+      return output.beNearBoss({
+        boss: boss
+      });
+    },
+    outputStrings: {
+      beNearBoss: {
+        en: 'Be Near ${boss} (swap)',
+        cn: '靠近 ${boss} (交换)',
+        ko: '${boss} 근처로 (교대)'
+      },
+      awayFromBoss: {
+        en: 'Away from ${boss} (swap)',
+        cn: '远离 ${boss} (交换)',
+        ko: '${boss}에게서 멀리 (교대)'
       }
     }
   }, {
@@ -285693,23 +290983,813 @@ const dancing_mad_triggerSet = {
       frontBack: outputs/* default.frontBackThenSides */.Z.frontBackThenSides
     }
   }, {
-    id: 'DMU P3 Vaccuum Wave',
-    type: 'StartsUsing',
+    id: 'DMU P3 Ultima Blaster Collect',
+    // Starts from random cardinal/intercardinal then rotates either CW or CCW
+    // These are raidwide AOEs, but also include telegraphed lines and explosions
+    // Ability lines can have erroneous values, AbilityExtra has correct heading
+    // Entity that does these has BNpcID 4BFB, added shortly before
+    // 271 ActorSetPos and 261 CombatantMemory Change lines are updated just prior to the ability
+    type: 'AbilityExtra',
     netRegex: {
-      id: 'BB13',
-      source: 'Chaos',
+      id: 'BAE3',
       capture: true
     },
-    infoText: (_data, matches, output) => {
-      return output.knockbackFromBoss({
-        chaos: matches.source
+    condition: data => data.blasterRotation === undefined,
+    suppressSeconds: 1,
+    run: (data, matches) => {
+      const hdg2 = parseFloat(matches.heading);
+      // Get rotation of first and second Kefka blasters
+      const hdg1 = data.firstBlasterHdg;
+      if (hdg1 === undefined) {
+        data.firstBlasterHdg = hdg2;
+        data.firstBlasterDirNum = util/* Directions.hdgTo8DirNum */.Ns.hdgTo8DirNum(hdg2);
+        // Return to get the next blaster
+        return;
+      }
+
+      // Get rotation where > 0 is counterclockwise and < 0 is clockwise
+      data.blasterRotation = Math.atan2(Math.sin(hdg2 - hdg1), Math.cos(hdg2 - hdg1));
+    }
+  }, {
+    id: 'DMU P3 Ultima Blaster Rotation',
+    type: 'AbilityExtra',
+    netRegex: {
+      id: 'BAE3',
+      capture: false
+    },
+    condition: data => data.blasterRotation !== undefined,
+    durationSeconds: 10,
+    suppressSeconds: 99999,
+    infoText: (data, _matches, output) => {
+      const rotation = data.blasterRotation;
+      const dirNum = data.firstBlasterDirNum;
+      if (rotation === undefined || dirNum === undefined) return;
+
+      // Will need 16Dir for positions later
+      const dir = util/* Directions.outputFrom8DirNum */.Ns.outputFrom8DirNum(dirNum);
+      if (rotation > 0) return output.clockwise({
+        card: output[dir]()
+      });
+      if (rotation < 0) return output.counterclockwise({
+        card: output[dir]()
       });
     },
     outputStrings: {
-      knockbackFromBoss: {
-        en: 'Knockback from ${chaos}',
-        ko: '${chaos}에서 넉백'
+      ...util/* Directions.outputStrings8Dir */.Ns.outputStrings8Dir,
+      clockwise: {
+        en: '<== ${card} Clockwise (Later)',
+        cn: '<== ${card} 顺时针 (稍后)',
+        ko: '<== ${card} 시계 방향 (나중)'
+      },
+      counterclockwise: {
+        en: '${card} Counterclockwise (Later) ==>',
+        cn: '${card} 逆时针 (稍后) ==>',
+        ko: '${card} 반시계 방향 (나중) ==>'
       }
+    }
+  }, {
+    id: 'DMU P3 Umbra Smash',
+    // At start of cast the target of BB00 Umbra Smash has been locked
+    // Instead of a timeline trigger, ues one of these abilities to trigger:
+    // BAFD Longitudinal Implosion
+    // BAFE  Latitudinal Implosion
+    type: 'Ability',
+    netRegex: {
+      id: ['BAFD', 'BAFE'],
+      source: 'Chaos',
+      capture: false
+    },
+    delaySeconds: 10,
+    suppressSeconds: 99999,
+    infoText: (_data, _matches, output) => output.baitJump(),
+    outputStrings: {
+      baitJump: {
+        en: 'Bait Jump?',
+        de: 'Sprung ködern?',
+        fr: 'Attirez le saut ?',
+        ja: 'ジャンプ誘導?',
+        cn: '引导跳跃?',
+        ko: '점프 유도?',
+        tc: '引導跳躍?'
+      }
+    }
+  }, {
+    id: 'DMU P3 Vacuum Wave',
+    // If players have not yet resolved their headwinds, then they will need
+    // to do so:
+    // Headwind look at Exdeath
+    // Tailwind look away from Exdeath
+    //
+    // Party can Tank LB3 to survive stacking the winds
+    //
+    // castTime is 7.7s, but the kockback occurs slightly after
+    // Debuffs come off about 0.8s later
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BB13',
+      source: 'Exdeath',
+      capture: true
+    },
+    durationSeconds: (_data, matches) => parseFloat(matches.castTime) + 0.8,
+    alertText: (data, matches, output) => {
+      const windDirNum = data.windCrystalDirNum;
+      const windDir = windDirNum === undefined ? 'unknown' : data.triggerSetConfig.boa !== 'lb3' ? util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum(windDirNum) : data.role === 'healer' ? util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum((windDirNum + 3) % 4) // Wrap-around
+      : util/* default.isMeleeDpsJob */.ZP.isMeleeDpsJob(data.job) || data.role === 'tank' ? util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum((windDirNum + 2) % 4) // Opposite of Wind Crystal
+      : util/* Directions.outputFromIntercardNum */.Ns.outputFromIntercardNum((windDirNum + 1) % 4); // Ranged DPS
+      const exdeath = matches.source;
+      if (data.myWind === undefined) {
+        const knockback = output.knockbackFromExdeath({
+          name: exdeath
+        });
+        if (windDir === undefined) return output.knockbackToCrystal({
+          knockback: knockback
+        });
+        return output.knockbackToDir({
+          knockback: knockback,
+          dir: output[windDir]()
+        });
+      }
+      const knockbackFacing = output.knockbackFromFacingExdeath({
+        facing: output[data.myWind]({
+          name: exdeath
+        })
+      });
+      if (windDir === undefined) return output.knockbackToCrystal({
+        knockback: knockbackFacing
+      });
+      return output.knockbackToDir({
+        knockback: knockbackFacing,
+        dir: output[windDir]()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStringsIntercardDir */.Ns.outputStringsIntercardDir,
+      tail: {
+        en: 'Face ${name}',
+        cn: '面向 ${name}',
+        ko: '${name} 바라보기'
+      },
+      head: outputs/* default.lookAwayFromTarget */.Z.lookAwayFromTarget,
+      knockbackFromExdeath: {
+        en: 'Knockback from ${name}',
+        cn: '被${name}击退',
+        ko: '${name}에서 넉백'
+      },
+      knockbackFromFacingExdeath: {
+        en: 'Knockback from + ${facing}',
+        cn: '击退+${facing}',
+        ko: '넉백 + ${facing}'
+      },
+      knockbackToDir: {
+        en: '${knockback} to ${dir}',
+        cn: '${knockback} 到 ${dir}',
+        ko: '${knockback}, ${dir}으로'
+      },
+      knockbackToCrystal: {
+        en: '${knockback} to Crystal',
+        cn: '${knockback} 到水晶',
+        ko: '${knockback}, 수정으로'
+      }
+    }
+  }, {
+    id: 'DMU P3 Vacuum Wave Tank LB3',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BB13',
+      source: 'Exdeath',
+      capture: true
+    },
+    condition: data => {
+      return data.role === 'tank' && data.triggerSetConfig.boa === 'lb3';
+    },
+    delaySeconds: (_data, matches) => parseFloat(matches.castTime) - 2,
+    // 8s castTime, damage expected 3.9s after cast
+    alarmText: (_data, _matches, output) => output.text(),
+    outputStrings: {
+      text: {
+        en: 'TANK LB!!',
+        de: 'TANK LB!!',
+        fr: 'LB TANK !!',
+        ja: 'タンクLB!!',
+        cn: '坦克LB!!',
+        ko: '탱리밋!!',
+        tc: '坦克LB!!'
+      }
+    }
+  }, {
+    id: 'DMU P1 Ultima Blaster Location',
+    // Nearest inter-inter cardinal opposite that of first blaster
+    // Could also account for player missing a marker as these are added sequentially
+    type: 'HeadMarker',
+    netRegex: {
+      id: [dancing_mad_headMarkerData['limitCutBlue1'], dancing_mad_headMarkerData['limitCutRed2'], dancing_mad_headMarkerData['limitCutBlue3'], dancing_mad_headMarkerData['limitCutRed4'], dancing_mad_headMarkerData['limitCutBlue5'], dancing_mad_headMarkerData['limitCutRed6'], dancing_mad_headMarkerData['limitCutBlue7'], dancing_mad_headMarkerData['limitCutRed8']],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    durationSeconds: 12,
+    infoText: (data, matches, output) => {
+      const blasterNumberMap = {
+        '0150': 1,
+        '0151': 2,
+        '0152': 3,
+        '0153': 4,
+        '01B5': 5,
+        '01B6': 6,
+        '01B7': 7,
+        '01B8': 8
+      };
+      const blasterDirNum = data.firstBlasterDirNum;
+      const rotation = data.blasterRotation;
+      const id = matches.id;
+      const myNum = blasterNumberMap[id];
+      if (myNum === undefined) return;
+      if (blasterDirNum === undefined || rotation === undefined || rotation === 0) return output.num({
+        num: myNum
+      });
+
+      // Subtract 1 from ourself as 1 is 0th position
+      const adjNum = (myNum - 1) * 2; // Convert our number to 16Dir format
+      const adjBlaster = blasterDirNum * 2; // Convert blasterDirNum to 16Dir format
+
+      // Boss is at an intercard, so +1 or -1 to get inter-inter safe spot
+      const adjustedDirNum = rotation > 0 ? (adjNum + adjBlaster + 1) % 16 // Clockwise
+      : (adjBlaster - 1 - adjNum + 16) % 16; // Counterclock
+
+      // Find inter-inter cardinal
+      const safeDir = util/* Directions.outputFrom16DirNum */.Ns.outputFrom16DirNum(adjustedDirNum);
+      return output.text({
+        num: output.num({
+          num: myNum
+        }),
+        dir: output[safeDir]()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings16Dir */.Ns.outputStrings16Dir,
+      num: {
+        en: '#${num}',
+        de: '#${num}',
+        fr: '#${num}',
+        ja: '${num}番',
+        cn: '#${num}',
+        ko: '${num}번째',
+        tc: '#${num}'
+      },
+      text: {
+        en: '${num}: ${dir}',
+        cn: '${num}: ${dir}',
+        ko: '${num}: ${dir}'
+      }
+    }
+  }, {
+    id: 'DMU P3 Max Collect ID',
+    // Need the Boss' ID to know which 273 lines to be looking at for later
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BAE5',
+      source: 'Kefka',
+      capture: true
+    },
+    run: (data, matches) => data.kefkaId = matches.sourceId
+  }, {
+    id: 'DMU P3 In Line Debuff Collector',
+    // BBC First in Line
+    // BBD Second in line
+    // BBE Third in Line
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['BBC', 'BBD', 'BBE']
+    },
+    run: (data, matches) => {
+      const effectToNum = {
+        BBC: 1,
+        BBD: 2,
+        BBE: 3
+      };
+      const num = effectToNum[matches.effectId];
+      if (num === undefined) return;
+      data.inLine[matches.target] = num;
+    }
+  }, {
+    id: 'DMU P3 Accretion Collector',
+    // Will be applied to 1 DPS and 1 Healer
+    // One will have First in Line, the other will have Second in Line
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '644',
+      capture: true
+    },
+    delaySeconds: data => {
+      if (data.triggerSetConfig.accretion === 'line') return 0.1; // Delay for In Line debuffs
+      return 0;
+    },
+    run: (data, matches) => {
+      const target = matches.target;
+      const first = data.triggerSetConfig.accretion === 'line' ? data.inLine[target] === 1 : data.party.isHealer(target);
+      if (first) data.firstAccretion = target;else data.secondAccretion = target;
+
+      // Store for Black Hole Order
+      if (data.me === target) data.hadAccretion = true;
+    }
+  }, {
+    id: 'DMU P3 In Line Debuff + Accretion 1',
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['BBC', 'BBD', 'BBE'],
+      capture: false
+    },
+    delaySeconds: 0.2,
+    // Delay for in Line Collect and Accretion Collect
+    durationSeconds: 5,
+    suppressSeconds: 1,
+    infoText: (data, _matches, output) => {
+      const myNum = data.inLine[data.me];
+      if (myNum === undefined) return;
+
+      // Let healers know Accretion order
+      // String may be too long to provide list of partners
+      if (data.role === 'healer') {
+        const first = data.firstAccretion;
+        const second = data.secondAccretion;
+        const player1 = first === data.me ? output.you() : data.party.member(first);
+        const player2 = second === data.me ? output.you() : data.party.member(second);
+        return output.accretionHealer({
+          num: myNum,
+          player1: player1,
+          player2: player2
+        });
+      }
+
+      // Rest of players will get partners
+      const partners = [];
+      for (const [name, num] of Object.entries(data.inLine)) if (num === myNum && name !== data.me) partners.push(data.party.member(name));
+      const msg = partners?.join(', ');
+      return output.text({
+        num: myNum,
+        players: msg
+      });
+    },
+    outputStrings: {
+      you: {
+        en: 'YOU',
+        cn: '你',
+        ko: '나'
+      },
+      text: {
+        en: '${num} (with ${players})',
+        de: '${num} (mit ${players})',
+        fr: '${num} (avec ${players})',
+        ja: '${num} (${players})',
+        cn: '${num} (与${players})',
+        ko: '${num} (+ ${players})',
+        tc: '${num} (與${players})'
+      },
+      accretionHealer: {
+        en: '${num}: Accretion on ${player1} => ${player2}',
+        cn: '${num}: 泥土点 ${player1} => ${player2}',
+        ko: '${num}: 혼돈의 진흙 ${player1} => ${player2}'
+      }
+    }
+  }, {
+    id: 'DMU P3 Accretion Cleanup',
+    type: 'LosesEffect',
+    netRegex: {
+      effectId: '644',
+      capture: true
+    },
+    run: (data, matches) => {
+      const target = matches.target;
+      if (target === data.firstAccretion) delete data.firstAccretion;
+      // There is no one else it could be but second
+      else delete data.secondAccretion;
+    }
+  }, {
+    id: 'DMU P3 Accretion 2',
+    // Cleansing 644 Accretion or 154E Primordial Crust triggers BAFA Earthquake
+    // on all but the player that had Accretion
+    // BAFA Earthquake targets receive D2C Earth Resistance Down II (1.96s)
+    // Utilizing D2C Earth Resistance Down II to call for healing next player
+    // NOTE: This will still trigger if 154E Primordial Crust is cleansed early
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: 'D2C',
+      capture: true
+    },
+    condition: data => {
+      return data.firstAccretion !== undefined || data.secondAccretion !== undefined;
+    },
+    delaySeconds: (_data, matches) => parseFloat(matches.duration),
+    suppressSeconds: 1,
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = {
+        healPlayerFull: {
+          en: 'Heal ${player} to full',
+          de: 'Heile ${player} voll',
+          fr: 'Soin complet sur ${player}',
+          ja: '${player} を全回復して',
+          cn: '奶满${player}',
+          ko: '완전 회복: ${player}',
+          tc: '奶滿${player}'
+        }
+      };
+      const first = data.firstAccretion;
+      const second = data.secondAccretion;
+      const player = first !== undefined ? first : second !== undefined ? second : undefined;
+
+      // This happens if players get cleansed within the delaySeconds, likely causing a wipe
+      if (player === undefined) return;
+      const severity = data.role === 'healer' ? 'alertText' : 'infoText';
+      return {
+        [severity]: output.healPlayerFull({
+          player: data.party.member(player)
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Boss Teleport Collect',
+    // About 0.4s prior to a 273 line, the boss teleports and this data is available from 271/261 lines
+    // 2.2s~2.5s later boss starts casting Slap Happy/Look upon Me and Despair
+    // For BAE6/BAE7 Slap Happy
+    // Boss' position data is (100, 100)
+    // 4 Invisible entities via 03 AddCombatant log lines correlate to the slap AoEs
+    // spawn at time of StartsUsing. These are also ordered in the order they occur.
+    //
+    // For BAEC/BAED Look upon Me and Despair, boss also teleports
+    // This could be necessary to call which black holes to grab later
+    type: 'ActorControlExtra',
+    netRegex: {
+      category: '0197',
+      param1: '1E44',
+      capture: true
+    },
+    condition: (data, matches) => matches.id === data.kefkaId,
+    delaySeconds: 0.1,
+    run: data => {
+      // Get Boss, he has Unknown_9E8 buff and same one that casts Max
+      const bossId = data.kefkaId ?? 0;
+      const actor = data.actorPositions[bossId];
+      if (actor === undefined) return;
+      data.kefkaTeleportDirNum = (util/* Directions.hdgTo8DirNum */.Ns.hdgTo8DirNum(actor.heading) + 4) % 8;
+    }
+  }, {
+    id: 'DMU P3 Boss Teleport Location',
+    // About 0.4s prior to a 273 line, the boss teleports and this data is available from 271/261 lines
+    // 2.2s later boss starts casting Slap Happy/Look upon Me and Despair
+    type: 'ActorControlExtra',
+    netRegex: {
+      category: '0197',
+      param1: '1E44',
+      capture: true
+    },
+    condition: (data, matches) => matches.id === data.kefkaId && data.nothingnessTracker !== 9,
+    delaySeconds: 0.1,
+    infoText: (data, _matches, output) => {
+      // Get Boss, he has Unknown_9E8 buff and same one that casts Max
+      const bossId = data.kefkaId ?? 0;
+      const actor = data.actorPositions[bossId];
+      if (actor === undefined) return;
+      const dirNum = (util/* Directions.hdgTo8DirNum */.Ns.hdgTo8DirNum(actor.heading) + 4) % 8;
+      const dir = util/* Directions.outputFrom8DirNum */.Ns.outputFrom8DirNum(dirNum);
+      return output.text({
+        dir: output[dir]()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings8Dir */.Ns.outputStrings8Dir,
+      text: {
+        en: '${dir} Kefka',
+        cn: '${dir} 凯夫卡',
+        ko: '${dir} 케프카'
+      }
+    }
+  }, {
+    id: 'DMU P3 Slap Happy',
+    // BAE6 Slap Happy: Boss slaps his right 3 times (party cleave) + left once
+    // BAE7 Slap Happy: Boss slaps his left 3 times (role cleaves) + right once
+    // Boss can be in different cardinal/intercardinals
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['BAE6', 'BAE7'],
+      source: 'Kefka',
+      capture: true
+    },
+    alertText: (_data, matches, output) => {
+      const isRightSlap = matches.id === 'BAE6';
+      return output.slapDirMechThenOut({
+        dir: isRightSlap ? output.right() : output.left(),
+        mech: isRightSlap ? output.partyStack() : output.roleStacks(),
+        out: output.outOfMiddle()
+      });
+    },
+    outputStrings: {
+      left: outputs/* default.left */.Z.left,
+      right: outputs/* default.right */.Z.right,
+      outOfMiddle: {
+        en: 'Out Of Middle',
+        de: 'Raus aus der Mitte',
+        fr: 'Sortez du milieu',
+        ja: '横へ',
+        cn: '远离中间',
+        ko: '가운데 피하기',
+        tc: '遠離中間'
+      },
+      partyStack: {
+        en: 'Party Stack',
+        de: 'In der Gruppe sammeln',
+        fr: 'Package en groupe',
+        ja: 'あたまわり',
+        cn: '人群分摊',
+        ko: '본대 쉐어',
+        tc: '分攤'
+      },
+      roleStacks: {
+        en: 'Role Stacks',
+        de: 'Rollengruppe sammeln',
+        fr: 'Package par rôle',
+        cn: '职能分摊',
+        ko: '역할별 쉐어',
+        tc: '職能分攤'
+      },
+      slapDirMechThenOut: {
+        en: '${dir} => ${mech} + ${out}',
+        cn: '${dir} => ${mech} + ${out}',
+        ko: '${dir} => ${mech} + ${out}'
+      }
+    }
+  }, {
+    id: 'DMU P3 Black Hole Tracker',
+    // 11 are added with 0.2s of BAFB Black Hole Ability
+    // Both 261 CombatantMemory Add and 03 AddCombatant are available
+    // There are also 272 NPCSpawnExtra lines
+    // These have BNpcID 4C38
+    // They should only spawn at cardinals
+    // Interestingly, they have differing headings as well
+    // Spawn Location Example:
+    //             (100, 83)
+    //    (94.83, 87.53)
+    //     (93.64, 93.64) (106.36, 93.64)
+    //                        (112.47, 94.83)
+    //     (93.64, 106.36)(106.36, 106.36)
+    // (87.53, 105.17)
+    //                            (117, 100)
+    //                (105.17, 112.47)
+    //             (100, 117)
+    type: 'AddedCombatant',
+    netRegex: {
+      name: 'Black Hole',
+      capture: true
+    },
+    run: (data, matches) => {
+      const x = parseFloat(matches.x);
+      const y = parseFloat(matches.y);
+      const dirNum = util/* Directions.xyTo4DirNum */.Ns.xyTo4DirNum(x, y, dancing_mad_centerX, dancing_mad_centerY);
+
+      // Storing as dirNum to be sorted later once we have tethers
+      data.blackHoleIdDirNums[matches.id] = dirNum;
+    }
+  }, {
+    id: 'DMU P3 Nothingness Counter',
+    // There are 10 sets of Nothingness from Black Holes to soak
+    // They always spawn on a cardinal
+    // The Nothingness beams should be baited cw or ccw for melee uptime
+    // Getting hit by Nothingness gives 154C Unbecoming
+    // If hit by Nothingness with 154C Unbecoming, it becomes 154D Meanest Existence
+    // If hit by Nothingness with 154D Meanest Existence, lethal damage is taken which
+    // expires 154E Primordial Crust causing an BAFA Earthquake AOE
+    //
+    // Accretions Resolve => Slap Happy
+    // Black Hole Set 1 spawns 1 Black Hole
+    // 1 => 1 Nothingness (Taken by a 1)
+    // Black Holes Set 2 spawns 2 Black Holes
+    // 2 => 2 Nothingness (Taken by two 1s)
+    // TBs => Damning Edict => Slap Happy
+    // Black Hole Set 3 spawns 3 Black Holes
+    // 3 => 3 Nothingness (Taken by two 1s and Accretion 1), 1 player swaps tether
+    // 4 => 3 Nothingness (Taken by one 1, Accretion 1, and one 2), 1 player swaps tether
+    // 5 => 3 Nothingness (Taken by two 2s and Accretion 1)
+    // Damning Edict => Look upon Me and Despair => TBs
+    // Black Hole Set 3 spawns 3 Black Holes
+    // 6 => 3 Black Holes (Taken by two 2s and Accretion 2), 1 player swaps tether
+    // 7 => 3 Black Holes (Taken by one 3, one 2, and Accretion 2), 1 player swaps tether
+    // 8 => 3 Black Holes (Taken by two 3s, and Accretion 2)
+    // Lat/Long (White Hole cast here too) => Slap Happy  => Look upon Me and Despair
+    // Black Hole Set 5 spawns 2 Black Holes
+    // 9 => 2 Black Holes (Taken by two 3s)
+    // Black Hole Set 6 spawns 1 Black Hole
+    // 10 => 1 Black Hole (Taken by last 3)
+    // However, there are will be 10 BAFC Nothingness casts
+    // Using BAFC Nothingness to track which set we are on
+    type: 'Ability',
+    netRegex: {
+      id: 'BAFC',
+      source: 'Black Hole',
+      capture: false
+    },
+    suppressSeconds: 1,
+    run: data => {
+      data.nothingnessTracker = data.nothingnessTracker + 1;
+
+      // Reset the tether dirs for next round of black hole adds
+      if (data.nothingnessTracker === 2 || data.nothingnessTracker === 3 || data.nothingnessTracker === 6 || data.nothingnessTracker === 9 || data.nothingnessTracker === 10) {
+        delete data.blackHoleTetherDisable; // For SpawnNpcExtra triggers with >1 black hole
+        data.blackHoleTetherDirNums = [];
+      }
+    }
+  }, {
+    id: 'DMU P3 Black Hole Tether Collect (NetworkTether)',
+    type: 'Tether',
+    netRegex: {
+      id: dancing_mad_headMarkerData['blackHoleTether'],
+      capture: true
+    },
+    condition: data => {
+      // No need to collect the single tether sets
+      return data.nothingnessTracker !== 1 && data.nothingnessTracker !== 10;
+    },
+    run: (data, matches) => {
+      const dirNum = data.blackHoleIdDirNums[matches.sourceId];
+      if (dirNum === undefined) return;
+
+      // Ignore the tether if it is already stored
+      // This allows for collection of tethers if instantaneous swap
+      if (!data.blackHoleTetherDirNums.includes(dirNum)) data.blackHoleTetherDirNums.push(dirNum);
+    }
+  }, {
+    id: 'DMU P3 Black Hole Tether Collect (SpawnNpcExtra)',
+    // 272 SpawnNpcExtra line tether has the tether first
+    type: 'SpawnNpcExtra',
+    netRegex: {
+      tetherId: dancing_mad_headMarkerData['blackHoleTether'],
+      capture: true
+    },
+    delaySeconds: 0.1,
+    // Delay for AddCombatant
+    run: (data, matches) => {
+      const dirNum = data.blackHoleIdDirNums[matches.id];
+      if (dirNum === undefined) return;
+
+      // Ignore the tether if it is already stored
+      // This allows for collection of tethers if instantaneous swap
+      if (!data.blackHoleTetherDirNums.includes(dirNum)) data.blackHoleTetherDirNums.push(dirNum);
+    }
+  }, {
+    id: 'DMU P3 Black Hole 1, Nothingness 1',
+    // One Black Hole spawns, causes a single Nothingness
+    type: 'SpawnNpcExtra',
+    netRegex: {
+      tetherId: dancing_mad_headMarkerData['blackHoleTether'],
+      capture: true
+    },
+    condition: data => data.nothingnessTracker === 1,
+    delaySeconds: 0.1,
+    // Delay for AddedCombatant
+    suppressSeconds: 99999,
+    response: (data, matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = blackHoleOutputStrings;
+      const config = data.triggerSetConfig.blackHole;
+      const relConfig = data.triggerSetConfig.blackHoleTether;
+      const num = output.num({
+        num: data.nothingnessTracker
+      });
+      const kefkaDir = data.kefkaTeleportDirNum;
+      const dirNum = data.blackHoleIdDirNums[matches.id];
+      const dir = dirNum === undefined ? 'unknown' : util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(dirNum);
+      if (config !== 'none') {
+        const role = config === 'sda' || config === 'modified' ? data.role !== 'dps' : data.role === 'dps';
+        const relDir = relConfig === 'true' ? dir : 'clockwiseOne';
+        if (data.inLine[data.me] === 1 && !data.hadAccretion && role) return {
+          alertText: output.getDirTether({
+            num: num,
+            dir: output[relDir]()
+          })
+        };
+
+        // Provide heads up to next player
+        // Could tell to 1st tether but it may add confusion
+        if (data.inLine[data.me] === 1 && !data.hadAccretion && !role) {
+          // Next set will start accross from dir
+          const dirNum1 = dirNum === undefined ? undefined : (dirNum + 2) % 4;
+          // Second one is next clockwise
+          const dirNum2 = dirNum === undefined ? undefined : (dirNum + 3) % 4;
+
+          // If can't get dirNum, default to relative
+          if (dirNum1 === undefined || dirNum2 === undefined) {
+            if (config === 'modified') return {
+              infoText: output.middleThenGetBothTethers({
+                num: num
+              })
+            };
+            const dir = data.role === 'dps' ? 'clockwiseOne' : 'clockwiseTwo';
+            return {
+              infoText: output.middleThenGetDirTether({
+                num: num,
+                dir: output[dir]()
+              })
+            };
+          }
+          const dirNums = [dirNum1, dirNum2];
+
+          // Convert Kefka dir to 4Dir
+          const startDir = kefkaDir !== undefined ? Math.round(kefkaDir / 2) % 4 : -1;
+          const sorted = startDir !== -1 ? getCWOrderFromN(startDir, dirNums) : [];
+          const dir1 = sorted[0] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[0]) : 'unknown';
+          const dir2 = sorted[1] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[1]) : 'unknown';
+          if (config === 'modified') {
+            return {
+              infoText: relConfig === 'true' ? output.middleThenGetDirTethers({
+                num: num,
+                dir1: output[dir1](),
+                dir2: output[dir2]()
+              }) : output.middleThenGetBothTethers({
+                num: num
+              })
+            };
+          }
+          const dir = data.role === 'dps' ? dir1 : dir2;
+          const relDir = relConfig === 'true' ? dir : data.role === 'dps' ? 'clockwiseOne' : 'clockwiseTwo';
+
+          // DPS #1 (DSA), Support #1 (SDA)
+          return {
+            infoText: output.middleThenGetDirTether({
+              num: num,
+              dir: output[relDir]()
+            })
+          };
+        }
+      }
+      return {
+        infoText: output.oneBlackHole({
+          num: num,
+          dir: output[dir]()
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Black Hole 2, Nothingness 2',
+    // Two Black Holes spawn, each cause a single Nothingness
+    // Black Hole actors are reused from previous Nothingness tethers
+    type: 'Tether',
+    netRegex: {
+      id: dancing_mad_headMarkerData['blackHoleTether'],
+      capture: false
+    },
+    condition: data => {
+      return data.nothingnessTracker === 2 && data.blackHoleTetherDirNums.length === 2;
+    },
+    suppressSeconds: 99999,
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = blackHoleOutputStrings;
+      const config = data.triggerSetConfig.blackHole;
+      const relConfig = data.triggerSetConfig.blackHoleTether;
+      const num = output.num({
+        num: data.nothingnessTracker
+      });
+      const kefkaDir = data.kefkaTeleportDirNum;
+      const dirNums = data.blackHoleTetherDirNums;
+
+      // Convert Kefka dir to 4Dir
+      const startDir = kefkaDir !== undefined ? Math.round(kefkaDir / 2) % 4 : -1;
+      const sorted = startDir !== -1 ? getCWOrderFromN(startDir, dirNums) : [];
+      const dir1 = sorted[0] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[0]) : 'unknown';
+      const dir2 = sorted[1] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[1]) : 'unknown';
+      if (config === 'dsa' || config === 'sda') {
+        const role = config === 'dsa' ? data.role === 'dps' : data.role !== 'dps';
+        const dir = data.role === 'dps' ? dir1 : dir2;
+        const relDir = relConfig === 'true' ? dir : data.role === 'dps' ? 'clockwiseOne' : 'clockwiseTwo';
+        if (data.inLine[data.me] === 1 && !data.hadAccretion) {
+          if (role) return {
+            alertText: output.getDirTether({
+              num: num,
+              dir: output[relDir]()
+            })
+          };
+          // DPS #1 (DSA), Support #1 (SDA)
+          return {
+            alertText: output.getDirTether({
+              num: num,
+              dir: output[relDir]()
+            })
+          };
+        }
+      } else if (config === 'modified' && data.inLine[data.me] === 1 && !data.hadAccretion && data.role === 'dps') return {
+        alertText: relConfig === 'true' ? output.getDirTethers({
+          num: num,
+          dir1: output[dir1](),
+          dir2: output[dir2]()
+        }) : output.getBothTethers({
+          num: num
+        })
+      };
+      return {
+        infoText: output.twoBlackHoles({
+          num: num,
+          dir1: output[dir1](),
+          dir2: output[dir2]()
+        })
+      };
     }
   }, {
     id: 'DMU P3 Damning Edict',
@@ -285727,9 +291807,2185 @@ const dancing_mad_triggerSet = {
     outputStrings: {
       getBehindTarget: {
         en: 'Get Behind ${target}',
+        cn: '到${target}背后',
         ko: '${target} 뒤로'
       }
     }
+  }, {
+    id: 'DMU P3  Black Hole 3, Nothingness 3',
+    // Three Black Holes spawn, each cause three Nothingness
+    // Needs a boolean to prevent extra firing when delay is added
+    type: 'SpawnNpcExtra',
+    netRegex: {
+      tetherId: dancing_mad_headMarkerData['blackHoleTether'],
+      capture: false
+    },
+    condition: data => data.nothingnessTracker === 3,
+    delaySeconds: 0.1,
+    // Delay for AddCombatant
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = blackHoleOutputStrings;
+      if (data.blackHoleTetherDirNums.length !== 3 || data.blackHoleTetherDisable) return;
+      data.blackHoleTetherDisable = true;
+      const config = data.triggerSetConfig.blackHole;
+      const relConfig = data.triggerSetConfig.blackHoleTether;
+      const num = output.num({
+        num: data.nothingnessTracker
+      });
+      const hadAccretion = data.hadAccretion;
+      const line = data.inLine[data.me];
+      const kefkaDir = data.kefkaTeleportDirNum;
+      const dirNums = data.blackHoleTetherDirNums;
+
+      // Convert Kefka dir to 4Dir
+      const startDir = kefkaDir !== undefined ? Math.round(kefkaDir / 2) % 4 : -1;
+      const sorted = startDir !== -1 ? getCWOrderFromN(startDir, dirNums) : [];
+      const dir1 = sorted[0] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[0]) : 'unknown';
+      const dir2 = sorted[1] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[1]) : 'unknown';
+      const dir3 = sorted[2] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[2]) : 'unknown';
+      if (config !== 'none') {
+        if (line === 1) {
+          if (hadAccretion) {
+            const relDir = relConfig === 'true' ? dir3 : 'clockwiseThree';
+            return {
+              alertText: output.getDirTether({
+                num: num,
+                dir: output[relDir]()
+              })
+            };
+          }
+          if (data.role === 'dps') {
+            const relDir = relConfig === 'true' ? dir1 : 'clockwiseOne';
+            return {
+              alertText: output.getDirTether({
+                num: num,
+                dir: output[relDir]()
+              })
+            };
+          }
+          // Support #1
+          const relDir = relConfig === 'true' ? dir2 : 'clockwiseTwo';
+          return {
+            alertText: output.getDirTether({
+              num: num,
+              dir: output[relDir]()
+            })
+          };
+        }
+        if (line === 2 && !hadAccretion) {
+          // Additional info for the next person grabbing
+          const dsaOrModified = config === 'dsa' || config === 'modified';
+          const roleSwap = dsaOrModified ? data.role === 'dps' : data.role !== 'dps';
+          if (roleSwap) {
+            // Tether to grab will change depending on role
+            const sortedDir = dsaOrModified ? sorted[0] : sorted[1];
+            const dir = sortedDir !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sortedDir) : 'unknown';
+            const relDir = relConfig === 'true' ? dir : dsaOrModified ? 'clockwiseOne' : 'clockWiseTwo';
+
+            // We could get the player they are taking from, but seems unnecessary at the time
+            return {
+              infoText: output.middleThenGetDirTether({
+                num: num,
+                dir: output[relDir]()
+              })
+            };
+          }
+        }
+      }
+      return {
+        infoText: output.threeBlackHoles({
+          num: num,
+          dir1: output[dir1](),
+          dir2: output[dir2](),
+          dir3: output[dir3]()
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Black Hole 3, Nothingness 4',
+    // One player needs to swap tether
+    type: 'Ability',
+    netRegex: {
+      id: 'BAFC',
+      source: 'Black Hole',
+      capture: false
+    },
+    condition: data => data.nothingnessTracker === 4,
+    suppressSeconds: 99999,
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = blackHoleOutputStrings;
+      const config = data.triggerSetConfig.blackHole;
+      const relConfig = data.triggerSetConfig.blackHoleTether;
+      const tracker = data.nothingnessTracker;
+      const num = output.num({
+        num: tracker
+      });
+      const hadAccretion = data.hadAccretion;
+      const line = data.inLine[data.me];
+      if (config !== 'none') {
+        const dsaOrModified = config === 'dsa' || config === 'modified';
+        const roleKeep = dsaOrModified ? data.role !== 'dps' : data.role === 'dps';
+        if (line === 1) {
+          if (hadAccretion || roleKeep) return {
+            infoText: output.keepTether({
+              num: num
+            })
+          };
+          // DPS #1 (DSA/Modified), Support #1 (SDA)
+          return {
+            alertText: output.passTether({
+              num: num
+            })
+          };
+        }
+        if (line === 2 && !hadAccretion) {
+          const roleSwap = dsaOrModified ? data.role === 'dps' : data.role !== 'dps';
+          const kefkaDir = data.kefkaTeleportDirNum;
+          const dirNums = data.blackHoleTetherDirNums;
+
+          // Convert Kefka dir to 4Dir
+          const startDir = kefkaDir !== undefined ? Math.round(kefkaDir / 2) % 4 : -1;
+          const sorted = startDir !== -1 ? getCWOrderFromN(startDir, dirNums) : [];
+          if (roleSwap) {
+            // Tether to grab will change depending on role
+            const sortedDir = dsaOrModified ? sorted[0] : sorted[1];
+            const dir = sortedDir !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sortedDir) : 'unknown';
+            const relDir = relConfig === 'true' ? dir : dsaOrModified ? 'clockwiseOne' : 'clockWiseTwo';
+
+            // We could get the player they are taking from, but seems unnecessary at the time
+            return {
+              alertText: output.getDirTether({
+                num: num,
+                dir: output[relDir]()
+              })
+            };
+          }
+          // Additional info for the next person grabbing
+          // Tether to grab will change depending on role
+          const sortedDir2 = dsaOrModified ? sorted[1] : sorted[0];
+          const dir2 = sortedDir2 !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sortedDir2) : 'unknown';
+          const relDir = relConfig === 'true' ? dir2 : dsaOrModified ? 'clockwiseTwo' : 'clockWiseOne';
+          return {
+            infoText: output.middleThenGetDirTether({
+              num: num,
+              dir: output[relDir]()
+            })
+          };
+        }
+      }
+      return {
+        infoText: output.nothing({
+          num: tracker
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Black Hole 3, Nothingness 5',
+    // One player needs to swap tether
+    type: 'Ability',
+    netRegex: {
+      id: 'BAFC',
+      source: 'Black Hole',
+      capture: false
+    },
+    condition: data => data.nothingnessTracker === 5,
+    suppressSeconds: 99999,
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = blackHoleOutputStrings;
+      const config = data.triggerSetConfig.blackHole;
+      const relConfig = data.triggerSetConfig.blackHoleTether;
+      const tracker = data.nothingnessTracker;
+      const num = output.num({
+        num: tracker
+      });
+      const hadAccretion = data.hadAccretion;
+      const line = data.inLine[data.me];
+      if (config !== 'none') {
+        const dsaOrModified = config === 'dsa' || config === 'modified';
+        const roleSwap = dsaOrModified ? data.role !== 'dps' : data.role === 'dps';
+        if (line === 1) {
+          if (hadAccretion) return {
+            infoText: output.keepTether({
+              num: num
+            })
+          };
+          if (roleSwap) return {
+            alertText: output.passTether({
+              num: num
+            })
+          };
+        }
+        if (line === 2 && !hadAccretion) {
+          if (roleSwap) {
+            const kefkaDir = data.kefkaTeleportDirNum;
+            const dirNums = data.blackHoleTetherDirNums;
+
+            // Convert Kefka dir to 4Dir
+            const startDir = kefkaDir !== undefined ? Math.round(kefkaDir / 2) % 4 : -1;
+            const sorted = startDir !== -1 ? getCWOrderFromN(startDir, dirNums) : [];
+            // Tether to grab will change depending on role
+            const sortedDir = dsaOrModified ? sorted[1] : sorted[0];
+            const dir = sortedDir !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sortedDir) : 'unknown';
+            const relDir = relConfig === 'true' ? dir : dsaOrModified ? 'clockwiseTwo' : 'clockWiseOne';
+
+            // We could get the player they are taking from, but seems unnecessary at the time
+            return {
+              alertText: output.getDirTether({
+                num: num,
+                dir: output[relDir]()
+              })
+            };
+          }
+          // DPS #2 (DSA/Modified), Support #2 (SDA)
+          return {
+            infoText: output.keepTether({
+              num: num
+            })
+          };
+        }
+      }
+      return {
+        infoText: output.nothing({
+          num: tracker
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Look upon Me and Despair 1',
+    // BAEC Look upon Me and Despair: Kefka falls on his right side across center of arena
+    // Boss can be in different cardinal/intercardinals
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BAEC',
+      source: 'Kefka',
+      capture: false
+    },
+    alertText: (_data, _matches, output) => output.outOfMiddle(),
+    outputStrings: {
+      outOfMiddle: {
+        en: 'Out Of Middle',
+        de: 'Raus aus der Mitte',
+        fr: 'Sortez du milieu',
+        ja: '横へ',
+        cn: '远离中间',
+        ko: '가운데 피하기',
+        tc: '遠離中間'
+      }
+    }
+  }, {
+    id: 'DMU P3  Black Hole 4, Nothingness 6',
+    // Three Black Holes spawn, each cause three Nothingness
+    // Needs a boolean to prevent extra firing when delay is added
+    type: 'SpawnNpcExtra',
+    netRegex: {
+      tetherId: dancing_mad_headMarkerData['blackHoleTether'],
+      capture: false
+    },
+    condition: data => data.nothingnessTracker === 6,
+    delaySeconds: 0.1,
+    // Delay for AddedCombatant
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = blackHoleOutputStrings;
+      if (data.blackHoleTetherDirNums.length !== 3 || data.blackHoleTetherDisable) return;
+      data.blackHoleTetherDisable = true;
+      const config = data.triggerSetConfig.blackHole;
+      const relConfig = data.triggerSetConfig.blackHoleTether;
+      const num = output.num({
+        num: data.nothingnessTracker
+      });
+      const hadAccretion = data.hadAccretion;
+      const line = data.inLine[data.me];
+      const kefkaDir = data.kefkaTeleportDirNum;
+      const dirNums = data.blackHoleTetherDirNums;
+
+      // Convert Kefka dir to 4Dir
+      const startDir = kefkaDir !== undefined ? Math.round(kefkaDir / 2) % 4 : -1;
+      const sorted = startDir !== -1 ? getCWOrderFromN(startDir, dirNums) : [];
+      const dir1 = sorted[0] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[0]) : 'unknown';
+      const dir2 = sorted[1] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[1]) : 'unknown';
+      const dir3 = sorted[2] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[2]) : 'unknown';
+      if (config !== 'none') {
+        if (line === 2) {
+          if (hadAccretion) {
+            const relDir = relConfig === 'true' ? dir3 : 'clockwiseThree';
+            return {
+              alertText: output.getDirTether({
+                num: num,
+                dir: output[relDir]()
+              })
+            };
+          }
+          if (data.role === 'dps') {
+            const relDir = relConfig === 'true' ? dir1 : 'clockwiseOne';
+            return {
+              alertText: output.getDirTether({
+                num: num,
+                dir: output[relDir]()
+              })
+            };
+          }
+          const relDir = relConfig === 'true' ? dir2 : 'clockwiseTwo';
+          // Support #2
+          return {
+            alertText: output.getDirTether({
+              num: num,
+              dir: output[relDir]()
+            })
+          };
+        }
+        if (line === 3) {
+          // Additional info for the next person grabbing
+          const dsaOrModified = config === 'dsa' || config === 'modified';
+          const roleSwap = dsaOrModified ? data.role === 'dps' : data.role !== 'dps';
+          if (roleSwap) {
+            // Tether to grab will change depending on role
+            const sortedDir = dsaOrModified ? sorted[0] : sorted[1];
+            const dir = sortedDir !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sortedDir) : 'unknown';
+            const relDir = relConfig === 'true' ? dir : dsaOrModified ? 'clockwiseOne' : 'clockwiseTwo';
+
+            // We could get the player they are taking from, but seems unnecessary at the time
+            return {
+              infoText: output.middleThenGetDirTether({
+                num: num,
+                dir: output[relDir]()
+              })
+            };
+          }
+        }
+      }
+      return {
+        infoText: output.threeBlackHoles({
+          num: num,
+          dir1: output[dir1](),
+          dir2: output[dir2](),
+          dir3: output[dir3]()
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Black Hole 4, Nothingness 7',
+    // One player needs to swap tether
+    type: 'Ability',
+    netRegex: {
+      id: 'BAFC',
+      source: 'Black Hole',
+      capture: false
+    },
+    condition: data => data.nothingnessTracker === 7,
+    suppressSeconds: 99999,
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = blackHoleOutputStrings;
+      const config = data.triggerSetConfig.blackHole;
+      const relConfig = data.triggerSetConfig.blackHoleTether;
+      const tracker = data.nothingnessTracker;
+      const num = output.num({
+        num: tracker
+      });
+      const line = data.inLine[data.me];
+      if (config !== 'none') {
+        const dsaOrModified = config === 'dsa' || config === 'modified';
+        const roleKeep = dsaOrModified ? data.role !== 'dps' : data.role === 'dps';
+        const roleSwap = dsaOrModified ? data.role === 'dps' : data.role !== 'dps';
+        if (line === 2) {
+          if (data.hadAccretion || roleKeep) return {
+            infoText: output.keepTether({
+              num: num
+            })
+          };
+          // DPS #2 (DSA/Modified), Support #2 (SDA)
+          return {
+            alertText: output.passTether({
+              num: num
+            })
+          };
+        }
+        if (line === 3) {
+          const kefkaDir = data.kefkaTeleportDirNum;
+          const dirNums = data.blackHoleTetherDirNums;
+
+          // Convert Kefka dir to 4Dir
+          const startDir = kefkaDir !== undefined ? Math.round(kefkaDir / 2) % 4 : -1;
+          const sorted = startDir !== -1 ? getCWOrderFromN(startDir, dirNums) : [];
+          if (roleSwap) {
+            // Tether to grab will change depending on role
+            const sortedDir = dsaOrModified ? sorted[0] : sorted[1];
+            const dir = sortedDir !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sortedDir) : 'unknown';
+            const relDir = relConfig === 'true' ? dir : dsaOrModified ? 'clockwiseOne' : 'clockwiseTwo';
+
+            // We could get the player they are taking from, but seems unnecessary at the time
+            return {
+              alertText: output.getDirTether({
+                num: num,
+                dir: output[relDir]()
+              })
+            };
+          }
+          // Additional info for the next person grabbing
+          // Tether to grab will change depending on role
+          const sortedDir2 = dsaOrModified ? sorted[1] : sorted[0];
+          const dir2 = sortedDir2 !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sortedDir2) : 'unknown';
+          const relDir = relConfig === 'true' ? dir2 : dsaOrModified ? 'clockwiseTwo' : 'clockwiseOne';
+
+          // We could get the player they are taking from, but seems unnecessary at the time
+          return {
+            infoText: output.middleThenGetDirTether({
+              num: num,
+              dir: output[relDir]()
+            })
+          };
+        }
+      }
+      return {
+        infoText: output.nothing({
+          num: tracker
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Black Hole 4, Nothingness 8',
+    // One player needs to swap tether
+    type: 'Ability',
+    netRegex: {
+      id: 'BAFC',
+      source: 'Black Hole',
+      capture: false
+    },
+    condition: data => data.nothingnessTracker === 8,
+    suppressSeconds: 99999,
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = blackHoleOutputStrings;
+      const config = data.triggerSetConfig.blackHole;
+      const relConfig = data.triggerSetConfig.blackHoleTether;
+      const tracker = data.nothingnessTracker;
+      const num = output.num({
+        num: tracker
+      });
+      const line = data.inLine[data.me];
+      if (config !== 'none') {
+        const dsaOrModified = config === 'dsa' || config === 'modified';
+        const roleSwap = dsaOrModified ? data.role !== 'dps' : data.role === 'dps';
+        const roleKeep = dsaOrModified ? data.role === 'dps' : data.role !== 'dps';
+        if (line === 2) {
+          if (data.hadAccretion) return {
+            infoText: output.keepTether({
+              num: num
+            })
+          };
+          if (roleSwap) return {
+            alertText: output.passTether({
+              num: num
+            })
+          };
+        }
+        if (line === 3) {
+          if (roleKeep) return {
+            infoText: output.keepTether({
+              num: num
+            })
+          };
+          // Support #3 (DSA/Modified), DPS #3 (SDA)
+          const kefkaDir = data.kefkaTeleportDirNum;
+          const dirNums = data.blackHoleTetherDirNums;
+
+          // Convert Kefka dir to 4Dir
+          const startDir = kefkaDir !== undefined ? Math.round(kefkaDir / 2) % 4 : -1;
+          const sorted = startDir !== -1 ? getCWOrderFromN(startDir, dirNums) : [];
+          // Tether to grab will change depending on role
+          const sortedDir = dsaOrModified ? sorted[1] : sorted[0];
+          const dir = sortedDir !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sortedDir) : 'unknown';
+          const relDir = relConfig === 'true' ? dir : dsaOrModified ? 'clockwiseTwo' : 'clockwiseOne';
+
+          // We could get the player they are taking from, but seems unnecessary at the time
+          return {
+            alertText: output.getDirTether({
+              num: num,
+              dir: output[relDir]()
+            })
+          };
+        }
+      }
+      return {
+        infoText: output.nothing({
+          num: tracker
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Black Hole 5, Nothingness 9',
+    // Two Black Holes spawn, each cause a single Nothingness
+    // Needs a boolean to prevent extra firing when delay is added
+    type: 'SpawnNpcExtra',
+    netRegex: {
+      tetherId: dancing_mad_headMarkerData['blackHoleTether'],
+      capture: false
+    },
+    condition: data => data.nothingnessTracker === 9,
+    delaySeconds: 0.1,
+    // Delay for AddedCombatant
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = blackHoleOutputStrings;
+      if (data.blackHoleTetherDirNums.length !== 2 || data.blackHoleTetherDisable) return;
+      data.blackHoleTetherDisable = true;
+      const config = data.triggerSetConfig.blackHole;
+      const relConfig = data.triggerSetConfig.blackHoleTether;
+      const num = output.num({
+        num: data.nothingnessTracker
+      });
+      const kefkaDir = data.kefkaTeleportDirNum;
+      const dirNums = data.blackHoleTetherDirNums;
+
+      // Convert Kefka dir to 4Dir
+      const startDir = kefkaDir !== undefined ? Math.round(kefkaDir / 2) % 4 : -1;
+      const sorted = startDir !== -1 ? getCWOrderFromN(startDir, dirNums) : [];
+      const dir1 = sorted[0] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[0]) : 'unknown';
+      const dir2 = sorted[1] !== undefined ? util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(sorted[1]) : 'unknown';
+      if ((config === 'dsa' || config === 'sda') && data.inLine[data.me] === 3) {
+        const role = config === 'dsa' ? data.role === 'dps' : data.role !== 'dps';
+        const dir = data.role === 'dps' ? dir1 : dir2;
+        const relDir = relConfig === 'true' ? dir : data.role === 'dps' ? 'clockwiseOne' : 'clockwiseTwo';
+        if (role) {
+          return {
+            alertText: output.getDirTether({
+              num: num,
+              dir: output[relDir]()
+            })
+          };
+        }
+        // Support #3 (DSA), DPS #3 (SDA)
+        return {
+          alertText: output.getDirTether({
+            num: num,
+            dir: output[relDir]()
+          })
+        };
+      } else if (config === 'modified' && data.role !== 'dps' && data.inLine[data.me] === 3) return {
+        alertText: relConfig === 'true' ? output.getDirTethers({
+          num: num,
+          dir1: output[dir1](),
+          dir2: output[dir2]()
+        }) : output.getBothTethers({
+          num: num
+        })
+      };
+      return {
+        infoText: output.twoBlackHoles({
+          num: num,
+          dir1: output[dir1](),
+          dir2: output[dir2]()
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 White Hole + Boss Teleport Location',
+    // Any players not healed to full will suffer 3s BBF Petrification
+    // BD66 White Hole is a 4.7s castTime
+    // We would use BAFC Nothnginess + 1.6s (time of Primordial Crust's BAFA Earthquake)
+    // Which would be roughly 9.6s before the cast, however this conflicts
+    // with Kefka's teleport, so the two calls have been merged
+    type: 'ActorControlExtra',
+    netRegex: {
+      category: '0197',
+      param1: '1E44',
+      capture: true
+    },
+    condition: (data, matches) => matches.id === data.kefkaId && data.nothingnessTracker === 9,
+    delaySeconds: 0.1,
+    // Delayed for actor collect
+    durationSeconds: 9.1,
+    // Time until end of BD66 White Hole cast
+    suppressSeconds: 99999,
+    alertText: (data, _matches, output) => {
+      // Get Boss, he has Unknown_9E8 buff and same one that casts Max
+      const bossId = data.kefkaId ?? 0;
+      const actor = data.actorPositions[bossId];
+      if (actor === undefined) return;
+      const dirNum = (util/* Directions.hdgTo8DirNum */.Ns.hdgTo8DirNum(actor.heading) + 4) % 8;
+      const dir = util/* Directions.outputFrom8DirNum */.Ns.outputFrom8DirNum(dirNum);
+      return output.text({
+        heal: output.fullHeal(),
+        dir: output.dirKefka({
+          dir: output[dir]()
+        })
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings8Dir */.Ns.outputStrings8Dir,
+      fullHeal: {
+        en: 'Heal to full',
+        de: 'Voll heilen',
+        fr: 'Soin complet',
+        ja: 'HPを満タンに',
+        cn: '奶满全队',
+        ko: '체력 풀피로',
+        tc: '補滿全隊'
+      },
+      dirKefka: {
+        en: '${dir} Kefka',
+        cn: '${dir} 凯夫卡',
+        ko: '${dir} 케프카'
+      },
+      text: {
+        en: '${heal} + ${dir}',
+        cn: '${heal} + ${dir}',
+        ko: '${heal} + ${dir}'
+      }
+    }
+  }, {
+    id: 'DMU P3 Black Hole 6, Nothingness 10',
+    // One Black Hole spawns, causes a single Nothingness
+    // Black Hole actors are reused from previous Nothingness tethers
+    type: 'Tether',
+    netRegex: {
+      id: dancing_mad_headMarkerData['blackHoleTether'],
+      capture: true
+    },
+    condition: data => data.nothingnessTracker === 10,
+    delaySeconds: 0.1,
+    // Delay for AddedCombatant
+    suppressSeconds: 99999,
+    response: (data, matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = blackHoleOutputStrings;
+      const config = data.triggerSetConfig.blackHole;
+      const relConfig = data.triggerSetConfig.blackHoleTether;
+      const num = output.num({
+        num: data.nothingnessTracker
+      });
+      const dirNum = data.blackHoleIdDirNums[matches.sourceId];
+      const dir = dirNum === undefined ? 'unknown' : util/* Directions.outputFromCardinalNum */.Ns.outputFromCardinalNum(dirNum);
+      if (config !== 'none') {
+        const role = config === 'sda' || config === 'modified' ? data.role === 'dps' : data.role !== 'dps';
+        const relDir = relConfig === 'true' ? dir : 'clockwiseOne';
+        if (data.inLine[data.me] === 3 && role) return {
+          alertText: output.getDirTether({
+            num: num,
+            dir: output[relDir]()
+          })
+        };
+      }
+      return {
+        infoText: output.oneBlackHole({
+          num: num,
+          dir: output[dir]()
+        })
+      };
+    }
+  }, {
+    id: 'DMU P3 Look upon Me and Despair 2',
+    // BAED Look upon Me and Despair: Kefka falls on his left side across center of arena
+    // He will get up afterwards and float in the center of arena, facing the same direction
+    // Boss can be in different cardinal/intercardinals
+    // This is split from BAEC as players may want to split groups for upcoming Stomp-a-Mole
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BAED',
+      source: 'Kefka',
+      capture: false
+    },
+    alertText: (_data, _matches, output) => output.outOfMiddle(),
+    outputStrings: {
+      outOfMiddle: {
+        en: 'Out Of Middle',
+        de: 'Raus aus der Mitte',
+        fr: 'Sortez du milieu',
+        ja: '横へ',
+        cn: '远离中间',
+        ko: '가운데 피하기',
+        tc: '遠離中間'
+      }
+    }
+  }, {
+    id: 'DMU P3 Blizzard III Puddles',
+    // Earlier call for BB0F Blizzard III to get into position with Kefka Dir
+    // Using last BAFC Nothingness
+    // as it is slightly after the BAEE Look upon Me and Despair ability
+    type: 'Ability',
+    netRegex: {
+      id: 'BAFC',
+      source: 'Black Hole',
+      capture: false
+    },
+    condition: data => data.nothingnessTracker === 11,
+    durationSeconds: 8.6,
+    // Time until BB0F cast
+    suppressSeconds: 99999,
+    infoText: (data, _matches, output) => {
+      // Get Boss, he has Unknown_9E8 buff and same one that casts Max
+      const bossId = data.kefkaId ?? 0;
+      const actor = data.actorPositions[bossId];
+      if (actor === undefined) return;
+      const dirNum = (util/* Directions.hdgTo8DirNum */.Ns.hdgTo8DirNum(actor.heading) + 4) % 8;
+      const dir = util/* Directions.outputFrom8DirNum */.Ns.outputFrom8DirNum(dirNum);
+      return output.text({
+        dir: output[dir]()
+      });
+    },
+    outputStrings: {
+      ...util/* Directions.outputStrings8Dir */.Ns.outputStrings8Dir,
+      text: {
+        en: '${dir} Kefka: Bait Puddles x2',
+        cn: '${dir} 凯夫卡: 诱导放圈 x2',
+        ko: '${dir} 케프카: 장판 유도 x2'
+      }
+    }
+  }, {
+    id: 'DMU P3 Knock Down Collect',
+    // Need to collect this and output later due to puddles
+    // Will also need this to determine the role that is stacking last
+    type: 'HeadMarker',
+    netRegex: {
+      id: dancing_mad_headMarkerData['stompStack'],
+      capture: true
+    },
+    run: (data, matches) => data.knockDownTarget = matches.target
+  }, {
+    id: 'DMU P3 Knock Down 1 (Early)',
+    type: 'HeadMarker',
+    netRegex: {
+      id: dancing_mad_headMarkerData['stompStack'],
+      capture: true
+    },
+    condition: data => data.phase === 'p3',
+    durationSeconds: 2.6,
+    suppressSeconds: 99999,
+    infoText: (data, matches, output) => {
+      const isDPSStack = data.party.isDPS(matches.target);
+      const amDPS = data.role === 'dps';
+      if (isDPSStack && amDPS || !isDPSStack && !amDPS) return output.mechThenMech({
+        mech1: output.puddle(),
+        mech2: output.stack()
+      });
+      return output.mechThenMech({
+        mech1: output.puddle(),
+        mech2: output.towers()
+      });
+    },
+    outputStrings: {
+      puddle: {
+        en: 'Puddle',
+        cn: '放圈',
+        ko: '장판'
+      },
+      stack: outputs/* default.stackMarker */.Z.stackMarker,
+      towers: {
+        en: 'Towers',
+        de: 'Türme',
+        fr: 'Tours',
+        ja: '塔を踏む',
+        cn: '踩塔',
+        ko: '탑',
+        tc: '踩塔'
+      },
+      mechThenMech: {
+        en: '${mech1} => ${mech2}',
+        cn: '${mech1} => ${mech2}',
+        ko: '${mech1} => ${mech2}'
+      }
+    }
+  }, {
+    id: 'DMU P3 Knock Down 1 State',
+    // Using BB02 Knock Down (castbar)
+    type: 'Ability',
+    netRegex: {
+      id: 'BB02',
+      source: 'Chaos',
+      capture: false
+    },
+    suppressSeconds: 99999,
+    run: data => data.isKnockDown2 = true
+  }, {
+    id: 'DMU P3 Knock Down 1',
+    // Using BB0D Blizzard III as the second puddle occurs after the stack marker
+    // Log can have wrong source
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BB0D',
+      source: ['Exdeath', 'Kefka'],
+      capture: false
+    },
+    durationSeconds: 2.8,
+    suppressSeconds: 1,
+    alertText: (data, _matches, output) => {
+      const isSecondPuddle = data.isSecondPuddle;
+      const target = data.knockDownTarget;
+      if (!isSecondPuddle) {
+        data.isSecondPuddle = true;
+        return;
+      }
+      if (target === undefined) return;
+      const isDPSStack = data.party.isDPS(target);
+      const amDPS = data.role === 'dps';
+      if (isDPSStack && amDPS || !isDPSStack && !amDPS) return output.mechThenMech({
+        mech1: output.stackMiddle(),
+        mech2: output.towers()
+      });
+      return output.mechThenMech({
+        mech1: output.getTowers(),
+        mech2: output.stack()
+      });
+    },
+    outputStrings: {
+      getTowers: outputs/* default.getTowers */.Z.getTowers,
+      stackMiddle: {
+        en: 'Stack Middle',
+        de: 'Mittig sammeln',
+        fr: 'Packez-vous au milieu',
+        ja: '中央で頭割り',
+        cn: '中间分摊',
+        ko: '중앙에서 쉐어',
+        tc: '中間分攤'
+      },
+      towers: {
+        en: 'Towers',
+        de: 'Türme',
+        fr: 'Tours',
+        ja: '塔を踏む',
+        cn: '踩塔',
+        ko: '탑',
+        tc: '踩塔'
+      },
+      stack: outputs/* default.stackMarker */.Z.stackMarker,
+      mechThenMech: {
+        en: '${mech1} => ${mech2}',
+        cn: '${mech1} => ${mech2}',
+        ko: '${mech1} => ${mech2}'
+      }
+    }
+  }, {
+    id: 'DMU P3 Knock Down 2',
+    type: 'HeadMarker',
+    netRegex: {
+      id: dancing_mad_headMarkerData['stompStack'],
+      capture: true
+    },
+    condition: data => data.isKnockDown2 && data.phase === 'p3',
+    alertText: (data, matches, output) => {
+      const isDPSStack = data.party.isDPS(matches.target);
+      const amDPS = data.role === 'dps';
+      if (isDPSStack && amDPS || !isDPSStack && !amDPS) return output.stackMiddle();
+      return output.getTowers();
+    },
+    outputStrings: {
+      getTowers: outputs/* default.getTowers */.Z.getTowers,
+      stackMiddle: {
+        en: 'Stack Middle',
+        de: 'Mittig sammeln',
+        fr: 'Packez-vous au milieu',
+        ja: '中央で頭割り',
+        cn: '中间分摊',
+        ko: '중앙에서 쉐어',
+        tc: '中間分攤'
+      }
+    }
+  }, {
+    id: 'DMU P3 Blizzard III State',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BB11',
+      source: 'Exdeath',
+      capture: false
+    },
+    run: data => data.blizzardStarted = true
+  }, {
+    id: 'DMU P3 Blizzard III Keep Moving (Tower Role)',
+    // In order to avoid 3s D98 Deep Freeze
+    // Players also need to avoid BB05 Big Bang at this time as well
+    // BB05 Big Bang goes off at the stack locations
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BB11',
+      source: 'Exdeath',
+      capture: true
+    },
+    condition: data => {
+      const target = data.knockDownTarget;
+      // Output if we don't have a stack marker target
+      if (target === undefined) return true;
+      const isDPSStack = data.party.isDPS(target);
+      const amDPS = data.role === 'dps';
+      // Only output to the role that was getting towers
+      return isDPSStack && !amDPS || !isDPSStack && amDPS;
+    },
+    durationSeconds: (_data, matches) => parseFloat(matches.castTime),
+    infoText: (_data, _matches, output) => output.keepMoving(),
+    outputStrings: {
+      keepMoving: outputs/* default.moveAround */.Z.moveAround
+    }
+  }, {
+    id: 'DMU P3 Blizzard III Keep Moving (Stack Role)',
+    // BB03 Knock Down happens after BB11 Blizzard III startsCasting
+    // For players that are stacked, they need a later call
+    type: 'Ability',
+    netRegex: {
+      id: 'BB03',
+      source: 'Chaos',
+      capture: false
+    },
+    condition: data => {
+      const target = data.knockDownTarget;
+      // Don't trigger without stack and only trigger on second Knock Down
+      if (target === undefined || !data.blizzardStarted) return false;
+      const isDPSStack = data.party.isDPS(target);
+      const amDPS = data.role === 'dps';
+      // Only output to the role that was stacking
+      return isDPSStack && amDPS || !isDPSStack && !amDPS;
+    },
+    durationSeconds: 3.2,
+    // Time when BB11 Blizzard will have ended (~3.121s)
+    suppressSeconds: 1,
+    infoText: (_data, _matches, output) => output.keepMoving(),
+    outputStrings: {
+      keepMoving: outputs/* default.moveAround */.Z.moveAround
+    }
+  }, {
+    id: 'DMU P4 Chaos and Neo Exdeath Debuff Collect',
+    // In the count field of Effect 808, the bosses receive these values:
+    // Fake Chaos: 45F
+    // True Chaos: 460
+    // Fake Neo Exdeath: 461
+    // True Neo Exdeath: 462
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '808',
+      count: ['45F', '460', '461', '462'],
+      capture: true
+    },
+    run: (data, matches) => {
+      const count = matches.count;
+      const isTrue = count === '460' || count === '462' ? true : false;
+      // These always come out in order
+      if (data.areFirstDebuffsTrue === undefined) data.areFirstDebuffsTrue = isTrue;else if (data.areSecondDebuffsTrue === undefined) data.areSecondDebuffsTrue = isTrue;else if (data.areThirdDebuffsTrue === undefined) data.areThirdDebuffsTrue = isTrue;else if (data.areFourthDebuffsTrue === undefined) data.areFourthDebuffsTrue = isTrue;
+      // Last two are not needed as the next is a double negative and last
+      // has unique cast ids for true/fake
+    }
+  }, {
+    id: 'DMU P4 Second and Fourth Debuffs (Early)',
+    // Using BB20 Inferno / BB21 Tsunami
+    // Source can be innaccurate
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['BB20', 'BB21'],
+      capture: true
+    },
+    delaySeconds: 1,
+    // Delay for boss true/false effect and avoid TTS AoE conflict
+    infoText: (data, matches, output) => {
+      const isTrue = data.areFourthDebuffsTrue !== undefined ? data.areFourthDebuffsTrue : data.areSecondDebuffsTrue;
+      if (isTrue === undefined) return; // Failed to capture true/false
+
+      const isInferno = matches.id === 'BB20';
+      if (isInferno) return isTrue ? output.puddlesFirst() : output.donutsFirst();
+      return isTrue ? output.donutsSecond() : output.puddlesSecond();
+    },
+    outputStrings: {
+      puddlesFirst: {
+        en: 'Puddles First',
+        cn: '圈1',
+        ko: '첫 번째 장판'
+      },
+      puddlesSecond: {
+        en: 'Puddles Second',
+        cn: '圈2',
+        ko: '두 번째 장판'
+      },
+      donutsFirst: {
+        en: 'Donuts First',
+        cn: '环1',
+        ko: '첫 번째 도넛'
+      },
+      donutsSecond: {
+        en: 'Donuts Second',
+        cn: '环2',
+        ko: '두 번째 도넛'
+      }
+    }
+  }, {
+    id: 'DMU P4 Grand Cross Counter',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BB14',
+      source: 'Neo Exdeath',
+      capture: false
+    },
+    run: data => data.grandCrossCount = data.grandCrossCount + 1
+  }, {
+    id: 'DMU P4 Grand Cross',
+    // 8.7s castTime
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BB14',
+      source: 'Neo Exdeath',
+      capture: true
+    },
+    delaySeconds: (_data, matches) => parseFloat(matches.castTime) - 5,
+    response: responses/* Responses.aoe */.n3.aoe()
+  }, {
+    id: 'DMU P4 Debuff Collect',
+    // Neo Exdeath Debuffs Cast 1: (12:28.672)
+    // 15A7 Cursed Shriek x2 60s                        =>          13:28.672
+    // 15A8 Forked Lightning x2 76s or 51s              => 13:19.578          13:44.672
+    // 15A9 Compressed Water x2 76s or 51s              => 13:19.578          13:44.672
+    // 15AA Acceleration Bomb (2 Long 76s, 2 Short 51s) => 13:19.672          13:44.672
+    // Chaos Debuffs 1: (12:34.341)
+    // 15AC Dynamic Fluid x8 84s or 15AB Entropy x8 60s => 13:58.341          13:35.485
+    // Neo Exdeath Debuffs Cast 2: (12:43.578)
+    // 15A8 Forked Lightning x2 36s or 61s              => 13:19.578          13.44.578
+    // 15A7 Cursed Shriek x2 69s                        => 13:52.578
+    // 15A9 Compressed Water x2 36s or 61s              => 13:19.578          13.44.578
+    // 15AA Acceleration Bomb (2 Long 61s, 2 Short 36s) => 13:19.578          13:44.578
+    // Chaos Debuffs 2: 12:50.485
+    // 15AB Entropy x8 45s or 15AC Dynamic Fluid 8x 69s => 13:35.485          13:58.341
+    // Neo Exdeath Debuffs Cast 3: (13:00.002)
+    // 15A5 White Wound or 1317 (Fake)
+    // 15A6 Black Wound or 1318 (Fake)
+    // 1558 Beyond Death (Fake) or 566 x4 15s           => 13:15.002
+    // 1C6 Allagan Field x4 15s                         => 13:15.002
+    // Neo Exdeath Final: (13:11.383)
+    // 1317 White Wound (Fake) or 15A5 White Wound
+    // 1318 Black Wound (Fake) or 15A6 Black Wound
+    //
+    // For Neo Exdeath, after the second Grand Cross cast there will be:
+    // 1 Support, 1 DPS with Short 3-Person Stack (Compressed Water and/or Fake Forked Lightning)
+    // 1 Support, 1 DPS with Long 3-Person Stack (Compressed Water and/or Fake Forked Lightning)
+    // 1 Support, 1 DPS with Short Gaze (Cursed Shriek or Fake Cursed Shriek)
+    // 1 Support, 1 DPS with Long Gaze (Cursed Shriek or Fake Cursed Shriek)
+    // 2 Support, 2 DPS with Short Stillness (Acceleration Bomb or Fake Acceleration Bomb)
+    // 2 Support, 2 DPS with Long Stillness (Acceleration Bomb or Fake Acceleration Bomb)
+    // 1st and 2nd set debuffs can swap Forked + Compressed Timings
+    // For 3rd set of debuffs we do not need to know real/fake:
+    // Allagan Field players swap their color by getting hit with opposite color Angilight
+    // Beyond Death field players keep their color by getting hit with same colore Antilight
+    // Entropy and Dynamic Fluids debuffs can be 2nd or 4rth, but resolution is at same time
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['15A5', '15A6', '15A7', '15A8', '15A9', '15AA', '1317', '1318', '1558', '566', '1C6'],
+      capture: true
+    },
+    run: (data, matches) => {
+      const target = matches.target;
+      const id = matches.effectId;
+      const duration = parseFloat(matches.duration);
+
+      // Cursed Shriek
+      if (id === '15A7') {
+        if (duration < 61) data.shortShriekPlayers.push(target);else data.longShriekPlayers.push(target);
+      } else if (id === '15A8') {
+        // Forked Lightning
+        if (duration < 52) {
+          // Capture both 51s and 36s
+          if (data.isFirstDebuffShort === undefined) data.isFirstDebuffShort = true;
+          data.shortForkedPlayers.push(target);
+        } else {
+          if (data.isFirstDebuffShort === undefined) data.isFirstDebuffShort = false;
+          data.longForkedPlayers.push(target);
+        }
+      } else if (id === '15A9') {
+        // Compressed Water
+        if (duration < 52) {
+          // Capture both 51s and 36s
+          data.shortCompressedPlayers.push(target);
+        } else data.longCompressedPlayers.push(target);
+      } else if (id === '15AA') {
+        // Acceleration Bomb
+        if (duration < 37) data.secondShortBombPlayers.push(target);else if (duration < 52) data.firstShortBombPlayers.push(target);else if (duration < 62) data.secondLongBombPlayers.push(target);else data.firstLongBombPlayers.push(target);
+      } else if (data.me === target) {
+        // Cast 5 / 6 Debuffs
+        if (id === '1558' || id === '566') data.deathOrField = 'death';else if (id === '1C6') data.deathOrField = 'field';else if (id === '1317' || id === '15A5') data.wound = 'white';else if (id === '1318' || id === '15A6') data.wound = 'black';
+      }
+    }
+  }, {
+    id: 'DMU P4 Tsunami/Inferno and First Debuffs (Early)',
+    // Tsunami/Inferno are 8.7s castTime, but a delay of 5s leads to TTS overlap
+    // The two are merged resulting in a delay of ~4.7s
+    // Cast 1:
+    // 15A7 Cursed Shriek x2 60s
+    // 15A8 Forked Lightning x2 76s or 51s
+    // 15A9 Compressed Water x2 76s or 51s
+    // 15AA Acceleration Bomb (2 Long 76s, 2 Short 51s)
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['15A7', '15A8', '15A9', '15AA'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    delaySeconds: 0.1,
+    suppressSeconds: 99999,
+    infoText: (data, _matches, output) => {
+      const isTrue = data.areFirstDebuffsTrue;
+      const isShort = data.isFirstDebuffShort;
+      if (isTrue === undefined || isShort === undefined) return output.aoe();
+      const hasShreik = data.shortShriekPlayers.includes(data.me);
+      const hasFork = isShort ? data.shortForkedPlayers.includes(data.me) : data.longForkedPlayers.includes(data.me);
+      const hasCompressed = isShort ? data.shortCompressedPlayers.includes(data.me) : data.longCompressedPlayers.includes(data.me);
+      const hasFirstBomb = data.firstShortBombPlayers.includes(data.me);
+      const hasSecondBomb = data.firstLongBombPlayers.includes(data.me);
+
+      // Shriek players always are short bomb
+      // This will be two players
+      if (hasShreik) return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: output.firstGazeAndBomb({
+          gaze: isTrue ? output.gaze() : output.fakeGaze(),
+          bomb: isTrue ? output.bomb() : output.fakeBomb()
+        })
+      });
+
+      // Remaing 6 players will get one debuff
+      if (hasFork && isTrue || hasCompressed && !isTrue) return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: isShort ? output.spreadFirst({
+          mech: output.spread()
+        }) : output.spreadSecond({
+          mech: output.spread()
+        })
+      });
+      if (hasFork && !isTrue || hasCompressed && isTrue) return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: isShort ? output.stackFirst({
+          mech: output.stack()
+        }) : output.stackSecond({
+          mech: output.stack()
+        })
+      });
+      if (hasFirstBomb) return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: output.bombFirst({
+          mech: isTrue ? output.bomb() : output.fakeBomb()
+        })
+      });
+      if (hasSecondBomb) return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: output.bombSecond({
+          mech: isTrue ? output.bomb() : output.fakeBomb()
+        })
+      });
+
+      // No debuff, they will be a stack player
+      return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: isShort ? output.stackFirstNoDebuff({
+          mech: output.stack()
+        }) : output.stackSecondNoDebuff({
+          mech: output.stack()
+        })
+      });
+    },
+    outputStrings: {
+      aoe: outputs/* default.aoe */.Z.aoe,
+      aoeDebuff: {
+        en: '${aoe} + ${debuff}',
+        cn: '${aoe} + ${debuff}',
+        ko: '${aoe} + ${debuff}'
+      },
+      firstGazeAndBomb: {
+        en: '${gaze} + ${bomb} on YOU First',
+        cn: '${gaze} + ${bomb} 点名1',
+        ko: '첫 번째 ${gaze} + ${bomb} 대상자'
+      },
+      gaze: {
+        en: 'Look Away',
+        cn: '背对',
+        ko: '시선 피하기'
+      },
+      fakeGaze: {
+        en: 'Look At',
+        cn: '面向',
+        ko: '바라보기'
+      },
+      spreadFirst: {
+        en: '${mech} on YOU First',
+        cn: '${mech} 点名1',
+        ko: '첫 번째 ${mech} 대상자'
+      },
+      stackFirst: {
+        en: '${mech} on YOU First',
+        cn: '${mech} 点名1',
+        ko: '첫 번째 ${mech} 대상자'
+      },
+      stackFirstNoDebuff: {
+        en: 'No Debuff, ${mech} First',
+        cn: '无BUFF, ${mech} 1',
+        ko: '디버프 없음, 첫 번째 ${mech}'
+      },
+      bombFirst: {
+        en: '${mech} on YOU First',
+        cn: '${mech} 点名1',
+        ko: '첫 번째 ${mech} 대상자'
+      },
+      stackSecondNoDebuff: {
+        en: 'No Debuff, ${mech} Second',
+        cn: '无BUFF, ${mech} 2',
+        ko: '디버프 없음, 두 번째 ${mech}'
+      },
+      stackSecond: {
+        en: '${mech} on YOU Second',
+        cn: '${mech} 点名2',
+        ko: '두 번째 ${mech} 대상자'
+      },
+      spreadSecond: {
+        en: '${mech} on YOU Second',
+        cn: '${mech} 点名2',
+        ko: '두 번째 ${mech} 대상자'
+      },
+      bombSecond: {
+        en: '${mech} on YOU Second',
+        cn: '${mech} 点名2',
+        ko: '두 번째 ${mech} 대상자'
+      },
+      stack: outputs/* default.stackMarker */.Z.stackMarker,
+      spread: outputs/* default.spread */.Z.spread,
+      bomb: {
+        en: 'Stillness',
+        cn: '停停停',
+        ko: '정지'
+      },
+      fakeBomb: {
+        en: 'Motion',
+        cn: '动动动',
+        ko: '움직이기'
+      }
+    }
+  }, {
+    id: 'DMU P4 Entropy/Dynamic Fluid Collect',
+    // 15AB Entropy
+    // 15AC Dynamic Fluid
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['15AB', '15AC'],
+      capture: true
+    },
+    suppressSeconds: 1,
+    run: (data, matches) => {
+      const duration = parseFloat(matches.duration);
+      // These could be undefined if the true/false trigger fails to collect
+      // Checking for undefined should be handled in an output trigger
+
+      if (matches.effectId === '15AB') {
+        data.isEntropyTrue = duration > 46 ? data.areSecondDebuffsTrue : data.areFourthDebuffsTrue;
+        return;
+      }
+      data.isFluidTrue = duration > 83 ? data.areSecondDebuffsTrue : data.areFourthDebuffsTrue;
+    }
+  }, {
+    id: 'DMU P4 Tsunami/Inferno and Third Debuffs (Early)',
+    // Cast 2:
+    // 15A8 Forked Lightning x2 36s or 61s
+    // 15A7 Cursed Shriek x2 69s
+    // 15A9 Compressed Water x2 36s or 61s
+    // 15AA Acceleration Bomb (2 Long 61s, 2 Short 36s)
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['15A7', '15A8', '15A9', '15AA'],
+      capture: true
+    },
+    condition: (data, matches) => {
+      return data.me === matches.target && data.grandCrossCount === 2;
+    },
+    delaySeconds: 0.1,
+    suppressSeconds: 99999,
+    infoText: (data, _matches, output) => {
+      const isTrue = data.areThirdDebuffsTrue;
+      const isShort = data.isFirstDebuffShort;
+      if (isTrue === undefined || isShort === undefined) return output.aoe();
+      const hasShreik = data.longShriekPlayers.includes(data.me);
+      const hasFork = isShort ? data.longForkedPlayers.includes(data.me) : data.shortForkedPlayers.includes(data.me);
+      const hasCompressed = isShort ? data.longCompressedPlayers.includes(data.me) : data.shortCompressedPlayers.includes(data.me);
+      const hasFirstBomb = data.secondShortBombPlayers.includes(data.me);
+      const hasSecondBomb = data.secondLongBombPlayers.includes(data.me);
+
+      // Shriek players always are short bomb
+      // This will be two players
+      if (hasShreik) return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: output.secondGazeAndBomb({
+          gaze: isTrue ? output.gaze() : output.fakeGaze(),
+          bomb: isTrue ? output.bomb() : output.fakeBomb()
+        })
+      });
+
+      // Remaing 6 players will get one debuff
+      if (hasFork && isTrue || hasCompressed && !isTrue) return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: isShort ? output.spreadSecond({
+          mech: output.spread()
+        }) : output.spreadFirst({
+          mech: output.spread()
+        })
+      });
+      if (hasFork && !isTrue || hasCompressed && isTrue) return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: isShort ? output.stackSecond({
+          mech: output.stack()
+        }) : output.stackFirst({
+          mech: output.stack()
+        })
+      });
+      if (hasFirstBomb) return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: output.bombFirst({
+          mech: isTrue ? output.bomb() : output.fakeBomb()
+        })
+      });
+      if (hasSecondBomb) return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: output.bombSecond({
+          mech: isTrue ? output.bomb() : output.fakeBomb()
+        })
+      });
+
+      // No debuff, they will be a stack player
+      return output.aoeDebuff({
+        aoe: output.aoe(),
+        debuff: isShort ? output.stackSecondNoDebuff({
+          mech: output.stack()
+        }) : output.stackFirstNoDebuff({
+          mech: output.stack()
+        })
+      });
+    },
+    outputStrings: {
+      aoe: outputs/* default.aoe */.Z.aoe,
+      aoeDebuff: {
+        en: '${aoe} + ${debuff}',
+        cn: '${aoe} + ${debuff}',
+        ko: '${aoe} + ${debuff}'
+      },
+      secondGazeAndBomb: {
+        en: '${gaze} + ${bomb} on YOU Second',
+        cn: '${gaze} + ${bomb} 点名2',
+        ko: '두 번째 ${gaze} + ${bomb} 대상자'
+      },
+      gaze: {
+        en: 'Look Away',
+        cn: '背对',
+        ko: '시선 피하기'
+      },
+      fakeGaze: {
+        en: 'Look At',
+        cn: '面向',
+        ko: '바라보기'
+      },
+      spreadFirst: {
+        en: '${mech} on YOU First',
+        cn: '${mech} 点名1',
+        ko: '첫 번째 ${mech} 대상자'
+      },
+      stackFirst: {
+        en: '${mech} on YOU First',
+        cn: '${mech} 点名1',
+        ko: '첫 번째 ${mech} 대상자'
+      },
+      bombFirst: {
+        en: '${mech} on YOU First',
+        cn: '${mech} 点名1',
+        ko: '첫 번째 ${mech} 대상자'
+      },
+      stackFirstNoDebuff: {
+        en: 'No Debuff, ${mech} First',
+        cn: '无BUFF, ${mech} 点名1',
+        ko: '디버프 없음, 첫 번째 ${mech}'
+      },
+      stackSecondNoDebuff: {
+        en: 'No Debuff, ${mech} Second',
+        cn: '无BUFF, ${mech} 点名2',
+        ko: '디버프 없음, 두 번째 ${mech}'
+      },
+      spreadSecond: {
+        en: '${mech} on YOU Second',
+        cn: '${mech} 点名2',
+        ko: '두 번째 ${mech} 대상자'
+      },
+      stackSecond: {
+        en: '${mech} on YOU Second',
+        cn: '${mech} 点名2',
+        ko: '두 번째 ${mech}'
+      },
+      bombSecond: {
+        en: '${mech} on YOU Second',
+        cn: '${mech} 点名2',
+        ko: '두 번째 ${mech} 대상자'
+      },
+      stack: outputs/* default.stackMarker */.Z.stackMarker,
+      spread: outputs/* default.spread */.Z.spread,
+      bomb: {
+        en: 'Stillness',
+        cn: '停停停',
+        ko: '정지'
+      },
+      fakeBomb: {
+        en: 'Motion',
+        cn: '动动动',
+        ko: '움직이기'
+      }
+    }
+  }, {
+    id: 'DMU P4 Fifth Debuffs',
+    // Neo Exdeath Debuffs Cast 3
+    // 1317 White Wound (Fake) or 15A5 White Wound
+    // 1318 Black Wound (Fake) or 15A6 Black Wound
+    // 1558 Beyond Death (Fake) or 566 Beyond Death
+    // 1C6 Allagan Field
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['1317', '15A5', '1318', '15A6', '566', '1558', '1C6'],
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    delaySeconds: 0.1,
+    suppressSeconds: 99999,
+    infoText: (data, _matches, output) => {
+      const wound = data.wound;
+      const deathOrField = data.deathOrField;
+      if (wound === undefined || deathOrField === undefined) return;
+      return output.debuffsOnYou({
+        wound: output[wound](),
+        deathOrField: output[deathOrField]()
+      });
+    },
+    outputStrings: {
+      death: {
+        en: 'Death',
+        cn: '超越死亡',
+        ko: '죽음 초월'
+      },
+      field: {
+        en: 'Field',
+        cn: '亚拉戈领域',
+        ko: '알라그 필드'
+      },
+      white: {
+        en: 'Purple Debuff',
+        cn: '紫buff',
+        ko: '보라색 디버프'
+      },
+      black: {
+        en: 'Blue Debuff',
+        cn: '蓝buff',
+        ko: '파란색 디버프'
+      },
+      debuffsOnYou: {
+        en: '${wound} + ${deathOrField} on YOU',
+        cn: '${wound} + ${deathOrField} 点名',
+        ko: '${wound} + ${deathOrField} 대상자'
+      }
+    }
+  }, {
+    id: 'DMU P4 Flood of Naught',
+    type: 'StartsUsing',
+    netRegex: {
+      id: ['C392', 'C393', 'C3A1', 'C3A2'],
+      source: 'Neo Exdeath',
+      capture: true
+    },
+    alertText: (data, matches, output) => {
+      const wound = data.wound;
+      const deathOrField = data.deathOrField;
+      if (wound === undefined || deathOrField === undefined) return;
+      const id = matches.id;
+      const isFloodTrue = id === 'C392' || id === 'C393';
+      const isBlueLeft = id === 'C3A2' || id === 'C393'; // Our left
+      const keep = deathOrField === 'death' && isFloodTrue || deathOrField === 'field' && !isFloodTrue;
+      const laser = output[deathOrField]({
+        color: keep ? output[wound]() : wound === 'white' ? output.black() : output.white(),
+        dir: keep && wound === 'white' && isBlueLeft || keep && wound === 'black' && !isBlueLeft || !keep && wound === 'white' && !isBlueLeft || !keep && wound === 'black' && isBlueLeft ? output.right() : output.left()
+      });
+      const is1stTrue = data.areFirstDebuffsTrue;
+      const is2ndTrue = data.areThirdDebuffsTrue;
+      const isFirstShort = data.isFirstDebuffShort;
+      if (is1stTrue === undefined || is2ndTrue === undefined || isFirstShort === undefined) return laser;
+      const isShortTrue = isFirstShort ? is1stTrue : is2ndTrue;
+      const hasFork = data.shortForkedPlayers.includes(data.me);
+      const hasCompressed = data.shortCompressedPlayers.includes(data.me);
+      const hasFirstBomb = data.firstShortBombPlayers.includes(data.me);
+      const hasSecondBomb = data.secondShortBombPlayers.includes(data.me);
+      const isBombTrue = hasFirstBomb ? is1stTrue : is2ndTrue;
+      const hasSpread = hasFork && isShortTrue || hasCompressed && !isShortTrue;
+      const hasStack = hasFork && !isShortTrue || hasCompressed && isShortTrue;
+      const hasBomb = hasFirstBomb || hasSecondBomb;
+
+      // Handle 2 Mechs
+      if (hasSpread && hasBomb) return output.laserThenForkBomb({
+        mech1: laser,
+        mech2: output.spread(),
+        mech3: isBombTrue ? output.bomb() : output.fakeBomb()
+      });
+      if (hasStack && hasBomb) return output.laserThenCompressedBomb({
+        mech1: laser,
+        mech2: output.stack(),
+        mech3: isBombTrue ? output.bomb() : output.fakeBomb()
+      });
+      if (hasSpread) return output.laserThenSpread({
+        mech1: laser,
+        mech2: output.spread()
+      });
+      if (hasStack) return output.laserThenStack({
+        mech1: laser,
+        mech2: output.stack()
+      });
+      if (hasBomb) return output.laserThenBomb({
+        mech1: laser,
+        mech2: isBombTrue ? output.bomb() : output.fakeBomb(),
+        mech3: output.stack()
+      });
+      // Has either nothing or long debuffs
+      return output.laserThenNoDebuff({
+        mech1: laser,
+        mech2: output.noDebuff()
+      });
+    },
+    outputStrings: {
+      death: {
+        en: 'Stand in ${color} (${dir})',
+        cn: '站在 ${color} (${dir})',
+        ko: '${color}에 서기 (${dir})'
+      },
+      field: {
+        en: 'Stand in ${color} (${dir})',
+        cn: '站在 ${color} (${dir})',
+        ko: '${color}에 서기 (${dir})'
+      },
+      white: {
+        en: 'Purple',
+        cn: '紫',
+        ko: '보라색'
+      },
+      black: {
+        en: 'Blue',
+        cn: '蓝',
+        ko: '파란색'
+      },
+      left: outputs/* default.left */.Z.left,
+      right: outputs/* default.right */.Z.right,
+      laserThenSpread: {
+        en: '${mech1} => ${mech2}',
+        cn: '${mech1} => ${mech2}',
+        ko: '${mech1} => ${mech2}'
+      },
+      laserThenStack: {
+        en: '${mech1} => ${mech2}',
+        cn: '${mech1} => ${mech2}',
+        ko: '${mech1} => ${mech2}'
+      },
+      laserThenBomb: {
+        en: '${mech1} => ${mech2} + ${mech3}',
+        cn: '${mech1} => ${mech2} + ${mech3}',
+        ko: '${mech1} => ${mech2} + ${mech3}'
+      },
+      laserThenForkBomb: {
+        en: '${mech1} => ${mech2} + ${mech3}',
+        cn: '${mech1} => ${mech2} + ${mech3}',
+        ko: '${mech1} => ${mech2} + ${mech3}'
+      },
+      laserThenCompressedBomb: {
+        en: '${mech1} => ${mech2} + ${mech3}',
+        cn: '${mech1} => ${mech2} + ${mech3}',
+        ko: '${mech1} => ${mech2} + ${mech3}'
+      },
+      laserThenNoDebuff: {
+        en: '${mech1} => ${mech2}',
+        cn: '${mech1} => ${mech2}',
+        ko: '${mech1} => ${mech2}'
+      },
+      noDebuff: outputs/* default.stackMarker */.Z.stackMarker,
+      stack: outputs/* default.stackMarker */.Z.stackMarker,
+      spread: outputs/* default.spread */.Z.spread,
+      bomb: {
+        en: 'Stillness',
+        cn: '停停停',
+        ko: '정지'
+      },
+      fakeBomb: {
+        en: 'Motion',
+        cn: '动动动',
+        ko: '움직이기'
+      }
+    }
+  }, {
+    id: 'DMU P4 Short Debuffs',
+    // Once hit by C394 White Antilight or C395 Black Antilight, it is safe to move
+    type: 'Ability',
+    netRegex: {
+      id: ['C394', 'C395'],
+      source: 'Neo Exdeath',
+      capture: false
+    },
+    suppressSeconds: 99999,
+    alertText: (data, _matches, output) => {
+      const is1stTrue = data.areFirstDebuffsTrue;
+      const is2ndTrue = data.areThirdDebuffsTrue;
+      const isFirstShort = data.isFirstDebuffShort;
+      if (is1stTrue === undefined || is2ndTrue === undefined || isFirstShort === undefined) return;
+      const isShortTrue = isFirstShort ? is1stTrue : is2ndTrue;
+      const hasFork = data.shortForkedPlayers.includes(data.me);
+      const hasCompressed = data.shortCompressedPlayers.includes(data.me);
+      const hasFirstBomb = data.firstShortBombPlayers.includes(data.me);
+      const hasSecondBomb = data.secondShortBombPlayers.includes(data.me);
+      const isBombTrue = hasFirstBomb ? is1stTrue : is2ndTrue;
+      const hasSpread = hasFork && isShortTrue || hasCompressed && !isShortTrue;
+      const hasStack = hasFork && !isShortTrue || hasCompressed && isShortTrue;
+      const hasBomb = hasFirstBomb || hasSecondBomb;
+
+      // Handle 2 Mechs
+      if (hasSpread && hasBomb) return output.forkBomb({
+        mech1: output.spread(),
+        mech2: isBombTrue ? output.bomb() : output.fakeBomb()
+      });
+      if (hasStack && hasBomb) return output.compressedBomb({
+        mech1: output.stack(),
+        mech2: isBombTrue ? output.bomb() : output.fakeBomb()
+      });
+      if (hasSpread) return output.spread();
+      if (hasStack) return output.stack();
+      if (hasBomb) return output.bombStack({
+        mech1: isBombTrue ? output.bomb() : output.fakeBomb(),
+        mech2: output.stack()
+      });
+      // Has either nothing or long debuffs
+      return output.noDebuff();
+    },
+    outputStrings: {
+      you: {
+        en: 'YOU',
+        cn: '你，',
+        ko: '나'
+      },
+      bombStack: {
+        en: '${mech1} + ${mech2}',
+        cn: '${mech1} + ${mech2}',
+        ko: '${mech1} + ${mech2}'
+      },
+      forkBomb: {
+        en: '${mech1} + ${mech2}',
+        cn: '${mech1} + ${mech2}',
+        ko: '${mech1} + ${mech2}'
+      },
+      compressedBomb: {
+        en: '${mech1} + ${mech2}',
+        cn: '${mech1} + ${mech2}',
+        ko: '${mech1} + ${mech2}'
+      },
+      noDebuff: outputs/* default.stackMarker */.Z.stackMarker,
+      stack: outputs/* default.stackMarker */.Z.stackMarker,
+      spread: outputs/* default.spread */.Z.spread,
+      bomb: {
+        en: 'Stillness',
+        cn: '停停停',
+        ko: '정지'
+      },
+      fakeBomb: {
+        en: 'Motion',
+        cn: '动动动',
+        ko: '움직이기'
+      }
+    }
+  }, {
+    id: 'DMU P4 Acceleration Bomb Reminder',
+    // Shorts are 51 (First), 36 (Second)
+    // Longs are 76 (First), 61 (Second)
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '15AA',
+      capture: true
+    },
+    condition: conditions/* default.targetIsYou */.Z.targetIsYou(),
+    delaySeconds: (_data, matches) => parseFloat(matches.duration) - 3,
+    durationSeconds: 3,
+    alertText: (data, matches, output) => {
+      const duration = parseFloat(matches.duration);
+      const isFirstDebuff = duration > 75 || duration < 52 && duration > 50;
+      const isTrue = isFirstDebuff ? data.areFirstDebuffsTrue : data.areThirdDebuffsTrue;
+      return isTrue ? output.stopEverything() : output.keepMoving();
+    },
+    outputStrings: {
+      keepMoving: {
+        en: 'Keep Moving',
+        de: 'weiter bewegen',
+        fr: 'Continuez à bouger',
+        ja: '最後は動く',
+        cn: '后行动',
+        ko: '계속 움직이기',
+        tc: '後行動'
+      },
+      stopEverything: {
+        en: 'Stop Everything',
+        de: 'Alles stoppen',
+        fr: 'Arrêtez tout',
+        ja: '最後は止まる',
+        cn: '后静止',
+        ko: '완전히 멈추기',
+        tc: '後靜止'
+      }
+    }
+  }, {
+    id: 'DMU P4 Cursed Shriek (Early)',
+    // This may be more important for those that have it to get into position
+    // Using the debuff as a timer as player deaths would cause early trigger
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '15A7',
+      capture: true
+    },
+    delaySeconds: (_data, matches) => {
+      return parseFloat(matches.duration) < 61 ? 51.1 : 61.1;
+    },
+    suppressSeconds: 1,
+    infoText: (data, matches, output) => {
+      const isShortDebuffs = parseFloat(matches.duration) < 61;
+      const isTrue = isShortDebuffs ? data.areFirstDebuffsTrue : data.areThirdDebuffsTrue;
+      if (isTrue === undefined) return;
+      const shriekPlayers = isShortDebuffs ? data.shortShriekPlayers : data.longShriekPlayers;
+      const players = shriekPlayers.map(player => {
+        if (player === data.me) return output.you();
+        return data.party.member(player);
+      });
+      const msg = players?.join(', ');
+
+      // Seperate configurable output if you have it
+      if (shriekPlayers.includes(data.me)) {
+        return isTrue ? output.gazeOnYou({
+          players: msg
+        }) : output.fakeGazeOnYou({
+          players: msg
+        });
+      }
+      return isTrue ? output.gazeOnPlayers({
+        players: msg
+      }) : output.fakeGazeOnPlayers({
+        players: msg
+      });
+    },
+    outputStrings: {
+      you: {
+        en: 'YOU',
+        cn: '你，',
+        ko: '나'
+      },
+      fakeGazeOnPlayers: {
+        en: 'Face ${players} (later)',
+        cn: '面向 ${players} (稍后)',
+        ko: '${players} 바라보기 (나중)'
+      },
+      gazeOnPlayers: {
+        en: 'Look Away from ${players} (later)',
+        cn: '背对 ${players} (稍后)',
+        ko: '${players}에게서 뒤돌기 (나중)'
+      },
+      fakeGazeOnYou: {
+        en: 'Face ${players} (later)',
+        cn: '面向 ${players} (稍后)',
+        ko: '${players} 바라보기 (나중)'
+      },
+      gazeOnYou: {
+        en: 'Look Away from ${players} (later)',
+        cn: '背对 ${players} (稍后)',
+        ko: '${players}에게서 뒤돌기 (나중)'
+      }
+    }
+  }, {
+    id: 'DMU P4 Mana Charge Collect',
+    // 5CD Thunder Charged: Store the value of isThunderTrue for later
+    // 5CC Blizzard Charged: Store the value of isIceTrue for later
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: ['5CD', '5CC'],
+      capture: true
+    },
+    delaySeconds: 0.1,
+    // Delay for headmarker collect
+    run: (data, matches) => {
+      if (matches.effectId === '5CD') data.isThunderChargedTrue = data.isThunderTrue;else data.isBlizzardChargedTrue = data.isIceTrue;
+    }
+  }, {
+    id: 'DMU P4 Thrumming Thunder III',
+    // BAA4 Mana Charge signifies that the true/fake will be stored for later
+    // Indicated with boss buff 5CA Mana Charged and 5CD Thunder Charged
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C5DE',
+      source: 'Kefka',
+      capture: false
+    },
+    condition: data => data.isThunderTrue !== undefined,
+    infoText: (data, _matches, output) => {
+      return data.isThunderTrue ? output.trueThunder() : output.fakeThunder();
+    },
+    outputStrings: mysteryMagicThunderOutputStrings
+  }, {
+    id: 'DMU P4 First Cursed Shriek',
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '15A7',
+      capture: true
+    },
+    condition: (_data, matches) => parseFloat(matches.duration) < 61,
+    delaySeconds: (_data, matches) => parseFloat(matches.duration) - 3,
+    durationSeconds: 3,
+    suppressSeconds: 99999,
+    alertText: (data, _matches, output) => {
+      const is1stTrue = data.areFirstDebuffsTrue;
+      if (is1stTrue === undefined) return;
+      const shriekPlayers = data.shortShriekPlayers;
+      const players = shriekPlayers.map(player => {
+        if (player === data.me) return output.you();
+        return data.party.member(player);
+      });
+      const msg = players?.join(', ');
+      if (shriekPlayers.includes(data.me)) return is1stTrue ? output.gazeOnPlayersYou({
+        players: msg
+      }) : output.fakeGazeOnPlayersYou({
+        players: msg
+      });
+      return is1stTrue ? output.gazeOnPlayers({
+        players: msg
+      }) : output.fakeGazeOnPlayers({
+        players: msg
+      });
+    },
+    outputStrings: {
+      you: {
+        en: 'YOU',
+        cn: '你，',
+        ko: '나'
+      },
+      fakeGazeOnPlayers: {
+        en: 'Face ${players}',
+        cn: '面向 ${players}',
+        ko: '${players} 바라보기'
+      },
+      gazeOnPlayers: {
+        en: 'Look Away from ${players}',
+        cn: '背对 ${players}',
+        ko: '${players}에게서 뒤돌기'
+      },
+      fakeGazeOnPlayersYou: {
+        en: 'Face ${players}',
+        cn: '面向 ${players}',
+        ko: '${players} 바라보기'
+      },
+      gazeOnPlayersYou: {
+        en: 'Look Away from ${players}',
+        cn: '背对 ${players}',
+        ko: '${players}에게서 뒤돌기'
+      }
+    }
+  }, {
+    id: 'DMU P4 Entropy',
+    // Using the following as possible matches:
+    // 15A7 Cursed Shriek x2 60s
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '15A7',
+      capture: true
+    },
+    condition: (_data, matches) => parseFloat(matches.duration) < 61,
+    delaySeconds: (_data, matches) => parseFloat(matches.duration),
+    durationSeconds: 6.9,
+    // Time until Stray Flames
+    suppressSeconds: 99999,
+    alertText: (data, _matches, output) => {
+      const isEntropyTrue = data.isEntropyTrue;
+      if (isEntropyTrue === undefined) return;
+      return isEntropyTrue ? output.puddles() : output.donuts();
+    },
+    outputStrings: {
+      donuts: {
+        en: 'Stack for Donuts',
+        de: 'Für Donuts sammeln',
+        fr: 'Packez-vous pour les donuts',
+        cn: '集合放月环',
+        ko: '모여서 도넛장판 피하기',
+        tc: '集合放月環'
+      },
+      puddles: outputs/* default.baitPuddles */.Z.baitPuddles
+    }
+  }, {
+    id: 'DMU P4/P5 Ultima Upsurge',
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'C24A',
+      source: 'Kefka',
+      capture: false
+    },
+    response: responses/* Responses.bigAoe */.n3.bigAoe()
+  }, {
+    id: 'DMU P4 Stray Flames and Long Debuffs',
+    // BB22 Stray Flames: Puddles have been baited, these will be going off next
+    // BB23 Fake Stray Flames: Wait until Donuts happen
+    // These have a 4.7s castTime, using GainsEffect from 15AB Entropy to prevent early triggers
+    // 15A8 Forked Lightning x2 76s
+    // 15A9 Compressed Water x2 76s
+    // 15AA Acceleration Bomb (2 Long 76s)
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '15AB',
+      capture: true
+    },
+    delaySeconds: (data, matches) => {
+      const duration = parseFloat(matches.duration);
+      return data.isEntropyTrue || data.isEntropyTrue === undefined ? duration : duration + 4.7;
+    },
+    durationSeconds: data => {
+      // Time until 15A8, 15A9, 15AA debuffs expire
+      return data.isEntropyTrue || data.isEntropyTrue === undefined ? 9.1 : 4.4;
+    },
+    suppressSeconds: 99999,
+    response: (data, _matches, output) => {
+      // cactbot-builtin-response
+      output.responseOutputStrings = {
+        you: {
+          en: 'YOU',
+          cn: '你，',
+          ko: '나'
+        },
+        bombStack: {
+          en: '${mech1} + ${mech2}',
+          cn: '${mech1} + ${mech2}',
+          ko: '${mech1} + ${mech2}'
+        },
+        forkBomb: {
+          en: '${mech1} + ${mech2}',
+          cn: '${mech1} + ${mech2}',
+          ko: '${mech1} + ${mech2}'
+        },
+        compressedBomb: {
+          en: '${mech1} + ${mech2}',
+          cn: '${mech1} + ${mech2}',
+          ko: '${mech1} + ${mech2}'
+        },
+        noDebuff: outputs/* default.stackMarker */.Z.stackMarker,
+        stack: outputs/* default.stackMarker */.Z.stackMarker,
+        spread: outputs/* default.spread */.Z.spread,
+        bomb: {
+          en: 'Stillness',
+          cn: '停停停',
+          ko: '정지'
+        },
+        fakeBomb: {
+          en: 'Motion',
+          cn: '动动动',
+          ko: '움직이기'
+        }
+      };
+      const is1stTrue = data.areFirstDebuffsTrue;
+      const is2ndTrue = data.areThirdDebuffsTrue;
+      const isFirstShort = data.isFirstDebuffShort;
+      if (is1stTrue === undefined || is2ndTrue === undefined || isFirstShort === undefined) return;
+      const isLongTrue = isFirstShort ? is2ndTrue : is1stTrue;
+
+      // Drop severity if fail to get true/false for Entropy as we default to end of debuffs
+      const severity = data.isEntropyTrue === undefined ? 'infoText' : 'alertText';
+      const hasFork = data.longForkedPlayers.includes(data.me);
+      const hasCompressed = data.longCompressedPlayers.includes(data.me);
+      const hasFirstBomb = data.firstLongBombPlayers.includes(data.me);
+      const hasSecondBomb = data.secondLongBombPlayers.includes(data.me);
+      const isBombTrue = hasFirstBomb ? is1stTrue : is2ndTrue;
+      const hasSpread = hasFork && isLongTrue || hasCompressed && !isLongTrue;
+      const hasStack = hasFork && !isLongTrue || hasCompressed && isLongTrue;
+      const hasBomb = hasFirstBomb || hasSecondBomb;
+
+      // Handle 2 Mechs
+      if (hasSpread && hasBomb) return {
+        [severity]: output.forkBomb({
+          mech1: output.spread(),
+          mech2: isBombTrue ? output.bomb() : output.fakeBomb()
+        })
+      };
+      if (hasStack && hasBomb) return {
+        [severity]: output.compressedBomb({
+          mech1: output.stack(),
+          mech2: isBombTrue ? output.bomb() : output.fakeBomb()
+        })
+      };
+      if (hasSpread) return {
+        [severity]: output.spread()
+      };
+      if (hasStack) return {
+        [severity]: output.stack()
+      };
+      if (hasBomb) return {
+        [severity]: output.bombStack({
+          mech1: isBombTrue ? output.bomb() : output.fakeBomb(),
+          mech2: output.stack()
+        })
+      };
+      // Has nothing
+      return {
+        [severity]: output.noDebuff()
+      };
+    }
+  }, {
+    id: 'DMU P4 Blizzard III Blowout',
+    // BAA4 Mana Charge signifies that the true/fake will be stored for later
+    // Indicated with boss buff 5CA Mana Charged and 5CC Blizzard Charged
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BA95',
+      source: 'Kefka',
+      capture: false
+    },
+    // Prevent triggering on earlier P1 or P4 triggers
+    condition: data => data.grandCrossCount === 3 && data.isIceTrue !== undefined,
+    infoText: (data, _matches, output) => {
+      return data.isIceTrue ? output.trueIce() : output.fakeIce();
+    },
+    outputStrings: mysteryMagicIceOutputStrings
+  }, {
+    id: 'DMU P4 Second Cursed Shriek',
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '15A7',
+      capture: true
+    },
+    condition: (_data, matches) => parseFloat(matches.duration) > 68,
+    delaySeconds: (_data, matches) => parseFloat(matches.duration) - 3,
+    durationSeconds: 3,
+    suppressSeconds: 99999,
+    alertText: (data, _matches, output) => {
+      const is2ndTrue = data.areThirdDebuffsTrue;
+      if (is2ndTrue === undefined) return;
+      const shriekPlayers = data.longShriekPlayers;
+      const players = shriekPlayers.map(player => {
+        if (player === data.me) return output.you();
+        return data.party.member(player);
+      });
+      const msg = players?.join(', ');
+      if (shriekPlayers.includes(data.me)) return is2ndTrue ? output.gazeOnPlayersYou({
+        players: msg
+      }) : output.fakeGazeOnPlayersYou({
+        players: msg
+      });
+      return is2ndTrue ? output.gazeOnPlayers({
+        players: msg
+      }) : output.fakeGazeOnPlayers({
+        players: msg
+      });
+    },
+    outputStrings: {
+      you: {
+        en: 'YOU',
+        cn: '你，',
+        ko: '나'
+      },
+      fakeGazeOnPlayers: {
+        en: 'Face ${players}',
+        cn: '面向 ${players}',
+        ko: '${players} 바라보기'
+      },
+      gazeOnPlayers: {
+        en: 'Look Away from ${players}',
+        cn: '背对 ${players}',
+        ko: '${players}에게서 뒤돌기'
+      },
+      fakeGazeOnPlayersYou: {
+        en: 'Face ${players}',
+        cn: '面向 ${players}',
+        ko: '${players} 바라보기'
+      },
+      gazeOnPlayersYou: {
+        en: 'Look Away from ${players}',
+        cn: '背对 ${players}',
+        ko: '${players}에게서 뒤돌기'
+      }
+    }
+  }, {
+    id: 'DMU P4 Dynamic Fluid',
+    // Using the following as possible matches:
+    // 15A7 Cursed Shriek x2 69s
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '15A7',
+      capture: true
+    },
+    condition: (_data, matches) => parseFloat(matches.duration) > 68,
+    delaySeconds: (_data, matches) => parseFloat(matches.duration),
+    durationSeconds: 6.9,
+    // Time until Stray Spray
+    suppressSeconds: 99999,
+    alertText: (data, _matches, output) => {
+      const isFluidTrue = data.isFluidTrue;
+      if (isFluidTrue === undefined) return;
+      return isFluidTrue ? output.donuts() : output.puddles();
+    },
+    outputStrings: {
+      donuts: {
+        en: 'Stack for Donuts',
+        de: 'Für Donuts sammeln',
+        fr: 'Packez-vous pour les donuts',
+        cn: '集合放月环',
+        ko: '모여서 도넛장판 피하기',
+        tc: '集合放月環'
+      },
+      puddles: outputs/* default.baitPuddles */.Z.baitPuddles
+    }
+  }, {
+    id: 'DMU P4 Mana Release',
+    // 5CA Mana Charged falls off ~5.4s prior to startsUsing
+    // 5CD Thunder Charged and 5CC Blizzard Charged fall off after subsequent
+    // Thrumming Thunder III and Blizzard III Blowout startsUsing
+    // This will need to be done while stacking donuts if Dynamic Fluid is true
+    // 6.7s castTime, but there is additional ~0.382 delay until tells
+    type: 'StartsUsing',
+    netRegex: {
+      id: 'BAA5',
+      source: 'Kefka',
+      capture: true
+    },
+    condition: data => {
+      return data.isIceTrue !== undefined && data.isThunderTrue !== undefined;
+    },
+    delaySeconds: (_data, matches) => parseFloat(matches.castTime) + 0.3,
+    infoText: (data, _matches, output) => {
+      const isThunderCharged = data.isThunderChargedTrue;
+      const isBlizzardCharged = data.isBlizzardChargedTrue;
+      const isFluidTrue = data.isFluidTrue;
+      const trueThunder = isThunderCharged && data.isThunderTrue || !isThunderCharged && !data.isThunderTrue;
+      const trueIce = isBlizzardCharged && data.isIceTrue || !isBlizzardCharged && !data.isIceTrue;
+      if (trueThunder) {
+        const tells = trueIce ? output.trueIceTrueThunder() : output.fakeIceTrueThunder();
+        return isFluidTrue ? output.tellsDonut({
+          tells: tells,
+          donut: output.inDonut()
+        }) : tells;
+      }
+      const tells = trueIce ? output.trueIceFakeThunder() : output.fakeIceFakeThunder();
+      return isFluidTrue ? output.tellsDonut({
+        tells: tells,
+        donut: output.inDonut()
+      }) : tells;
+    },
+    outputStrings: {
+      ...mysteryMagicIceThunderOutputStrings,
+      inDonut: {
+        en: 'In Donut',
+        cn: '月环内',
+        ko: '도넛 안으로'
+      },
+      tellsDonut: {
+        en: '${tells} + ${donut}',
+        cn: '${tells} + ${donut}',
+        ko: '${tells} + ${donut}'
+      }
+    }
+  }, {
+    id: 'DMU P4 Fake Stray Spray',
+    // Puddles have been baited, need to move away
+    // Using GainsEffect of 15AC Dynamic Fluid prevents early trigger
+    type: 'GainsEffect',
+    netRegex: {
+      effectId: '15AC',
+      capture: true
+    },
+    condition: data => !data.isFluidTrue,
+    delaySeconds: (_data, matches) => parseFloat(matches.duration),
+    suppressSeconds: 99999,
+    response: responses/* Responses.moveAway */.n3.moveAway('alert')
   }],
   timelineReplace: [{
     'locale': 'en',
@@ -286080,7 +294336,6 @@ const dancing_mad_triggerSet = {
     }
   }, {
     'locale': 'cn',
-    'missingTranslations': true,
     'replaceSync': {
       'Black Hole': '黑洞',
       'Chaos': '卡奥斯',
@@ -286090,24 +294345,46 @@ const dancing_mad_triggerSet = {
       'Neo Exdeath': '新生艾克斯迪司'
     },
     'replaceText': {
+      '\\(castbar\\)': '(咏唱栏)',
+      '\\(Chaos': '(卡奥斯',
+      '\\(Exdeath': '(艾克斯迪司',
+      '\\(Pop Window\\)': '(引爆)',
+      '--accretion\\?--': '--混沌之泥土?--',
+      '--both targetable--': '--都可选中--',
+      '--Chaos untargetable\\?--': '--卡奥斯不可选中?--',
+      '--Exdeath untargetable\\?--': '--艾克斯迪司不可选中?--',
+      '--middle\\?--': '--中间?--',
+      '--numbers--': '--麻将--',
+      '--single target--': '--单目标--',
+      '--untargetable\\?--': '--不可选中?--',
+      'Accretion Earthquake': '混沌之泥土 地震',
       'Aero III Assault': '疼飕飕暴风',
+      'Aetherlink': '以太连接',
       'All Things Ending': '消灭之脚',
       'Ave Maria': '圣母颂',
       'Big Bang': '顶起',
       'Black Antilight': '死者暗黑光',
       'Black Hole': '黑洞',
       'Black Spark': '暗黑火花',
+      'Blackblood': '흑혈',
       'Blizzard III(?! Blowout)': '冰封',
       'Blizzard III Blowout': '扩大大冰封',
       'Bowels of Agony': '深层痛楚',
+      'Catastrophic Choice': '二选一的灾祟',
       'Celestriad': '三星',
+      'Chaotic Flare': '混沌核爆',
+      'Chaotic Flood': '混沌洪水',
+      'Chaotic Holy': '混沌神圣',
+      'Cyclone': '龙卷风',
       'Damning Edict': '诅咒敕令',
       'Death Bolt': '死亡落雷',
       'Death Bomb': '死亡爆弹',
       'Death Shriek': '死亡尖叫',
       'Death Surge': '死亡波涛',
       'Death Wave': '死亡波纹',
+      'Definition of Insanity': '重构',
       'Double-Trouble Trap': '连环环陷阱',
+      'Down for the Count': '击倒',
       '(?<! )Earthquake': '地震',
       'Edge of Death': '生死之境',
       'Explosion': '爆炸',
@@ -286115,9 +294392,13 @@ const dancing_mad_triggerSet = {
       '(?<! )Fire III': '爆炎',
       'Flagrant Fire III': '呼啦啦爆炎',
       '(?<! )Flare(?! )': '核爆',
+      'Flare Diffusion': '核爆扩散',
       '(?<! )Flood(?! )': '洪水',
       'Flood of Naught': '无之泛滥',
       'Forsaken(?! [BGN])': '遗弃末世',
+      'Forsaken Bonds': '遗弃末狱',
+      'Forsaken Ground': '遗弃末地',
+      'Forsaken Null': '遗弃末点',
       'Future\'s End': '未来终结',
       'Grand Cross': '大十字',
       'Graven Image': '众神之像',
@@ -286129,11 +294410,15 @@ const dancing_mad_triggerSet = {
       'Idyllic Will': '睡魔的神气',
       'Indolent Will': '懒惰的神气',
       'Indulgent Will': '圣母的神气',
+      'Inferno': '烈焰',
       'Intemperate Will': '扑杀的神气',
+      'Kefka Says': '闹哄哄魂击',
       'Knock Down': '轰击',
       'Latitudinal Implosion': '纬度聚爆',
       'Light of Judgment': '制裁之光',
       'Longitudinal Implosion': '经度聚爆',
+      'Look upon Me and Despair': '本色出演的我',
+      'Maddening Orchestra': '癫狂交响曲',
       'Mana Charge': '魔法储存',
       'Mana Release': '魔法放出',
       'Max': '放大',
@@ -286141,13 +294426,19 @@ const dancing_mad_triggerSet = {
       'Mystery Magic': '玄乎乎魔法',
       'Nothingness': '无之波动',
       'Past\'s End': '过去终结',
+      'Primordial Crust Quake': '混沌之土 地震',
       'Pulse Wave': '波动弹',
       '(?<![ h])Quake': '地震',
       'Revolting Ruin III': '恶狠狠毁荡',
+      'Shocking Impact': '重冲击',
       'Shockwave': '冲击波',
+      'Slap Happy': '响亮亮耳光',
       'Spelldriver': '咏唱危机·驱动',
       'Spellscatter': '咏唱危机·散碎',
       'Spellwave': '咏唱危机·波动',
+      'Stomp-a-Mole': '轰隆隆跺脚',
+      'Stray Apocalypse': '混沌末世',
+      'Stray Entropy': '混沌涡旋',
       'Stray Flames': '混沌之炎',
       'Stray Spray': '混沌之水',
       'Tele-trouncing': '唰啦啦传送',
@@ -286156,7 +294447,11 @@ const dancing_mad_triggerSet = {
       'Thrumming Thunder III': '劈啪啪暴雷',
       '(?<! )Thunder III': '暴雷',
       'Tornado': '龙卷',
+      'Trance': '幻化',
       'Trine': '异三角',
+      'Tsunami': '海啸',
+      'Ultima Blaster': '究极冲击波',
+      'Ultima Repeater': '连续究极',
       'Ultima Upsurge': '扑腾腾究极',
       'Ultimate Embrace': '终末双腕',
       'Umbra Smash': '本影爆碎',
@@ -286294,7 +294589,7 @@ const dancing_mad_triggerSet = {
 };
 /* harmony default export */ const dancing_mad = (dancing_mad_triggerSet);
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/ultimate/dancing_mad.txt
-const ultimate_dancing_mad_namespaceObject = "### DANCING MAD (ULTIMATE)\r\n# ZoneId: 1363\r\n\r\n# NOTE: Abilities are sorted by order of appearance\r\n# -ii C252 BA9E BAA0 BAAB BA95 BAAF BAAD BABF BAD6 BAD8 BAD7 BAD9 BACF C250 BAF7 BAF9 C572 BAFA BAF1 BB38\r\n# -p C403:15.6 C24C:219.8 C3F7:500.0 C2DC:1000.0 BB40:1300.0\r\n# -it Kefka Chaos Exdeath\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n0.0 \"--Reset--\" ActorControl { command: \"4000000F\" } window 0,100000 jump 0\r\n\r\n0.0 \"--sync--\" InCombat { inGameCombat: \"1\" } window 0,1\r\n\r\n### Phase 1 - Kefka\r\n# TODO: Add voiceline sync?\r\n# en (auto-translate): 'This is my first time, so please take it easy!'\r\n10.6 \"--sync--\" StartsUsing { id: \"C403\", source: \"Kefka\" } window 20,10\r\n15.6 \"Revolting Ruin III 1\" Ability { id: \"C403\", source: \"Kefka\" }\r\n18.7 \"Revolting Ruin III 2\" Ability { id: \"C4E1\", source: \"Kefka\" }\r\n24.8 \"--middle--\" Ability { id: \"C3FD\", source: \"Kefka\" }\r\n\r\n29.2 \"Graven Image 1\" Ability { id: \"BCF2\", source: \"Kefka\" }\r\n35.1 \"Pulse Wave\" Ability { id: \"BAA9\", source: \"Graven Image\" }\r\n37.4 \"Mystery Magic\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n37.4 \"Blizzard III Blowout\" #Ability { id: [\"BA9B\", \"BA98\"], source: \"Kefka\" }\r\n38.3 \"Flagrant Fire III\" Ability { id: [\"BAA2\", \"BAA3\"], source: \"Kefka\" }\r\n42.5 \"Wave Cannon\" Ability { id: \"BAA8\", source: \"Graven Image\" }\r\n44.6 \"Double-trouble Trap 1\" Ability { id: \"BAA6\", source: \"Kefka\" }\r\n46.0 \"Explosion\" Ability { id: \"BAAA\", source: \"Kefka\" }\r\n49.6 \"--knockback--\" # From Double-trouble Trap 1\r\n49.7 \"Double-trouble Trap 2\" Ability { id: \"BAA7\", source: \"Kefka\" }\r\n53.7 \"Mystery Magic\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n53.7 \"Thrumming Thunder III\" #Ability { id: [\"BAA1\", \"BA9F\"], source: \"Kefka\" }\r\n53.7 \"Blizzard III Blowout\" #Ability { id: [\"BA9B\", \"BA98\"], source: \"Kefka\" }\r\n62.7 \"Light of Judgment\" Ability { id: \"C622\", source: \"Kefka\" }\r\n65.8 \"Hyperdrive 1\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n67.8 \"Hyperdrive 2\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n69.8 \"Hyperdrive 3\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n75.6 \"--middle--\" Ability { id: \"C3FD\", source: \"Kefka\" }\r\n\r\n80.0 \"Graven Image 2\" Ability { id: \"BCF2\", source: \"Kefka\" }\r\n87.1 \"Blizzard III Blowout\" #Ability { id: [\"BA9B\", \"BA98\"], source: \"Kefka\" }\r\n87.2 \"Gravitas\" Ability { id: \"BAAC\", source: \"Graven Image\" }\r\n91.2 \"Vitrophyre\" Ability { id: \"BAB0\", source: \"Graven Image\" }\r\n97.1 \"Revolting Ruin III 1\" Ability { id: \"C403\", source: \"Kefka\" }\r\n100.2 \"Revolting Ruin III 2\" Ability { id: \"C4E1\", source: \"Kefka\" }\r\n101.1 \"Intemperate Will/Gravitational Wave\" Ability { id: [\"BAB2\", \"BAB1\"], source: \"Graven Image\" }\r\n105.8 \"Gravitas\" Ability { id: \"BAAC\", source: \"Graven Image\" }\r\n109.8 \"Vitrophyre\" Ability { id: \"BAB0\", source: \"Graven Image\" }\r\n114.4 \"Intemperate Will/Gravitational Wave\" Ability { id: [\"BAB2\", \"BAB1\"], source: \"Graven Image\" }\r\n117.0 \"Gravity III (Pop Window)\" #Ability { id: \"BAAF\", source: \"Kefka\" } duration 6 # ~1s remaining on debuff and until 45s on next\r\n118.0 \"--knockback--\" # From Double-trouble Trap 2\r\n118.1 \"Double-Trouble Trap 3\" Ability { id: \"BAA7\", source: \"Kefka\" } # NOTE: If it was passed after first set.\r\n132.4 \"Light of Judgment\" Ability { id: \"C622\", source: \"Kefka\" }\r\n135.6 \"Hyperdrive 1\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n137.7 \"Hyperdrive 2\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n139.7 \"Hyperdrive 3\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n151.5 \"Tele-trouncing (castbar)\" Ability { id: \"BAB9\", source: \"Kefka\" }\r\n159.4 \"Tele-trouncing 1\" Ability { id: \"BABA\", source: \"Kefka\" }\r\n162.4 \"Tele-trouncing 2\" Ability { id: \"BABA\", source: \"Kefka\" }\r\n\r\n163.6 \"Graven Image 3\" Ability { id: \"BCF2\", source: \"Kefka\" }\r\n168.7 \"--sync--\" Ability { id: \"C554\", source: \"Kefka\" }\r\n170.6 \"--knockback--\" # From Double-trouble Trap 3\r\n173.4 \"Indulgent Will\" Ability { id: \"BAB5\", source: \"Graven Image\" }\r\n173.4 \"Idyllic Will\" #Ability { id: \"BAB6\", source: \"Graven Image\" }\r\n177.7 \"--sync--\" Ability { id: \"C555\", source: \"Kefka\" }\r\n179.7 \"--middle--\" Ability { id: \"C3FD\", source: \"Kefka\" }\r\n186.3 \"Mystery Magic\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n186.3 \"Thrumming Thunder III\" #Ability { id: [\"BAA1\", \"BA9F\"], source: \"Kefka\" }\r\n186.3 \"Ave Maria/Indolent Will\" #Ability { id: [\"BAB3\", \"BAB4\"], source: \"Graven Image\" }\r\n187.1 \"Flagrant Fire III\" Ability { id: [\"BAA2\", \"BAA3\"], source: \"Kefka\" }\r\n197.3 \"--untargetable--\"\r\n197.5 \"--sync--\" StartsUsing { id: \"BABB\", source: \"Kefka\" } jump \"p1-and-p4-enrage\"\r\n202.4 \"Light of Judgment (Enrage)?\" Ability { id: \"BABB\", source: \"Kefka\" } # Kefka >15% HP\r\n\r\n\r\n### Phase 2 - God Kefka\r\n# TODO: Get fake ending route?\r\n# TODO: Add voiceline sync / branch to complete?\r\n# Fake Duty Complete Path:\r\n# en: 'Yes... I am filled with glorious purpose!'\r\n# Duty Complete Path:\r\n# en: 'How boring. Guess I'll have to spice things up!'\r\n207.6 \"--targetable--\"\r\n215.1 \"--sync--\" HeadMarker { id: '0103' } window 216,5\r\n220.1 \"Ultimate Embrace\" Ability { id: \"C24C\", source: \"Kefka\" }\r\n235.3 \"Forsaken\" Ability { id: \"BABC\", source: \"Kefka\" }\r\n\r\n# Set 1\r\n# NOTE: The BAC0 Spelldriver, BAC2 Spellwave, BAC0 Spellscatter can be resolved in different orders\r\n248.5 \"The Path of Light 1\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n249.1 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n257.8 \"Future's End/Past's End 1\" Ability { id: [\"BAD2\", \"BAD3\"], source: \"Kefka\" }\r\n258.4 \"The Path of Light 2\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n259.1 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n269.1 \"All Things Ending\" #Ability { id: [\"BACD\", \"BADC\", \"BADD\"], source: \"Kefka\" }\r\n\r\n# Set 2\r\n269.4 \"The Path of Light 3\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n270.0 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n278.7 \"Future's End/Past's End 2\" Ability { id: [\"BAD2\", \"BAD3\"], source: \"Kefka\" }\r\n279.4 \"The Path of Light 4\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n280.1 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n290.4 \"All Things Ending\" #Ability { id: [\"BADC\", \"BADD\"], source: \"Kefka\" }\r\n\r\n# Set 3\r\n290.5 \"The Path of Light 5\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n291.2 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n300.0 \"Future's End/Past's End 3\" Ability { id: [\"BAD2\", \"BAD3\"], source: \"Kefka\" }\r\n300.5 \"The Path of Light 6\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n301.1 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n311.2 \"All Things Ending\" #Ability { id: [\"BADC\", \"BADD\"], source: \"Kefka\" }\r\n\r\n# Set 4\r\n311.4 \"The Path of Light 7\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n312.0 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n320.7 \"Future's End/Past's End 4\" Ability { id: [\"BAD2\", \"BAD3\"], source: \"Kefka\" }\r\n321.4 \"The Path of Light 8\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n322.0 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n332.1 \"All Things Ending\" Ability { id: [\"BADC\", \"BADD\"], source: \"Kefka\" }\r\n\r\n# Trines\r\n341.1 \"Light of Judgment\" Ability { id: \"BABD\", source: \"Kefka\" }\r\n352.3 \"Trine\" Ability { id: \"BADF\", source: \"Kefka\" }\r\n359.4 \"Wings of Destruction\" Ability { id: [\"BACD\", \"BACE\"], source: \"Kefka\" }\r\n365.2 \"Trine 1\" #Ability { id: \"BAE0\", source: \"Kefka\" }\r\n367.2 \"Trine 2\" #Ability { id: \"BAE0\", source: \"Kefka\" }\r\n369.2 \"Trine 3\" #Ability { id: \"BAE0\", source: \"Kefka\" }\r\n369.5 \"Wings of Destruction\" Ability { id: \"C487\", source: \"Kefka\" }\r\n371.8 \"--sync--\" HeadMarker { id: '0103' } window 216,5\r\n376.7 \"Ultimate Embrace\" Ability { id: \"C24C\", source: \"Kefka\" }\r\n380.1 \"--untargetable?--\"\r\n380.1 \"--sync--\" StartsUsing { id: \"BAE1\", source: \"Kefka\" } jump \"p2-enrage\"\r\n383.2 \"--sync--\" StartsUsing { id: \"C3F7\", source: \"Kefka\" } window 220,5 jump \"p2-success\" # Kefka will skip mechanics at 0% HP\r\n385.0 \"Light of Judgment (Enrage)?\" #Ability { id: \"BAE1\", source: \"Kefka\" } # Kefka > 0% HP\r\n386.2 \"Aero III Assault?\" Ability { id: \"C3F7\", source: \"Kefka\" } forcejump \"p2-success\"\r\n\r\n# TODO: Earlier sync on jump middle\r\n497.0 label \"p2-success\"\r\n500.0 \"Aero III Assault\" Ability { id: \"C3F7\", source: \"Kefka\" } window 500,20\r\n500.8 \"Down for the Count\" GainsEffect { effectId: '306' } duration 32.5\r\n\r\n### Phase 3 - Chaos and Exdeath\r\n# TODO: Cleanup p3 as there are multiple sequences that could happen\r\n# TODO: Update with network log\r\n# TODO: Add voiceline sync?\r\n# en: 'Hmph. I see what's going on here.'\r\n537.7 \"Definition of Insanity\" Ability { id: \"BAE2\", source: \"Kefka\" }\r\n543.8 \"The Decisive Battle\" Ability { id: [\"C2E2\", \"C2E3\"], source: [\"Chaos\", \"Exdeath\"] }\r\n548.0 \"--sync--\" Ability { id: \"C554\", source: \"Kefka\" }\r\n\r\n# Fire, Water, and Wind Elements\r\n563.1 \"Bowels of Agony\" Ability { id: \"BAF2\", source: \"Chaos\" }\r\n582.1 \"Stray Flames/Stray Spray\" Ability { id: [\"BAF3\", \"BAF6\"], source: [\"Chaos\", \"Kefka\"] }\r\n582.1 \"Thunder III\" #Ability { id: \"BB12\", source: \"Exdeath\" }\r\n583.1 \"Inferno/Tsunami\" Ability { id: [\"BAF4\", \"BAF5\"], source: [\"Chaos\", \"Kefka\"] } # Supposed to be from Chaos, but can bug\r\n584.9 \"Cyclone\" Ability { id: \"BAF8\", source: \"Chaos\" }\r\n591.3 \"--sync--\" Ability { id: \"BB09\", source: \"Exdeath\" }\r\n591.3 \"Thunder III 1\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n594.3 \"Thunder III 2\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n597.0 \"--sync--\" Ability { id: \"C555\", source: \"Kefka\" }\r\n603.0 \"Trance\" Ability { id: \"C2D6\", source: \"Kefka\" }\r\n604.2 \"Longitudinal Implosion/Latitudinal Implosion (castbar)\" Ability { id: [\"BAFD\", \"BAFE\"], source: \"Chaos\" }\r\n605.0 \"Shockwave 1\" #Ability { id: \"BAFF\", source: \"Chaos\" }\r\n607.0 \"Shockwave 2\" #Ability { id: \"BAFF\", source: \"Chaos\" }\r\n609.0 \"Stray Spray/Stray Flames\" Ability { id: [\"BAF6\", \"BAF3\"], source: [\"Kefka\", \"Chaos\"] }\r\n610.0 \"Tsunami/Inferno\" Ability { id: [\"BAF5\", \"BAF4\"], source: \"Chaos\" }\r\n611.7 \"Cyclone\" Ability { id: \"BAF8\", source: \"Chaos\" }\r\n\r\n# Ultima Blaster Preview\r\n620.3 \"Ultima Blaster 1\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n622.3 \"Ultima Blaster 2\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n624.3 \"Ultima Blaster 3\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n624.4 \"Umbra Smash\" Ability { id: \"BB00\", source: \"Chaos\" }\r\n626.3 \"Ultima Blaster 4\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n627.3 \"Vacuum Wave\" Ability { id: \"BB13\", source: \"Exdeath\" }\r\n628.3 \"Ultima Blaster 5\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n629.3 \"--numbers--\" # TODO: Get log timing\r\n630.3 \"Ultima Blaster 6\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n631.3 \"Cyclone\" Ability { id: \"BAF8\", source: \"Chaos\" }\r\n632.4 \"Ultima Blaster 7\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n632.7 \"Aetherlink\" Ability { id: [\"C2E4\", \"C2E5\"], source: [\"Chaos\", \"Exdeath\"] }\r\n634.4 \"Ultima Blaster 8\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n\r\n# Ultima Blaster\r\n642.4 \"Ultima Blaster 1\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n642.6 \"Ultima Blaster 2\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n642.8 \"Ultima Blaster 3\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n643.0 \"Ultima Blaster 4\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n643.2 \"Ultima Blaster 5\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n643.4 \"Ultima Blaster 6\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n643.6 \"Ultima Blaster 7\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n643.8 \"Ultima Blaster 8\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n649.7 \"--sync--\" Ability { id: \"BB09\", source: \"Exdeath\" }\r\n649.7 \"Thunder III 1\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n652.7 \"Thunder III 2\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n657.7 \"The Decisive Battle\" Ability { id: [\"C2E2\", \"C2E3\"], source: [\"Chaos\", \"Exdeath\"] }\r\n666.8 \"--sync--\" Ability { id: \"BB09\", source: \"Exdeath\" }\r\n666.8 \"Thunder III 1\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n\r\n# Giant Kefka + Earth Element\r\n668.6 \"Max\" Ability { id: \"BAE5\", source: \"Kefka\" }\r\n669.8 \"Thunder III 2\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n671.8 \"Earthquake\" Ability { id: \"C571\", source: \"Chaos\" }\r\n675.8 \"--accretion?--\"\r\n676.8 \"Accretion Earthquake 1?\" #Ability { id: \"BAFA\", source: \"Chaos\" } # Determined by healing player to full\r\n679.9 \"--accretion?--\"\r\n680.9 \"Accretion Earthquake 2?\" #Ability { id: \"BAFA\", source: \"Chaos\" } # Determined by healing player to full\r\n687.4 \"Slap Happy (castbar)\" Ability { id: [\"BAE6\", \"BAE7\"], source: \"Kefka\" }\r\n688.2 \"Slap Happy 1\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n688.9 \"Slap Happy 2\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n689.7 \"Slap Happy 3\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n690.9 \"Slap Happy 4\" Ability { id: \"BAE9\", source: \"Kefka\" }\r\n690.9 \"Shockwave\" #Ability { id: \"BAEB\", source: \"Kefka\" }\r\n\r\n691.2 \"Black Hole\" Ability { id: \"BAFB\", source: \"Exdeath\" }\r\n698.3 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n698.3 \"Aetherlink\" #Ability { id: [\"C2E4\", \"C2E5\"], source: [\"Chaos\", \"Exdeath\"] }\r\n705.3 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n708.4 \"--sync--\" Ability { id: \"BB09\", source: \"Exdeath\" }\r\n708.4 \"Thunder III 1\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n711.4 \"Thunder III 2\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n712.7 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n716.5 \"Damning Edict\" Ability { id: \"BB01\", source: \"Chaos\" }\r\n717.7 \"Slap Happy (castbar)\" Ability { id: [\"BAE6\", \"BAE7\"], source: \"Kefka\" }\r\n718.5 \"Slap Happy 1\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n719.2 \"Slap Happy 2\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n720.0 \"Slap Happy 3\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n721.2 \"Slap Happy 4\" Ability { id: \"BAE9\", source: \"Kefka\" }\r\n721.2 \"Shockwave\" #Ability { id: \"BAEB\", source: \"Kefka\" }\r\n724.6 \"Black Spark\" Ability { id: \"BCCD\", source: \"Black Hole\" }\r\n728.6 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n730.2 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n733.8 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n735.4 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n739.0 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n744.0 \"Damning Edict\" Ability { id: \"BB01\", source: \"Chaos\" }\r\n744.4 \"Look upon Me and Despair (castbar)\" Ability { id: \"BAEC\", source: \"Kefka\" }\r\n745.4 \"Look upon Me and Despair\" Ability { id: \"BAEE\", source: \"Kefka\" }\r\n747.5 \"Blackblood\" Ability { id: \"C4BA\", source: \"Kefka\" }\r\n747.5 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n749.7 \"--sync--\" Ability { id: \"BB09\", source: \"Exdeath\" }\r\n749.7 \"Thunder III 1\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n752.7 \"Thunder III 2\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n762.8 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n764.4 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n765.0 \"Aetherlink\" Ability { id: [\"C2E4\", \"C2E5\"], source: [\"Chaos\", \"Exdeath\"] }\r\n768.0 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n769.6 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n773.2 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n\r\n784.2 \"White Hole\" Ability { id: \"BD66\", source: \"Exdeath\" }\r\n784.2 \"Longitudinal Implosion/Latitudinal Implosion (castbar)\" Ability { id: [\"BAFD\", \"BAFE\"], source: \"Chaos\" }\r\n785.0 \"Shockwave 1\" #Ability { id: \"BAFF\", source: \"Kefka\" }\r\n785.9 \"Slap Happy (castbar)\" Ability { id: [\"BAE6\", \"BAE7\"], source: \"Kefka\" }\r\n786.8 \"Slap Happy 1\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n787.2 \"Shockwave 2\" #Ability { id: \"BAFF\", source: \"Chaos\" }\r\n787.4 \"Slap Happy 2\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n788.1 \"Slap Happy 3\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n789.3 \"Slap Happy 4\" Ability { id: \"BAE9\", source: \"Kefka\" }\r\n789.3 \"Shocking Impact\" Ability { id: \"BAEA\", source: \"Kefka\" }\r\n792.5 \"Black Spark\" Ability { id: \"BCCD\", source: [\"Black Hole\", \"Kefka\"] } # Supposed to be from Black Hole, but can bug\r\n796.5 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n802.2 \"Look upon Me and Despair (castbar)\" Ability { id: \"BAED\", source: \"Kefka\" }\r\n803.2 \"Look upon Me and Despair\" Ability { id: \"BAEE\", source: \"Kefka\" }\r\n803.5 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n\r\n# Blizzards and Towers\r\n# Summary:\r\n# 1. Bait 2 Puddles\r\n# 2. Role 1 4-Stack\r\n# 3. Role 2 2-NW Towers\r\n# 4. Role 2 2-NE Towers \r\n# 5. Role 1 2-NW Towers\r\n# 6. Role 1 2-NE Towers\r\n# 7. Role 2 4-Stack\r\n# 8. Deep Freeze (Blizzard)\r\n805.3 \"--sync--\" Ability { id: \"C533\", source: \"Kefka\" }\r\n812.4 \"Blizzard III (castbar)\" Ability { id: \"BB0F\", source: \"Exdeath\" }\r\n815.4 \"Blizzard III 1\" Ability { id: \"BB0D\", source: \"Exdeath\" }\r\n816.3 \"Stomp-a-Mole (castbar)\" Ability { id: \"BAEF\", source: \"Kefka\" } # Possibly determines which foot he starts with and/or its based on facing?\r\n817.9 \"Knock Down 1\" Ability { id: \"BB02\", source: \"Chaos\" }\r\n818.0 \"Stomp-a-Mole 1\" Ability { id: \"BAF0\", source: \"Kefka\" }\r\n818.4 \"Blizzard III 2\" Ability { id: \"BB0D\", source: \"Exdeath\" }\r\n819.3 \"Stomp-a-Mole 2\" Ability { id: \"BAF0\", source: \"Kefka\" }\r\n820.6 \"Stomp-a-Mole 3\" Ability { id: \"BAF0\", source: \"Kefka\" }\r\n821.9 \"Stomp-a-Mole 4\" Ability { id: \"BAF0\", source: \"Kefka\" }\r\n823.3 \"Knock Down 2\" Ability { id: \"BB03\", source: \"Chaos\" }\r\n826.4 \"Blizzard III\" Ability { id: \"BB11\", source: \"Exdeath\" }\r\n827.4 \"Big Bang\" Ability { id: \"BB05\", source: \"Chaos\" }\r\n827.4 \"Big Bang\" #Ability { id: \"BB06\", source: \"Chaos\" }\r\n\r\n840.7 \"--sync--\" StartsUsing { id: \"C61F\", source: \"Chaos\" } window 840,5 jump \"p3-chaos-enrage\" # This starts when Exdeath dies\r\n840.7 \"--sync--\" StartsUsing { id: \"C61E\", source: \"Exdeath\" } window 840,5 jump \"p3-exdeath-enrage\" # This starts when Chaos dies\r\n# Chaos triggers untargetable, but killing Exdeath does not trigger such\r\n\r\n840.8 \"--sync--\" StartsUsing { id: \"C258\", source: \"Exdeath\" } jump \"p3-enrage\"\r\n840.8 \"--sync--\" StartsUsing { id: \"C259\", source: \"Chaos\" } jump \"p3-enrage\"\r\n840.8 \"--Chaos untargetable?--\"\r\n840.8 \"--Exdeath untargetable?--\"\r\n845.8 \"Bowels of Agony (Enrage)?\" #Ability { id: \"C259\", source: \"Chaos\" } # Chaos >0% HP\r\n845.8 \"Meteor (Enrage)?\" #Ability { id: \"C258\", source: \"Exdeath\" } # Exdeath >0% HP\r\n850.7 \"Bowels of Agony (Chaos Enrage)?\" Ability { id: \"C61F\", source: \"Chaos\" } # Chaos > 0% HP, Exdeath killed first\r\n850.7 \"Meteor (Exdeath Enrage)?\" Ability { id: \"C61E\", source: \"Exdeath\" } # Exdeath > 0% HP, Chaos killed first\r\n\r\n### Phase 4 - Kefka with Chaos and Neo Exdeath\r\n# TODO: Cleanup p4 as there are multiple sequences that could happen\r\n# TODO: Update with network log\r\n# TODO: Add voiceline sync?\r\n# en: 'Boring!'\r\n# NOTE: Label not used due to unknown timing between Chaos/Exdeath kill order and time from Kefka Says\r\n995.0 \"--sync--\" StartsUsing { id: \"C2DC\", source: \"Kefka\" } window 995,12000 # Escape from the p3 exdeath enrage or chaos\r\n1000.0 \"Kefka Says\" Ability { id: \"C2DC\", source: \"Kefka\" }\r\n1003.1 \"--middle--\" Ability { id: \"C3FD\", source: \"Kefka\" }\r\n\r\n1009.4 \"Mystery Magic 1\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n1009.4 \"Thrumming Thunder III\" #Ability { id: \"BA9F\", source: \"Kefka\" }\r\n1009.4 \"Blizzard III Blowout\" #Ability { id: \"BA9B\", source: \"Kefka\" }\r\n1013.7 \"Grand Cross\" Ability { id: \"BB14\", source: \"Neo Exdeath\" }\r\n1018.7 \"Inferno/Tsunami\" Ability { id: [\"BB20\",\"BB21\"], source: \"Chaos\" }\r\n\r\n1024.1 \"Mystery Magic 2\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n1024.1 \"Thrumming Thunder III\" #Ability { id: \"BAA1\", source: \"Kefka\" }\r\n1024.1 \"Blizzard III Blowout\" #Ability { id: \"BA9B\", source: \"Kefka\" }\r\n1028.4 \"Grand Cross\" Ability { id: \"BB14\", source: \"Neo Exdeath\" }\r\n1033.5 \"Tsunami/Inferno\" Ability { id: [\"BB21\", \"BB20\"], source: \"Chaos\" }\r\n\r\n1039.2 \"Mystery Magic 3\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n1039.2 \"Thrumming Thunder III\" #Ability { id: \"BAA1\", source: \"Kefka\" }\r\n1039.2 \"Blizzard III Blowout\" #Ability { id: \"BA9B\", source: \"Kefka\" }\r\n1043.3 \"Grand Cross\" Ability { id: \"BB14\", source: \"Neo Exdeath\" }\r\n\r\n1045.3 \"--sync--\" Ability { id: \"C554\", source: \"Kefka\" }\r\n\r\n1055.4 \"Flood of Naught\" Ability { id: \"C393\", source: \"Neo Exdeath\" }\r\n1055.8 \"Edge of Death\" Ability { id: \"C396\", source: \"Neo Exdeath\" }\r\n1055.8 \"White Antilight\" #Ability { id: \"C394\", source: \"Neo Exdeath\" }\r\n1055.8 \"Black Antilight\" #Ability { id: \"C395\", source: \"Neo Exdeath\" }\r\n1059.0 \"--sync--\" Ability { id: \"C555\", source: \"Kefka\" }\r\n1059.7 \"Death Surge\" Ability { id: \"BB1D\", source: \"Neo Exdeath\" }\r\n1064.1 \"Mana Charge\" Ability { id: \"BAA4\", source: \"Kefka\" }\r\n1064.4 \"Death Bolt\" #Ability { id: \"BB18\", source: \"Neo Exdeath\" }\r\n1064.4 \"Death Wave\" #Ability { id: \"BB1A\", source: \"Neo Exdeath\" }\r\n1072.4 \"Thrumming Thunder III\" Ability { id: \"C5DE\", source: \"Kefka\" }\r\n1072.4 \"Thrumming Thunder III\" #Ability { id: \"BA9F\", source: \"Kefka\" }\r\n1073.4 \"Death Shriek\" Ability { id: \"BB16\", source: \"Neo Exdeath\" }\r\n1082.5 \"Ultima Upsurge\" Ability { id: \"C24A\", source: \"Kefka\" }\r\n1085.3 \"Stray Flames\" Ability { id: \"BB23\", source: \"Chaos\" }\r\n1089.4 \"Death Wave\" Ability { id: \"BB1B\", source: \"Neo Exdeath\" }\r\n1089.4 \"Death Bolt\" #Ability { id: \"BB19\", source: \"Neo Exdeath\" }\r\n1089.4 \"Death Bomb\" #Ability { id: \"BB15\", source: \"Neo Exdeath\" }\r\n1090.4 \"Blizzard III Blowout\" Ability { id: \"BA9B\", source: \"Kefka\" }\r\n1094.6 \"Stray Spray\" #Ability { id: \"BB25\", source: \"Chaos\" }\r\n1095.9 \"Stray Spray\" #Ability { id: \"BB25\", source: \"Chaos\" }\r\n1097.2 \"Death Shriek\" Ability { id: \"BB17\", source: \"Neo Exdeath\" }\r\n1103.5 \"Mana Release\" Ability { id: \"BAA5\", source: \"Kefka\" }\r\n1107.6 \"Stray Spray\" Ability { id: \"BB25\", source: \"Chaos\" }\r\n1108.5 \"Thrumming Thunder III\" #Ability { id: \"BA9F\", source: \"Kefka\" }\r\n1108.5 \"Blizzard III Blowout\" #Ability { id: \"BA9B\", source: \"Kefka\" }\r\n\r\n1112.8 \"--sync--\" StartsUsing { id: \"BABB\", source: \"Kefka\" } jump \"p1-and-p4-enrage\"\r\n1112.8 \"--untargetable?--\"\r\n1114.8 \"--middle?--\" Ability { id: \"C3FD\", source: \"Kefka\" } window 90,5 jump \"p4-success\" # Kefka <20% HP\r\n1117.8 \"Light of Judgment (Enrage)?\" #Ability { id: \"BABB\", source: \"Kefka\" } # Kefka >20% HP\r\n1121.3 \"Ultima Upsurge?\" #Ability { id: \"C24A\", source: \"Kefka\" }\r\n1159.2 \"Ultima Repeater (castbar)?\" #Ability { id: \"BB40\", source: \"Kefka\" }\r\n\r\n\r\n### Phase 5 - Kefka\r\n# TODO: Add voiceline sync?\r\n# en: 'Destruction is the fate of all things.'\r\n1255.6 label \"p4-success\"\r\n1255.6 \"--middle--\" Ability { id: \"C3FD\", source: \"Kefka\" }\r\n1261.9 \"Ultima Upsurge\" Ability { id: \"C24A\", source: \"Kefka\" }\r\n1300.0 \"Ultima Repeater (castbar)\" Ability { id: \"BB40\", source: \"Kefka\" }\r\n1301.1 \"Ultima Repeater 1\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1301.9 \"Ultima Repeater 2\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1302.6 \"Ultima Repeater 3\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1303.4 \"Ultima Repeater 4\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1305.4 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1306.3 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1308.6 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1309.5 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1311.7 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1312.6 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n\r\n1314.5 \"--sync--\" #Ability { id: \"C183\", source: \"Kefka\" }\r\n1315.5 \"--sync--\" #Ability { id: \"C183\", source: \"Kefka\" }\r\n1316.5 \"--sync--\" #Ability { id: \"C183\", source: \"Kefka\" }\r\n1317.5 \"--sync--\" #Ability { id: \"C183\", source: \"Kefka\" }\r\n1317.9 \"Flood\" Ability { id: \"C13F\", source: \"Kefka\" }\r\n1318.9 \"Chaotic Flood\" #Ability { id: \"BB4F\", source: \"Kefka\" }\r\n1318.9 \"Flood\" #Ability { id: \"C269\", source: \"Kefka\" }\r\n1319.8 \"Chaotic Flood\" #Ability { id: \"BB4F\", source: \"Kefka\" }\r\n1319.9 \"Flood\" #Ability { id: \"C269\", source: \"Kefka\" }\r\n1320.8 \"Chaotic Flood\" #Ability { id: \"BB4F\", source: \"Kefka\" }\r\n1320.9 \"Flood\" #Ability { id: \"C269\", source: \"Kefka\" }\r\n1321.8 \"Chaotic Flood\" #Ability { id: \"BB4F\", source: \"Kefka\" }\r\n1321.9 \"Flood\" #Ability { id: \"C269\", source: \"Kefka\" }\r\n\r\n1330.9 \"Maddening Orchestra\" Ability { id: \"BB50\", source: \"Kefka\" }\r\n1331.8 \"Holy\" Ability { id: \"BB54\", source: \"Kefka\" }\r\n1331.8 \"Flare\" #Ability { id: \"BB52\", source: \"Kefka\" }\r\n1334.0 \"Maddening Orchestra\" Ability { id: \"BB51\", source: \"Kefka\" }\r\n1334.9 \"Holy\" Ability { id: \"BB54\", source: \"Kefka\" }\r\n1334.9 \"Chaotic Flare\" #Ability { id: \"BB53\", source: \"Kefka\" }\r\n1334.9 \"Holy\" Ability { id: \"BB54\", source: \"Kefka\" }\r\n1338.3 \"Chaotic Holy\" Ability { id: \"BB56\", source: \"Kefka\" }\r\n1338.3 \"Flare Diffusion\" #Ability { id: \"BB55\", source: \"Kefka\" }\r\n1342.2 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1343.1 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1345.4 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1346.3 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n\r\n1352.9 \"Celestriad\" Ability { id: \"BB42\", source: \"Kefka\" }\r\n1361.3 \"Catastrophic Choice\" Ability { id: \"C24F\", source: \"Kefka\" }\r\n1362.0 \"Fire III/Blizzard III/Thunder III?\" Ability { id: [\"BB43\", \"BB44\", \"BB45\"], source: \"Kefka\" }\r\n1362.1 \"Tornado\" Ability { id: \"BB4B\", source: \"Kefka\" }\r\n1368.0 \"Fire III/Blizzard III/Thunder III?\" Ability { id: [\"BB43\", \"BB44\", \"BB45\"], source: \"Kefka\" }\r\n1373.4 \"Catastrophic Choice\" Ability { id: \"C24E\", source: \"Kefka\" }\r\n1374.0 \"Fire III/Blizzard III/Thunder III?\" Ability { id: [\"BB43\", \"BB44\", \"BB45\"], source: \"Kefka\" }\r\n1374.2 \"Quake\" Ability { id: \"BB4A\", source: \"Kefka\" }\r\n\r\n1382.2 \"Ultima Repeater (castbar)\" Ability { id: \"BB40\", source: \"Kefka\" }\r\n1383.3 \"Ultima Repeater 1\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1384.1 \"Ultima Repeater 2\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1384.8 \"Ultima Repeater 3\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1385.6 \"Ultima Repeater 4\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1387.6 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1388.5 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1390.8 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1391.7 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n\r\n1397.1 \"Stray Apocalypse (castbar)\" Ability { id: \"BB3B\", source: \"Kefka\" }\r\n1397.1 \"--sync--\" #Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1397.8 \"Stray Apocalypse 1 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1399.3 \"--sync--\" Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1400.0 \"Stray Apocalypse 2 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1401.3 \"--sync--\" Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1402.0 \"Stray Apocalypse 3 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1403.3 \"--sync--\" Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1404.0 \"Stray Apocalypse 4 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1405.3 \"--sync--\" Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1406.0 \"Stray Apocalypse 5 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1407.3 \"--sync--\" Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1408.0 \"Stray Apocalypse 6 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1412.0 \"Stray Entropy\" Ability { id: \"BB3E\", source: \"Kefka\" }\r\n1412.9 \"Stray Entropy\" Ability { id: \"BB3F\", source: \"Kefka\" }\r\n\r\n1421.1 \"Maddening Orchestra\" Ability { id: \"BB50\", source: \"Kefka\" }\r\n1422.0 \"Holy\" Ability { id: \"BB54\", source: \"Kefka\" }\r\n1422.0 \"Flare\" #Ability { id: \"BB52\", source: \"Kefka\" }\r\n1424.2 \"Maddening Orchestra\" Ability { id: \"BB51\", source: \"Kefka\" }\r\n1425.1 \"Holy\" Ability { id: \"BB54\", source: \"Kefka\" }\r\n1425.1 \"Chaotic Flare\" #Ability { id: \"BB53\", source: \"Kefka\" }\r\n1428.7 \"Flare Diffusion\" Ability { id: \"BB55\", source: \"Kefka\" }\r\n1428.7 \"Chaotic Holy\" #Ability { id: \"BB56\", source: \"Kefka\" }\r\n1432.5 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1433.4 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1435.7 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1436.6 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1438.9 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1439.8 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n\r\n# P5 Enrage sequence\r\n1451.1 \"Forsaken 1\" Ability { id: \"BB35\", source: \"Kefka\" }\r\n1456.1 \"Forsaken Ground/Forsaken Bonds\" #Ability { id: [\"BB37\", \"BB39\"], source: \"Kefka\" }\r\n1459.1 \"Forsaken 2\" Ability { id: \"BB36\", source: \"Kefka\" }\r\n1464.1 \"Forsaken Ground/Forsaken Bonds\" #Ability { id: [\"BB37\", \"BB39\"], source: \"Kefka\" }\r\n1467.1 \"Forsaken 3\" Ability { id: \"BB36\", source: \"Kefka\" }\r\n1472.1 \"Forsaken Ground/Forsaken Bonds\" #Ability { id: [\"BB37\", \"BB39\"], source: \"Kefka\" }\r\n1475.1 \"Forsaken 4\" Ability { id: \"BB36\", source: \"Kefka\" }\r\n1480.1 \"Forsaken Ground/Forsaken Bonds\" #Ability { id: [\"BB37\", \"BB39\"], source: \"Kefka\" }\r\n1485.1 \"--sync--\" StartsUsing { id: \"BB3A\", source: \"Kefka\" }\r\n1511.1 \"Forsaken Null (Enrage)\" Ability { id: \"BB3A\", source: \"Kefka\" }\r\n\r\n\r\n# Phase 1 and Phase 4 Enrage Sequence\r\n10000.0 label \"p1-and-p4-enrage\"\r\n10005.0 \"Light of Judgment (Enrage)\" Ability { id: \"BABB\", source: \"Kefka\" } # P1 Kefka > 15%HP / P4 Kefka >20% HP\r\n\r\n# Phase 2 Enrage Sequence\r\n11000.0 label \"p2-enrage\"\r\n11005.0 \"Light of Judgment (Enrage)\" Ability { id: \"BAE1\", source: \"Kefka\" } # Kefka >0% HP\r\n\r\n# Phase 3 Enrage Sequence\r\n12000.0 label \"p3-enrage\"\r\n12005.0 \"Bowels of Agony (Enrage)\" Ability { id: \"C259\", source: \"Chaos\" } # Chaos >0% HP\r\n12005.0 \"Meteor (Enrage)\" Ability { id: \"C258\", source: \"Exdeath\" } # Exdeath >0% HP\r\n\r\n# Phase 3 Exdeath Enrage Sequence\r\n13000.0 label \"p3-exdeath-enrage\"\r\n13010.0 \"Meteor (Exdeath Enrage)\" Ability { id: \"C61E\", source: \"Exdeath\" } # Exdeath >0% HP\r\n# NOTE: Using a window to jump back to p4, killing Exdeath first triggers a separate sequence\r\n\r\n# Phase 3 Chaos Enrage Sequence\r\n14000.0 label \"p3-chaos-enrage\"\r\n14010.0 \"Bowels of Agony (Chaos Enrage)\" Ability { id: \"C61F\", source: \"Chaos\" } # Chaos >0% HP\r\n# NOTE: Using a window to jump back to p4, killing Chaos first triggers a separate sequence\r\n\r\n# Phase 4 Enrage Sequence\r\n15000.0 label \"p4-enrage\"\r\n15005.0 \"Light of Judgment (Enrage)\" Ability { id: \"BABB\", source: \"Kefka\" } # Kefka >20% HP\r\n\r\n# P1 IGNORED ABILITIES\r\n# C252 Attack: P1 Kefka attack and P3 Chaos attack\r\n# BA9E Blizzard III Blowout: Damage\r\n# BA95 Blizzard III Blowout: VFX\r\n# BAA0 Thrumming Thunder III: VFX\r\n# BAAB Unmitigated Explosion: Failing to soak a tower from BAA8 Wave Cannon\r\n# BAAD Gravitational Explosion: BAB0 Vitrophyre aoe overlaps with BAAC Gravitas puddle\r\n# BAAF Gravity III: Soaking the Gravitas puddles at the correct time\r\n\r\n# P2 IGNORED ABILITIES\r\n# BABF The River of Light: Failing to soak a tower in P2, applies a 3-minute damage down\r\n# BAD6 Future's End: Damage (On 1 player)\r\n# BAD7 Past's End: Damage (On 1 player)\r\n# BAD8 Future's End: Damage (On 3 players)\r\n# BAD9 Past's End: Damage (On 3 players)\r\n# BACF Wings of Destruction: AOE Damage (On nearest/furthest players)\r\n\r\n# P3 IGNORED ABILITIES\r\n# C250 Attack: P3 Exdeath attack\r\n# BAF7 Stray Gusts: Some sort of failed P3 mechanic\r\n# BAF9 Stray Earth: Some sort of failed P3 mechanic\r\n# C572 Earthquake: VFX\r\n# BAFA Earthquake: Cast when Accretion or Primordial Crust are cleansed\r\n# BAF1 Unmitigated Impact: P3 Failing to soak a tower\r\n\r\n# P5 IGNORED ABILITIES\r\n# BB38 Forsaken: VFX\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# BA94 Mystery Magic\r\n# BA95 Blizzard III Blowout: VFX (paired with BA98)\r\n# BA98 Blizzard III Blowout: Damage for Fake? (paired with BA95)\r\n# BA9B Blizzard III Blowout: VFX (paired with BA9E)\r\n# BA9E Blizzard III Blowout: Damage (paired with BA9B)\r\n# BA9F Thrumming Thunder III: Damage for Fake? (No corresponding VFX)\r\n# BAA0 Thrumming Thunder III: VFX (paired with BAA1)\r\n# BAA1 Thrumming Thunder III: Damage (paired with BAA0)\r\n# BAA2 Flagrant Fire III: Spread Damage\r\n# BAA3 Flagrant Fire III: Stack Damage\r\n# BAA4 Mana Charge\r\n# BAA5 Mana Release\r\n# BAA6 Double-Trouble Trap: VFX\r\n# BAA7 Double-Trouble Trap\r\n# BAA8 Wave Cannon\r\n# BAA9 Pulse Wave\r\n# BAAA Explosion: Cast by towers that are dropped from getting hit by BAA8 Wave Cannon\r\n# BAAB Unmitigated Explosion: Failing to soak a tower from BAA8 Wave Cannon\r\n# BAAC Gravitas\r\n# BAAF Gravity III: Soaking the Gravitas puddles at the correct time\r\n# BAAD Gravitational Explosion: BAB0 Vitrophyre aoe overlaps with BAAC Gravitas puddle\r\n# BAB0 Vitrophyre\r\n# BAB1 Gravitational Wave\r\n# BAB2 Intemperate Will\r\n# BAB3 Ave Maria\r\n# BAB4 Indolent Will\r\n# BAB5 Indulgent Will\r\n# BAB6 Idyllic Will\r\n# BAB9 Tele-Trouncing: VFX\r\n# BABA Tele-Trouncing\r\n# BABB Light of Judgment: P1 Enrage and P4 Enrage\r\n# BABC Forsaken\r\n# BABD Light of Judgment: P2 version\r\n# BABE The Path of Light\r\n# BABF The River of Light: Failing to soak a tower in P2, applies a 3-minute damage down\r\n# BAC0 Spelldriver\r\n# BAC1 Spellscatter\r\n# BAC2 Spellwave\r\n# BACD Wings of Destruction: Left wing\r\n# BACE Wings of Destruction: Right wing\r\n# BACF Wings of Destruction: AOE Damage (On nearest/furthest players)\r\n# BAD2 Future's End: VFX\r\n# BAD3 Past's End: VFX\r\n# BAD6 Future's End: Damage (On 1 player)\r\n# BAD7 Past's End: Damage (On 1 player)\r\n# BAD8 Future's End: Damage (On 3 players)\r\n# BAD9 Past's End: Damage (On 3 players)\r\n# BADC All Things Ending: Followup to BAD2 Future's End\r\n# BADD All Things Ending: Followup to BAD3 Past's End\r\n# BADF Trine\r\n# BAE0 Trine\r\n# BAE1 Light of Judgment: P2 Enrage\r\n# BAE2 Definition of Insanity\r\n# BAE3 Ultima Blaster\r\n# BAE4 Ultima Blaster\r\n# BAE5 Max\r\n# BAE6 Slap Happy: Castbar for slapping left or right first\r\n# BAE7 Slap Happy: Castbar for slapping right or left first\r\n# BAE8 Slap Happy: 3 slaps on one side\r\n# BAE9 Slap Happy: Last slap that flips sides\r\n# BAEA Shocking Impact\r\n# BAEB Shockwave\r\n# BAEC Look upon Me and Despair: Kefka falls on his right side across center of arena\r\n# BAED Look upon Me and Despair: Kefka falls on his left side across center of arena\r\n# BAEE Look upon Me and Despair: Gives a 3-min damage down if hit\r\n# BAEF Stomp-a-Mole\r\n# BAF0 Stomp-a-Mole\r\n# BAF1 Unmitigated Impact\r\n# BAF2 Bowels of Agony\r\n# BAF3 Stray Flames\r\n# BAF4 Inferno\r\n# BAF5 Tsunami\r\n# BAF6 Stray Spray\r\n# BAF7 Stray Gusts: Some sort of failed P3 mechanic\r\n# BAF8 Cyclone\r\n# BAF9 Stray Earth: Some sort of failed P3 mechanic\r\n# BAFA Earthquake: Cast when Accretion or Primordial Crust are cleansed\r\n# BAFB Black Hole\r\n# BAFC Nothingness\r\n# BAFD Longitudinal Implosion\r\n# BAFE Latitudinal Implosion\r\n# BAFF Shockwave:  ~0.7s after Longitudinal/Latitudinal Implosion, there will be 2, then 2s later another 2\r\n# BB00 Umbra Smash\r\n# BB01 Damning Edict\r\n# BB02 Knock Down: VFX\r\n# BB03 Knock Down: Damage\r\n# BB05 Big Bang\r\n# BB06 Big Bang\r\n# BB09 Thunder III: VFX castbar\r\n# BB0C Thunder III: Damage from bb09\r\n# BB0D Blizzard III\r\n# BB0F Blizzard III\r\n# BB11 Blizzard III\r\n# BB12 Thunder III\r\n# BB13 Vacuum Wave\r\n# BB14 Grand Cross\r\n# BB15 Death Bomb\r\n# BB16 Death Shriek\r\n# BB17 Death Shriek\r\n# BB18 Death Bolt\r\n# BB19 Death Bolt\r\n# BB1A Death Wave\r\n# BB1B Death Wave\r\n# BB1C Death Surge\r\n# BB1D Death Surge\r\n# BB20 Inferno\r\n# BB21 Tsunami\r\n# BB22 Stray Flames\r\n# BB23 Stray Flames\r\n# BB24 Stray Spray\r\n# BB25 Stray Spray\r\n# BCCD Black Spark\r\n# BB35 Forsaken: Castbar + AOE Damage\r\n# BB36 Forsaken: AOE Damage\r\n# BB37 Forsaken Ground: puddles\r\n# BB38 Forsaken: VFX\r\n# BB39 Forsaken Bonds: Stack damage\r\n# BB3A Forsaken Null: P5 Enrage\r\n# BB3B Stray Apocalypse: Cast\r\n# BB3C Stray Apocalypse: VFX of exa spawning\r\n# BB3D Stray Apocalypse: Exa AOE (x6)\r\n# BB3E Stray Entropy\r\n# BB3F Stray Entropy\r\n# BB40 Ultima Repeater\r\n# BB41 Ultima Repeater\r\n# BB42 Celestriad\r\n# BB43 Fire III\r\n# BB44 Blizzard III\r\n# BB45 Thunder III\r\n# BB4A Quake\r\n# BB4B Tornado\r\n# BB4F Chaotic Flood\r\n# BB50 Maddening Orchestra\r\n# BB51 Maddening Orchestra\r\n# BB52 Flare\r\n# BB53 Chaotic Flare\r\n# BB54 Holy\r\n# BB55 Flare Diffusion\r\n# BB56 Chaotic Holy\r\n# BCCD Black Spark: A fail in P3 that causes 3-minute Damage Down\r\n# BCF2 Graven Image\r\n# BD66 White Hole\r\n# C13F Flood\r\n# C183 --sync--\r\n# C24A Ultima Upsurge\r\n# C24B Hyperdrive\r\n# C24C Ultimate Embrace\r\n# C24E Catastrophic Choice\r\n# C24F Catastrophic Choice\r\n# C250 Attack: P3 Exdeath attack\r\n# C252 Attack: P1 Kefka attack and P3 Chaos attack\r\n# C258 Meteor: P3 Chaos Enrage\r\n# C259 Bowels of Agony: P3 Exdeath Enrage\r\n# C269 Flood\r\n# C2D6 Trance\r\n# C2DC Kefka Says\r\n# C2E2 The Decisive Battle: Cast by Chaos, shares health pool with Exdeath\r\n# C2E3 The Decisive Battle: Cast by Exdeath, shares health pool with Chaos\r\n# C2E4 Aetherlink: Cast by Chaos\r\n# C2E5 Aetherlink: Cast by Exdeath\r\n# C392 Flood of Naught\r\n# C393 Flood of Naught\r\n# C394 White Antilight\r\n# C395 Black Antilight\r\n# C396 Edge of Death\r\n# C3A2 Flood of Naught\r\n# C3F7 Aero III Assault\r\n# C3FD --sync--: Boss jumps to middle\r\n# C403 Revolting Ruin III\r\n# C487 Wings of Destruction: VFX/castbar for BACF\r\n# C4BA Blackblood\r\n# C4E1 Revolting Ruin III\r\n# C533 --sync--\r\n# C554 --sync--\r\n# C555 --sync--\r\n# C571 Earthquake\r\n# C572 Earthquake: VFX\r\n# C5DE Thrumming Thunder III\r\n# C61E Meteor: Exdeath enrage when you kill Chaos first\r\n# C61F Bowels of Agony: Chaos Enrage when you kill Exdeath first\r\n# C622 Light of Judgment: P1 version\r\n# C652 --sync--\r\n# C653 Fell Forces: Shared AOE that targets random Tank\r\n# C654 Fell Forces: Shared AOE that target random Healer\r\n# C655 Fell Forces: Shared AOE that targets random DPS\r\n";
+const ultimate_dancing_mad_namespaceObject = "### DANCING MAD (ULTIMATE)\r\n# ZoneId: 1363\r\n\r\n# NOTE: Abilities are sorted by order of appearance\r\n# -ii C252 BA9E BAA0 BAAB BA95 BAAF BAAD BABF BAD6 BAD8 BAD7 BAD9 BACF C250 BAF7 BAF9 C572 BAFA BAF1 BB06 BB38\r\n# -p C403:15.6 C24C:219.8 C3F7:500.0 C2DC:1000.0 BB40:1300.0\r\n# -it Kefka Chaos Exdeath\r\n\r\nhideall \"--Reset--\"\r\nhideall \"--sync--\"\r\n\r\n0.0 \"--Reset--\" ActorControl { command: \"4000000F\" } window 0,100000 jump 0\r\n\r\n0.0 \"--sync--\" InCombat { inGameCombat: \"1\" } window 0,1\r\n\r\n### Phase 1 - Kefka\r\n# TODO: Add voiceline sync?\r\n# en (auto-translate): 'This is my first time, so please take it easy!'\r\n10.6 \"--sync--\" StartsUsing { id: \"C403\", source: \"Kefka\" } window 20,10\r\n15.6 \"Revolting Ruin III 1\" Ability { id: \"C403\", source: \"Kefka\" }\r\n18.7 \"Revolting Ruin III 2\" Ability { id: \"C4E1\", source: \"Kefka\" }\r\n24.8 \"--middle--\" Ability { id: \"C3FD\", source: \"Kefka\" }\r\n\r\n29.2 \"Graven Image 1\" Ability { id: \"BCF2\", source: \"Kefka\" }\r\n35.1 \"Pulse Wave\" Ability { id: \"BAA9\", source: \"Graven Image\" }\r\n37.4 \"Mystery Magic\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n37.4 \"Blizzard III Blowout\" #Ability { id: [\"BA9B\", \"BA98\"], source: \"Kefka\" }\r\n38.3 \"Flagrant Fire III\" Ability { id: [\"BAA2\", \"BAA3\"], source: \"Kefka\" }\r\n42.5 \"Wave Cannon\" Ability { id: \"BAA8\", source: \"Graven Image\" }\r\n44.6 \"Double-trouble Trap 1\" Ability { id: \"BAA6\", source: \"Kefka\" }\r\n46.0 \"Explosion\" Ability { id: \"BAAA\", source: \"Kefka\" }\r\n49.6 \"--knockback--\" # From Double-trouble Trap 1\r\n49.7 \"Double-trouble Trap 2\" Ability { id: \"BAA7\", source: \"Kefka\" }\r\n53.7 \"Mystery Magic\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n53.7 \"Thrumming Thunder III\" #Ability { id: [\"BAA1\", \"BA9F\"], source: \"Kefka\" }\r\n53.7 \"Blizzard III Blowout\" #Ability { id: [\"BA9B\", \"BA98\"], source: \"Kefka\" }\r\n62.7 \"Light of Judgment\" Ability { id: \"C622\", source: \"Kefka\" }\r\n65.8 \"Hyperdrive 1\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n67.8 \"Hyperdrive 2\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n69.8 \"Hyperdrive 3\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n75.6 \"--middle--\" Ability { id: \"C3FD\", source: \"Kefka\" }\r\n\r\n80.0 \"Graven Image 2\" Ability { id: \"BCF2\", source: \"Kefka\" }\r\n87.1 \"Blizzard III Blowout\" #Ability { id: [\"BA9B\", \"BA98\"], source: \"Kefka\" }\r\n87.2 \"Gravitas\" Ability { id: \"BAAC\", source: \"Graven Image\" }\r\n91.2 \"Vitrophyre\" Ability { id: \"BAB0\", source: \"Graven Image\" }\r\n97.1 \"Revolting Ruin III 1\" Ability { id: \"C403\", source: \"Kefka\" }\r\n100.2 \"Revolting Ruin III 2\" Ability { id: \"C4E1\", source: \"Kefka\" }\r\n101.1 \"Intemperate Will/Gravitational Wave\" Ability { id: [\"BAB2\", \"BAB1\"], source: \"Graven Image\" }\r\n105.8 \"Gravitas\" Ability { id: \"BAAC\", source: \"Graven Image\" }\r\n109.8 \"Vitrophyre\" Ability { id: \"BAB0\", source: \"Graven Image\" }\r\n114.4 \"Intemperate Will/Gravitational Wave\" Ability { id: [\"BAB2\", \"BAB1\"], source: \"Graven Image\" }\r\n117.0 \"Gravity III (Pop Window)\" #Ability { id: \"BAAF\", source: \"Kefka\" } duration 6 # ~1s remaining on debuff and until 45s on next\r\n118.0 \"--knockback--\" # From Double-trouble Trap 2\r\n118.1 \"Double-Trouble Trap 3\" Ability { id: \"BAA7\", source: \"Kefka\" } # NOTE: If it was passed after first set.\r\n132.4 \"Light of Judgment\" Ability { id: \"C622\", source: \"Kefka\" }\r\n135.6 \"Hyperdrive 1\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n137.7 \"Hyperdrive 2\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n139.7 \"Hyperdrive 3\" #Ability { id: \"C24B\", source: \"Kefka\" }\r\n151.5 \"Tele-trouncing (castbar)\" Ability { id: \"BAB9\", source: \"Kefka\" }\r\n159.4 \"Tele-trouncing 1\" Ability { id: \"BABA\", source: \"Kefka\" }\r\n162.4 \"Tele-trouncing 2\" Ability { id: \"BABA\", source: \"Kefka\" }\r\n\r\n163.6 \"Graven Image 3\" Ability { id: \"BCF2\", source: \"Kefka\" }\r\n168.7 \"--sync--\" Ability { id: \"C554\", source: \"Kefka\" }\r\n170.6 \"--knockback--\" # From Double-trouble Trap 3\r\n173.4 \"Indulgent Will\" Ability { id: \"BAB5\", source: \"Graven Image\" }\r\n173.4 \"Idyllic Will\" #Ability { id: \"BAB6\", source: \"Graven Image\" }\r\n177.7 \"--sync--\" Ability { id: \"C555\", source: \"Kefka\" }\r\n179.7 \"--middle--\" Ability { id: \"C3FD\", source: \"Kefka\" }\r\n186.3 \"Mystery Magic\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n186.3 \"Thrumming Thunder III\" #Ability { id: [\"BAA1\", \"BA9F\"], source: \"Kefka\" }\r\n186.3 \"Ave Maria/Indolent Will\" #Ability { id: [\"BAB3\", \"BAB4\"], source: \"Graven Image\" }\r\n187.1 \"Flagrant Fire III\" Ability { id: [\"BAA2\", \"BAA3\"], source: \"Kefka\" }\r\n197.3 \"--untargetable--\"\r\n197.5 \"--sync--\" StartsUsing { id: \"BABB\", source: \"Kefka\" } jump \"p1-and-p4-enrage\"\r\n202.4 \"Light of Judgment (Enrage)?\" Ability { id: \"BABB\", source: \"Kefka\" } # Kefka >15% HP\r\n\r\n\r\n### Phase 2 - God Kefka\r\n# TODO: Get fake ending route?\r\n# TODO: Add voiceline sync / branch to complete?\r\n# Fake Duty Complete Path:\r\n# en: 'Yes... I am filled with glorious purpose!'\r\n# Duty Complete Path:\r\n# en: 'How boring. Guess I'll have to spice things up!'\r\n207.6 \"--targetable--\"\r\n215.1 \"--sync--\" HeadMarker { id: '0103' } window 216,5\r\n220.1 \"Ultimate Embrace\" Ability { id: \"C24C\", source: \"Kefka\" }\r\n235.3 \"Forsaken\" Ability { id: \"BABC\", source: \"Kefka\" }\r\n\r\n# Set 1\r\n# NOTE: The BAC0 Spelldriver, BAC2 Spellwave, BAC0 Spellscatter can be resolved in different orders\r\n248.5 \"The Path of Light 1\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n249.1 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n257.8 \"Future's End/Past's End 1\" Ability { id: [\"BAD2\", \"BAD3\"], source: \"Kefka\" }\r\n258.4 \"The Path of Light 2\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n259.1 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n269.1 \"All Things Ending\" #Ability { id: [\"BACD\", \"BADC\", \"BADD\"], source: \"Kefka\" }\r\n\r\n# Set 2\r\n269.4 \"The Path of Light 3\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n270.0 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n278.7 \"Future's End/Past's End 2\" Ability { id: [\"BAD2\", \"BAD3\"], source: \"Kefka\" }\r\n279.4 \"The Path of Light 4\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n280.1 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n290.4 \"All Things Ending\" #Ability { id: [\"BADC\", \"BADD\"], source: \"Kefka\" }\r\n\r\n# Set 3\r\n290.5 \"The Path of Light 5\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n291.2 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n300.0 \"Future's End/Past's End 3\" Ability { id: [\"BAD2\", \"BAD3\"], source: \"Kefka\" }\r\n300.5 \"The Path of Light 6\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n301.1 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n311.2 \"All Things Ending\" #Ability { id: [\"BADC\", \"BADD\"], source: \"Kefka\" }\r\n\r\n# Set 4\r\n311.4 \"The Path of Light 7\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n312.0 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n320.7 \"Future's End/Past's End 4\" Ability { id: [\"BAD2\", \"BAD3\"], source: \"Kefka\" }\r\n321.4 \"The Path of Light 8\" Ability { id: \"BABE\", source: \"Kefka\" }\r\n322.0 \"Spelldriver/Spellscatter/Spellwave\" Ability { id: [\"BAC0\", \"BAC1\", \"BAC2\"], source: \"Kefka\" }\r\n332.1 \"All Things Ending\" Ability { id: [\"BADC\", \"BADD\"], source: \"Kefka\" }\r\n\r\n# Trines\r\n341.1 \"Light of Judgment\" Ability { id: \"BABD\", source: \"Kefka\" }\r\n352.3 \"Trine\" Ability { id: \"BADF\", source: \"Kefka\" }\r\n359.4 \"Wings of Destruction\" Ability { id: [\"BACD\", \"BACE\"], source: \"Kefka\" }\r\n365.2 \"Trine 1\" #Ability { id: \"BAE0\", source: \"Kefka\" }\r\n367.2 \"Trine 2\" #Ability { id: \"BAE0\", source: \"Kefka\" }\r\n369.2 \"Trine 3\" #Ability { id: \"BAE0\", source: \"Kefka\" }\r\n369.5 \"Wings of Destruction\" Ability { id: \"C487\", source: \"Kefka\" }\r\n371.8 \"--sync--\" HeadMarker { id: '0103' } window 216,5\r\n376.7 \"Ultimate Embrace\" Ability { id: \"C24C\", source: \"Kefka\" }\r\n380.1 \"--untargetable?--\"\r\n380.1 \"--sync--\" StartsUsing { id: \"BAE1\", source: \"Kefka\" } jump \"p2-enrage\"\r\n383.2 \"--sync--\" StartsUsing { id: \"C3F7\", source: \"Kefka\" } window 220,5 jump \"p2-success\" # Kefka will skip mechanics at 0% HP\r\n385.0 \"Light of Judgment (Enrage)?\" #Ability { id: \"BAE1\", source: \"Kefka\" } # Kefka > 0% HP\r\n386.2 \"Aero III Assault?\" Ability { id: \"C3F7\", source: \"Kefka\" } forcejump \"p2-success\"\r\n\r\n# TODO: Earlier sync on jump middle\r\n497.0 label \"p2-success\"\r\n500.0 \"Aero III Assault\" Ability { id: \"C3F7\", source: \"Kefka\" } window 500,20\r\n500.8 \"Down for the Count\" GainsEffect { effectId: '306' } duration 32.5\r\n\r\n### Phase 3 - Chaos and Exdeath\r\n# TODO: Cleanup p3 as there are multiple sequences that could happen\r\n# TODO: Update with network log\r\n# TODO: Add voiceline sync?\r\n# en: 'Hmph. I see what's going on here.'\r\n537.3 \"Definition of Insanity\" Ability { id: \"BAE2\", source: \"Kefka\" }\r\n540.3 \"--both targetable--\"\r\n543.5 \"The Decisive Battle\" Ability { id: [\"C2E2\", \"C2E3\"], source: [\"Chaos\", \"Exdeath\"] }\r\n543.5 \"--single target--\" #GainsEffect { effectId: ['1061', '1063'] } # Epic Villain (Chaos)/Fated Villain (Exdeath)\r\n547.7 \"--sync--\" Ability { id: \"C554\", source: \"Kefka\" }\r\n\r\n# Fire, Water, and Wind Elements\r\n562.9 \"Bowels of Agony\" Ability { id: \"BAF2\", source: \"Chaos\" }\r\n575.0 \"--both targetable--\" LosesEffect { effectId: ['1061', '1063'] } # Epic Villain (Chaos)/Fated Villain (Exdeath)\r\n582.0 \"Stray Flames/Stray Spray\" Ability { id: [\"BAF3\", \"BAF6\"], source: [\"Chaos\", \"Kefka\"] }\r\n582.0 \"Thunder III\" #Ability { id: \"BB12\", source: \"Exdeath\" }\r\n583.0 \"Inferno/Tsunami\" Ability { id: [\"BAF4\", \"BAF5\"], source: [\"Chaos\", \"Kefka\"] } # Supposed to be from Chaos, but can bug\r\n584.7 \"Cyclone\" Ability { id: \"BAF8\", source: \"Chaos\" }\r\n591.2 \"--sync--\" Ability { id: \"BB09\", source: \"Exdeath\" }\r\n591.3 \"Thunder III 1\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n594.3 \"Thunder III 2\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n597.0 \"--sync--\" Ability { id: \"C555\", source: \"Kefka\" }\r\n603.0 \"Trance\" Ability { id: \"C2D6\", source: \"Kefka\" }\r\n604.2 \"Longitudinal Implosion/Latitudinal Implosion (castbar)\" Ability { id: [\"BAFD\", \"BAFE\"], source: \"Chaos\" }\r\n605.0 \"Shockwave 1\" #Ability { id: \"BAFF\", source: \"Chaos\" }\r\n607.0 \"Shockwave 2\" #Ability { id: \"BAFF\", source: \"Chaos\" }\r\n609.0 \"Stray Spray/Stray Flames\" Ability { id: [\"BAF6\", \"BAF3\"], source: [\"Kefka\", \"Chaos\"] }\r\n610.0 \"Tsunami/Inferno\" Ability { id: [\"BAF5\", \"BAF4\"], source: \"Chaos\" }\r\n611.7 \"Cyclone\" Ability { id: \"BAF8\", source: \"Chaos\" }\r\n\r\n# Ultima Blaster Preview\r\n620.3 \"Ultima Blaster 1\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n622.3 \"Ultima Blaster 2\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n624.3 \"Ultima Blaster 3\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n624.4 \"Umbra Smash\" Ability { id: \"BB00\", source: \"Chaos\" }\r\n626.3 \"Ultima Blaster 4\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n627.3 \"Vacuum Wave\" Ability { id: \"BB13\", source: \"Exdeath\" }\r\n628.3 \"Ultima Blaster 5\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n629.3 \"--numbers--\" # TODO: Get log timing\r\n630.3 \"Ultima Blaster 6\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n631.3 \"Cyclone\" Ability { id: \"BAF8\", source: \"Chaos\" }\r\n632.4 \"Ultima Blaster 7\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n632.7 \"Aetherlink\" Ability { id: [\"C2E4\", \"C2E5\"], source: [\"Chaos\", \"Exdeath\"] }\r\n634.4 \"Ultima Blaster 8\" #Ability { id: \"BAE3\", source: \"Kefka\" }\r\n\r\n# Ultima Blaster\r\n642.4 \"Ultima Blaster 1\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n642.6 \"Ultima Blaster 2\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n642.8 \"Ultima Blaster 3\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n643.0 \"Ultima Blaster 4\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n643.2 \"Ultima Blaster 5\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n643.4 \"Ultima Blaster 6\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n643.6 \"Ultima Blaster 7\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n643.8 \"Ultima Blaster 8\" #Ability { id: \"BAE4\", source: \"Kefka\" }\r\n649.7 \"--sync--\" Ability { id: \"BB09\", source: \"Exdeath\" }\r\n649.7 \"Thunder III 1\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n652.7 \"Thunder III 2\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n657.7 \"The Decisive Battle\" Ability { id: [\"C2E2\", \"C2E3\"], source: [\"Chaos\", \"Exdeath\"] }\r\n657.7 \"--single target--\" #GainsEffect { effectId: ['1061', '1063'] } # Epic Villain (Chaos)/Fated Villain (Exdeath)\r\n666.8 \"--sync--\" Ability { id: \"BB09\", source: \"Exdeath\" }\r\n666.8 \"Thunder III 1\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n\r\n# Giant Kefka + Earth Element\r\n668.6 \"Max\" Ability { id: \"BAE5\", source: \"Kefka\" }\r\n669.8 \"Thunder III 2\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n671.8 \"Earthquake\" Ability { id: \"C571\", source: \"Chaos\" }\r\n675.8 \"--accretion?--\"\r\n676.8 \"Accretion Earthquake 1?\" #Ability { id: \"BAFA\", source: \"Chaos\" } # Determined by healing player to full\r\n679.9 \"--accretion?--\"\r\n680.9 \"Accretion Earthquake 2?\" #Ability { id: \"BAFA\", source: \"Chaos\" } # Determined by healing player to full\r\n687.4 \"Slap Happy (castbar)\" Ability { id: [\"BAE6\", \"BAE7\"], source: \"Kefka\" }\r\n688.2 \"Slap Happy 1\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n688.9 \"Slap Happy 2\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n689.7 \"Slap Happy 3\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n690.9 \"Slap Happy 4\" Ability { id: \"BAE9\", source: \"Kefka\" }\r\n690.9 \"Shockwave\" #Ability { id: \"BAEB\", source: \"Kefka\" }\r\n\r\n691.2 \"Black Hole\" Ability { id: \"BAFB\", source: \"Exdeath\" }\r\n698.3 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n698.3 \"Aetherlink\" #Ability { id: [\"C2E4\", \"C2E5\"], source: [\"Chaos\", \"Exdeath\"] }\r\n705.3 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n708.4 \"--sync--\" Ability { id: \"BB09\", source: \"Exdeath\" }\r\n708.4 \"Thunder III 1\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n711.4 \"Thunder III 2\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n712.7 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n716.5 \"Damning Edict\" Ability { id: \"BB01\", source: \"Chaos\" }\r\n717.7 \"Slap Happy (castbar)\" Ability { id: [\"BAE6\", \"BAE7\"], source: \"Kefka\" }\r\n718.5 \"Slap Happy 1\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n719.2 \"Slap Happy 2\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n720.0 \"Slap Happy 3\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n721.2 \"Slap Happy 4\" Ability { id: \"BAE9\", source: \"Kefka\" }\r\n721.2 \"Shockwave\" #Ability { id: \"BAEB\", source: \"Kefka\" }\r\n724.6 \"Black Spark\" Ability { id: \"BCCD\", source: \"Black Hole\" }\r\n728.6 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n730.2 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n733.8 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n735.4 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n739.0 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n744.0 \"Damning Edict\" Ability { id: \"BB01\", source: \"Chaos\" }\r\n744.4 \"Look upon Me and Despair (castbar)\" Ability { id: \"BAEC\", source: \"Kefka\" }\r\n745.4 \"Look upon Me and Despair\" Ability { id: \"BAEE\", source: \"Kefka\" }\r\n747.5 \"Blackblood\" Ability { id: \"C4BA\", source: \"Kefka\" }\r\n747.5 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n749.7 \"--sync--\" Ability { id: \"BB09\", source: \"Exdeath\" }\r\n749.7 \"Thunder III 1\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n752.7 \"Thunder III 2\" #Ability { id: \"BB0C\", source: \"Exdeath\" }\r\n762.8 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n764.4 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n765.0 \"Aetherlink\" Ability { id: [\"C2E4\", \"C2E5\"], source: [\"Chaos\", \"Exdeath\"] }\r\n768.0 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n769.6 \"Primordial Crust Quake?\" #Ability { id: \"BAFA\", source: \"Chaos\" }\r\n773.2 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n\r\n784.2 \"White Hole\" Ability { id: \"BD66\", source: \"Exdeath\" }\r\n784.2 \"Longitudinal Implosion/Latitudinal Implosion (castbar)\" Ability { id: [\"BAFD\", \"BAFE\"], source: \"Chaos\" }\r\n785.0 \"Shockwave 1\" #Ability { id: \"BAFF\", source: \"Kefka\" }\r\n785.9 \"Slap Happy (castbar)\" Ability { id: [\"BAE6\", \"BAE7\"], source: \"Kefka\" }\r\n786.8 \"Slap Happy 1\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n787.2 \"Shockwave 2\" #Ability { id: \"BAFF\", source: \"Chaos\" }\r\n787.4 \"Slap Happy 2\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n788.1 \"Slap Happy 3\" #Ability { id: \"BAE8\", source: \"Kefka\" }\r\n789.3 \"Slap Happy 4\" Ability { id: \"BAE9\", source: \"Kefka\" }\r\n789.3 \"Shocking Impact\" Ability { id: \"BAEA\", source: \"Kefka\" }\r\n792.5 \"Black Spark\" Ability { id: \"BCCD\", source: [\"Black Hole\", \"Kefka\"] } # Supposed to be from Black Hole, but can bug\r\n796.5 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n802.2 \"Look upon Me and Despair (castbar)\" Ability { id: \"BAED\", source: \"Kefka\" }\r\n803.2 \"Look upon Me and Despair\" Ability { id: \"BAEE\", source: \"Kefka\" }\r\n803.5 \"Nothingness\" Ability { id: \"BAFC\", source: \"Black Hole\" }\r\n\r\n# Blizzards and Towers\r\n# Summary:\r\n# 1. Bait 2 Puddles\r\n# 2. Role 1 4-Stack\r\n# 3. Role 2 2-NW Towers\r\n# 4. Role 2 2-NE Towers\r\n# 5. Role 1 2-NW Towers\r\n# 6. Role 1 2-NE Towers\r\n# 7. Role 2 4-Stack\r\n# 8. Deep Freeze (Blizzard)\r\n805.3 \"--sync--\" Ability { id: \"C533\", source: \"Kefka\" }\r\n812.4 \"Blizzard III (castbar)\" Ability { id: \"BB0F\", source: \"Exdeath\" }\r\n815.4 \"Blizzard III 1\" Ability { id: \"BB0D\", source: \"Exdeath\" }\r\n816.3 \"Stomp-a-Mole (castbar)\" Ability { id: \"BAEF\", source: \"Kefka\" } # Possibly determines which foot he starts with and/or its based on facing?\r\n817.9 \"Knock Down 1\" Ability { id: \"BB02\", source: \"Chaos\" }\r\n818.0 \"Stomp-a-Mole 1\" Ability { id: \"BAF0\", source: \"Kefka\" }\r\n818.4 \"Blizzard III 2\" Ability { id: \"BB0D\", source: \"Exdeath\" }\r\n819.3 \"Stomp-a-Mole 2\" Ability { id: \"BAF0\", source: \"Kefka\" }\r\n820.6 \"Stomp-a-Mole 3\" Ability { id: \"BAF0\", source: \"Kefka\" }\r\n821.9 \"Stomp-a-Mole 4\" Ability { id: \"BAF0\", source: \"Kefka\" }\r\n823.3 \"Knock Down 2\" Ability { id: \"BB03\", source: \"Chaos\" }\r\n826.4 \"Blizzard III\" Ability { id: \"BB11\", source: \"Exdeath\" }\r\n827.4 \"Big Bang\" Ability { id: \"BB05\", source: \"Chaos\" }\r\n830.3 \"--both targetable--\" LosesEffect { effectId: ['1061', '1063'] } # Epic Villain (Chaos)/Fated Villain (Exdeath)\r\n\r\n840.7 \"--sync--\" StartsUsing { id: \"C61F\", source: \"Chaos\" } window 840,5 jump \"p3-chaos-enrage\" # This starts when Exdeath dies\r\n840.7 \"--sync--\" StartsUsing { id: \"C61E\", source: \"Exdeath\" } window 840,5 jump \"p3-exdeath-enrage\" # This starts when Chaos dies\r\n# Chaos triggers untargetable, but killing Exdeath does not trigger such\r\n\r\n840.8 \"--sync--\" StartsUsing { id: \"C258\", source: \"Exdeath\" } jump \"p3-enrage\"\r\n840.8 \"--sync--\" StartsUsing { id: \"C259\", source: \"Chaos\" } jump \"p3-enrage\"\r\n840.8 \"--Chaos untargetable?--\"\r\n840.8 \"--Exdeath untargetable?--\"\r\n845.8 \"Bowels of Agony (Enrage)?\" #Ability { id: \"C259\", source: \"Chaos\" } # Chaos >0% HP\r\n845.8 \"Meteor (Enrage)?\" #Ability { id: \"C258\", source: \"Exdeath\" } # Exdeath >0% HP\r\n850.7 \"Bowels of Agony (Chaos Enrage)?\" Ability { id: \"C61F\", source: \"Chaos\" } # Chaos > 0% HP, Exdeath killed first\r\n850.7 \"Meteor (Exdeath Enrage)?\" Ability { id: \"C61E\", source: \"Exdeath\" } # Exdeath > 0% HP, Chaos killed first\r\n\r\n### Phase 4 - Kefka with Chaos and Neo Exdeath\r\n# TODO: Cleanup p4 as there are multiple sequences that could happen\r\n# TODO: Update with network log\r\n# TODO: Add voiceline sync?\r\n# en: 'Boring!'\r\n# NOTE: Label not used due to unknown timing between Chaos/Exdeath kill order and time from Kefka Says\r\n995.0 \"--sync--\" StartsUsing { id: \"C2DC\", source: \"Kefka\" } window 995,14000 # Escape from the p3 exdeath enrage or chaos\r\n1000.0 \"Kefka Says\" Ability { id: \"C2DC\", source: \"Kefka\" }\r\n1003.1 \"--middle--\" Ability { id: \"C3FD\", source: \"Kefka\" }\r\n\r\n1009.4 \"Mystery Magic 1\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n1009.4 \"Thrumming Thunder III\" #Ability { id: \"BA9F\", source: \"Kefka\" }\r\n1009.4 \"Blizzard III Blowout\" #Ability { id: \"BA9B\", source: \"Kefka\" }\r\n1013.7 \"Grand Cross\" Ability { id: \"BB14\", source: \"Neo Exdeath\" }\r\n1018.7 \"Inferno/Tsunami\" Ability { id: [\"BB20\",\"BB21\"], source: \"Chaos\" }\r\n\r\n1024.1 \"Mystery Magic 2\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n1024.1 \"Thrumming Thunder III\" #Ability { id: \"BAA1\", source: \"Kefka\" }\r\n1024.1 \"Blizzard III Blowout\" #Ability { id: \"BA9B\", source: \"Kefka\" }\r\n1028.4 \"Grand Cross\" Ability { id: \"BB14\", source: \"Neo Exdeath\" }\r\n1033.5 \"Tsunami/Inferno\" Ability { id: [\"BB21\", \"BB20\"], source: \"Chaos\" }\r\n\r\n1039.2 \"Mystery Magic 3\" Ability { id: \"BA94\", source: \"Kefka\" }\r\n1039.2 \"Thrumming Thunder III\" #Ability { id: \"BAA1\", source: \"Kefka\" }\r\n1039.2 \"Blizzard III Blowout\" #Ability { id: \"BA9B\", source: \"Kefka\" }\r\n1043.3 \"Grand Cross\" Ability { id: \"BB14\", source: \"Neo Exdeath\" }\r\n\r\n1045.3 \"--sync--\" Ability { id: \"C554\", source: \"Kefka\" }\r\n\r\n1055.4 \"Flood of Naught\" Ability { id: \"C393\", source: \"Neo Exdeath\" }\r\n1055.8 \"Edge of Death\" Ability { id: \"C396\", source: \"Neo Exdeath\" }\r\n1055.8 \"White Antilight\" #Ability { id: \"C394\", source: \"Neo Exdeath\" }\r\n1055.8 \"Black Antilight\" #Ability { id: \"C395\", source: \"Neo Exdeath\" }\r\n1059.0 \"--sync--\" Ability { id: \"C555\", source: \"Kefka\" }\r\n1059.7 \"Death Surge\" Ability { id: \"BB1D\", source: \"Neo Exdeath\" }\r\n1064.1 \"Mana Charge\" Ability { id: \"BAA4\", source: \"Kefka\" }\r\n1064.4 \"Death Bolt\" #Ability { id: \"BB18\", source: \"Neo Exdeath\" }\r\n1064.4 \"Death Wave\" #Ability { id: \"BB1A\", source: \"Neo Exdeath\" }\r\n1072.4 \"Thrumming Thunder III\" Ability { id: \"C5DE\", source: \"Kefka\" }\r\n1072.4 \"Thrumming Thunder III\" #Ability { id: \"BA9F\", source: \"Kefka\" }\r\n1073.4 \"Death Shriek\" Ability { id: \"BB16\", source: \"Neo Exdeath\" }\r\n1082.5 \"Ultima Upsurge\" Ability { id: \"C24A\", source: \"Kefka\" }\r\n1085.3 \"Stray Flames\" Ability { id: \"BB23\", source: \"Chaos\" }\r\n1089.4 \"Death Wave\" Ability { id: \"BB1B\", source: \"Neo Exdeath\" }\r\n1089.4 \"Death Bolt\" #Ability { id: \"BB19\", source: \"Neo Exdeath\" }\r\n1089.4 \"Death Bomb\" #Ability { id: \"BB15\", source: \"Neo Exdeath\" }\r\n1090.4 \"Blizzard III Blowout\" Ability { id: \"BA9B\", source: \"Kefka\" }\r\n1094.6 \"Stray Spray\" #Ability { id: \"BB25\", source: \"Chaos\" }\r\n1095.9 \"Stray Spray\" #Ability { id: \"BB25\", source: \"Chaos\" }\r\n1097.2 \"Death Shriek\" Ability { id: \"BB17\", source: \"Neo Exdeath\" }\r\n1103.5 \"Mana Release\" Ability { id: \"BAA5\", source: \"Kefka\" }\r\n1107.6 \"Stray Spray\" Ability { id: \"BB25\", source: \"Chaos\" }\r\n1108.5 \"Thrumming Thunder III\" #Ability { id: \"BA9F\", source: \"Kefka\" }\r\n1108.5 \"Blizzard III Blowout\" #Ability { id: \"BA9B\", source: \"Kefka\" }\r\n\r\n1112.8 \"--sync--\" StartsUsing { id: \"BABB\", source: \"Kefka\" } jump \"p1-and-p4-enrage\"\r\n1112.8 \"--untargetable?--\"\r\n1114.8 \"--middle?--\" Ability { id: \"C3FD\", source: \"Kefka\" } window 90,5 jump \"p4-success\" # Kefka <20% HP\r\n1117.8 \"Light of Judgment (Enrage)?\" #Ability { id: \"BABB\", source: \"Kefka\" } # Kefka >20% HP\r\n1121.3 \"Ultima Upsurge?\" #Ability { id: \"C24A\", source: \"Kefka\" }\r\n1159.2 \"Ultima Repeater (castbar)?\" #Ability { id: \"BB40\", source: \"Kefka\" }\r\n\r\n\r\n### Phase 5 - Kefka\r\n# TODO: Add voiceline sync?\r\n# en: 'Destruction is the fate of all things.'\r\n1255.6 label \"p4-success\"\r\n1255.6 \"--middle--\" Ability { id: \"C3FD\", source: \"Kefka\" }\r\n1261.9 \"Ultima Upsurge\" Ability { id: \"C24A\", source: \"Kefka\" }\r\n1300.0 \"Ultima Repeater (castbar)\" Ability { id: \"BB40\", source: \"Kefka\" }\r\n1301.1 \"Ultima Repeater 1\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1301.9 \"Ultima Repeater 2\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1302.6 \"Ultima Repeater 3\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1303.4 \"Ultima Repeater 4\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1305.4 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1306.3 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1308.6 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1309.5 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1311.7 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1312.6 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n\r\n1314.5 \"--sync--\" #Ability { id: \"C183\", source: \"Kefka\" }\r\n1315.5 \"--sync--\" #Ability { id: \"C183\", source: \"Kefka\" }\r\n1316.5 \"--sync--\" #Ability { id: \"C183\", source: \"Kefka\" }\r\n1317.5 \"--sync--\" #Ability { id: \"C183\", source: \"Kefka\" }\r\n1317.9 \"Flood\" Ability { id: \"C13F\", source: \"Kefka\" }\r\n1318.9 \"Chaotic Flood\" #Ability { id: \"BB4F\", source: \"Kefka\" }\r\n1318.9 \"Flood\" #Ability { id: \"C269\", source: \"Kefka\" }\r\n1319.8 \"Chaotic Flood\" #Ability { id: \"BB4F\", source: \"Kefka\" }\r\n1319.9 \"Flood\" #Ability { id: \"C269\", source: \"Kefka\" }\r\n1320.8 \"Chaotic Flood\" #Ability { id: \"BB4F\", source: \"Kefka\" }\r\n1320.9 \"Flood\" #Ability { id: \"C269\", source: \"Kefka\" }\r\n1321.8 \"Chaotic Flood\" #Ability { id: \"BB4F\", source: \"Kefka\" }\r\n1321.9 \"Flood\" #Ability { id: \"C269\", source: \"Kefka\" }\r\n\r\n1330.9 \"Maddening Orchestra\" Ability { id: \"BB50\", source: \"Kefka\" }\r\n1331.8 \"Holy\" Ability { id: \"BB54\", source: \"Kefka\" }\r\n1331.8 \"Flare\" #Ability { id: \"BB52\", source: \"Kefka\" }\r\n1334.0 \"Maddening Orchestra\" Ability { id: \"BB51\", source: \"Kefka\" }\r\n1334.9 \"Holy\" Ability { id: \"BB54\", source: \"Kefka\" }\r\n1334.9 \"Chaotic Flare\" #Ability { id: \"BB53\", source: \"Kefka\" }\r\n1334.9 \"Holy\" Ability { id: \"BB54\", source: \"Kefka\" }\r\n1338.3 \"Chaotic Holy\" Ability { id: \"BB56\", source: \"Kefka\" }\r\n1338.3 \"Flare Diffusion\" #Ability { id: \"BB55\", source: \"Kefka\" }\r\n1342.2 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1343.1 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1345.4 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1346.3 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n\r\n1352.9 \"Celestriad\" Ability { id: \"BB42\", source: \"Kefka\" }\r\n1361.3 \"Catastrophic Choice\" Ability { id: \"C24F\", source: \"Kefka\" }\r\n1362.0 \"Fire III/Blizzard III/Thunder III?\" Ability { id: [\"BB43\", \"BB44\", \"BB45\"], source: \"Kefka\" }\r\n1362.1 \"Tornado\" Ability { id: \"BB4B\", source: \"Kefka\" }\r\n1368.0 \"Fire III/Blizzard III/Thunder III?\" Ability { id: [\"BB43\", \"BB44\", \"BB45\"], source: \"Kefka\" }\r\n1373.4 \"Catastrophic Choice\" Ability { id: \"C24E\", source: \"Kefka\" }\r\n1374.0 \"Fire III/Blizzard III/Thunder III?\" Ability { id: [\"BB43\", \"BB44\", \"BB45\"], source: \"Kefka\" }\r\n1374.2 \"Quake\" Ability { id: \"BB4A\", source: \"Kefka\" }\r\n\r\n1382.2 \"Ultima Repeater (castbar)\" Ability { id: \"BB40\", source: \"Kefka\" }\r\n1383.3 \"Ultima Repeater 1\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1384.1 \"Ultima Repeater 2\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1384.8 \"Ultima Repeater 3\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1385.6 \"Ultima Repeater 4\" #Ability { id: \"BB41\", source: \"Kefka\" }\r\n1387.6 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1388.5 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1390.8 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1391.7 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n\r\n1397.1 \"Stray Apocalypse (castbar)\" Ability { id: \"BB3B\", source: \"Kefka\" }\r\n1397.1 \"--sync--\" #Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1397.8 \"Stray Apocalypse 1 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1399.3 \"--sync--\" Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1400.0 \"Stray Apocalypse 2 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1401.3 \"--sync--\" Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1402.0 \"Stray Apocalypse 3 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1403.3 \"--sync--\" Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1404.0 \"Stray Apocalypse 4 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1405.3 \"--sync--\" Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1406.0 \"Stray Apocalypse 5 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1407.3 \"--sync--\" Ability { id: \"BB3C\", source: \"Kefka\" }\r\n1408.0 \"Stray Apocalypse 6 x6\" #Ability { id: \"BB3D\", source: \"Kefka\" } duration 2.4\r\n1412.0 \"Stray Entropy\" Ability { id: \"BB3E\", source: \"Kefka\" }\r\n1412.9 \"Stray Entropy\" Ability { id: \"BB3F\", source: \"Kefka\" }\r\n\r\n1421.1 \"Maddening Orchestra\" Ability { id: \"BB50\", source: \"Kefka\" }\r\n1422.0 \"Holy\" Ability { id: \"BB54\", source: \"Kefka\" }\r\n1422.0 \"Flare\" #Ability { id: \"BB52\", source: \"Kefka\" }\r\n1424.2 \"Maddening Orchestra\" Ability { id: \"BB51\", source: \"Kefka\" }\r\n1425.1 \"Holy\" Ability { id: \"BB54\", source: \"Kefka\" }\r\n1425.1 \"Chaotic Flare\" #Ability { id: \"BB53\", source: \"Kefka\" }\r\n1428.7 \"Flare Diffusion\" Ability { id: \"BB55\", source: \"Kefka\" }\r\n1428.7 \"Chaotic Holy\" #Ability { id: \"BB56\", source: \"Kefka\" }\r\n1432.5 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1433.4 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1435.7 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1436.6 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n1438.9 \"--sync--\" Ability { id: \"C652\", source: \"Kefka\" }\r\n1439.8 \"Fell Forces\" Ability { id: [\"C654\", \"C653\", \"C654\"], source: \"Kefka\" }\r\n\r\n# P5 Enrage sequence\r\n1451.1 \"Forsaken 1\" Ability { id: \"BB35\", source: \"Kefka\" }\r\n1456.1 \"Forsaken Ground/Forsaken Bonds\" #Ability { id: [\"BB37\", \"BB39\"], source: \"Kefka\" }\r\n1459.1 \"Forsaken 2\" Ability { id: \"BB36\", source: \"Kefka\" }\r\n1464.1 \"Forsaken Ground/Forsaken Bonds\" #Ability { id: [\"BB37\", \"BB39\"], source: \"Kefka\" }\r\n1467.1 \"Forsaken 3\" Ability { id: \"BB36\", source: \"Kefka\" }\r\n1472.1 \"Forsaken Ground/Forsaken Bonds\" #Ability { id: [\"BB37\", \"BB39\"], source: \"Kefka\" }\r\n1475.1 \"Forsaken 4\" Ability { id: \"BB36\", source: \"Kefka\" }\r\n1480.1 \"Forsaken Ground/Forsaken Bonds\" #Ability { id: [\"BB37\", \"BB39\"], source: \"Kefka\" }\r\n1485.1 \"--sync--\" StartsUsing { id: \"BB3A\", source: \"Kefka\" }\r\n1511.1 \"Forsaken Null (Enrage)\" Ability { id: \"BB3A\", source: \"Kefka\" }\r\n\r\n\r\n# Phase 1 and Phase 4 Enrage Sequence\r\n10000.0 label \"p1-and-p4-enrage\"\r\n10005.0 \"Light of Judgment (Enrage)\" Ability { id: \"BABB\", source: \"Kefka\" } # P1 Kefka > 15%HP / P4 Kefka >20% HP\r\n\r\n# Phase 2 Enrage Sequence\r\n11000.0 label \"p2-enrage\"\r\n11005.0 \"Light of Judgment (Enrage)\" Ability { id: \"BAE1\", source: \"Kefka\" } # Kefka >0% HP\r\n\r\n# Phase 3 Enrage Sequence\r\n12000.0 label \"p3-enrage\"\r\n12005.0 \"Bowels of Agony (Enrage)\" Ability { id: \"C259\", source: \"Chaos\" } # Chaos >0% HP\r\n12005.0 \"Meteor (Enrage)\" Ability { id: \"C258\", source: \"Exdeath\" } # Exdeath >0% HP\r\n\r\n# Phase 3 Exdeath Enrage Sequence\r\n13000.0 label \"p3-exdeath-enrage\"\r\n13010.0 \"Meteor (Exdeath Enrage)\" Ability { id: \"C61E\", source: \"Exdeath\" } # Exdeath >0% HP\r\n# NOTE: Using a window to jump back to p4, killing Exdeath first triggers a separate sequence\r\n\r\n# Phase 3 Chaos Enrage Sequence\r\n14000.0 label \"p3-chaos-enrage\"\r\n14010.0 \"Bowels of Agony (Chaos Enrage)\" Ability { id: \"C61F\", source: \"Chaos\" } # Chaos >0% HP\r\n# NOTE: Using a window to jump back to p4, killing Chaos first triggers a separate sequence\r\n\r\n# Phase 4 Enrage Sequence\r\n15000.0 label \"p4-enrage\"\r\n15005.0 \"Light of Judgment (Enrage)\" Ability { id: \"BABB\", source: \"Kefka\" } # Kefka >20% HP\r\n\r\n# P1 IGNORED ABILITIES\r\n# C252 Attack: P1 Kefka attack and P3 Chaos attack\r\n# BA9E Blizzard III Blowout: Damage\r\n# BA95 Blizzard III Blowout: VFX\r\n# BAA0 Thrumming Thunder III: VFX\r\n# BAAB Unmitigated Explosion: Failing to soak a tower from BAA8 Wave Cannon\r\n# BAAD Gravitational Explosion: BAB0 Vitrophyre aoe overlaps with BAAC Gravitas puddle\r\n# BAAF Gravity III: Soaking the Gravitas puddles at the correct time\r\n\r\n# P2 IGNORED ABILITIES\r\n# BABF The River of Light: Failing to soak a tower in P2, applies a 3-minute damage down\r\n# BAD6 Future's End: Damage (On 1 player)\r\n# BAD7 Past's End: Damage (On 1 player)\r\n# BAD8 Future's End: Damage (On 3 players)\r\n# BAD9 Past's End: Damage (On 3 players)\r\n# BACF Wings of Destruction: AOE Damage (On nearest/furthest players)\r\n\r\n# P3 IGNORED ABILITIES\r\n# C250 Attack: P3 Exdeath attack\r\n# BAF7 Stray Gusts: Some sort of failed P3 mechanic\r\n# BAF9 Stray Earth: Some sort of failed P3 mechanic\r\n# C572 Earthquake: VFX\r\n# BAFA Earthquake: Cast when Accretion or Primordial Crust are cleansed\r\n# BAF1 Unmitigated Impact: P3 Failing to soak a tower\r\n# BB06 Big Bang: 2 Circle AOEs that target locations where BB03 Knock Down stacks occurred\r\n\r\n# P5 IGNORED ABILITIES\r\n# BB38 Forsaken: VFX\r\n\r\n# ALL ENCOUNTER ABILITIES\r\n# BA94 Mystery Magic\r\n# BA95 Blizzard III Blowout: VFX (paired with BA98)\r\n# BA98 Blizzard III Blowout: Damage for Fake? (paired with BA95)\r\n# BA9B Blizzard III Blowout: VFX (paired with BA9E)\r\n# BA9E Blizzard III Blowout: Damage (paired with BA9B)\r\n# BA9F Thrumming Thunder III: Damage for Fake? (No corresponding VFX)\r\n# BAA0 Thrumming Thunder III: VFX (paired with BAA1)\r\n# BAA1 Thrumming Thunder III: Damage (paired with BAA0)\r\n# BAA2 Flagrant Fire III: Spread Damage\r\n# BAA3 Flagrant Fire III: Stack Damage\r\n# BAA4 Mana Charge\r\n# BAA5 Mana Release\r\n# BAA6 Double-Trouble Trap: VFX\r\n# BAA7 Double-Trouble Trap\r\n# BAA8 Wave Cannon\r\n# BAA9 Pulse Wave\r\n# BAAA Explosion: Cast by towers that are dropped from getting hit by BAA8 Wave Cannon\r\n# BAAB Unmitigated Explosion: Failing to soak a tower from BAA8 Wave Cannon\r\n# BAAC Gravitas\r\n# BAAF Gravity III: Soaking the Gravitas puddles at the correct time\r\n# BAAD Gravitational Explosion: BAB0 Vitrophyre aoe overlaps with BAAC Gravitas puddle\r\n# BAB0 Vitrophyre\r\n# BAB1 Gravitational Wave\r\n# BAB2 Intemperate Will\r\n# BAB3 Ave Maria\r\n# BAB4 Indolent Will\r\n# BAB5 Indulgent Will\r\n# BAB6 Idyllic Will\r\n# BAB9 Tele-Trouncing: VFX\r\n# BABA Tele-Trouncing\r\n# BABB Light of Judgment: P1 Enrage and P4 Enrage\r\n# BABC Forsaken\r\n# BABD Light of Judgment: P2 version\r\n# BABE The Path of Light\r\n# BABF The River of Light: Failing to soak a tower in P2, applies a 3-minute damage down\r\n# BAC0 Spelldriver\r\n# BAC1 Spellscatter\r\n# BAC2 Spellwave\r\n# BACD Wings of Destruction: Left wing\r\n# BACE Wings of Destruction: Right wing\r\n# BACF Wings of Destruction: AOE Damage (On nearest/furthest players)\r\n# BAD2 Future's End: VFX\r\n# BAD3 Past's End: VFX\r\n# BAD6 Future's End: Damage (On 1 player)\r\n# BAD7 Past's End: Damage (On 1 player)\r\n# BAD8 Future's End: Damage (On 3 players)\r\n# BAD9 Past's End: Damage (On 3 players)\r\n# BADC All Things Ending: Followup to BAD2 Future's End\r\n# BADD All Things Ending: Followup to BAD3 Past's End\r\n# BADF Trine\r\n# BAE0 Trine\r\n# BAE1 Light of Judgment: P2 Enrage\r\n# BAE2 Definition of Insanity\r\n# BAE3 Ultima Blaster\r\n# BAE4 Ultima Blaster\r\n# BAE5 Max\r\n# BAE6 Slap Happy: Boss slaps his right 3 times (party cleave) + left once\r\n# BAE7 Slap Happy: Boss slaps his left 3 times (role cleaves) + right once\r\n# BAE8 Slap Happy: 3 slaps on one side\r\n# BAE9 Slap Happy: Last slap that flips sides\r\n# BAEA Shocking Impact\r\n# BAEB Shockwave\r\n# BAEC Look upon Me and Despair: Kefka falls on his right side across center of arena\r\n# BAED Look upon Me and Despair: Kefka falls on his left side across center of arena\r\n# BAEE Look upon Me and Despair: Gives a 3-min damage down if hit\r\n# BAEF Stomp-a-Mole\r\n# BAF0 Stomp-a-Mole\r\n# BAF1 Unmitigated Impact\r\n# BAF2 Bowels of Agony\r\n# BAF3 Stray Flames\r\n# BAF4 Inferno\r\n# BAF5 Tsunami\r\n# BAF6 Stray Spray\r\n# BAF7 Stray Gusts: Some sort of failed P3 mechanic\r\n# BAF8 Cyclone\r\n# BAF9 Stray Earth: Some sort of failed P3 mechanic\r\n# BAFA Earthquake: Cast when Accretion or Primordial Crust are cleansed\r\n# BAFB Black Hole\r\n# BAFC Nothingness\r\n# BAFD Longitudinal Implosion\r\n# BAFE Latitudinal Implosion\r\n# BAFF Shockwave:  ~0.7s after Longitudinal/Latitudinal Implosion, there will be 2, then 2s later another 2\r\n# BB00 Umbra Smash\r\n# BB01 Damning Edict\r\n# BB02 Knock Down: VFX\r\n# BB03 Knock Down: Damage\r\n# BB05 Big Bang: VFX castbar\r\n# BB06 Big Bang: 2 Circle AOEs that target locations where BB03 Knock Down stacks occurred\r\n# BB09 Thunder III: VFX castbar\r\n# BB0C Thunder III: Damage from bb09\r\n# BB0D Blizzard III\r\n# BB0F Blizzard III\r\n# BB11 Blizzard III\r\n# BB12 Thunder III\r\n# BB13 Vacuum Wave\r\n# BB14 Grand Cross\r\n# BB15 Death Bomb\r\n# BB16 Death Shriek\r\n# BB17 Death Shriek\r\n# BB18 Death Bolt\r\n# BB19 Death Bolt\r\n# BB1A Death Wave\r\n# BB1B Death Wave\r\n# BB1C Death Surge\r\n# BB1D Death Surge\r\n# BB20 Inferno\r\n# BB21 Tsunami\r\n# BB22 Stray Flames\r\n# BB23 Stray Flames\r\n# BB24 Stray Spray\r\n# BB25 Stray Spray\r\n# BCCD Black Spark\r\n# BB35 Forsaken: Castbar + AOE Damage\r\n# BB36 Forsaken: AOE Damage\r\n# BB37 Forsaken Ground: puddles\r\n# BB38 Forsaken: VFX\r\n# BB39 Forsaken Bonds: Stack damage\r\n# BB3A Forsaken Null: P5 Enrage\r\n# BB3B Stray Apocalypse: Cast\r\n# BB3C Stray Apocalypse: VFX of exa spawning\r\n# BB3D Stray Apocalypse: Exa AOE (x6)\r\n# BB3E Stray Entropy\r\n# BB3F Stray Entropy\r\n# BB40 Ultima Repeater\r\n# BB41 Ultima Repeater\r\n# BB42 Celestriad\r\n# BB43 Fire III\r\n# BB44 Blizzard III\r\n# BB45 Thunder III\r\n# BB4A Quake\r\n# BB4B Tornado\r\n# BB4F Chaotic Flood\r\n# BB50 Maddening Orchestra\r\n# BB51 Maddening Orchestra\r\n# BB52 Flare\r\n# BB53 Chaotic Flare\r\n# BB54 Holy\r\n# BB55 Flare Diffusion\r\n# BB56 Chaotic Holy\r\n# BCCD Black Spark: A fail in P3 that causes 3-minute Damage Down\r\n# BCF2 Graven Image\r\n# BD66 White Hole\r\n# C13F Flood\r\n# C183 --sync--\r\n# C24A Ultima Upsurge\r\n# C24B Hyperdrive\r\n# C24C Ultimate Embrace\r\n# C24E Catastrophic Choice\r\n# C24F Catastrophic Choice\r\n# C250 Attack: P3 Exdeath attack\r\n# C252 Attack: P1 Kefka attack and P3 Chaos attack\r\n# C258 Meteor: P3 Chaos Enrage\r\n# C259 Bowels of Agony: P3 Exdeath Enrage\r\n# C269 Flood\r\n# C2D6 Trance\r\n# C2DC Kefka Says\r\n# C2E2 The Decisive Battle: Cast by Chaos, shares health pool with Exdeath\r\n# C2E3 The Decisive Battle: Cast by Exdeath, shares health pool with Chaos\r\n# C2E4 Aetherlink: Cast by Chaos\r\n# C2E5 Aetherlink: Cast by Exdeath\r\n# C392 Flood of Naught\r\n# C393 Flood of Naught\r\n# C394 White Antilight\r\n# C395 Black Antilight\r\n# C396 Edge of Death\r\n# C3A2 Flood of Naught\r\n# C3F7 Aero III Assault\r\n# C3FD --sync--: Boss jumps to middle\r\n# C403 Revolting Ruin III\r\n# C487 Wings of Destruction: VFX/castbar for BACF\r\n# C4BA Blackblood\r\n# C4E1 Revolting Ruin III\r\n# C533 --sync--\r\n# C554 --sync--\r\n# C555 --sync--\r\n# C571 Earthquake\r\n# C572 Earthquake: VFX\r\n# C5DE Thrumming Thunder III\r\n# C61E Meteor: Exdeath enrage when you kill Chaos first\r\n# C61F Bowels of Agony: Chaos Enrage when you kill Exdeath first\r\n# C622 Light of Judgment: P1 version\r\n# C652 --sync--\r\n# C653 Fell Forces: Shared AOE that targets random Tank\r\n# C654 Fell Forces: Shared AOE that target random Healer\r\n# C655 Fell Forces: Shared AOE that targets random DPS\r\n";
 ;// CONCATENATED MODULE: ./ui/raidboss/data/07-dt/ultimate/futures_rewritten.ts
 
 
@@ -286502,7 +294797,9 @@ const futures_rewritten_triggerSet = {
       cn: `Y 北, DPS 东-西南, T奶 西-东北: <a href="https://pastebin.com/ue7w9jJH" target="_blank">LesBin</a>.
           方向输出为真北 (即 “东”表示实际的东, 而不是相对于 “Y” 北的东)。`,
       ko: `Y가 북쪽, 딜러 동-남서쪽, 탱힐 서-북동쪽: <a href="https://pastebin.com/ue7w9jJH" target="_blank">LesBin</a>.
-          방향 알림은 실제 북쪽입니다. (즉, "동쪽"은 실제 동쪽을 의미하며, "Y" 모양의 동쪽이 아닙니다.)`
+          방향 알림은 실제 북쪽입니다. (즉, "동쪽"은 실제 동쪽을 의미하며, "Y" 모양의 동쪽이 아닙니다.)`,
+      tc: `Y 北, DPS 東-西南, T奶 西-東北: <a href="https://pastebin.com/ue7w9jJH" target="_blank">LesBin</a>.
+          方向輸出為真北 (即 “東”表示實際的東, 而不是相對於 “Y” 北的東)。`
     },
     name: {
       en: 'P3 Ultimate Relativity',
@@ -286541,7 +294838,8 @@ const futures_rewritten_triggerSet = {
       en: `DPS NE->S, Support SW->N: <a href="https://pastebin.com/ue7w9jJH" target="_blank">LesBin</a>`,
       de: `DPS NO->S, Support SW->N: <a href="https://pastebin.com/ue7w9jJH" target="_blank">LesBin</a>`,
       cn: `DPS 东北->南, T奶 西南->北: <a href="https://pastebin.com/ue7w9jJH" target="_blank">LesBin</a>`,
-      ko: `딜러 북동->남, 탱힐 남서->북: <a href="https://pastebin.com/ue7w9jJH" target="_blank">LesBin</a>`
+      ko: `딜러 북동->남, 탱힐 남서->북: <a href="https://pastebin.com/ue7w9jJH" target="_blank">LesBin</a>`,
+      tc: `DPS 東北->南, T奶 西南->北: <a href="https://pastebin.com/ue7w9jJH" target="_blank">LesBin</a>`
     },
     name: {
       en: 'P3 Apocalypse',
@@ -290924,7 +299222,9 @@ const readme_namespaceObject = "This directory is for local, developer-specific 
 
 
 
-/* harmony default export */ const raidboss_manifest = ({'00-misc/general.ts': general,'00-misc/test.ts': test,'00-misc/test.txt': _00_misc_test_namespaceObject,'00-misc/the_masked_carnivale.ts': the_masked_carnivale,'02-arr/alliance/the_world_of_darkness.ts': the_world_of_darkness,'02-arr/dungeon/amdapor_keep.ts': amdapor_keep,'02-arr/dungeon/amdapor_keep_hard.ts': amdapor_keep_hard,'02-arr/dungeon/aurum_vale.ts': aurum_vale,'02-arr/dungeon/aurum_vale73.ts': aurum_vale73,'02-arr/dungeon/brayfloxs_longstop.ts': brayfloxs_longstop,'02-arr/dungeon/cutters_cry.ts': cutters_cry,'02-arr/dungeon/cutters_cry72.ts': cutters_cry72,'02-arr/dungeon/halatali_hard.ts': halatali_hard,'02-arr/dungeon/haukke_manor.ts': haukke_manor,'02-arr/dungeon/haukke_manor_hard.ts': haukke_manor_hard,'02-arr/dungeon/hullbreaker_isle.ts': hullbreaker_isle,'02-arr/dungeon/pharos_sirius.ts': pharos_sirius,'02-arr/dungeon/sastasha_hard.ts': sastasha_hard,'02-arr/dungeon/snowcloak.ts': snowcloak,'02-arr/dungeon/the_lost_city_of_amdapor.ts': the_lost_city_of_amdapor,'02-arr/dungeon/the_stone_vigil.ts': the_stone_vigil,'02-arr/dungeon/the_stone_vigil_hard.ts': the_stone_vigil_hard,'02-arr/dungeon/the_sunken_temple_of_quarn.ts': the_sunken_temple_of_quarn,'02-arr/dungeon/the_sunken_temple_of_quarn71.ts': the_sunken_temple_of_quarn71,'02-arr/dungeon/the_sunken_temple_of_quarn_hard.ts': the_sunken_temple_of_quarn_hard,'02-arr/dungeon/the_tam_tara_depocraft_hard.ts': the_tam_tara_depocraft_hard,'02-arr/dungeon/the_wanderers_palace_hard.ts': the_wanderers_palace_hard,'02-arr/raid/t1.ts': t1,'02-arr/raid/t10.ts': t10,'02-arr/raid/t10.txt': raid_t10_namespaceObject,'02-arr/raid/t11.ts': t11,'02-arr/raid/t11.txt': raid_t11_namespaceObject,'02-arr/raid/t12.ts': t12,'02-arr/raid/t12.txt': raid_t12_namespaceObject,'02-arr/raid/t13.ts': t13,'02-arr/raid/t13.txt': raid_t13_namespaceObject,'02-arr/raid/t2.ts': t2,'02-arr/raid/t4.ts': t4,'02-arr/raid/t4.txt': raid_t4_namespaceObject,'02-arr/raid/t5.ts': t5,'02-arr/raid/t5.txt': raid_t5_namespaceObject,'02-arr/raid/t6.ts': t6,'02-arr/raid/t6.txt': raid_t6_namespaceObject,'02-arr/raid/t7.ts': t7,'02-arr/raid/t7.txt': raid_t7_namespaceObject,'02-arr/raid/t8.ts': t8,'02-arr/raid/t8.txt': raid_t8_namespaceObject,'02-arr/raid/t9.ts': t9,'02-arr/raid/t9.txt': raid_t9_namespaceObject,'02-arr/trial/ifrit-nm.ts': ifrit_nm,'02-arr/trial/ifrit-nm.txt': trial_ifrit_nm_namespaceObject,'02-arr/trial/levi-ex.ts': levi_ex,'02-arr/trial/levi-ex.txt': trial_levi_ex_namespaceObject,'02-arr/trial/shiva-ex.ts': shiva_ex,'02-arr/trial/shiva-ex.txt': trial_shiva_ex_namespaceObject,'02-arr/trial/shiva-hm.ts': shiva_hm,'02-arr/trial/shiva-hm.txt': trial_shiva_hm_namespaceObject,'02-arr/trial/titan-ex.ts': titan_ex,'02-arr/trial/titan-ex.txt': trial_titan_ex_namespaceObject,'02-arr/trial/titan-hm.ts': titan_hm,'02-arr/trial/titan-hm.txt': trial_titan_hm_namespaceObject,'02-arr/trial/titan-nm.ts': titan_nm,'02-arr/trial/titan-nm.txt': trial_titan_nm_namespaceObject,'02-arr/trial/ultima-ex.ts': ultima_ex,'02-arr/trial/ultima-ex.txt': trial_ultima_ex_namespaceObject,'03-hw/alliance/dun_scaith.ts': dun_scaith,'03-hw/alliance/dun_scaith.txt': alliance_dun_scaith_namespaceObject,'03-hw/alliance/weeping_city.ts': weeping_city,'03-hw/alliance/weeping_city.txt': alliance_weeping_city_namespaceObject,'03-hw/deepdungeon/the_palace_of_the_dead_floors_001-010.ts': the_palace_of_the_dead_floors_001_010,'03-hw/deepdungeon/the_palace_of_the_dead_floors_011-020.ts': the_palace_of_the_dead_floors_011_020,'03-hw/deepdungeon/the_palace_of_the_dead_floors_021-030.ts': the_palace_of_the_dead_floors_021_030,'03-hw/deepdungeon/the_palace_of_the_dead_floors_031-040.ts': the_palace_of_the_dead_floors_031_040,'03-hw/deepdungeon/the_palace_of_the_dead_floors_041-050.ts': the_palace_of_the_dead_floors_041_050,'03-hw/deepdungeon/the_palace_of_the_dead_floors_051-060.ts': the_palace_of_the_dead_floors_051_060,'03-hw/deepdungeon/the_palace_of_the_dead_floors_061-070.ts': the_palace_of_the_dead_floors_061_070,'03-hw/deepdungeon/the_palace_of_the_dead_floors_071-080.ts': the_palace_of_the_dead_floors_071_080,'03-hw/deepdungeon/the_palace_of_the_dead_floors_081-090.ts': the_palace_of_the_dead_floors_081_090,'03-hw/deepdungeon/the_palace_of_the_dead_floors_091-100.ts': the_palace_of_the_dead_floors_091_100,'03-hw/deepdungeon/the_palace_of_the_dead_floors_101-110.ts': the_palace_of_the_dead_floors_101_110,'03-hw/deepdungeon/the_palace_of_the_dead_floors_111-120.ts': the_palace_of_the_dead_floors_111_120,'03-hw/deepdungeon/the_palace_of_the_dead_floors_121-130.ts': the_palace_of_the_dead_floors_121_130,'03-hw/deepdungeon/the_palace_of_the_dead_floors_131-140.ts': the_palace_of_the_dead_floors_131_140,'03-hw/deepdungeon/the_palace_of_the_dead_floors_141-150.ts': the_palace_of_the_dead_floors_141_150,'03-hw/deepdungeon/the_palace_of_the_dead_floors_151-160.ts': the_palace_of_the_dead_floors_151_160,'03-hw/deepdungeon/the_palace_of_the_dead_floors_161-170.ts': the_palace_of_the_dead_floors_161_170,'03-hw/deepdungeon/the_palace_of_the_dead_floors_171-180.ts': the_palace_of_the_dead_floors_171_180,'03-hw/deepdungeon/the_palace_of_the_dead_floors_181-190.ts': the_palace_of_the_dead_floors_181_190,'03-hw/deepdungeon/the_palace_of_the_dead_floors_191-200.ts': the_palace_of_the_dead_floors_191_200,'03-hw/deepdungeon/the_palace_of_the_dead_general.ts': the_palace_of_the_dead_general,'03-hw/dungeon/aetherochemical_research_facility.ts': aetherochemical_research_facility,'03-hw/dungeon/aetherochemical_research_facility.txt': dungeon_aetherochemical_research_facility_namespaceObject,'03-hw/dungeon/baelsars_wall.ts': baelsars_wall,'03-hw/dungeon/baelsars_wall.txt': dungeon_baelsars_wall_namespaceObject,'03-hw/dungeon/fractal_continuum.ts': fractal_continuum,'03-hw/dungeon/fractal_continuum.txt': dungeon_fractal_continuum_namespaceObject,'03-hw/dungeon/gubal_library_hard.ts': gubal_library_hard,'03-hw/dungeon/gubal_library_hard.txt': dungeon_gubal_library_hard_namespaceObject,'03-hw/dungeon/sohm_al.ts': sohm_al,'03-hw/dungeon/sohm_al.txt': dungeon_sohm_al_namespaceObject,'03-hw/dungeon/sohm_al_hard.ts': sohm_al_hard,'03-hw/dungeon/sohm_al_hard.txt': dungeon_sohm_al_hard_namespaceObject,'03-hw/dungeon/the_lost_city_of_amdapor_hard.ts': the_lost_city_of_amdapor_hard,'03-hw/dungeon/the_lost_city_of_amdapor_hard.txt': dungeon_the_lost_city_of_amdapor_hard_namespaceObject,'03-hw/dungeon/the_vault.ts': the_vault,'03-hw/dungeon/the_vault.txt': dungeon_the_vault_namespaceObject,'03-hw/dungeon/xelphatol.ts': xelphatol,'03-hw/dungeon/xelphatol.txt': dungeon_xelphatol_namespaceObject,'03-hw/map/the_aquapolis.ts': the_aquapolis,'03-hw/pvp/shatter.ts': shatter,'03-hw/raid/a10n.ts': a10n,'03-hw/raid/a10n.txt': raid_a10n_namespaceObject,'03-hw/raid/a10s.ts': a10s,'03-hw/raid/a10s.txt': raid_a10s_namespaceObject,'03-hw/raid/a11s.ts': a11s,'03-hw/raid/a11s.txt': raid_a11s_namespaceObject,'03-hw/raid/a12n.ts': a12n,'03-hw/raid/a12n.txt': raid_a12n_namespaceObject,'03-hw/raid/a12s.ts': a12s,'03-hw/raid/a12s.txt': raid_a12s_namespaceObject,'03-hw/raid/a1s.ts': a1s,'03-hw/raid/a1s.txt': raid_a1s_namespaceObject,'03-hw/raid/a2s.ts': a2s,'03-hw/raid/a2s.txt': raid_a2s_namespaceObject,'03-hw/raid/a3n.ts': a3n,'03-hw/raid/a3n.txt': raid_a3n_namespaceObject,'03-hw/raid/a3s.ts': a3s,'03-hw/raid/a3s.txt': raid_a3s_namespaceObject,'03-hw/raid/a4s.ts': a4s,'03-hw/raid/a4s.txt': raid_a4s_namespaceObject,'03-hw/raid/a5s.ts': a5s,'03-hw/raid/a5s.txt': raid_a5s_namespaceObject,'03-hw/raid/a6n.ts': a6n,'03-hw/raid/a6n.txt': raid_a6n_namespaceObject,'03-hw/raid/a6s.ts': a6s,'03-hw/raid/a6s.txt': raid_a6s_namespaceObject,'03-hw/raid/a7s.ts': a7s,'03-hw/raid/a7s.txt': raid_a7s_namespaceObject,'03-hw/raid/a8n.ts': a8n,'03-hw/raid/a8n.txt': raid_a8n_namespaceObject,'03-hw/raid/a8s.ts': a8s,'03-hw/raid/a8s.txt': raid_a8s_namespaceObject,'03-hw/raid/a9s.ts': a9s,'03-hw/raid/a9s.txt': raid_a9s_namespaceObject,'03-hw/trial/bismarck-ex.ts': bismarck_ex,'03-hw/trial/ravana-ex.ts': ravana_ex,'03-hw/trial/ravana-ex.txt': trial_ravana_ex_namespaceObject,'03-hw/trial/sephirot-ex.ts': sephirot_ex,'03-hw/trial/sephirot-ex.txt': trial_sephirot_ex_namespaceObject,'03-hw/trial/sephirot.ts': sephirot,'03-hw/trial/sophia-ex.ts': sophia_ex,'03-hw/trial/sophia-ex.txt': trial_sophia_ex_namespaceObject,'03-hw/trial/thordan-ex.ts': thordan_ex,'03-hw/trial/thordan-ex.txt': trial_thordan_ex_namespaceObject,'03-hw/trial/zurvan-ex.ts': zurvan_ex,'03-hw/trial/zurvan-ex.txt': trial_zurvan_ex_namespaceObject,'04-sb/alliance/orbonne_monastery.ts': orbonne_monastery,'04-sb/alliance/orbonne_monastery.txt': alliance_orbonne_monastery_namespaceObject,'04-sb/alliance/ridorana_lighthouse.ts': ridorana_lighthouse,'04-sb/alliance/ridorana_lighthouse.txt': alliance_ridorana_lighthouse_namespaceObject,'04-sb/alliance/royal_city_of_rabanastre.ts': royal_city_of_rabanastre,'04-sb/alliance/royal_city_of_rabanastre.txt': alliance_royal_city_of_rabanastre_namespaceObject,'04-sb/deepdungeon/heaven-on-high_floors_01-10.ts': heaven_on_high_floors_01_10,'04-sb/deepdungeon/heaven-on-high_floors_11-20.ts': heaven_on_high_floors_11_20,'04-sb/deepdungeon/heaven-on-high_floors_21-30.ts': heaven_on_high_floors_21_30,'04-sb/deepdungeon/heaven-on-high_floors_31-40.ts': heaven_on_high_floors_31_40,'04-sb/deepdungeon/heaven-on-high_floors_41-50.ts': heaven_on_high_floors_41_50,'04-sb/deepdungeon/heaven-on-high_floors_51-60.ts': heaven_on_high_floors_51_60,'04-sb/deepdungeon/heaven-on-high_floors_61-70.ts': heaven_on_high_floors_61_70,'04-sb/deepdungeon/heaven-on-high_floors_71-80.ts': heaven_on_high_floors_71_80,'04-sb/deepdungeon/heaven-on-high_floors_81-90.ts': heaven_on_high_floors_81_90,'04-sb/deepdungeon/heaven-on-high_floors_91-100.ts': heaven_on_high_floors_91_100,'04-sb/deepdungeon/heaven-on-high_general.ts': heaven_on_high_general,'04-sb/dungeon/ala_mhigo.ts': ala_mhigo,'04-sb/dungeon/ala_mhigo.txt': dungeon_ala_mhigo_namespaceObject,'04-sb/dungeon/bardams_mettle.ts': bardams_mettle,'04-sb/dungeon/bardams_mettle.txt': dungeon_bardams_mettle_namespaceObject,'04-sb/dungeon/castrum_abania.ts': castrum_abania,'04-sb/dungeon/castrum_abania.txt': dungeon_castrum_abania_namespaceObject,'04-sb/dungeon/doma_castle.ts': doma_castle,'04-sb/dungeon/doma_castle.txt': dungeon_doma_castle_namespaceObject,'04-sb/dungeon/drowned_city_of_skalla.ts': drowned_city_of_skalla,'04-sb/dungeon/drowned_city_of_skalla.txt': dungeon_drowned_city_of_skalla_namespaceObject,'04-sb/dungeon/fractal_continuum_hard.ts': fractal_continuum_hard,'04-sb/dungeon/fractal_continuum_hard.txt': dungeon_fractal_continuum_hard_namespaceObject,'04-sb/dungeon/ghimlyt_dark.ts': ghimlyt_dark,'04-sb/dungeon/ghimlyt_dark.txt': dungeon_ghimlyt_dark_namespaceObject,'04-sb/dungeon/hells_lid.ts': hells_lid,'04-sb/dungeon/hells_lid.txt': dungeon_hells_lid_namespaceObject,'04-sb/dungeon/kugane_castle.ts': kugane_castle,'04-sb/dungeon/kugane_castle.txt': dungeon_kugane_castle_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides.ts': shisui_of_the_violet_tides,'04-sb/dungeon/shisui_of_the_violet_tides.txt': dungeon_shisui_of_the_violet_tides_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides74.ts': shisui_of_the_violet_tides74,'04-sb/dungeon/shisui_of_the_violet_tides74.txt': dungeon_shisui_of_the_violet_tides74_namespaceObject,'04-sb/dungeon/sirensong_sea.ts': sirensong_sea,'04-sb/dungeon/sirensong_sea.txt': dungeon_sirensong_sea_namespaceObject,'04-sb/dungeon/st_mocianne_hard.ts': st_mocianne_hard,'04-sb/dungeon/st_mocianne_hard.txt': dungeon_st_mocianne_hard_namespaceObject,'04-sb/dungeon/swallows_compass.ts': swallows_compass,'04-sb/dungeon/swallows_compass.txt': dungeon_swallows_compass_namespaceObject,'04-sb/dungeon/temple_of_the_fist.ts': temple_of_the_fist,'04-sb/dungeon/temple_of_the_fist.txt': dungeon_temple_of_the_fist_namespaceObject,'04-sb/dungeon/the_burn.ts': the_burn,'04-sb/dungeon/the_burn.txt': dungeon_the_burn_namespaceObject,'04-sb/eureka/eureka_anemos.ts': eureka_anemos,'04-sb/eureka/eureka_hydatos.ts': eureka_hydatos,'04-sb/eureka/eureka_hydatos.txt': eureka_eureka_hydatos_namespaceObject,'04-sb/eureka/eureka_pyros.ts': eureka_pyros,'04-sb/hunts/yanxia.ts': yanxia,'04-sb/map/the_hidden_canals_of_uznair.ts': the_hidden_canals_of_uznair,'04-sb/map/the_lost_canals_of_uznair.ts': the_lost_canals_of_uznair,'04-sb/map/the_shifting_altars_of_uznair.ts': the_shifting_altars_of_uznair,'04-sb/raid/o10n.ts': o10n,'04-sb/raid/o10n.txt': raid_o10n_namespaceObject,'04-sb/raid/o10s.ts': o10s,'04-sb/raid/o10s.txt': raid_o10s_namespaceObject,'04-sb/raid/o11n.ts': o11n,'04-sb/raid/o11n.txt': raid_o11n_namespaceObject,'04-sb/raid/o11s.ts': o11s,'04-sb/raid/o11s.txt': raid_o11s_namespaceObject,'04-sb/raid/o12n.ts': o12n,'04-sb/raid/o12n.txt': raid_o12n_namespaceObject,'04-sb/raid/o12s.ts': o12s,'04-sb/raid/o12s.txt': raid_o12s_namespaceObject,'04-sb/raid/o1n.ts': o1n,'04-sb/raid/o1n.txt': raid_o1n_namespaceObject,'04-sb/raid/o1s.ts': o1s,'04-sb/raid/o1s.txt': raid_o1s_namespaceObject,'04-sb/raid/o2n.ts': o2n,'04-sb/raid/o2n.txt': raid_o2n_namespaceObject,'04-sb/raid/o2s.ts': o2s,'04-sb/raid/o2s.txt': raid_o2s_namespaceObject,'04-sb/raid/o3n.ts': o3n,'04-sb/raid/o3n.txt': raid_o3n_namespaceObject,'04-sb/raid/o3s.ts': o3s,'04-sb/raid/o3s.txt': raid_o3s_namespaceObject,'04-sb/raid/o4n.ts': o4n,'04-sb/raid/o4n.txt': raid_o4n_namespaceObject,'04-sb/raid/o4s.ts': o4s,'04-sb/raid/o4s.txt': raid_o4s_namespaceObject,'04-sb/raid/o5n.ts': o5n,'04-sb/raid/o5n.txt': raid_o5n_namespaceObject,'04-sb/raid/o5s.ts': o5s,'04-sb/raid/o5s.txt': raid_o5s_namespaceObject,'04-sb/raid/o6n.ts': o6n,'04-sb/raid/o6n.txt': raid_o6n_namespaceObject,'04-sb/raid/o6s.ts': o6s,'04-sb/raid/o6s.txt': raid_o6s_namespaceObject,'04-sb/raid/o7n.ts': o7n,'04-sb/raid/o7n.txt': raid_o7n_namespaceObject,'04-sb/raid/o7s.ts': o7s,'04-sb/raid/o7s.txt': raid_o7s_namespaceObject,'04-sb/raid/o8n.ts': o8n,'04-sb/raid/o8n.txt': raid_o8n_namespaceObject,'04-sb/raid/o8s.ts': o8s,'04-sb/raid/o8s.txt': raid_o8s_namespaceObject,'04-sb/raid/o9n.ts': o9n,'04-sb/raid/o9n.txt': raid_o9n_namespaceObject,'04-sb/raid/o9s.ts': o9s,'04-sb/raid/o9s.txt': raid_o9s_namespaceObject,'04-sb/trial/byakko-ex.ts': byakko_ex,'04-sb/trial/byakko-ex.txt': trial_byakko_ex_namespaceObject,'04-sb/trial/byakko.ts': byakko,'04-sb/trial/byakko.txt': trial_byakko_namespaceObject,'04-sb/trial/lakshmi-ex.ts': lakshmi_ex,'04-sb/trial/lakshmi-ex.txt': trial_lakshmi_ex_namespaceObject,'04-sb/trial/lakshmi.ts': lakshmi,'04-sb/trial/lakshmi.txt': trial_lakshmi_namespaceObject,'04-sb/trial/rathalos-ex.ts': rathalos_ex,'04-sb/trial/rathalos.ts': rathalos,'04-sb/trial/seiryu-ex.ts': seiryu_ex,'04-sb/trial/seiryu-ex.txt': trial_seiryu_ex_namespaceObject,'04-sb/trial/seiryu.ts': seiryu,'04-sb/trial/seiryu.txt': trial_seiryu_namespaceObject,'04-sb/trial/shinryu-ex.ts': shinryu_ex,'04-sb/trial/shinryu-ex.txt': trial_shinryu_ex_namespaceObject,'04-sb/trial/shinryu.ts': shinryu,'04-sb/trial/shinryu.txt': trial_shinryu_namespaceObject,'04-sb/trial/susano-ex.ts': susano_ex,'04-sb/trial/susano-ex.txt': trial_susano_ex_namespaceObject,'04-sb/trial/susano.ts': susano,'04-sb/trial/susano.txt': trial_susano_namespaceObject,'04-sb/trial/suzaku-ex.ts': suzaku_ex,'04-sb/trial/suzaku-ex.txt': trial_suzaku_ex_namespaceObject,'04-sb/trial/suzaku.ts': suzaku,'04-sb/trial/suzaku.txt': trial_suzaku_namespaceObject,'04-sb/trial/tsukuyomi-ex.ts': tsukuyomi_ex,'04-sb/trial/tsukuyomi-ex.txt': trial_tsukuyomi_ex_namespaceObject,'04-sb/trial/tsukuyomi.ts': tsukuyomi,'04-sb/trial/tsukuyomi.txt': trial_tsukuyomi_namespaceObject,'04-sb/trial/yojimbo.ts': yojimbo,'04-sb/trial/yojimbo.txt': trial_yojimbo_namespaceObject,'04-sb/ultimate/ultima_weapon_ultimate.ts': ultima_weapon_ultimate,'04-sb/ultimate/ultima_weapon_ultimate.txt': ultimate_ultima_weapon_ultimate_namespaceObject,'04-sb/ultimate/unending_coil_ultimate.ts': unending_coil_ultimate,'04-sb/ultimate/unending_coil_ultimate.txt': ultimate_unending_coil_ultimate_namespaceObject,'05-shb/alliance/the_copied_factory.ts': the_copied_factory,'05-shb/alliance/the_copied_factory.txt': alliance_the_copied_factory_namespaceObject,'05-shb/alliance/the_puppets_bunker.ts': the_puppets_bunker,'05-shb/alliance/the_puppets_bunker.txt': alliance_the_puppets_bunker_namespaceObject,'05-shb/alliance/the_tower_at_paradigms_breach.ts': the_tower_at_paradigms_breach,'05-shb/alliance/the_tower_at_paradigms_breach.txt': alliance_the_tower_at_paradigms_breach_namespaceObject,'05-shb/dungeon/akadaemia_anyder.ts': akadaemia_anyder,'05-shb/dungeon/akadaemia_anyder.txt': dungeon_akadaemia_anyder_namespaceObject,'05-shb/dungeon/amaurot.ts': amaurot,'05-shb/dungeon/amaurot.txt': dungeon_amaurot_namespaceObject,'05-shb/dungeon/anamnesis_anyder.ts': anamnesis_anyder,'05-shb/dungeon/anamnesis_anyder.txt': dungeon_anamnesis_anyder_namespaceObject,'05-shb/dungeon/dohn_mheg.ts': dohn_mheg,'05-shb/dungeon/dohn_mheg.txt': dungeon_dohn_mheg_namespaceObject,'05-shb/dungeon/heroes_gauntlet.ts': heroes_gauntlet,'05-shb/dungeon/heroes_gauntlet.txt': dungeon_heroes_gauntlet_namespaceObject,'05-shb/dungeon/holminster_switch.ts': holminster_switch,'05-shb/dungeon/holminster_switch.txt': dungeon_holminster_switch_namespaceObject,'05-shb/dungeon/malikahs_well.ts': malikahs_well,'05-shb/dungeon/malikahs_well.txt': dungeon_malikahs_well_namespaceObject,'05-shb/dungeon/matoyas_relict.ts': matoyas_relict,'05-shb/dungeon/matoyas_relict.txt': dungeon_matoyas_relict_namespaceObject,'05-shb/dungeon/mt_gulg.ts': mt_gulg,'05-shb/dungeon/mt_gulg.txt': dungeon_mt_gulg_namespaceObject,'05-shb/dungeon/paglthan.ts': paglthan,'05-shb/dungeon/paglthan.txt': dungeon_paglthan_namespaceObject,'05-shb/dungeon/qitana_ravel.ts': qitana_ravel,'05-shb/dungeon/qitana_ravel.txt': dungeon_qitana_ravel_namespaceObject,'05-shb/dungeon/the_grand_cosmos.ts': the_grand_cosmos,'05-shb/dungeon/the_grand_cosmos.txt': dungeon_the_grand_cosmos_namespaceObject,'05-shb/dungeon/twinning.ts': twinning,'05-shb/dungeon/twinning.txt': dungeon_twinning_namespaceObject,'05-shb/etc/the_diadem.ts': the_diadem,'05-shb/eureka/bozjan_southern_front.ts': bozjan_southern_front,'05-shb/eureka/bozjan_southern_front.txt': eureka_bozjan_southern_front_namespaceObject,'05-shb/eureka/delubrum_reginae.ts': delubrum_reginae,'05-shb/eureka/delubrum_reginae.txt': eureka_delubrum_reginae_namespaceObject,'05-shb/eureka/delubrum_reginae_savage.ts': delubrum_reginae_savage,'05-shb/eureka/delubrum_reginae_savage.txt': eureka_delubrum_reginae_savage_namespaceObject,'05-shb/eureka/zadnor.ts': zadnor,'05-shb/eureka/zadnor.txt': eureka_zadnor_namespaceObject,'05-shb/hunts/amh_araeng.ts': amh_araeng,'05-shb/hunts/il_mheg.ts': il_mheg,'05-shb/hunts/kholusia.ts': kholusia,'05-shb/hunts/lakeland.ts': lakeland,'05-shb/hunts/ss_rank.ts': ss_rank,'05-shb/hunts/the_raktika_greatwood.ts': the_raktika_greatwood,'05-shb/hunts/the_tempest.ts': the_tempest,'05-shb/map/the_dungeons_of_lyhe_ghiah.ts': the_dungeons_of_lyhe_ghiah,'05-shb/map/the_shifting_oubliettes_of_lyhe_ghiah.ts': the_shifting_oubliettes_of_lyhe_ghiah,'05-shb/raid/e10n.ts': e10n,'05-shb/raid/e10n.txt': raid_e10n_namespaceObject,'05-shb/raid/e10s.ts': e10s,'05-shb/raid/e10s.txt': raid_e10s_namespaceObject,'05-shb/raid/e11n.ts': e11n,'05-shb/raid/e11n.txt': raid_e11n_namespaceObject,'05-shb/raid/e11s.ts': e11s,'05-shb/raid/e11s.txt': raid_e11s_namespaceObject,'05-shb/raid/e12n.ts': e12n,'05-shb/raid/e12n.txt': raid_e12n_namespaceObject,'05-shb/raid/e12s.ts': e12s,'05-shb/raid/e12s.txt': raid_e12s_namespaceObject,'05-shb/raid/e1n.ts': e1n,'05-shb/raid/e1n.txt': raid_e1n_namespaceObject,'05-shb/raid/e1s.ts': e1s,'05-shb/raid/e1s.txt': raid_e1s_namespaceObject,'05-shb/raid/e2n.ts': e2n,'05-shb/raid/e2n.txt': raid_e2n_namespaceObject,'05-shb/raid/e2s.ts': e2s,'05-shb/raid/e2s.txt': raid_e2s_namespaceObject,'05-shb/raid/e3n.ts': e3n,'05-shb/raid/e3n.txt': raid_e3n_namespaceObject,'05-shb/raid/e3s.ts': e3s,'05-shb/raid/e3s.txt': raid_e3s_namespaceObject,'05-shb/raid/e4n.ts': e4n,'05-shb/raid/e4n.txt': raid_e4n_namespaceObject,'05-shb/raid/e4s.ts': e4s,'05-shb/raid/e4s.txt': raid_e4s_namespaceObject,'05-shb/raid/e5n.ts': e5n,'05-shb/raid/e5n.txt': raid_e5n_namespaceObject,'05-shb/raid/e5s.ts': e5s,'05-shb/raid/e5s.txt': raid_e5s_namespaceObject,'05-shb/raid/e6n.ts': e6n,'05-shb/raid/e6n.txt': raid_e6n_namespaceObject,'05-shb/raid/e6s.ts': e6s,'05-shb/raid/e6s.txt': raid_e6s_namespaceObject,'05-shb/raid/e7n.ts': e7n,'05-shb/raid/e7n.txt': raid_e7n_namespaceObject,'05-shb/raid/e7s.ts': e7s,'05-shb/raid/e7s.txt': raid_e7s_namespaceObject,'05-shb/raid/e8n.ts': e8n,'05-shb/raid/e8n.txt': raid_e8n_namespaceObject,'05-shb/raid/e8s.ts': e8s,'05-shb/raid/e8s.txt': raid_e8s_namespaceObject,'05-shb/raid/e9n.ts': e9n,'05-shb/raid/e9n.txt': raid_e9n_namespaceObject,'05-shb/raid/e9s.ts': e9s,'05-shb/raid/e9s.txt': raid_e9s_namespaceObject,'05-shb/trial/diamond_weapon-ex.ts': diamond_weapon_ex,'05-shb/trial/diamond_weapon-ex.txt': trial_diamond_weapon_ex_namespaceObject,'05-shb/trial/diamond_weapon.ts': diamond_weapon,'05-shb/trial/diamond_weapon.txt': trial_diamond_weapon_namespaceObject,'05-shb/trial/emerald_weapon-ex.ts': emerald_weapon_ex,'05-shb/trial/emerald_weapon-ex.txt': trial_emerald_weapon_ex_namespaceObject,'05-shb/trial/emerald_weapon.ts': emerald_weapon,'05-shb/trial/emerald_weapon.txt': trial_emerald_weapon_namespaceObject,'05-shb/trial/hades-ex.ts': hades_ex,'05-shb/trial/hades-ex.txt': trial_hades_ex_namespaceObject,'05-shb/trial/hades.ts': hades,'05-shb/trial/hades.txt': trial_hades_namespaceObject,'05-shb/trial/innocence-ex.ts': innocence_ex,'05-shb/trial/innocence-ex.txt': trial_innocence_ex_namespaceObject,'05-shb/trial/innocence.ts': innocence,'05-shb/trial/innocence.txt': trial_innocence_namespaceObject,'05-shb/trial/levi-un.ts': levi_un,'05-shb/trial/levi-un.txt': trial_levi_un_namespaceObject,'05-shb/trial/ruby_weapon-ex.ts': ruby_weapon_ex,'05-shb/trial/ruby_weapon-ex.txt': trial_ruby_weapon_ex_namespaceObject,'05-shb/trial/ruby_weapon.ts': ruby_weapon,'05-shb/trial/ruby_weapon.txt': trial_ruby_weapon_namespaceObject,'05-shb/trial/shiva-un.ts': shiva_un,'05-shb/trial/shiva-un.txt': trial_shiva_un_namespaceObject,'05-shb/trial/titan-un.ts': titan_un,'05-shb/trial/titan-un.txt': trial_titan_un_namespaceObject,'05-shb/trial/titania-ex.ts': titania_ex,'05-shb/trial/titania-ex.txt': trial_titania_ex_namespaceObject,'05-shb/trial/titania.ts': titania,'05-shb/trial/titania.txt': trial_titania_namespaceObject,'05-shb/trial/varis-ex.ts': varis_ex,'05-shb/trial/varis-ex.txt': trial_varis_ex_namespaceObject,'05-shb/trial/wol-ex.ts': wol_ex,'05-shb/trial/wol-ex.txt': trial_wol_ex_namespaceObject,'05-shb/trial/wol.ts': wol,'05-shb/trial/wol.txt': trial_wol_namespaceObject,'05-shb/ultimate/the_epic_of_alexander.ts': the_epic_of_alexander,'05-shb/ultimate/the_epic_of_alexander.txt': ultimate_the_epic_of_alexander_namespaceObject,'06-ew/alliance/aglaia.ts': aglaia,'06-ew/alliance/aglaia.txt': alliance_aglaia_namespaceObject,'06-ew/alliance/euphrosyne.ts': euphrosyne,'06-ew/alliance/euphrosyne.txt': alliance_euphrosyne_namespaceObject,'06-ew/alliance/thaleia.ts': thaleia,'06-ew/alliance/thaleia.txt': alliance_thaleia_namespaceObject,'06-ew/deepdungeon/eureka_orthos_floors_01-10.ts': eureka_orthos_floors_01_10,'06-ew/deepdungeon/eureka_orthos_floors_11-20.ts': eureka_orthos_floors_11_20,'06-ew/deepdungeon/eureka_orthos_floors_21-30.ts': eureka_orthos_floors_21_30,'06-ew/deepdungeon/eureka_orthos_floors_31-40.ts': eureka_orthos_floors_31_40,'06-ew/deepdungeon/eureka_orthos_floors_41-50.ts': eureka_orthos_floors_41_50,'06-ew/deepdungeon/eureka_orthos_floors_51-60.ts': eureka_orthos_floors_51_60,'06-ew/deepdungeon/eureka_orthos_floors_61-70.ts': eureka_orthos_floors_61_70,'06-ew/deepdungeon/eureka_orthos_floors_71-80.ts': eureka_orthos_floors_71_80,'06-ew/deepdungeon/eureka_orthos_floors_81-90.ts': eureka_orthos_floors_81_90,'06-ew/deepdungeon/eureka_orthos_floors_91-100.ts': eureka_orthos_floors_91_100,'06-ew/deepdungeon/eureka_orthos_general.ts': eureka_orthos_general,'06-ew/dungeon/aetherfont.ts': aetherfont,'06-ew/dungeon/aetherfont.txt': dungeon_aetherfont_namespaceObject,'06-ew/dungeon/aloalo_island.ts': aloalo_island,'06-ew/dungeon/aloalo_island.txt': dungeon_aloalo_island_namespaceObject,'06-ew/dungeon/alzadaals_legacy.ts': alzadaals_legacy,'06-ew/dungeon/alzadaals_legacy.txt': dungeon_alzadaals_legacy_namespaceObject,'06-ew/dungeon/another_aloalo_island-savage.ts': another_aloalo_island_savage,'06-ew/dungeon/another_aloalo_island-savage.txt': dungeon_another_aloalo_island_savage_namespaceObject,'06-ew/dungeon/another_aloalo_island.ts': another_aloalo_island,'06-ew/dungeon/another_aloalo_island.txt': dungeon_another_aloalo_island_namespaceObject,'06-ew/dungeon/another_mount_rokkon-savage.ts': another_mount_rokkon_savage,'06-ew/dungeon/another_mount_rokkon-savage.txt': dungeon_another_mount_rokkon_savage_namespaceObject,'06-ew/dungeon/another_mount_rokkon.ts': another_mount_rokkon,'06-ew/dungeon/another_mount_rokkon.txt': dungeon_another_mount_rokkon_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane-savage.ts': another_sildihn_subterrane_savage,'06-ew/dungeon/another_sildihn_subterrane-savage.txt': dungeon_another_sildihn_subterrane_savage_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane.ts': another_sildihn_subterrane,'06-ew/dungeon/another_sildihn_subterrane.txt': dungeon_another_sildihn_subterrane_namespaceObject,'06-ew/dungeon/ktisis_hyperboreia.ts': ktisis_hyperboreia,'06-ew/dungeon/ktisis_hyperboreia.txt': dungeon_ktisis_hyperboreia_namespaceObject,'06-ew/dungeon/lapis_manalis.ts': lapis_manalis,'06-ew/dungeon/lapis_manalis.txt': dungeon_lapis_manalis_namespaceObject,'06-ew/dungeon/mount_rokkon.ts': mount_rokkon,'06-ew/dungeon/mount_rokkon.txt': dungeon_mount_rokkon_namespaceObject,'06-ew/dungeon/smileton.ts': smileton,'06-ew/dungeon/smileton.txt': dungeon_smileton_namespaceObject,'06-ew/dungeon/stigma_dreamscape.ts': stigma_dreamscape,'06-ew/dungeon/stigma_dreamscape.txt': dungeon_stigma_dreamscape_namespaceObject,'06-ew/dungeon/the_aitiascope.ts': the_aitiascope,'06-ew/dungeon/the_aitiascope.txt': dungeon_the_aitiascope_namespaceObject,'06-ew/dungeon/the_dead_ends.ts': the_dead_ends,'06-ew/dungeon/the_dead_ends.txt': dungeon_the_dead_ends_namespaceObject,'06-ew/dungeon/the_fell_court_of_troia.ts': the_fell_court_of_troia,'06-ew/dungeon/the_fell_court_of_troia.txt': dungeon_the_fell_court_of_troia_namespaceObject,'06-ew/dungeon/the_lunar_subterrane.ts': the_lunar_subterrane,'06-ew/dungeon/the_lunar_subterrane.txt': dungeon_the_lunar_subterrane_namespaceObject,'06-ew/dungeon/the_sildihn_subterrane.ts': the_sildihn_subterrane,'06-ew/dungeon/the_sildihn_subterrane.txt': dungeon_the_sildihn_subterrane_namespaceObject,'06-ew/dungeon/the_tower_of_babil.ts': the_tower_of_babil,'06-ew/dungeon/the_tower_of_babil.txt': dungeon_the_tower_of_babil_namespaceObject,'06-ew/dungeon/the_tower_of_zot.ts': the_tower_of_zot,'06-ew/dungeon/the_tower_of_zot.txt': dungeon_the_tower_of_zot_namespaceObject,'06-ew/dungeon/vanaspati.ts': vanaspati,'06-ew/dungeon/vanaspati.txt': dungeon_vanaspati_namespaceObject,'06-ew/hunts/elpis.ts': elpis,'06-ew/hunts/garlemald.ts': garlemald,'06-ew/hunts/labyrinthos.ts': labyrinthos,'06-ew/hunts/mare_lamentorum.ts': mare_lamentorum,'06-ew/hunts/ss_rank.ts': hunts_ss_rank,'06-ew/hunts/thavnair.ts': thavnair,'06-ew/hunts/ultima_thule.ts': ultima_thule,'06-ew/map/the_excitatron_6000.ts': the_excitatron_6000,'06-ew/map/the_shifting_gymnasion_agonon.ts': the_shifting_gymnasion_agonon,'06-ew/raid/p10n.ts': p10n,'06-ew/raid/p10n.txt': raid_p10n_namespaceObject,'06-ew/raid/p10s.ts': p10s,'06-ew/raid/p10s.txt': raid_p10s_namespaceObject,'06-ew/raid/p11n.ts': p11n,'06-ew/raid/p11n.txt': raid_p11n_namespaceObject,'06-ew/raid/p11s.ts': p11s,'06-ew/raid/p11s.txt': raid_p11s_namespaceObject,'06-ew/raid/p12n.ts': p12n,'06-ew/raid/p12n.txt': raid_p12n_namespaceObject,'06-ew/raid/p12s.ts': p12s,'06-ew/raid/p12s.txt': raid_p12s_namespaceObject,'06-ew/raid/p1n.ts': p1n,'06-ew/raid/p1n.txt': raid_p1n_namespaceObject,'06-ew/raid/p1s.ts': p1s,'06-ew/raid/p1s.txt': raid_p1s_namespaceObject,'06-ew/raid/p2n.ts': p2n,'06-ew/raid/p2n.txt': raid_p2n_namespaceObject,'06-ew/raid/p2s.ts': p2s,'06-ew/raid/p2s.txt': raid_p2s_namespaceObject,'06-ew/raid/p3n.ts': p3n,'06-ew/raid/p3n.txt': raid_p3n_namespaceObject,'06-ew/raid/p3s.ts': p3s,'06-ew/raid/p3s.txt': raid_p3s_namespaceObject,'06-ew/raid/p4n.ts': p4n,'06-ew/raid/p4n.txt': raid_p4n_namespaceObject,'06-ew/raid/p4s.ts': p4s,'06-ew/raid/p4s.txt': raid_p4s_namespaceObject,'06-ew/raid/p5n.ts': p5n,'06-ew/raid/p5n.txt': raid_p5n_namespaceObject,'06-ew/raid/p5s.ts': p5s,'06-ew/raid/p5s.txt': raid_p5s_namespaceObject,'06-ew/raid/p6n.ts': p6n,'06-ew/raid/p6n.txt': raid_p6n_namespaceObject,'06-ew/raid/p6s.ts': p6s,'06-ew/raid/p6s.txt': raid_p6s_namespaceObject,'06-ew/raid/p7n.ts': p7n,'06-ew/raid/p7n.txt': raid_p7n_namespaceObject,'06-ew/raid/p7s.ts': p7s,'06-ew/raid/p7s.txt': raid_p7s_namespaceObject,'06-ew/raid/p8n.ts': p8n,'06-ew/raid/p8n.txt': raid_p8n_namespaceObject,'06-ew/raid/p8s.ts': p8s,'06-ew/raid/p8s.txt': raid_p8s_namespaceObject,'06-ew/raid/p9n.ts': p9n,'06-ew/raid/p9n.txt': raid_p9n_namespaceObject,'06-ew/raid/p9s.ts': p9s,'06-ew/raid/p9s.txt': raid_p9s_namespaceObject,'06-ew/trial/asura.ts': asura,'06-ew/trial/asura.txt': trial_asura_namespaceObject,'06-ew/trial/barbariccia-ex.ts': barbariccia_ex,'06-ew/trial/barbariccia-ex.txt': trial_barbariccia_ex_namespaceObject,'06-ew/trial/barbariccia.ts': barbariccia,'06-ew/trial/barbariccia.txt': trial_barbariccia_namespaceObject,'06-ew/trial/endsinger-ex.ts': endsinger_ex,'06-ew/trial/endsinger-ex.txt': trial_endsinger_ex_namespaceObject,'06-ew/trial/endsinger.ts': endsinger,'06-ew/trial/endsinger.txt': trial_endsinger_namespaceObject,'06-ew/trial/golbez-ex.ts': golbez_ex,'06-ew/trial/golbez-ex.txt': trial_golbez_ex_namespaceObject,'06-ew/trial/golbez.ts': golbez,'06-ew/trial/golbez.txt': trial_golbez_namespaceObject,'06-ew/trial/hydaelyn-ex.ts': hydaelyn_ex,'06-ew/trial/hydaelyn-ex.txt': trial_hydaelyn_ex_namespaceObject,'06-ew/trial/hydaelyn.ts': hydaelyn,'06-ew/trial/hydaelyn.txt': trial_hydaelyn_namespaceObject,'06-ew/trial/rubicante-ex.ts': rubicante_ex,'06-ew/trial/rubicante-ex.txt': trial_rubicante_ex_namespaceObject,'06-ew/trial/rubicante.ts': rubicante,'06-ew/trial/rubicante.txt': trial_rubicante_namespaceObject,'06-ew/trial/sephirot-un.ts': sephirot_un,'06-ew/trial/sephirot-un.txt': trial_sephirot_un_namespaceObject,'06-ew/trial/sophia-un.ts': sophia_un,'06-ew/trial/sophia-un.txt': trial_sophia_un_namespaceObject,'06-ew/trial/thordan-un.ts': thordan_un,'06-ew/trial/thordan-un.txt': trial_thordan_un_namespaceObject,'06-ew/trial/ultima-un.ts': ultima_un,'06-ew/trial/ultima-un.txt': trial_ultima_un_namespaceObject,'06-ew/trial/zeromus-ex.ts': zeromus_ex,'06-ew/trial/zeromus-ex.txt': trial_zeromus_ex_namespaceObject,'06-ew/trial/zeromus.ts': zeromus,'06-ew/trial/zeromus.txt': trial_zeromus_namespaceObject,'06-ew/trial/zodiark-ex.ts': zodiark_ex,'06-ew/trial/zodiark-ex.txt': trial_zodiark_ex_namespaceObject,'06-ew/trial/zodiark.ts': zodiark,'06-ew/trial/zodiark.txt': trial_zodiark_namespaceObject,'06-ew/trial/zurvan-un.ts': zurvan_un,'06-ew/trial/zurvan-un.txt': trial_zurvan_un_namespaceObject,'06-ew/ultimate/dragonsongs_reprise_ultimate.ts': dragonsongs_reprise_ultimate,'06-ew/ultimate/dragonsongs_reprise_ultimate.txt': ultimate_dragonsongs_reprise_ultimate_namespaceObject,'06-ew/ultimate/the_omega_protocol.ts': the_omega_protocol,'06-ew/ultimate/the_omega_protocol.txt': ultimate_the_omega_protocol_namespaceObject,'07-dt/alliance/cloud_of_darkness_chaotic.ts': cloud_of_darkness_chaotic,'07-dt/alliance/cloud_of_darkness_chaotic.txt': alliance_cloud_of_darkness_chaotic_namespaceObject,'07-dt/alliance/jeuno-first-walk.ts': jeuno_first_walk,'07-dt/alliance/jeuno-first-walk.txt': alliance_jeuno_first_walk_namespaceObject,'07-dt/alliance/windurst-third-walk.ts': windurst_third_walk,'07-dt/alliance/windurst-third-walk.txt': alliance_windurst_third_walk_namespaceObject,'07-dt/deepdungeon/pilgrims_traverse_general.ts': pilgrims_traverse_general,'07-dt/deepdungeon/pilgrims_traverse_stones_01-10.ts': pilgrims_traverse_stones_01_10,'07-dt/deepdungeon/pilgrims_traverse_stones_11-20.ts': pilgrims_traverse_stones_11_20,'07-dt/deepdungeon/pilgrims_traverse_stones_21-30.ts': pilgrims_traverse_stones_21_30,'07-dt/deepdungeon/pilgrims_traverse_stones_31-40.ts': pilgrims_traverse_stones_31_40,'07-dt/deepdungeon/pilgrims_traverse_stones_41-50.ts': pilgrims_traverse_stones_41_50,'07-dt/deepdungeon/pilgrims_traverse_stones_51-60.ts': pilgrims_traverse_stones_51_60,'07-dt/deepdungeon/pilgrims_traverse_stones_61-70.ts': pilgrims_traverse_stones_61_70,'07-dt/deepdungeon/pilgrims_traverse_stones_71-80.ts': pilgrims_traverse_stones_71_80,'07-dt/deepdungeon/pilgrims_traverse_stones_81-90.ts': pilgrims_traverse_stones_81_90,'07-dt/deepdungeon/pilgrims_traverse_stones_91-100.ts': pilgrims_traverse_stones_91_100,'07-dt/deepdungeon/pilgrims_traverse_the_final_verse.ts': pilgrims_traverse_the_final_verse,'07-dt/deepdungeon/the_final_verse_quantum.ts': the_final_verse_quantum,'07-dt/deepdungeon/the_final_verse_quantum.txt': deepdungeon_the_final_verse_quantum_namespaceObject,'07-dt/dungeon/alexandria.ts': alexandria,'07-dt/dungeon/alexandria.txt': dungeon_alexandria_namespaceObject,'07-dt/dungeon/ihuykatumu.ts': ihuykatumu,'07-dt/dungeon/ihuykatumu.txt': dungeon_ihuykatumu_namespaceObject,'07-dt/dungeon/meso-terminal.ts': meso_terminal,'07-dt/dungeon/meso-terminal.txt': dungeon_meso_terminal_namespaceObject,'07-dt/dungeon/mistwake.ts': mistwake,'07-dt/dungeon/mistwake.txt': dungeon_mistwake_namespaceObject,'07-dt/dungeon/origenics.ts': origenics,'07-dt/dungeon/origenics.txt': dungeon_origenics_namespaceObject,'07-dt/dungeon/skydeep-cenote.ts': skydeep_cenote,'07-dt/dungeon/skydeep-cenote.txt': dungeon_skydeep_cenote_namespaceObject,'07-dt/dungeon/strayborough-deadwalk.ts': strayborough_deadwalk,'07-dt/dungeon/strayborough-deadwalk.txt': dungeon_strayborough_deadwalk_namespaceObject,'07-dt/dungeon/the_underkeep.ts': the_underkeep,'07-dt/dungeon/the_underkeep.txt': dungeon_the_underkeep_namespaceObject,'07-dt/dungeon/vanguard.ts': vanguard,'07-dt/dungeon/vanguard.txt': dungeon_vanguard_namespaceObject,'07-dt/dungeon/worqor-zormor.ts': worqor_zormor,'07-dt/dungeon/worqor-zormor.txt': dungeon_worqor_zormor_namespaceObject,'07-dt/dungeon/yuweyawata.ts': yuweyawata,'07-dt/dungeon/yuweyawata.txt': dungeon_yuweyawata_namespaceObject,'07-dt/eureka/occult_crescent_south_horn.ts': occult_crescent_south_horn,'07-dt/eureka/occult_crescent_south_horn.txt': eureka_occult_crescent_south_horn_namespaceObject,'07-dt/hunts/heritage_found.ts': heritage_found,'07-dt/hunts/kozamauka.ts': kozamauka,'07-dt/hunts/living_memory.ts': living_memory,'07-dt/hunts/shaaloani.ts': shaaloani,'07-dt/hunts/ss_rank.ts': _07_dt_hunts_ss_rank,'07-dt/hunts/urqopacha.ts': urqopacha,'07-dt/hunts/yaktel.ts': yaktel,'07-dt/map/cenote_ja_ja_gural.ts': cenote_ja_ja_gural,'07-dt/raid/r10n.ts': r10n,'07-dt/raid/r10n.txt': raid_r10n_namespaceObject,'07-dt/raid/r10s.ts': r10s,'07-dt/raid/r10s.txt': raid_r10s_namespaceObject,'07-dt/raid/r11n.ts': r11n,'07-dt/raid/r11n.txt': raid_r11n_namespaceObject,'07-dt/raid/r11s.ts': r11s,'07-dt/raid/r11s.txt': raid_r11s_namespaceObject,'07-dt/raid/r12n.ts': r12n,'07-dt/raid/r12n.txt': raid_r12n_namespaceObject,'07-dt/raid/r12s.ts': r12s,'07-dt/raid/r12s.txt': raid_r12s_namespaceObject,'07-dt/raid/r1n.ts': r1n,'07-dt/raid/r1n.txt': raid_r1n_namespaceObject,'07-dt/raid/r1s.ts': r1s,'07-dt/raid/r1s.txt': raid_r1s_namespaceObject,'07-dt/raid/r2n.ts': r2n,'07-dt/raid/r2n.txt': raid_r2n_namespaceObject,'07-dt/raid/r2s.ts': r2s,'07-dt/raid/r2s.txt': raid_r2s_namespaceObject,'07-dt/raid/r3n.ts': r3n,'07-dt/raid/r3n.txt': raid_r3n_namespaceObject,'07-dt/raid/r3s.ts': r3s,'07-dt/raid/r3s.txt': raid_r3s_namespaceObject,'07-dt/raid/r4n.ts': r4n,'07-dt/raid/r4n.txt': raid_r4n_namespaceObject,'07-dt/raid/r4s.ts': r4s,'07-dt/raid/r4s.txt': raid_r4s_namespaceObject,'07-dt/raid/r5n.ts': r5n,'07-dt/raid/r5n.txt': raid_r5n_namespaceObject,'07-dt/raid/r5s.ts': r5s,'07-dt/raid/r5s.txt': raid_r5s_namespaceObject,'07-dt/raid/r6n.ts': r6n,'07-dt/raid/r6n.txt': raid_r6n_namespaceObject,'07-dt/raid/r6s.ts': r6s,'07-dt/raid/r6s.txt': raid_r6s_namespaceObject,'07-dt/raid/r7n.ts': r7n,'07-dt/raid/r7n.txt': raid_r7n_namespaceObject,'07-dt/raid/r7s.ts': r7s,'07-dt/raid/r7s.txt': raid_r7s_namespaceObject,'07-dt/raid/r8n.ts': r8n,'07-dt/raid/r8n.txt': raid_r8n_namespaceObject,'07-dt/raid/r8s.ts': r8s,'07-dt/raid/r8s.txt': raid_r8s_namespaceObject,'07-dt/raid/r9n.ts': r9n,'07-dt/raid/r9n.txt': raid_r9n_namespaceObject,'07-dt/raid/r9s.ts': r9s,'07-dt/raid/r9s.txt': raid_r9s_namespaceObject,'07-dt/trial/arkveld-ex.ts': arkveld_ex,'07-dt/trial/arkveld-ex.txt': trial_arkveld_ex_namespaceObject,'07-dt/trial/arkveld.ts': arkveld,'07-dt/trial/arkveld.txt': trial_arkveld_namespaceObject,'07-dt/trial/byakko-un.ts': byakko_un,'07-dt/trial/byakko-un.txt': trial_byakko_un_namespaceObject,'07-dt/trial/doomtrain-ex.ts': doomtrain_ex,'07-dt/trial/doomtrain-ex.txt': trial_doomtrain_ex_namespaceObject,'07-dt/trial/doomtrain.ts': doomtrain,'07-dt/trial/doomtrain.txt': trial_doomtrain_namespaceObject,'07-dt/trial/enuo-ex.ts': enuo_ex,'07-dt/trial/enuo-ex.txt': trial_enuo_ex_namespaceObject,'07-dt/trial/enuo.ts': enuo,'07-dt/trial/enuo.txt': trial_enuo_namespaceObject,'07-dt/trial/necron-ex.ts': necron_ex,'07-dt/trial/necron-ex.txt': trial_necron_ex_namespaceObject,'07-dt/trial/queen-eternal-ex.ts': queen_eternal_ex,'07-dt/trial/queen-eternal-ex.txt': trial_queen_eternal_ex_namespaceObject,'07-dt/trial/queen-eternal.ts': queen_eternal,'07-dt/trial/queen-eternal.txt': trial_queen_eternal_namespaceObject,'07-dt/trial/seiryu-un.ts': seiryu_un,'07-dt/trial/seiryu-un.txt': trial_seiryu_un_namespaceObject,'07-dt/trial/shinryu-un.ts': shinryu_un,'07-dt/trial/shinryu-un.txt': trial_shinryu_un_namespaceObject,'07-dt/trial/suzaku-un.ts': suzaku_un,'07-dt/trial/suzaku-un.txt': trial_suzaku_un_namespaceObject,'07-dt/trial/tsukuyomi-un.ts': tsukuyomi_un,'07-dt/trial/tsukuyomi-un.txt': trial_tsukuyomi_un_namespaceObject,'07-dt/trial/valigarmanda-ex.ts': valigarmanda_ex,'07-dt/trial/valigarmanda-ex.txt': trial_valigarmanda_ex_namespaceObject,'07-dt/trial/valigarmanda.ts': valigarmanda,'07-dt/trial/valigarmanda.txt': trial_valigarmanda_namespaceObject,'07-dt/trial/zelenia-ex.ts': zelenia_ex,'07-dt/trial/zelenia-ex.txt': trial_zelenia_ex_namespaceObject,'07-dt/trial/zelenia.ts': zelenia,'07-dt/trial/zelenia.txt': trial_zelenia_namespaceObject,'07-dt/trial/zoraal-ja-ex.ts': zoraal_ja_ex,'07-dt/trial/zoraal-ja-ex.txt': trial_zoraal_ja_ex_namespaceObject,'07-dt/trial/zoraal-ja.ts': zoraal_ja,'07-dt/trial/zoraal-ja.txt': trial_zoraal_ja_namespaceObject,'07-dt/ultimate/dancing_mad.ts': dancing_mad,'07-dt/ultimate/dancing_mad.txt': ultimate_dancing_mad_namespaceObject,'07-dt/ultimate/futures_rewritten.ts': futures_rewritten,'07-dt/ultimate/futures_rewritten.txt': ultimate_futures_rewritten_namespaceObject,'99-custom/readme.txt': readme_namespaceObject,});
+
+
+/* harmony default export */ const raidboss_manifest = ({'00-misc/general.ts': general,'00-misc/test.ts': test,'00-misc/test.txt': _00_misc_test_namespaceObject,'00-misc/the_masked_carnivale.ts': the_masked_carnivale,'02-arr/alliance/the_world_of_darkness.ts': the_world_of_darkness,'02-arr/dungeon/amdapor_keep.ts': amdapor_keep,'02-arr/dungeon/amdapor_keep_hard.ts': amdapor_keep_hard,'02-arr/dungeon/aurum_vale.ts': aurum_vale,'02-arr/dungeon/aurum_vale73.ts': aurum_vale73,'02-arr/dungeon/brayfloxs_longstop.ts': brayfloxs_longstop,'02-arr/dungeon/cutters_cry.ts': cutters_cry,'02-arr/dungeon/cutters_cry72.ts': cutters_cry72,'02-arr/dungeon/halatali_hard.ts': halatali_hard,'02-arr/dungeon/haukke_manor.ts': haukke_manor,'02-arr/dungeon/haukke_manor_hard.ts': haukke_manor_hard,'02-arr/dungeon/hullbreaker_isle.ts': hullbreaker_isle,'02-arr/dungeon/pharos_sirius.ts': pharos_sirius,'02-arr/dungeon/sastasha_hard.ts': sastasha_hard,'02-arr/dungeon/snowcloak.ts': snowcloak,'02-arr/dungeon/the_lost_city_of_amdapor.ts': the_lost_city_of_amdapor,'02-arr/dungeon/the_stone_vigil.ts': the_stone_vigil,'02-arr/dungeon/the_stone_vigil_hard.ts': the_stone_vigil_hard,'02-arr/dungeon/the_sunken_temple_of_quarn.ts': the_sunken_temple_of_quarn,'02-arr/dungeon/the_sunken_temple_of_quarn71.ts': the_sunken_temple_of_quarn71,'02-arr/dungeon/the_sunken_temple_of_quarn_hard.ts': the_sunken_temple_of_quarn_hard,'02-arr/dungeon/the_tam_tara_depocraft_hard.ts': the_tam_tara_depocraft_hard,'02-arr/dungeon/the_wanderers_palace_hard.ts': the_wanderers_palace_hard,'02-arr/raid/t1.ts': t1,'02-arr/raid/t10.ts': t10,'02-arr/raid/t10.txt': raid_t10_namespaceObject,'02-arr/raid/t11.ts': t11,'02-arr/raid/t11.txt': raid_t11_namespaceObject,'02-arr/raid/t12.ts': t12,'02-arr/raid/t12.txt': raid_t12_namespaceObject,'02-arr/raid/t13.ts': t13,'02-arr/raid/t13.txt': raid_t13_namespaceObject,'02-arr/raid/t2.ts': t2,'02-arr/raid/t4.ts': t4,'02-arr/raid/t4.txt': raid_t4_namespaceObject,'02-arr/raid/t5.ts': t5,'02-arr/raid/t5.txt': raid_t5_namespaceObject,'02-arr/raid/t6.ts': t6,'02-arr/raid/t6.txt': raid_t6_namespaceObject,'02-arr/raid/t7.ts': t7,'02-arr/raid/t7.txt': raid_t7_namespaceObject,'02-arr/raid/t8.ts': t8,'02-arr/raid/t8.txt': raid_t8_namespaceObject,'02-arr/raid/t9.ts': t9,'02-arr/raid/t9.txt': raid_t9_namespaceObject,'02-arr/trial/ifrit-nm.ts': ifrit_nm,'02-arr/trial/ifrit-nm.txt': trial_ifrit_nm_namespaceObject,'02-arr/trial/levi-ex.ts': levi_ex,'02-arr/trial/levi-ex.txt': trial_levi_ex_namespaceObject,'02-arr/trial/shiva-ex.ts': shiva_ex,'02-arr/trial/shiva-ex.txt': trial_shiva_ex_namespaceObject,'02-arr/trial/shiva-hm.ts': shiva_hm,'02-arr/trial/shiva-hm.txt': trial_shiva_hm_namespaceObject,'02-arr/trial/titan-ex.ts': titan_ex,'02-arr/trial/titan-ex.txt': trial_titan_ex_namespaceObject,'02-arr/trial/titan-hm.ts': titan_hm,'02-arr/trial/titan-hm.txt': trial_titan_hm_namespaceObject,'02-arr/trial/titan-nm.ts': titan_nm,'02-arr/trial/titan-nm.txt': trial_titan_nm_namespaceObject,'02-arr/trial/ultima-ex.ts': ultima_ex,'02-arr/trial/ultima-ex.txt': trial_ultima_ex_namespaceObject,'03-hw/alliance/dun_scaith.ts': dun_scaith,'03-hw/alliance/dun_scaith.txt': alliance_dun_scaith_namespaceObject,'03-hw/alliance/weeping_city.ts': weeping_city,'03-hw/alliance/weeping_city.txt': alliance_weeping_city_namespaceObject,'03-hw/deepdungeon/the_palace_of_the_dead_floors_001-010.ts': the_palace_of_the_dead_floors_001_010,'03-hw/deepdungeon/the_palace_of_the_dead_floors_011-020.ts': the_palace_of_the_dead_floors_011_020,'03-hw/deepdungeon/the_palace_of_the_dead_floors_021-030.ts': the_palace_of_the_dead_floors_021_030,'03-hw/deepdungeon/the_palace_of_the_dead_floors_031-040.ts': the_palace_of_the_dead_floors_031_040,'03-hw/deepdungeon/the_palace_of_the_dead_floors_041-050.ts': the_palace_of_the_dead_floors_041_050,'03-hw/deepdungeon/the_palace_of_the_dead_floors_051-060.ts': the_palace_of_the_dead_floors_051_060,'03-hw/deepdungeon/the_palace_of_the_dead_floors_061-070.ts': the_palace_of_the_dead_floors_061_070,'03-hw/deepdungeon/the_palace_of_the_dead_floors_071-080.ts': the_palace_of_the_dead_floors_071_080,'03-hw/deepdungeon/the_palace_of_the_dead_floors_081-090.ts': the_palace_of_the_dead_floors_081_090,'03-hw/deepdungeon/the_palace_of_the_dead_floors_091-100.ts': the_palace_of_the_dead_floors_091_100,'03-hw/deepdungeon/the_palace_of_the_dead_floors_101-110.ts': the_palace_of_the_dead_floors_101_110,'03-hw/deepdungeon/the_palace_of_the_dead_floors_111-120.ts': the_palace_of_the_dead_floors_111_120,'03-hw/deepdungeon/the_palace_of_the_dead_floors_121-130.ts': the_palace_of_the_dead_floors_121_130,'03-hw/deepdungeon/the_palace_of_the_dead_floors_131-140.ts': the_palace_of_the_dead_floors_131_140,'03-hw/deepdungeon/the_palace_of_the_dead_floors_141-150.ts': the_palace_of_the_dead_floors_141_150,'03-hw/deepdungeon/the_palace_of_the_dead_floors_151-160.ts': the_palace_of_the_dead_floors_151_160,'03-hw/deepdungeon/the_palace_of_the_dead_floors_161-170.ts': the_palace_of_the_dead_floors_161_170,'03-hw/deepdungeon/the_palace_of_the_dead_floors_171-180.ts': the_palace_of_the_dead_floors_171_180,'03-hw/deepdungeon/the_palace_of_the_dead_floors_181-190.ts': the_palace_of_the_dead_floors_181_190,'03-hw/deepdungeon/the_palace_of_the_dead_floors_191-200.ts': the_palace_of_the_dead_floors_191_200,'03-hw/deepdungeon/the_palace_of_the_dead_general.ts': the_palace_of_the_dead_general,'03-hw/dungeon/aetherochemical_research_facility.ts': aetherochemical_research_facility,'03-hw/dungeon/aetherochemical_research_facility.txt': dungeon_aetherochemical_research_facility_namespaceObject,'03-hw/dungeon/baelsars_wall.ts': baelsars_wall,'03-hw/dungeon/baelsars_wall.txt': dungeon_baelsars_wall_namespaceObject,'03-hw/dungeon/fractal_continuum.ts': fractal_continuum,'03-hw/dungeon/fractal_continuum.txt': dungeon_fractal_continuum_namespaceObject,'03-hw/dungeon/gubal_library_hard.ts': gubal_library_hard,'03-hw/dungeon/gubal_library_hard.txt': dungeon_gubal_library_hard_namespaceObject,'03-hw/dungeon/sohm_al.ts': sohm_al,'03-hw/dungeon/sohm_al.txt': dungeon_sohm_al_namespaceObject,'03-hw/dungeon/sohm_al_hard.ts': sohm_al_hard,'03-hw/dungeon/sohm_al_hard.txt': dungeon_sohm_al_hard_namespaceObject,'03-hw/dungeon/the_lost_city_of_amdapor_hard.ts': the_lost_city_of_amdapor_hard,'03-hw/dungeon/the_lost_city_of_amdapor_hard.txt': dungeon_the_lost_city_of_amdapor_hard_namespaceObject,'03-hw/dungeon/the_vault.ts': the_vault,'03-hw/dungeon/the_vault.txt': dungeon_the_vault_namespaceObject,'03-hw/dungeon/xelphatol.ts': xelphatol,'03-hw/dungeon/xelphatol.txt': dungeon_xelphatol_namespaceObject,'03-hw/map/the_aquapolis.ts': the_aquapolis,'03-hw/pvp/shatter.ts': shatter,'03-hw/raid/a10n.ts': a10n,'03-hw/raid/a10n.txt': raid_a10n_namespaceObject,'03-hw/raid/a10s.ts': a10s,'03-hw/raid/a10s.txt': raid_a10s_namespaceObject,'03-hw/raid/a11s.ts': a11s,'03-hw/raid/a11s.txt': raid_a11s_namespaceObject,'03-hw/raid/a12n.ts': a12n,'03-hw/raid/a12n.txt': raid_a12n_namespaceObject,'03-hw/raid/a12s.ts': a12s,'03-hw/raid/a12s.txt': raid_a12s_namespaceObject,'03-hw/raid/a1s.ts': a1s,'03-hw/raid/a1s.txt': raid_a1s_namespaceObject,'03-hw/raid/a2s.ts': a2s,'03-hw/raid/a2s.txt': raid_a2s_namespaceObject,'03-hw/raid/a3n.ts': a3n,'03-hw/raid/a3n.txt': raid_a3n_namespaceObject,'03-hw/raid/a3s.ts': a3s,'03-hw/raid/a3s.txt': raid_a3s_namespaceObject,'03-hw/raid/a4s.ts': a4s,'03-hw/raid/a4s.txt': raid_a4s_namespaceObject,'03-hw/raid/a5s.ts': a5s,'03-hw/raid/a5s.txt': raid_a5s_namespaceObject,'03-hw/raid/a6n.ts': a6n,'03-hw/raid/a6n.txt': raid_a6n_namespaceObject,'03-hw/raid/a6s.ts': a6s,'03-hw/raid/a6s.txt': raid_a6s_namespaceObject,'03-hw/raid/a7s.ts': a7s,'03-hw/raid/a7s.txt': raid_a7s_namespaceObject,'03-hw/raid/a8n.ts': a8n,'03-hw/raid/a8n.txt': raid_a8n_namespaceObject,'03-hw/raid/a8s.ts': a8s,'03-hw/raid/a8s.txt': raid_a8s_namespaceObject,'03-hw/raid/a9s.ts': a9s,'03-hw/raid/a9s.txt': raid_a9s_namespaceObject,'03-hw/trial/bismarck-ex.ts': bismarck_ex,'03-hw/trial/ravana-ex.ts': ravana_ex,'03-hw/trial/ravana-ex.txt': trial_ravana_ex_namespaceObject,'03-hw/trial/sephirot-ex.ts': sephirot_ex,'03-hw/trial/sephirot-ex.txt': trial_sephirot_ex_namespaceObject,'03-hw/trial/sephirot.ts': sephirot,'03-hw/trial/sophia-ex.ts': sophia_ex,'03-hw/trial/sophia-ex.txt': trial_sophia_ex_namespaceObject,'03-hw/trial/thordan-ex.ts': thordan_ex,'03-hw/trial/thordan-ex.txt': trial_thordan_ex_namespaceObject,'03-hw/trial/zurvan-ex.ts': zurvan_ex,'03-hw/trial/zurvan-ex.txt': trial_zurvan_ex_namespaceObject,'04-sb/alliance/orbonne_monastery.ts': orbonne_monastery,'04-sb/alliance/orbonne_monastery.txt': alliance_orbonne_monastery_namespaceObject,'04-sb/alliance/ridorana_lighthouse.ts': ridorana_lighthouse,'04-sb/alliance/ridorana_lighthouse.txt': alliance_ridorana_lighthouse_namespaceObject,'04-sb/alliance/royal_city_of_rabanastre.ts': royal_city_of_rabanastre,'04-sb/alliance/royal_city_of_rabanastre.txt': alliance_royal_city_of_rabanastre_namespaceObject,'04-sb/deepdungeon/heaven-on-high_floors_01-10.ts': heaven_on_high_floors_01_10,'04-sb/deepdungeon/heaven-on-high_floors_11-20.ts': heaven_on_high_floors_11_20,'04-sb/deepdungeon/heaven-on-high_floors_21-30.ts': heaven_on_high_floors_21_30,'04-sb/deepdungeon/heaven-on-high_floors_31-40.ts': heaven_on_high_floors_31_40,'04-sb/deepdungeon/heaven-on-high_floors_41-50.ts': heaven_on_high_floors_41_50,'04-sb/deepdungeon/heaven-on-high_floors_51-60.ts': heaven_on_high_floors_51_60,'04-sb/deepdungeon/heaven-on-high_floors_61-70.ts': heaven_on_high_floors_61_70,'04-sb/deepdungeon/heaven-on-high_floors_71-80.ts': heaven_on_high_floors_71_80,'04-sb/deepdungeon/heaven-on-high_floors_81-90.ts': heaven_on_high_floors_81_90,'04-sb/deepdungeon/heaven-on-high_floors_91-100.ts': heaven_on_high_floors_91_100,'04-sb/deepdungeon/heaven-on-high_general.ts': heaven_on_high_general,'04-sb/dungeon/ala_mhigo.ts': ala_mhigo,'04-sb/dungeon/ala_mhigo.txt': dungeon_ala_mhigo_namespaceObject,'04-sb/dungeon/bardams_mettle.ts': bardams_mettle,'04-sb/dungeon/bardams_mettle.txt': dungeon_bardams_mettle_namespaceObject,'04-sb/dungeon/castrum_abania.ts': castrum_abania,'04-sb/dungeon/castrum_abania.txt': dungeon_castrum_abania_namespaceObject,'04-sb/dungeon/doma_castle.ts': doma_castle,'04-sb/dungeon/doma_castle.txt': dungeon_doma_castle_namespaceObject,'04-sb/dungeon/drowned_city_of_skalla.ts': drowned_city_of_skalla,'04-sb/dungeon/drowned_city_of_skalla.txt': dungeon_drowned_city_of_skalla_namespaceObject,'04-sb/dungeon/fractal_continuum_hard.ts': fractal_continuum_hard,'04-sb/dungeon/fractal_continuum_hard.txt': dungeon_fractal_continuum_hard_namespaceObject,'04-sb/dungeon/ghimlyt_dark.ts': ghimlyt_dark,'04-sb/dungeon/ghimlyt_dark.txt': dungeon_ghimlyt_dark_namespaceObject,'04-sb/dungeon/hells_lid.ts': hells_lid,'04-sb/dungeon/hells_lid.txt': dungeon_hells_lid_namespaceObject,'04-sb/dungeon/kugane_castle.ts': kugane_castle,'04-sb/dungeon/kugane_castle.txt': dungeon_kugane_castle_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides.ts': shisui_of_the_violet_tides,'04-sb/dungeon/shisui_of_the_violet_tides.txt': dungeon_shisui_of_the_violet_tides_namespaceObject,'04-sb/dungeon/shisui_of_the_violet_tides74.ts': shisui_of_the_violet_tides74,'04-sb/dungeon/shisui_of_the_violet_tides74.txt': dungeon_shisui_of_the_violet_tides74_namespaceObject,'04-sb/dungeon/sirensong_sea.ts': sirensong_sea,'04-sb/dungeon/sirensong_sea.txt': dungeon_sirensong_sea_namespaceObject,'04-sb/dungeon/st_mocianne_hard.ts': st_mocianne_hard,'04-sb/dungeon/st_mocianne_hard.txt': dungeon_st_mocianne_hard_namespaceObject,'04-sb/dungeon/swallows_compass.ts': swallows_compass,'04-sb/dungeon/swallows_compass.txt': dungeon_swallows_compass_namespaceObject,'04-sb/dungeon/temple_of_the_fist.ts': temple_of_the_fist,'04-sb/dungeon/temple_of_the_fist.txt': dungeon_temple_of_the_fist_namespaceObject,'04-sb/dungeon/the_burn.ts': the_burn,'04-sb/dungeon/the_burn.txt': dungeon_the_burn_namespaceObject,'04-sb/eureka/eureka_anemos.ts': eureka_anemos,'04-sb/eureka/eureka_hydatos.ts': eureka_hydatos,'04-sb/eureka/eureka_hydatos.txt': eureka_eureka_hydatos_namespaceObject,'04-sb/eureka/eureka_pyros.ts': eureka_pyros,'04-sb/hunts/yanxia.ts': yanxia,'04-sb/map/the_hidden_canals_of_uznair.ts': the_hidden_canals_of_uznair,'04-sb/map/the_lost_canals_of_uznair.ts': the_lost_canals_of_uznair,'04-sb/map/the_shifting_altars_of_uznair.ts': the_shifting_altars_of_uznair,'04-sb/raid/o10n.ts': o10n,'04-sb/raid/o10n.txt': raid_o10n_namespaceObject,'04-sb/raid/o10s.ts': o10s,'04-sb/raid/o10s.txt': raid_o10s_namespaceObject,'04-sb/raid/o11n.ts': o11n,'04-sb/raid/o11n.txt': raid_o11n_namespaceObject,'04-sb/raid/o11s.ts': o11s,'04-sb/raid/o11s.txt': raid_o11s_namespaceObject,'04-sb/raid/o12n.ts': o12n,'04-sb/raid/o12n.txt': raid_o12n_namespaceObject,'04-sb/raid/o12s.ts': o12s,'04-sb/raid/o12s.txt': raid_o12s_namespaceObject,'04-sb/raid/o1n.ts': o1n,'04-sb/raid/o1n.txt': raid_o1n_namespaceObject,'04-sb/raid/o1s.ts': o1s,'04-sb/raid/o1s.txt': raid_o1s_namespaceObject,'04-sb/raid/o2n.ts': o2n,'04-sb/raid/o2n.txt': raid_o2n_namespaceObject,'04-sb/raid/o2s.ts': o2s,'04-sb/raid/o2s.txt': raid_o2s_namespaceObject,'04-sb/raid/o3n.ts': o3n,'04-sb/raid/o3n.txt': raid_o3n_namespaceObject,'04-sb/raid/o3s.ts': o3s,'04-sb/raid/o3s.txt': raid_o3s_namespaceObject,'04-sb/raid/o4n.ts': o4n,'04-sb/raid/o4n.txt': raid_o4n_namespaceObject,'04-sb/raid/o4s.ts': o4s,'04-sb/raid/o4s.txt': raid_o4s_namespaceObject,'04-sb/raid/o5n.ts': o5n,'04-sb/raid/o5n.txt': raid_o5n_namespaceObject,'04-sb/raid/o5s.ts': o5s,'04-sb/raid/o5s.txt': raid_o5s_namespaceObject,'04-sb/raid/o6n.ts': o6n,'04-sb/raid/o6n.txt': raid_o6n_namespaceObject,'04-sb/raid/o6s.ts': o6s,'04-sb/raid/o6s.txt': raid_o6s_namespaceObject,'04-sb/raid/o7n.ts': o7n,'04-sb/raid/o7n.txt': raid_o7n_namespaceObject,'04-sb/raid/o7s.ts': o7s,'04-sb/raid/o7s.txt': raid_o7s_namespaceObject,'04-sb/raid/o8n.ts': o8n,'04-sb/raid/o8n.txt': raid_o8n_namespaceObject,'04-sb/raid/o8s.ts': o8s,'04-sb/raid/o8s.txt': raid_o8s_namespaceObject,'04-sb/raid/o9n.ts': o9n,'04-sb/raid/o9n.txt': raid_o9n_namespaceObject,'04-sb/raid/o9s.ts': o9s,'04-sb/raid/o9s.txt': raid_o9s_namespaceObject,'04-sb/trial/byakko-ex.ts': byakko_ex,'04-sb/trial/byakko-ex.txt': trial_byakko_ex_namespaceObject,'04-sb/trial/byakko.ts': byakko,'04-sb/trial/byakko.txt': trial_byakko_namespaceObject,'04-sb/trial/lakshmi-ex.ts': lakshmi_ex,'04-sb/trial/lakshmi-ex.txt': trial_lakshmi_ex_namespaceObject,'04-sb/trial/lakshmi.ts': lakshmi,'04-sb/trial/lakshmi.txt': trial_lakshmi_namespaceObject,'04-sb/trial/rathalos-ex.ts': rathalos_ex,'04-sb/trial/rathalos.ts': rathalos,'04-sb/trial/seiryu-ex.ts': seiryu_ex,'04-sb/trial/seiryu-ex.txt': trial_seiryu_ex_namespaceObject,'04-sb/trial/seiryu.ts': seiryu,'04-sb/trial/seiryu.txt': trial_seiryu_namespaceObject,'04-sb/trial/shinryu-ex.ts': shinryu_ex,'04-sb/trial/shinryu-ex.txt': trial_shinryu_ex_namespaceObject,'04-sb/trial/shinryu.ts': shinryu,'04-sb/trial/shinryu.txt': trial_shinryu_namespaceObject,'04-sb/trial/susano-ex.ts': susano_ex,'04-sb/trial/susano-ex.txt': trial_susano_ex_namespaceObject,'04-sb/trial/susano.ts': susano,'04-sb/trial/susano.txt': trial_susano_namespaceObject,'04-sb/trial/suzaku-ex.ts': suzaku_ex,'04-sb/trial/suzaku-ex.txt': trial_suzaku_ex_namespaceObject,'04-sb/trial/suzaku.ts': suzaku,'04-sb/trial/suzaku.txt': trial_suzaku_namespaceObject,'04-sb/trial/tsukuyomi-ex.ts': tsukuyomi_ex,'04-sb/trial/tsukuyomi-ex.txt': trial_tsukuyomi_ex_namespaceObject,'04-sb/trial/tsukuyomi.ts': tsukuyomi,'04-sb/trial/tsukuyomi.txt': trial_tsukuyomi_namespaceObject,'04-sb/trial/yojimbo.ts': yojimbo,'04-sb/trial/yojimbo.txt': trial_yojimbo_namespaceObject,'04-sb/ultimate/ultima_weapon_ultimate.ts': ultima_weapon_ultimate,'04-sb/ultimate/ultima_weapon_ultimate.txt': ultimate_ultima_weapon_ultimate_namespaceObject,'04-sb/ultimate/unending_coil_ultimate.ts': unending_coil_ultimate,'04-sb/ultimate/unending_coil_ultimate.txt': ultimate_unending_coil_ultimate_namespaceObject,'05-shb/alliance/the_copied_factory.ts': the_copied_factory,'05-shb/alliance/the_copied_factory.txt': alliance_the_copied_factory_namespaceObject,'05-shb/alliance/the_puppets_bunker.ts': the_puppets_bunker,'05-shb/alliance/the_puppets_bunker.txt': alliance_the_puppets_bunker_namespaceObject,'05-shb/alliance/the_tower_at_paradigms_breach.ts': the_tower_at_paradigms_breach,'05-shb/alliance/the_tower_at_paradigms_breach.txt': alliance_the_tower_at_paradigms_breach_namespaceObject,'05-shb/dungeon/akadaemia_anyder.ts': akadaemia_anyder,'05-shb/dungeon/akadaemia_anyder.txt': dungeon_akadaemia_anyder_namespaceObject,'05-shb/dungeon/amaurot.ts': amaurot,'05-shb/dungeon/amaurot.txt': dungeon_amaurot_namespaceObject,'05-shb/dungeon/anamnesis_anyder.ts': anamnesis_anyder,'05-shb/dungeon/anamnesis_anyder.txt': dungeon_anamnesis_anyder_namespaceObject,'05-shb/dungeon/dohn_mheg.ts': dohn_mheg,'05-shb/dungeon/dohn_mheg.txt': dungeon_dohn_mheg_namespaceObject,'05-shb/dungeon/heroes_gauntlet.ts': heroes_gauntlet,'05-shb/dungeon/heroes_gauntlet.txt': dungeon_heroes_gauntlet_namespaceObject,'05-shb/dungeon/holminster_switch.ts': holminster_switch,'05-shb/dungeon/holminster_switch.txt': dungeon_holminster_switch_namespaceObject,'05-shb/dungeon/malikahs_well.ts': malikahs_well,'05-shb/dungeon/malikahs_well.txt': dungeon_malikahs_well_namespaceObject,'05-shb/dungeon/matoyas_relict.ts': matoyas_relict,'05-shb/dungeon/matoyas_relict.txt': dungeon_matoyas_relict_namespaceObject,'05-shb/dungeon/mt_gulg.ts': mt_gulg,'05-shb/dungeon/mt_gulg.txt': dungeon_mt_gulg_namespaceObject,'05-shb/dungeon/paglthan.ts': paglthan,'05-shb/dungeon/paglthan.txt': dungeon_paglthan_namespaceObject,'05-shb/dungeon/qitana_ravel.ts': qitana_ravel,'05-shb/dungeon/qitana_ravel.txt': dungeon_qitana_ravel_namespaceObject,'05-shb/dungeon/the_grand_cosmos.ts': the_grand_cosmos,'05-shb/dungeon/the_grand_cosmos.txt': dungeon_the_grand_cosmos_namespaceObject,'05-shb/dungeon/twinning.ts': twinning,'05-shb/dungeon/twinning.txt': dungeon_twinning_namespaceObject,'05-shb/etc/the_diadem.ts': the_diadem,'05-shb/eureka/bozjan_southern_front.ts': bozjan_southern_front,'05-shb/eureka/bozjan_southern_front.txt': eureka_bozjan_southern_front_namespaceObject,'05-shb/eureka/delubrum_reginae.ts': delubrum_reginae,'05-shb/eureka/delubrum_reginae.txt': eureka_delubrum_reginae_namespaceObject,'05-shb/eureka/delubrum_reginae_savage.ts': delubrum_reginae_savage,'05-shb/eureka/delubrum_reginae_savage.txt': eureka_delubrum_reginae_savage_namespaceObject,'05-shb/eureka/zadnor.ts': zadnor,'05-shb/eureka/zadnor.txt': eureka_zadnor_namespaceObject,'05-shb/hunts/amh_araeng.ts': amh_araeng,'05-shb/hunts/il_mheg.ts': il_mheg,'05-shb/hunts/kholusia.ts': kholusia,'05-shb/hunts/lakeland.ts': lakeland,'05-shb/hunts/ss_rank.ts': ss_rank,'05-shb/hunts/the_raktika_greatwood.ts': the_raktika_greatwood,'05-shb/hunts/the_tempest.ts': the_tempest,'05-shb/map/the_dungeons_of_lyhe_ghiah.ts': the_dungeons_of_lyhe_ghiah,'05-shb/map/the_shifting_oubliettes_of_lyhe_ghiah.ts': the_shifting_oubliettes_of_lyhe_ghiah,'05-shb/raid/e10n.ts': e10n,'05-shb/raid/e10n.txt': raid_e10n_namespaceObject,'05-shb/raid/e10s.ts': e10s,'05-shb/raid/e10s.txt': raid_e10s_namespaceObject,'05-shb/raid/e11n.ts': e11n,'05-shb/raid/e11n.txt': raid_e11n_namespaceObject,'05-shb/raid/e11s.ts': e11s,'05-shb/raid/e11s.txt': raid_e11s_namespaceObject,'05-shb/raid/e12n.ts': e12n,'05-shb/raid/e12n.txt': raid_e12n_namespaceObject,'05-shb/raid/e12s.ts': e12s,'05-shb/raid/e12s.txt': raid_e12s_namespaceObject,'05-shb/raid/e1n.ts': e1n,'05-shb/raid/e1n.txt': raid_e1n_namespaceObject,'05-shb/raid/e1s.ts': e1s,'05-shb/raid/e1s.txt': raid_e1s_namespaceObject,'05-shb/raid/e2n.ts': e2n,'05-shb/raid/e2n.txt': raid_e2n_namespaceObject,'05-shb/raid/e2s.ts': e2s,'05-shb/raid/e2s.txt': raid_e2s_namespaceObject,'05-shb/raid/e3n.ts': e3n,'05-shb/raid/e3n.txt': raid_e3n_namespaceObject,'05-shb/raid/e3s.ts': e3s,'05-shb/raid/e3s.txt': raid_e3s_namespaceObject,'05-shb/raid/e4n.ts': e4n,'05-shb/raid/e4n.txt': raid_e4n_namespaceObject,'05-shb/raid/e4s.ts': e4s,'05-shb/raid/e4s.txt': raid_e4s_namespaceObject,'05-shb/raid/e5n.ts': e5n,'05-shb/raid/e5n.txt': raid_e5n_namespaceObject,'05-shb/raid/e5s.ts': e5s,'05-shb/raid/e5s.txt': raid_e5s_namespaceObject,'05-shb/raid/e6n.ts': e6n,'05-shb/raid/e6n.txt': raid_e6n_namespaceObject,'05-shb/raid/e6s.ts': e6s,'05-shb/raid/e6s.txt': raid_e6s_namespaceObject,'05-shb/raid/e7n.ts': e7n,'05-shb/raid/e7n.txt': raid_e7n_namespaceObject,'05-shb/raid/e7s.ts': e7s,'05-shb/raid/e7s.txt': raid_e7s_namespaceObject,'05-shb/raid/e8n.ts': e8n,'05-shb/raid/e8n.txt': raid_e8n_namespaceObject,'05-shb/raid/e8s.ts': e8s,'05-shb/raid/e8s.txt': raid_e8s_namespaceObject,'05-shb/raid/e9n.ts': e9n,'05-shb/raid/e9n.txt': raid_e9n_namespaceObject,'05-shb/raid/e9s.ts': e9s,'05-shb/raid/e9s.txt': raid_e9s_namespaceObject,'05-shb/trial/diamond_weapon-ex.ts': diamond_weapon_ex,'05-shb/trial/diamond_weapon-ex.txt': trial_diamond_weapon_ex_namespaceObject,'05-shb/trial/diamond_weapon.ts': diamond_weapon,'05-shb/trial/diamond_weapon.txt': trial_diamond_weapon_namespaceObject,'05-shb/trial/emerald_weapon-ex.ts': emerald_weapon_ex,'05-shb/trial/emerald_weapon-ex.txt': trial_emerald_weapon_ex_namespaceObject,'05-shb/trial/emerald_weapon.ts': emerald_weapon,'05-shb/trial/emerald_weapon.txt': trial_emerald_weapon_namespaceObject,'05-shb/trial/hades-ex.ts': hades_ex,'05-shb/trial/hades-ex.txt': trial_hades_ex_namespaceObject,'05-shb/trial/hades.ts': hades,'05-shb/trial/hades.txt': trial_hades_namespaceObject,'05-shb/trial/innocence-ex.ts': innocence_ex,'05-shb/trial/innocence-ex.txt': trial_innocence_ex_namespaceObject,'05-shb/trial/innocence.ts': innocence,'05-shb/trial/innocence.txt': trial_innocence_namespaceObject,'05-shb/trial/levi-un.ts': levi_un,'05-shb/trial/levi-un.txt': trial_levi_un_namespaceObject,'05-shb/trial/ruby_weapon-ex.ts': ruby_weapon_ex,'05-shb/trial/ruby_weapon-ex.txt': trial_ruby_weapon_ex_namespaceObject,'05-shb/trial/ruby_weapon.ts': ruby_weapon,'05-shb/trial/ruby_weapon.txt': trial_ruby_weapon_namespaceObject,'05-shb/trial/shiva-un.ts': shiva_un,'05-shb/trial/shiva-un.txt': trial_shiva_un_namespaceObject,'05-shb/trial/titan-un.ts': titan_un,'05-shb/trial/titan-un.txt': trial_titan_un_namespaceObject,'05-shb/trial/titania-ex.ts': titania_ex,'05-shb/trial/titania-ex.txt': trial_titania_ex_namespaceObject,'05-shb/trial/titania.ts': titania,'05-shb/trial/titania.txt': trial_titania_namespaceObject,'05-shb/trial/varis-ex.ts': varis_ex,'05-shb/trial/varis-ex.txt': trial_varis_ex_namespaceObject,'05-shb/trial/wol-ex.ts': wol_ex,'05-shb/trial/wol-ex.txt': trial_wol_ex_namespaceObject,'05-shb/trial/wol.ts': wol,'05-shb/trial/wol.txt': trial_wol_namespaceObject,'05-shb/ultimate/the_epic_of_alexander.ts': the_epic_of_alexander,'05-shb/ultimate/the_epic_of_alexander.txt': ultimate_the_epic_of_alexander_namespaceObject,'06-ew/alliance/aglaia.ts': aglaia,'06-ew/alliance/aglaia.txt': alliance_aglaia_namespaceObject,'06-ew/alliance/euphrosyne.ts': euphrosyne,'06-ew/alliance/euphrosyne.txt': alliance_euphrosyne_namespaceObject,'06-ew/alliance/thaleia.ts': thaleia,'06-ew/alliance/thaleia.txt': alliance_thaleia_namespaceObject,'06-ew/deepdungeon/eureka_orthos_floors_01-10.ts': eureka_orthos_floors_01_10,'06-ew/deepdungeon/eureka_orthos_floors_11-20.ts': eureka_orthos_floors_11_20,'06-ew/deepdungeon/eureka_orthos_floors_21-30.ts': eureka_orthos_floors_21_30,'06-ew/deepdungeon/eureka_orthos_floors_31-40.ts': eureka_orthos_floors_31_40,'06-ew/deepdungeon/eureka_orthos_floors_41-50.ts': eureka_orthos_floors_41_50,'06-ew/deepdungeon/eureka_orthos_floors_51-60.ts': eureka_orthos_floors_51_60,'06-ew/deepdungeon/eureka_orthos_floors_61-70.ts': eureka_orthos_floors_61_70,'06-ew/deepdungeon/eureka_orthos_floors_71-80.ts': eureka_orthos_floors_71_80,'06-ew/deepdungeon/eureka_orthos_floors_81-90.ts': eureka_orthos_floors_81_90,'06-ew/deepdungeon/eureka_orthos_floors_91-100.ts': eureka_orthos_floors_91_100,'06-ew/deepdungeon/eureka_orthos_general.ts': eureka_orthos_general,'06-ew/dungeon/aetherfont.ts': aetherfont,'06-ew/dungeon/aetherfont.txt': dungeon_aetherfont_namespaceObject,'06-ew/dungeon/aloalo_island.ts': aloalo_island,'06-ew/dungeon/aloalo_island.txt': dungeon_aloalo_island_namespaceObject,'06-ew/dungeon/alzadaals_legacy.ts': alzadaals_legacy,'06-ew/dungeon/alzadaals_legacy.txt': dungeon_alzadaals_legacy_namespaceObject,'06-ew/dungeon/another_aloalo_island-savage.ts': another_aloalo_island_savage,'06-ew/dungeon/another_aloalo_island-savage.txt': dungeon_another_aloalo_island_savage_namespaceObject,'06-ew/dungeon/another_aloalo_island.ts': another_aloalo_island,'06-ew/dungeon/another_aloalo_island.txt': dungeon_another_aloalo_island_namespaceObject,'06-ew/dungeon/another_mount_rokkon-savage.ts': another_mount_rokkon_savage,'06-ew/dungeon/another_mount_rokkon-savage.txt': dungeon_another_mount_rokkon_savage_namespaceObject,'06-ew/dungeon/another_mount_rokkon.ts': another_mount_rokkon,'06-ew/dungeon/another_mount_rokkon.txt': dungeon_another_mount_rokkon_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane-savage.ts': another_sildihn_subterrane_savage,'06-ew/dungeon/another_sildihn_subterrane-savage.txt': dungeon_another_sildihn_subterrane_savage_namespaceObject,'06-ew/dungeon/another_sildihn_subterrane.ts': another_sildihn_subterrane,'06-ew/dungeon/another_sildihn_subterrane.txt': dungeon_another_sildihn_subterrane_namespaceObject,'06-ew/dungeon/ktisis_hyperboreia.ts': ktisis_hyperboreia,'06-ew/dungeon/ktisis_hyperboreia.txt': dungeon_ktisis_hyperboreia_namespaceObject,'06-ew/dungeon/lapis_manalis.ts': lapis_manalis,'06-ew/dungeon/lapis_manalis.txt': dungeon_lapis_manalis_namespaceObject,'06-ew/dungeon/mount_rokkon.ts': mount_rokkon,'06-ew/dungeon/mount_rokkon.txt': dungeon_mount_rokkon_namespaceObject,'06-ew/dungeon/smileton.ts': smileton,'06-ew/dungeon/smileton.txt': dungeon_smileton_namespaceObject,'06-ew/dungeon/stigma_dreamscape.ts': stigma_dreamscape,'06-ew/dungeon/stigma_dreamscape.txt': dungeon_stigma_dreamscape_namespaceObject,'06-ew/dungeon/the_aitiascope.ts': the_aitiascope,'06-ew/dungeon/the_aitiascope.txt': dungeon_the_aitiascope_namespaceObject,'06-ew/dungeon/the_dead_ends.ts': the_dead_ends,'06-ew/dungeon/the_dead_ends.txt': dungeon_the_dead_ends_namespaceObject,'06-ew/dungeon/the_fell_court_of_troia.ts': the_fell_court_of_troia,'06-ew/dungeon/the_fell_court_of_troia.txt': dungeon_the_fell_court_of_troia_namespaceObject,'06-ew/dungeon/the_lunar_subterrane.ts': the_lunar_subterrane,'06-ew/dungeon/the_lunar_subterrane.txt': dungeon_the_lunar_subterrane_namespaceObject,'06-ew/dungeon/the_sildihn_subterrane.ts': the_sildihn_subterrane,'06-ew/dungeon/the_sildihn_subterrane.txt': dungeon_the_sildihn_subterrane_namespaceObject,'06-ew/dungeon/the_tower_of_babil.ts': the_tower_of_babil,'06-ew/dungeon/the_tower_of_babil.txt': dungeon_the_tower_of_babil_namespaceObject,'06-ew/dungeon/the_tower_of_zot.ts': the_tower_of_zot,'06-ew/dungeon/the_tower_of_zot.txt': dungeon_the_tower_of_zot_namespaceObject,'06-ew/dungeon/vanaspati.ts': vanaspati,'06-ew/dungeon/vanaspati.txt': dungeon_vanaspati_namespaceObject,'06-ew/hunts/elpis.ts': elpis,'06-ew/hunts/garlemald.ts': garlemald,'06-ew/hunts/labyrinthos.ts': labyrinthos,'06-ew/hunts/mare_lamentorum.ts': mare_lamentorum,'06-ew/hunts/ss_rank.ts': hunts_ss_rank,'06-ew/hunts/thavnair.ts': thavnair,'06-ew/hunts/ultima_thule.ts': ultima_thule,'06-ew/map/the_excitatron_6000.ts': the_excitatron_6000,'06-ew/map/the_shifting_gymnasion_agonon.ts': the_shifting_gymnasion_agonon,'06-ew/raid/p10n.ts': p10n,'06-ew/raid/p10n.txt': raid_p10n_namespaceObject,'06-ew/raid/p10s.ts': p10s,'06-ew/raid/p10s.txt': raid_p10s_namespaceObject,'06-ew/raid/p11n.ts': p11n,'06-ew/raid/p11n.txt': raid_p11n_namespaceObject,'06-ew/raid/p11s.ts': p11s,'06-ew/raid/p11s.txt': raid_p11s_namespaceObject,'06-ew/raid/p12n.ts': p12n,'06-ew/raid/p12n.txt': raid_p12n_namespaceObject,'06-ew/raid/p12s.ts': p12s,'06-ew/raid/p12s.txt': raid_p12s_namespaceObject,'06-ew/raid/p1n.ts': p1n,'06-ew/raid/p1n.txt': raid_p1n_namespaceObject,'06-ew/raid/p1s.ts': p1s,'06-ew/raid/p1s.txt': raid_p1s_namespaceObject,'06-ew/raid/p2n.ts': p2n,'06-ew/raid/p2n.txt': raid_p2n_namespaceObject,'06-ew/raid/p2s.ts': p2s,'06-ew/raid/p2s.txt': raid_p2s_namespaceObject,'06-ew/raid/p3n.ts': p3n,'06-ew/raid/p3n.txt': raid_p3n_namespaceObject,'06-ew/raid/p3s.ts': p3s,'06-ew/raid/p3s.txt': raid_p3s_namespaceObject,'06-ew/raid/p4n.ts': p4n,'06-ew/raid/p4n.txt': raid_p4n_namespaceObject,'06-ew/raid/p4s.ts': p4s,'06-ew/raid/p4s.txt': raid_p4s_namespaceObject,'06-ew/raid/p5n.ts': p5n,'06-ew/raid/p5n.txt': raid_p5n_namespaceObject,'06-ew/raid/p5s.ts': p5s,'06-ew/raid/p5s.txt': raid_p5s_namespaceObject,'06-ew/raid/p6n.ts': p6n,'06-ew/raid/p6n.txt': raid_p6n_namespaceObject,'06-ew/raid/p6s.ts': p6s,'06-ew/raid/p6s.txt': raid_p6s_namespaceObject,'06-ew/raid/p7n.ts': p7n,'06-ew/raid/p7n.txt': raid_p7n_namespaceObject,'06-ew/raid/p7s.ts': p7s,'06-ew/raid/p7s.txt': raid_p7s_namespaceObject,'06-ew/raid/p8n.ts': p8n,'06-ew/raid/p8n.txt': raid_p8n_namespaceObject,'06-ew/raid/p8s.ts': p8s,'06-ew/raid/p8s.txt': raid_p8s_namespaceObject,'06-ew/raid/p9n.ts': p9n,'06-ew/raid/p9n.txt': raid_p9n_namespaceObject,'06-ew/raid/p9s.ts': p9s,'06-ew/raid/p9s.txt': raid_p9s_namespaceObject,'06-ew/trial/asura.ts': asura,'06-ew/trial/asura.txt': trial_asura_namespaceObject,'06-ew/trial/barbariccia-ex.ts': barbariccia_ex,'06-ew/trial/barbariccia-ex.txt': trial_barbariccia_ex_namespaceObject,'06-ew/trial/barbariccia.ts': barbariccia,'06-ew/trial/barbariccia.txt': trial_barbariccia_namespaceObject,'06-ew/trial/endsinger-ex.ts': endsinger_ex,'06-ew/trial/endsinger-ex.txt': trial_endsinger_ex_namespaceObject,'06-ew/trial/endsinger.ts': endsinger,'06-ew/trial/endsinger.txt': trial_endsinger_namespaceObject,'06-ew/trial/golbez-ex.ts': golbez_ex,'06-ew/trial/golbez-ex.txt': trial_golbez_ex_namespaceObject,'06-ew/trial/golbez.ts': golbez,'06-ew/trial/golbez.txt': trial_golbez_namespaceObject,'06-ew/trial/hydaelyn-ex.ts': hydaelyn_ex,'06-ew/trial/hydaelyn-ex.txt': trial_hydaelyn_ex_namespaceObject,'06-ew/trial/hydaelyn.ts': hydaelyn,'06-ew/trial/hydaelyn.txt': trial_hydaelyn_namespaceObject,'06-ew/trial/rubicante-ex.ts': rubicante_ex,'06-ew/trial/rubicante-ex.txt': trial_rubicante_ex_namespaceObject,'06-ew/trial/rubicante.ts': rubicante,'06-ew/trial/rubicante.txt': trial_rubicante_namespaceObject,'06-ew/trial/sephirot-un.ts': sephirot_un,'06-ew/trial/sephirot-un.txt': trial_sephirot_un_namespaceObject,'06-ew/trial/sophia-un.ts': sophia_un,'06-ew/trial/sophia-un.txt': trial_sophia_un_namespaceObject,'06-ew/trial/thordan-un.ts': thordan_un,'06-ew/trial/thordan-un.txt': trial_thordan_un_namespaceObject,'06-ew/trial/ultima-un.ts': ultima_un,'06-ew/trial/ultima-un.txt': trial_ultima_un_namespaceObject,'06-ew/trial/zeromus-ex.ts': zeromus_ex,'06-ew/trial/zeromus-ex.txt': trial_zeromus_ex_namespaceObject,'06-ew/trial/zeromus.ts': zeromus,'06-ew/trial/zeromus.txt': trial_zeromus_namespaceObject,'06-ew/trial/zodiark-ex.ts': zodiark_ex,'06-ew/trial/zodiark-ex.txt': trial_zodiark_ex_namespaceObject,'06-ew/trial/zodiark.ts': zodiark,'06-ew/trial/zodiark.txt': trial_zodiark_namespaceObject,'06-ew/trial/zurvan-un.ts': zurvan_un,'06-ew/trial/zurvan-un.txt': trial_zurvan_un_namespaceObject,'06-ew/ultimate/dragonsongs_reprise_ultimate.ts': dragonsongs_reprise_ultimate,'06-ew/ultimate/dragonsongs_reprise_ultimate.txt': ultimate_dragonsongs_reprise_ultimate_namespaceObject,'06-ew/ultimate/the_omega_protocol.ts': the_omega_protocol,'06-ew/ultimate/the_omega_protocol.txt': ultimate_the_omega_protocol_namespaceObject,'07-dt/alliance/cloud_of_darkness_chaotic.ts': cloud_of_darkness_chaotic,'07-dt/alliance/cloud_of_darkness_chaotic.txt': alliance_cloud_of_darkness_chaotic_namespaceObject,'07-dt/alliance/jeuno-first-walk.ts': jeuno_first_walk,'07-dt/alliance/jeuno-first-walk.txt': alliance_jeuno_first_walk_namespaceObject,'07-dt/alliance/windurst-third-walk.ts': windurst_third_walk,'07-dt/alliance/windurst-third-walk.txt': alliance_windurst_third_walk_namespaceObject,'07-dt/deepdungeon/pilgrims_traverse_general.ts': pilgrims_traverse_general,'07-dt/deepdungeon/pilgrims_traverse_stones_01-10.ts': pilgrims_traverse_stones_01_10,'07-dt/deepdungeon/pilgrims_traverse_stones_11-20.ts': pilgrims_traverse_stones_11_20,'07-dt/deepdungeon/pilgrims_traverse_stones_21-30.ts': pilgrims_traverse_stones_21_30,'07-dt/deepdungeon/pilgrims_traverse_stones_31-40.ts': pilgrims_traverse_stones_31_40,'07-dt/deepdungeon/pilgrims_traverse_stones_41-50.ts': pilgrims_traverse_stones_41_50,'07-dt/deepdungeon/pilgrims_traverse_stones_51-60.ts': pilgrims_traverse_stones_51_60,'07-dt/deepdungeon/pilgrims_traverse_stones_61-70.ts': pilgrims_traverse_stones_61_70,'07-dt/deepdungeon/pilgrims_traverse_stones_71-80.ts': pilgrims_traverse_stones_71_80,'07-dt/deepdungeon/pilgrims_traverse_stones_81-90.ts': pilgrims_traverse_stones_81_90,'07-dt/deepdungeon/pilgrims_traverse_stones_91-100.ts': pilgrims_traverse_stones_91_100,'07-dt/deepdungeon/pilgrims_traverse_the_final_verse.ts': pilgrims_traverse_the_final_verse,'07-dt/deepdungeon/the_final_verse_quantum.ts': the_final_verse_quantum,'07-dt/deepdungeon/the_final_verse_quantum.txt': deepdungeon_the_final_verse_quantum_namespaceObject,'07-dt/dungeon/alexandria.ts': alexandria,'07-dt/dungeon/alexandria.txt': dungeon_alexandria_namespaceObject,'07-dt/dungeon/ihuykatumu.ts': ihuykatumu,'07-dt/dungeon/ihuykatumu.txt': dungeon_ihuykatumu_namespaceObject,'07-dt/dungeon/meso-terminal.ts': meso_terminal,'07-dt/dungeon/meso-terminal.txt': dungeon_meso_terminal_namespaceObject,'07-dt/dungeon/mistwake.ts': mistwake,'07-dt/dungeon/mistwake.txt': dungeon_mistwake_namespaceObject,'07-dt/dungeon/origenics.ts': origenics,'07-dt/dungeon/origenics.txt': dungeon_origenics_namespaceObject,'07-dt/dungeon/skydeep-cenote.ts': skydeep_cenote,'07-dt/dungeon/skydeep-cenote.txt': dungeon_skydeep_cenote_namespaceObject,'07-dt/dungeon/strayborough-deadwalk.ts': strayborough_deadwalk,'07-dt/dungeon/strayborough-deadwalk.txt': dungeon_strayborough_deadwalk_namespaceObject,'07-dt/dungeon/the_underkeep.ts': the_underkeep,'07-dt/dungeon/the_underkeep.txt': dungeon_the_underkeep_namespaceObject,'07-dt/dungeon/vanguard.ts': vanguard,'07-dt/dungeon/vanguard.txt': dungeon_vanguard_namespaceObject,'07-dt/dungeon/worqor-zormor.ts': worqor_zormor,'07-dt/dungeon/worqor-zormor.txt': dungeon_worqor_zormor_namespaceObject,'07-dt/dungeon/yuweyawata.ts': yuweyawata,'07-dt/dungeon/yuweyawata.txt': dungeon_yuweyawata_namespaceObject,'07-dt/eureka/occult_crescent_north_horn.ts': occult_crescent_north_horn,'07-dt/eureka/occult_crescent_north_horn.txt': eureka_occult_crescent_north_horn_namespaceObject,'07-dt/eureka/occult_crescent_south_horn.ts': occult_crescent_south_horn,'07-dt/eureka/occult_crescent_south_horn.txt': eureka_occult_crescent_south_horn_namespaceObject,'07-dt/hunts/heritage_found.ts': heritage_found,'07-dt/hunts/kozamauka.ts': kozamauka,'07-dt/hunts/living_memory.ts': living_memory,'07-dt/hunts/shaaloani.ts': shaaloani,'07-dt/hunts/ss_rank.ts': _07_dt_hunts_ss_rank,'07-dt/hunts/urqopacha.ts': urqopacha,'07-dt/hunts/yaktel.ts': yaktel,'07-dt/map/cenote_ja_ja_gural.ts': cenote_ja_ja_gural,'07-dt/raid/r10n.ts': r10n,'07-dt/raid/r10n.txt': raid_r10n_namespaceObject,'07-dt/raid/r10s.ts': r10s,'07-dt/raid/r10s.txt': raid_r10s_namespaceObject,'07-dt/raid/r11n.ts': r11n,'07-dt/raid/r11n.txt': raid_r11n_namespaceObject,'07-dt/raid/r11s.ts': r11s,'07-dt/raid/r11s.txt': raid_r11s_namespaceObject,'07-dt/raid/r12n.ts': r12n,'07-dt/raid/r12n.txt': raid_r12n_namespaceObject,'07-dt/raid/r12s.ts': r12s,'07-dt/raid/r12s.txt': raid_r12s_namespaceObject,'07-dt/raid/r1n.ts': r1n,'07-dt/raid/r1n.txt': raid_r1n_namespaceObject,'07-dt/raid/r1s.ts': r1s,'07-dt/raid/r1s.txt': raid_r1s_namespaceObject,'07-dt/raid/r2n.ts': r2n,'07-dt/raid/r2n.txt': raid_r2n_namespaceObject,'07-dt/raid/r2s.ts': r2s,'07-dt/raid/r2s.txt': raid_r2s_namespaceObject,'07-dt/raid/r3n.ts': r3n,'07-dt/raid/r3n.txt': raid_r3n_namespaceObject,'07-dt/raid/r3s.ts': r3s,'07-dt/raid/r3s.txt': raid_r3s_namespaceObject,'07-dt/raid/r4n.ts': r4n,'07-dt/raid/r4n.txt': raid_r4n_namespaceObject,'07-dt/raid/r4s.ts': r4s,'07-dt/raid/r4s.txt': raid_r4s_namespaceObject,'07-dt/raid/r5n.ts': r5n,'07-dt/raid/r5n.txt': raid_r5n_namespaceObject,'07-dt/raid/r5s.ts': r5s,'07-dt/raid/r5s.txt': raid_r5s_namespaceObject,'07-dt/raid/r6n.ts': r6n,'07-dt/raid/r6n.txt': raid_r6n_namespaceObject,'07-dt/raid/r6s.ts': r6s,'07-dt/raid/r6s.txt': raid_r6s_namespaceObject,'07-dt/raid/r7n.ts': r7n,'07-dt/raid/r7n.txt': raid_r7n_namespaceObject,'07-dt/raid/r7s.ts': r7s,'07-dt/raid/r7s.txt': raid_r7s_namespaceObject,'07-dt/raid/r8n.ts': r8n,'07-dt/raid/r8n.txt': raid_r8n_namespaceObject,'07-dt/raid/r8s.ts': r8s,'07-dt/raid/r8s.txt': raid_r8s_namespaceObject,'07-dt/raid/r9n.ts': r9n,'07-dt/raid/r9n.txt': raid_r9n_namespaceObject,'07-dt/raid/r9s.ts': r9s,'07-dt/raid/r9s.txt': raid_r9s_namespaceObject,'07-dt/trial/arkveld-ex.ts': arkveld_ex,'07-dt/trial/arkveld-ex.txt': trial_arkveld_ex_namespaceObject,'07-dt/trial/arkveld.ts': arkveld,'07-dt/trial/arkveld.txt': trial_arkveld_namespaceObject,'07-dt/trial/byakko-un.ts': byakko_un,'07-dt/trial/byakko-un.txt': trial_byakko_un_namespaceObject,'07-dt/trial/doomtrain-ex.ts': doomtrain_ex,'07-dt/trial/doomtrain-ex.txt': trial_doomtrain_ex_namespaceObject,'07-dt/trial/doomtrain.ts': doomtrain,'07-dt/trial/doomtrain.txt': trial_doomtrain_namespaceObject,'07-dt/trial/enuo-ex.ts': enuo_ex,'07-dt/trial/enuo-ex.txt': trial_enuo_ex_namespaceObject,'07-dt/trial/enuo.ts': enuo,'07-dt/trial/enuo.txt': trial_enuo_namespaceObject,'07-dt/trial/necron-ex.ts': necron_ex,'07-dt/trial/necron-ex.txt': trial_necron_ex_namespaceObject,'07-dt/trial/queen-eternal-ex.ts': queen_eternal_ex,'07-dt/trial/queen-eternal-ex.txt': trial_queen_eternal_ex_namespaceObject,'07-dt/trial/queen-eternal.ts': queen_eternal,'07-dt/trial/queen-eternal.txt': trial_queen_eternal_namespaceObject,'07-dt/trial/seiryu-un.ts': seiryu_un,'07-dt/trial/seiryu-un.txt': trial_seiryu_un_namespaceObject,'07-dt/trial/shinryu-un.ts': shinryu_un,'07-dt/trial/shinryu-un.txt': trial_shinryu_un_namespaceObject,'07-dt/trial/suzaku-un.ts': suzaku_un,'07-dt/trial/suzaku-un.txt': trial_suzaku_un_namespaceObject,'07-dt/trial/tsukuyomi-un.ts': tsukuyomi_un,'07-dt/trial/tsukuyomi-un.txt': trial_tsukuyomi_un_namespaceObject,'07-dt/trial/valigarmanda-ex.ts': valigarmanda_ex,'07-dt/trial/valigarmanda-ex.txt': trial_valigarmanda_ex_namespaceObject,'07-dt/trial/valigarmanda.ts': valigarmanda,'07-dt/trial/valigarmanda.txt': trial_valigarmanda_namespaceObject,'07-dt/trial/zelenia-ex.ts': zelenia_ex,'07-dt/trial/zelenia-ex.txt': trial_zelenia_ex_namespaceObject,'07-dt/trial/zelenia.ts': zelenia,'07-dt/trial/zelenia.txt': trial_zelenia_namespaceObject,'07-dt/trial/zoraal-ja-ex.ts': zoraal_ja_ex,'07-dt/trial/zoraal-ja-ex.txt': trial_zoraal_ja_ex_namespaceObject,'07-dt/trial/zoraal-ja.ts': zoraal_ja,'07-dt/trial/zoraal-ja.txt': trial_zoraal_ja_namespaceObject,'07-dt/ultimate/dancing_mad.ts': dancing_mad,'07-dt/ultimate/dancing_mad.txt': ultimate_dancing_mad_namespaceObject,'07-dt/ultimate/futures_rewritten.ts': futures_rewritten,'07-dt/ultimate/futures_rewritten.txt': ultimate_futures_rewritten_namespaceObject,'99-custom/readme.txt': readme_namespaceObject,});
 
 /***/ })
 

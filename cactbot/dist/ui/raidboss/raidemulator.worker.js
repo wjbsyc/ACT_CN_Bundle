@@ -5407,14 +5407,14 @@ const output8Dir = ['dirN', 'dirNE', 'dirE', 'dirSE', 'dirS', 'dirSW', 'dirW', '
 const output16Dir = ['dirN', 'dirNNE', 'dirNE', 'dirENE', 'dirE', 'dirESE', 'dirSE', 'dirSSE', 'dirS', 'dirSSW', 'dirSW', 'dirWSW', 'dirW', 'dirWNW', 'dirNW', 'dirNNW'];
 const outputCardinalDir = ['dirN', 'dirE', 'dirS', 'dirW'];
 const outputIntercardDir = ['dirNE', 'dirSE', 'dirSW', 'dirNW'];
+const getDirectionIndex = n => {
+  const index = output16Dir.indexOf(n);
+  // Values outside of output16Dir (i.e. 'unknown') sort last
+  if (index < 0) return output16Dir.length;
+  return index;
+};
 const compareDirectionOutput = (a, b) => {
-  const getIndex = n => {
-    const index = output16Dir.indexOf(n);
-    // Values outside of output16Dir (i.e. 'unknown') sort last
-    if (index < 0) return output16Dir.length;
-    return index;
-  };
-  return getIndex(a) - getIndex(b);
+  return getDirectionIndex(a) - getDirectionIndex(b);
 };
 const outputStrings16Dir = {
   dirN: outputs.dirN,
@@ -5489,6 +5489,11 @@ const xyTo4DirIntercardNum = (x, y, centerX, centerY) => {
   y = y - centerY;
   return Math.round(2 - 2 * (Math.PI / 4 + Math.atan2(x, y)) / Math.PI) % 4;
 };
+const xyToHeading = (x, y, centerX, centerY) => {
+  x = x - centerX;
+  y = y - centerY;
+  return Math.atan2(x, y);
+};
 const hdgTo16DirNum = heading => {
   // N = 0, NNE = 1, ..., NNW = 15
   return (Math.round(8 - 8 * heading / Math.PI) % 16 + 16) % 16;
@@ -5501,6 +5506,9 @@ const hdgTo4DirNum = heading => {
   // N = 0, E = 1, S = 2, W = 3
   return (Math.round(2 - heading * 2 / Math.PI) % 4 + 4) % 4;
 };
+const outputFrom16DirNum = dirNum => {
+  return output16Dir[dirNum] ?? 'unknown';
+};
 const outputFrom8DirNum = dirNum => {
   return output8Dir[dirNum] ?? 'unknown';
 };
@@ -5509,6 +5517,63 @@ const outputFromCardinalNum = dirNum => {
 };
 const outputFromIntercardNum = dirNum => {
   return outputIntercardDir[dirNum] ?? 'unknown';
+};
+/**
+ * Get a function to pass to Array.sort to sort an array of DirectionOutput entries
+ *
+ * @example
+ * const dirs: DirectionOutputCardinal[] = ['dirN', 'dirW'];
+ *
+ * dirs.sort(getSortDirectionsClockwiseFunction('dirE'));
+ *
+ * // `dirs` should equal `['dirW', 'dirN']`
+ *
+ * @param from The DirectionOutput to treat as the start point for sort comparison
+ * @returns A function to pass to the Array.sort function
+ */
+const getSortDirectionsClockwiseFunction = from => {
+  // Default to dirN
+  let offset = 0;
+  if (from !== undefined && from !== 'unknown') offset = getDirectionIndex(from);
+  const count = output16Dir.length;
+  return (left, right) => {
+    if (left === 'unknown' || right === 'unknown') {
+      return left === right ? 0 : left === 'unknown' ? 1 : -1;
+    }
+    const rightIndex = (count + getDirectionIndex(right) - offset) % count;
+    const leftIndex = (count + getDirectionIndex(left) - offset) % count;
+    return leftIndex - rightIndex;
+  };
+};
+/**
+ * Get a function to pass to Array.sort to sort an array of objects with `x` and `y` properties
+ *
+ * @example
+ * const points = [{ x: 101, y: 101 }, { x: 99, y: 99 }];
+ *
+ * points.sort(getSortPointsClockwiseFunction({x: 100, y: 100}, {x: 99, y: 101}));
+ *
+ * // `points` should now equal `[{ x: 99, y: 99 }, { x: 101, y: 101 }]`
+ *
+ * @param center The x/y point to treat as the center to calculate headings from
+ * @param reference The heading or x/y point to treat as the start point for sort comparison
+ * @returns A function to pass to the Array.sort function
+ */
+const getSortPointsClockwiseFunction = (center, reference = Math.PI // Default to north
+) => {
+  // Convert point to heading if needed
+  const offset = typeof reference === 'object' ? xyToHeading(reference.x, reference.y, center.x, center.y) : reference;
+  const twoPI = Math.PI * 2;
+  return (left, right) => {
+    // Get our base headings for the two points
+    const rightHeading = xyToHeading(right.x, right.y, center.x, center.y);
+    const leftHeading = xyToHeading(left.x, left.y, center.x, center.y);
+
+    // Adjust by reference offset
+    const rightHeadingOffset = (twoPI + (offset - rightHeading)) % twoPI;
+    const leftHeadingOffset = (twoPI + (offset - leftHeading)) % twoPI;
+    return leftHeadingOffset - rightHeadingOffset;
+  };
 };
 const Directions = {
   output8Dir: output8Dir,
@@ -5524,11 +5589,14 @@ const Directions = {
   xyTo16DirNum: xyTo16DirNum,
   xyTo8DirNum: xyTo8DirNum,
   xyTo4DirNum: xyTo4DirNum,
+  xyToHeading: xyToHeading,
   hdgTo16DirNum: hdgTo16DirNum,
   hdgTo8DirNum: hdgTo8DirNum,
   hdgTo4DirNum: hdgTo4DirNum,
+  outputFrom16DirNum: outputFrom16DirNum,
   outputFrom8DirNum: outputFrom8DirNum,
   outputFromCardinalNum: outputFromCardinalNum,
+  outputFromIntercardNum: outputFromIntercardNum,
   combatantStatePosTo8Dir: (combatant, centerX, centerY) => {
     return xyTo8DirNum(combatant.PosX, combatant.PosY, centerX, centerY);
   },
@@ -5562,6 +5630,10 @@ const Directions = {
     const heading = parseFloat(combatant.heading);
     const dirNum = hdgTo8DirNum(heading);
     return outputFrom8DirNum(dirNum);
+  },
+  xyTo16DirOutput: (x, y, centerX, centerY) => {
+    const dirNum = xyTo16DirNum(x, y, centerX, centerY);
+    return outputFrom16DirNum(dirNum);
   },
   xyTo8DirOutput: (x, y, centerX, centerY) => {
     const dirNum = xyTo8DirNum(x, y, centerX, centerY);

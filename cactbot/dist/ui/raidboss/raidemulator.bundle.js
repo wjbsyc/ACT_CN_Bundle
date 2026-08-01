@@ -2414,6 +2414,169 @@ class UnreachableCode extends Error {
 
 /***/ }),
 
+/***/ 788:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// Phantom Job data and helper functions used in Occult Crescent's South Horn and North Horn
+// Map for matching on job name in condition trigger
+const phantomJobData = {
+  'freelancer': '1092',
+  'knight': '1106',
+  'berserker': '1107',
+  'monk': '1108',
+  'ranger': '1109',
+  'oracle': '1110',
+  'thief': '1111',
+  'samurai': '110A',
+  'bard': '110B',
+  'geomancer': '110C',
+  'timeMage': '110D',
+  'cannoneer': '110E',
+  'chemist': '110F',
+  'mysticKnight': '12C3',
+  'gladiator': '12C4',
+  'dancer': '12C5',
+  'ninja': '14D0',
+  'whiteMage': '14D1',
+  'blackMage': '14D2',
+  'dragoon': '14D3',
+  'summoner': '14D4',
+  'blueMage': '14D5',
+  'redMage': '14D6',
+  'necromancer': '14D7'
+};
+
+// Return if the player has a phantom job that can dispel
+// Phantom Time Mage Lv 4: Dispel
+// Phantom Necromance Lv 5: Doomsday (enemies in a line)
+const canDispel = (phantomJob, phantomJobLevel) => {
+  if (phantomJob === phantomJobData.timeMage && phantomJobLevel >= 4) return true;
+  if (phantomJob === phantomJobData.necromancer && phantomJobLevel >= 5) return true;
+  return false;
+};
+
+// Return if the player has a phantom job that can slow
+// Phantom Time Mage Lv 1: Slowga
+const canSlow = (phantomJob, phantomJobLevel) => {
+  if (phantomJob === phantomJobData.timeMage && phantomJobLevel >= 1) return true;
+  return false;
+};
+
+// Return if the player has a phantom job that can cleanse
+// Phantom Oracle Lv 2: Recuperation
+const canCleanse = (phantomJob, phantomJobLevel) => {
+  if (phantomJob === phantomJobData.oracle && phantomJobLevel >= 2) return true;
+  return false;
+};
+
+// Return if the player has a phantom job that can freeze time
+// Phantom Bard Lv 2: Romeo's Ballad (aoe)
+// Phantom Dancer Lv 1 may be able to use Dance with Tempting Tango proc (single-target)
+// Phantom Necromancer Lv2: Deep Freeze (enemies in a line)
+const canFreeze = (phantomJob, phantomJobLevel) => {
+  if (phantomJob === phantomJobData.bard && phantomJobLevel >= 2) return true;
+  if (phantomJob === phantomJobData.dancer && phantomJobLevel >= 1) return true;
+  if (phantomJob === phantomJobData.necromancer && phantomJobLevel >= 2) return true;
+  return false;
+};
+
+// Return if the player has a phantom job that can suspend
+// Phantom Geomancer Lv 4: Suspend
+const canSuspend = (phantomJob, phantomJobLevel) => {
+  if (phantomJob === phantomJobData.geomancer && phantomJobLevel >= 4) return true;
+  return false;
+};
+
+// Return if the player has a phantom job that can reduce tankbuster
+// Phantom Knight Lv 4: Phantom Guard + Enhanced Phantom Guard (90%)
+// Phantom Knight Lv 6: Pledge
+// Phantom Oracle Lv 6: Invulnerability
+// Phantom Dancer Lv 3: Steadfast Dance (10% MaxHP Barrier)
+// Phantom Dancer Lv 4: Mesmerize (40%)
+// Phantom Mystic Knight Lv 2: Magic Shell (20% MaxHP Barrier of caster)
+// Phantom Gladiator Lv 2: Defend (50%)
+// Phantom Blue Mage Lv 2: Occult Mighty Guard from Occult Learning II (15s 20% damage reduction)
+//   Blue Mage requires learning from a Crescent Bibliotaph, assumes they have it
+// These may work using targetIsYou or specific encounter, but excluded from general use:
+// Phantom Black Mage Lv 4: Occult Toad (99% reduction on target and stops all non-autos)
+// Phantom Dragoon Lv 1: Occult Jump (60%), requires target, self only, 2s
+// Phantom Dragoon Lv 4: Enhanced Occult Jump (90%)
+// Phantom Necromance Lv 1: Drain Touch, requires target, self only, 6s, HP can't be reduced < 1
+const caresAboutTankbuster = (phantomJob, phantomJobLevel) => {
+  if (phantomJob === phantomJobData.knight && phantomJobLevel >= 4) return true;
+  if (phantomJob === phantomJobData.oracle && phantomJobLevel >= 6) return true;
+  if (phantomJob === phantomJobData.dancer && phantomJobLevel >= 3) return true;
+  if (phantomJob === phantomJobData.mysticKnight && phantomJobLevel >= 2) return true;
+  if (phantomJob === phantomJobData.gladiator && phantomJobLevel >= 2) return true;
+  if (phantomJob === phantomJobData.blueMage && phantomJobLevel >= 2) return true;
+  return false;
+};
+
+// Return if the player has a phantom job that can block physical damage
+// Phantom Samurai Lv 2: Shirahadori
+// Phantom Oracle Lv 6: Invulnerability
+// Phantom Ninja Lv 5: Image
+// Phantom Necromance Lv 1: Drain Touch, requires target, self only, 6s, HP can't be reduced < 1
+const canBlockPhysical = (phantomJob, phantomJobLevel) => {
+  if (phantomJob === phantomJobData.samurai && phantomJobLevel >= 2) return true;
+  if (phantomJob === phantomJobData.oracle && phantomJobLevel >= 6) return true;
+  if (phantomJob === phantomJobData.ninja && phantomJobLevel >= 5) return true;
+  if (phantomJob === phantomJobData.necromancer && phantomJobLevel >= 1) return true;
+  return false;
+};
+
+// Return if the player has a phantom job that can block magical damage
+// Phantom Oracle Lv 6: Invulnerability
+// Phantom White Mage Lv 3: Occult Blink
+// Phantom Necromance Lv 1: Drain Touch, requires target, self only, 6s, HP can't be reduced < 1
+const canBlockMagical = (phantomJob, phantomJobLevel) => {
+  if (phantomJob === phantomJobData.oracle && phantomJobLevel >= 6) return true;
+  if (phantomJob === phantomJobData.whiteMage && phantomJobLevel >= 3) return true;
+  if (phantomJob === phantomJobData.necromancer && phantomJobLevel >= 1) return true;
+  return false;
+};
+
+// Return if the player has a phantom job that helps with enemy aoes
+// Phantom Bard Lv 3: Mighty March (+20% MaxHP)
+// Phantom Ranger Lv 6: Occult Unicorn (40k AoE Shield)
+// Phantom Dancer Lv 4: Mesmerize (Requires target, 4s 40% damage reduction then 100s 10% damage
+//   reduction)
+// Phantom Geomance Lv 2 may be able to use Weather with Blessed Rain, Misty Mirage, Sunbath, or
+//   Cloudy Caress effects
+// Phantom White Mage Lv 2: Occult Cure III (30k AoE Cure III)
+// Phantom Summoner Lv 3: Earthen Wall (40k AoE Shield)
+// Phantom Blue Mage Lv 2: Occult Mighty Guard from Occult Learning II (15s 20% damage reduction)
+//   Blue Mage requires learning from a Crescent Bibliotaph, assumes they have it
+// Phantom Blue Mage Lv 3: Occult White Wind from Occult Learning III: Self-Benediction and then
+//   heals party for current HP. Blue Mage requires learning from a Crescent Flame
+const caresAboutAOE = (phantomJob, phantomJobLevel) => {
+  if (phantomJob === phantomJobData.bard && phantomJobLevel >= 3) return true;
+  if (phantomJob === phantomJobData.ranger && phantomJobLevel >= 6) return true;
+  if (phantomJob === phantomJobData.dancer && phantomJobLevel >= 4) return true;
+  if (phantomJob === phantomJobData.whiteMage && phantomJobLevel >= 2) return true;
+  if (phantomJob === phantomJobData.summoner && phantomJobLevel >= 3) return true;
+  if (phantomJob === phantomJobData.blueMage && phantomJobLevel >= 2) return true;
+  return false;
+};
+const PhantomJobUtils = {
+  canDispel: canDispel,
+  canSlow: canSlow,
+  canCleanse: canCleanse,
+  canFreeze: canFreeze,
+  canSuspend: canSuspend,
+  caresAboutTankbuster: caresAboutTankbuster,
+  canBlockPhysical: canBlockPhysical,
+  canBlockMagical: canBlockMagical,
+  caresAboutAOE: caresAboutAOE
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PhantomJobUtils);
+
+/***/ }),
+
 /***/ 81:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -5462,7 +5625,7 @@ if (typeof document !== 'undefined') {
 /* harmony export */   "Ns": () => (/* binding */ Directions),
 /* harmony export */   "ZP": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* unused harmony exports allJobs, tankJobs, healerJobs, meleeDpsJobs, rangedDpsJobs, casterDpsJobs, dpsJobs, craftingJobs, gatheringJobs, limitedJobs */
+/* unused harmony exports allJobs, tankJobs, healerJobs, meleeDpsJobs, rangedDpsJobs, casterDpsJobs, dpsJobs, craftingJobs, gatheringJobs, limitedJobs, getSortDirectionsClockwiseFunction, getSortPointsClockwiseFunction */
 /* harmony import */ var _netregexes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(622);
 /* harmony import */ var _outputs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(81);
 /* harmony import */ var _overlay_plugin_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(959);
@@ -5597,14 +5760,14 @@ const output8Dir = ['dirN', 'dirNE', 'dirE', 'dirSE', 'dirS', 'dirSW', 'dirW', '
 const output16Dir = ['dirN', 'dirNNE', 'dirNE', 'dirENE', 'dirE', 'dirESE', 'dirSE', 'dirSSE', 'dirS', 'dirSSW', 'dirSW', 'dirWSW', 'dirW', 'dirWNW', 'dirNW', 'dirNNW'];
 const outputCardinalDir = ['dirN', 'dirE', 'dirS', 'dirW'];
 const outputIntercardDir = ['dirNE', 'dirSE', 'dirSW', 'dirNW'];
+const getDirectionIndex = n => {
+  const index = output16Dir.indexOf(n);
+  // Values outside of output16Dir (i.e. 'unknown') sort last
+  if (index < 0) return output16Dir.length;
+  return index;
+};
 const compareDirectionOutput = (a, b) => {
-  const getIndex = n => {
-    const index = output16Dir.indexOf(n);
-    // Values outside of output16Dir (i.e. 'unknown') sort last
-    if (index < 0) return output16Dir.length;
-    return index;
-  };
-  return getIndex(a) - getIndex(b);
+  return getDirectionIndex(a) - getDirectionIndex(b);
 };
 const outputStrings16Dir = {
   dirN: _outputs__WEBPACK_IMPORTED_MODULE_1__/* ["default"].dirN */ .Z.dirN,
@@ -5679,6 +5842,11 @@ const xyTo4DirIntercardNum = (x, y, centerX, centerY) => {
   y = y - centerY;
   return Math.round(2 - 2 * (Math.PI / 4 + Math.atan2(x, y)) / Math.PI) % 4;
 };
+const xyToHeading = (x, y, centerX, centerY) => {
+  x = x - centerX;
+  y = y - centerY;
+  return Math.atan2(x, y);
+};
 const hdgTo16DirNum = heading => {
   // N = 0, NNE = 1, ..., NNW = 15
   return (Math.round(8 - 8 * heading / Math.PI) % 16 + 16) % 16;
@@ -5691,6 +5859,9 @@ const hdgTo4DirNum = heading => {
   // N = 0, E = 1, S = 2, W = 3
   return (Math.round(2 - heading * 2 / Math.PI) % 4 + 4) % 4;
 };
+const outputFrom16DirNum = dirNum => {
+  return output16Dir[dirNum] ?? 'unknown';
+};
 const outputFrom8DirNum = dirNum => {
   return output8Dir[dirNum] ?? 'unknown';
 };
@@ -5699,6 +5870,63 @@ const outputFromCardinalNum = dirNum => {
 };
 const outputFromIntercardNum = dirNum => {
   return outputIntercardDir[dirNum] ?? 'unknown';
+};
+/**
+ * Get a function to pass to Array.sort to sort an array of DirectionOutput entries
+ *
+ * @example
+ * const dirs: DirectionOutputCardinal[] = ['dirN', 'dirW'];
+ *
+ * dirs.sort(getSortDirectionsClockwiseFunction('dirE'));
+ *
+ * // `dirs` should equal `['dirW', 'dirN']`
+ *
+ * @param from The DirectionOutput to treat as the start point for sort comparison
+ * @returns A function to pass to the Array.sort function
+ */
+const getSortDirectionsClockwiseFunction = from => {
+  // Default to dirN
+  let offset = 0;
+  if (from !== undefined && from !== 'unknown') offset = getDirectionIndex(from);
+  const count = output16Dir.length;
+  return (left, right) => {
+    if (left === 'unknown' || right === 'unknown') {
+      return left === right ? 0 : left === 'unknown' ? 1 : -1;
+    }
+    const rightIndex = (count + getDirectionIndex(right) - offset) % count;
+    const leftIndex = (count + getDirectionIndex(left) - offset) % count;
+    return leftIndex - rightIndex;
+  };
+};
+/**
+ * Get a function to pass to Array.sort to sort an array of objects with `x` and `y` properties
+ *
+ * @example
+ * const points = [{ x: 101, y: 101 }, { x: 99, y: 99 }];
+ *
+ * points.sort(getSortPointsClockwiseFunction({x: 100, y: 100}, {x: 99, y: 101}));
+ *
+ * // `points` should now equal `[{ x: 99, y: 99 }, { x: 101, y: 101 }]`
+ *
+ * @param center The x/y point to treat as the center to calculate headings from
+ * @param reference The heading or x/y point to treat as the start point for sort comparison
+ * @returns A function to pass to the Array.sort function
+ */
+const getSortPointsClockwiseFunction = (center, reference = Math.PI // Default to north
+) => {
+  // Convert point to heading if needed
+  const offset = typeof reference === 'object' ? xyToHeading(reference.x, reference.y, center.x, center.y) : reference;
+  const twoPI = Math.PI * 2;
+  return (left, right) => {
+    // Get our base headings for the two points
+    const rightHeading = xyToHeading(right.x, right.y, center.x, center.y);
+    const leftHeading = xyToHeading(left.x, left.y, center.x, center.y);
+
+    // Adjust by reference offset
+    const rightHeadingOffset = (twoPI + (offset - rightHeading)) % twoPI;
+    const leftHeadingOffset = (twoPI + (offset - leftHeading)) % twoPI;
+    return leftHeadingOffset - rightHeadingOffset;
+  };
 };
 const Directions = {
   output8Dir: output8Dir,
@@ -5714,11 +5942,14 @@ const Directions = {
   xyTo16DirNum: xyTo16DirNum,
   xyTo8DirNum: xyTo8DirNum,
   xyTo4DirNum: xyTo4DirNum,
+  xyToHeading: xyToHeading,
   hdgTo16DirNum: hdgTo16DirNum,
   hdgTo8DirNum: hdgTo8DirNum,
   hdgTo4DirNum: hdgTo4DirNum,
+  outputFrom16DirNum: outputFrom16DirNum,
   outputFrom8DirNum: outputFrom8DirNum,
   outputFromCardinalNum: outputFromCardinalNum,
+  outputFromIntercardNum: outputFromIntercardNum,
   combatantStatePosTo8Dir: (combatant, centerX, centerY) => {
     return xyTo8DirNum(combatant.PosX, combatant.PosY, centerX, centerY);
   },
@@ -5752,6 +5983,10 @@ const Directions = {
     const heading = parseFloat(combatant.heading);
     const dirNum = hdgTo8DirNum(heading);
     return outputFrom8DirNum(dirNum);
+  },
+  xyTo16DirOutput: (x, y, centerX, centerY) => {
+    const dirNum = xyTo16DirNum(x, y, centerX, centerY);
+    return outputFrom16DirNum(dirNum);
   },
   xyTo8DirOutput: (x, y, centerX, centerY) => {
     const dirNum = xyTo8DirNum(x, y, centerX, centerY);
@@ -5982,6 +6217,7 @@ const data = {
   'ChocoboRaceTutorial': 417,
   'CinderDrift': 897,
   'CinderDriftExtreme': 912,
+  'ClottedCrime': 1329,
   'CoerthasCentralHighlands': 155,
   'CoerthasWesternHighlands': 397,
   'ComingClean': 860,
@@ -6131,6 +6367,7 @@ const data = {
   'InterdimensionalRift': 690,
   'ItsProbablyATrap': 665,
   'JeunoTheFirstWalk': 1248,
+  'KeyboundBrawler': 1359,
   'Kholusia': 814,
   'Kozamauka': 1188,
   'KtisisHyperboreia': 974,
@@ -6398,6 +6635,7 @@ const data = {
   'TheNavelExtreme': 296,
   'TheNavelHard': 293,
   'TheNavelUnreal': 953,
+  'TheOccultCrescentNorthHorn': 1346,
   'TheOccultCrescentSouthHorn': 1252,
   'TheOmegaProtocolUltimate': 1122,
   'TheOrbonneMonastery': 826,
@@ -16526,7 +16764,7 @@ const data = {
       'fr': 'Flammes primordiales',
       'ja': '炎影の旅路',
       'ko': '염영의 여로',
-      'tc': '縱使前路獄火焰毒'
+      'tc': '焰影燼途'
     },
     'offsetX': 0,
     'offsetY': 0,
@@ -17451,7 +17689,8 @@ const data = {
       'en': 'Futures Rewritten (Ultimate)',
       'fr': 'Avenirs réécrits (fatal)',
       'ja': '絶もうひとつの未来',
-      'ko': '절 또 하나의 미래'
+      'ko': '절 또 하나의 미래',
+      'tc': '絕 光暗未來殲滅戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17483,7 +17722,8 @@ const data = {
       'en': 'The Cloud of Darkness (Chaotic)',
       'fr': 'La Tour de Ténèbres (chaotique)',
       'ja': '滅暗闇の雲激闘戦',
-      'ko': '멸 어둠의 구름 격투전'
+      'ko': '멸 어둠의 구름 격투전',
+      'tc': '滅 黑暗之雲激鬥戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17567,7 +17807,8 @@ const data = {
       'en': 'Bar the Passage',
       'fr': 'Pour s\'affranchir de la tyrannie, tout s\'appelle vertu',
       'ja': '決戦、ゾーゴー永結橋',
-      'ko': '결전, 조고 영결교'
+      'ko': '결전, 조고 영결교',
+      'tc': '決戰！佐戈永結橋'
     },
     'offsetX': 0,
     'offsetY': 0,
@@ -17616,7 +17857,8 @@ const data = {
       'en': 'AAC Cruiserweight M1',
       'fr': 'Poids lourds-légers CCA - match 1',
       'ja': '至天の座アルカディア：クルーザー級1',
-      'ko': '아르카디아 선수권: 크루저급 1'
+      'ko': '아르카디아 선수권: 크루저급 1',
+      'tc': '阿卡狄亞登天鬥技場 次重量級1'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17632,7 +17874,8 @@ const data = {
       'en': 'AAC Cruiserweight M1 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 1 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級1',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 1'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 1',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級1'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17648,7 +17891,8 @@ const data = {
       'en': 'AAC Cruiserweight M2',
       'fr': 'Poids lourds-légers CCA - match 2',
       'ja': '至天の座アルカディア：クルーザー級2',
-      'ko': '아르카디아 선수권: 크루저급 2'
+      'ko': '아르카디아 선수권: 크루저급 2',
+      'tc': '阿卡狄亞登天鬥技場 次重量級2'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17664,7 +17908,8 @@ const data = {
       'en': 'AAC Cruiserweight M2 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 2 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級2',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 2'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 2',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級2'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17680,7 +17925,8 @@ const data = {
       'en': 'AAC Cruiserweight M3',
       'fr': 'Poids lourds-légers CCA - match 3',
       'ja': '至天の座アルカディア：クルーザー級3',
-      'ko': '아르카디아 선수권: 크루저급 3'
+      'ko': '아르카디아 선수권: 크루저급 3',
+      'tc': '阿卡狄亞登天鬥技場 次重量級3'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17696,7 +17942,8 @@ const data = {
       'en': 'AAC Cruiserweight M3 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 3 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級3',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 3'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 3',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級3'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17712,7 +17959,8 @@ const data = {
       'en': 'AAC Cruiserweight M4',
       'fr': 'Poids lourds-légers CCA - match 4',
       'ja': '至天の座アルカディア：クルーザー級4',
-      'ko': '아르카디아 선수권: 크루저급 4'
+      'ko': '아르카디아 선수권: 크루저급 4',
+      'tc': '阿卡狄亞登天鬥技場 次重量級4'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17728,7 +17976,8 @@ const data = {
       'en': 'AAC Cruiserweight M4 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 4 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級4',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 4'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 4',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級4'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17744,7 +17993,8 @@ const data = {
       'en': 'The Underkeep',
       'fr': 'La Gardienne de l\'Immémorial',
       'ja': '王城旧跡 アンダーキープ',
-      'ko': '언더킵'
+      'ko': '언더킵',
+      'tc': '王城遺跡永護塔底'
     },
     'offsetX': 122,
     'offsetY': -273,
@@ -17777,7 +18027,8 @@ const data = {
       'en': 'Recollection',
       'fr': 'Le Sanctuaire du Serment',
       'ja': 'ゼレニア討滅戦',
-      'ko': '젤레니아 토벌전'
+      'ko': '젤레니아 토벌전',
+      'tc': '澤蓮尼亞殲滅戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17793,7 +18044,8 @@ const data = {
       'en': 'Recollection (Extreme)',
       'fr': 'Le Sanctuaire du Serment (extrême)',
       'ja': '極ゼレニア討滅戦',
-      'ko': '극 젤레니아 토벌전'
+      'ko': '극 젤레니아 토벌전',
+      'tc': '極 澤蓮尼亞殲滅戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -18474,6 +18726,22 @@ const data = {
     'sizeFactor': 200,
     'weatherRate': 37
   },
+  1329: {
+    'contentType': 7,
+    'exVersion': 5,
+    'name': {
+      'cn': '绅士与硬汉',
+      'de': 'Hartgesotten',
+      'en': 'Clotted Crime',
+      'fr': 'Les deux durs à cuire',
+      'ja': 'つわものふたり',
+      'ko': '나란히 선 두 사람'
+    },
+    'offsetX': -100,
+    'offsetY': -100,
+    'sizeFactor': 400,
+    'weatherRate': 0
+  },
   1330: {
     'contentType': 2,
     'exVersion': 0,
@@ -18540,6 +18808,22 @@ const data = {
     'sizeFactor': 200,
     'weatherRate': 27
   },
+  1346: {
+    'contentType': 38,
+    'exVersion': 5,
+    'name': {
+      'cn': '蜃景幻界新月岛 北征之章',
+      'de': 'Das nördliche Kreszentia',
+      'en': 'The Occult Crescent: North Horn',
+      'fr': 'Île de Lunule septentrionale',
+      'ja': '蜃気楼の島 クレセントアイル：北征編',
+      'ko': '초승달 섬: 북부편'
+    },
+    'offsetX': 0,
+    'offsetY': 0,
+    'sizeFactor': 100,
+    'weatherRate': 168
+  },
   1357: {
     'contentType': 6,
     'exVersion': 0,
@@ -18570,6 +18854,22 @@ const data = {
     'offsetX': -100,
     'offsetY': -100,
     'sizeFactor': 400,
+    'weatherRate': 0
+  },
+  1359: {
+    'contentType': 19,
+    'exVersion': 0,
+    'name': {
+      'cn': '魔光键影',
+      'de': 'Tastenschläger',
+      'en': 'Keybound Brawler',
+      'fr': 'Frappe Fatale',
+      'ja': 'キーバウンド・ブロウラー',
+      'ko': '마법자판 난타전'
+    },
+    'offsetX': 0,
+    'offsetY': 0,
+    'sizeFactor': 100,
     'weatherRate': 0
   },
   1361: {
@@ -20495,8 +20795,8 @@ const translateRegexBuildParamAnon = (anonParams, replaceLang, replacements) => 
 };
 // EXTERNAL MODULE: ./resources/user_config.ts
 var user_config = __webpack_require__(456);
-// EXTERNAL MODULE: ./ui/raidboss/data/raidboss_manifest.txt + 740 modules
-var raidboss_manifest = __webpack_require__(801);
+// EXTERNAL MODULE: ./ui/raidboss/data/raidboss_manifest.txt + 742 modules
+var raidboss_manifest = __webpack_require__(221);
 ;// CONCATENATED MODULE: ./ui/raidboss/raidboss_options.ts
 
 

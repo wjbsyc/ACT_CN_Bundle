@@ -21516,6 +21516,7 @@ const zone_id_data = {
   'ChocoboRaceTutorial': 417,
   'CinderDrift': 897,
   'CinderDriftExtreme': 912,
+  'ClottedCrime': 1329,
   'CoerthasCentralHighlands': 155,
   'CoerthasWesternHighlands': 397,
   'ComingClean': 860,
@@ -21665,6 +21666,7 @@ const zone_id_data = {
   'InterdimensionalRift': 690,
   'ItsProbablyATrap': 665,
   'JeunoTheFirstWalk': 1248,
+  'KeyboundBrawler': 1359,
   'Kholusia': 814,
   'Kozamauka': 1188,
   'KtisisHyperboreia': 974,
@@ -21932,6 +21934,7 @@ const zone_id_data = {
   'TheNavelExtreme': 296,
   'TheNavelHard': 293,
   'TheNavelUnreal': 953,
+  'TheOccultCrescentNorthHorn': 1346,
   'TheOccultCrescentSouthHorn': 1252,
   'TheOmegaProtocolUltimate': 1122,
   'TheOrbonneMonastery': 826,
@@ -32051,7 +32054,7 @@ const zone_info_data = {
       'fr': 'Flammes primordiales',
       'ja': '炎影の旅路',
       'ko': '염영의 여로',
-      'tc': '縱使前路獄火焰毒'
+      'tc': '焰影燼途'
     },
     'offsetX': 0,
     'offsetY': 0,
@@ -32976,7 +32979,8 @@ const zone_info_data = {
       'en': 'Futures Rewritten (Ultimate)',
       'fr': 'Avenirs réécrits (fatal)',
       'ja': '絶もうひとつの未来',
-      'ko': '절 또 하나의 미래'
+      'ko': '절 또 하나의 미래',
+      'tc': '絕 光暗未來殲滅戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33008,7 +33012,8 @@ const zone_info_data = {
       'en': 'The Cloud of Darkness (Chaotic)',
       'fr': 'La Tour de Ténèbres (chaotique)',
       'ja': '滅暗闇の雲激闘戦',
-      'ko': '멸 어둠의 구름 격투전'
+      'ko': '멸 어둠의 구름 격투전',
+      'tc': '滅 黑暗之雲激鬥戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33092,7 +33097,8 @@ const zone_info_data = {
       'en': 'Bar the Passage',
       'fr': 'Pour s\'affranchir de la tyrannie, tout s\'appelle vertu',
       'ja': '決戦、ゾーゴー永結橋',
-      'ko': '결전, 조고 영결교'
+      'ko': '결전, 조고 영결교',
+      'tc': '決戰！佐戈永結橋'
     },
     'offsetX': 0,
     'offsetY': 0,
@@ -33141,7 +33147,8 @@ const zone_info_data = {
       'en': 'AAC Cruiserweight M1',
       'fr': 'Poids lourds-légers CCA - match 1',
       'ja': '至天の座アルカディア：クルーザー級1',
-      'ko': '아르카디아 선수권: 크루저급 1'
+      'ko': '아르카디아 선수권: 크루저급 1',
+      'tc': '阿卡狄亞登天鬥技場 次重量級1'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33157,7 +33164,8 @@ const zone_info_data = {
       'en': 'AAC Cruiserweight M1 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 1 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級1',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 1'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 1',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級1'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33173,7 +33181,8 @@ const zone_info_data = {
       'en': 'AAC Cruiserweight M2',
       'fr': 'Poids lourds-légers CCA - match 2',
       'ja': '至天の座アルカディア：クルーザー級2',
-      'ko': '아르카디아 선수권: 크루저급 2'
+      'ko': '아르카디아 선수권: 크루저급 2',
+      'tc': '阿卡狄亞登天鬥技場 次重量級2'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33189,7 +33198,8 @@ const zone_info_data = {
       'en': 'AAC Cruiserweight M2 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 2 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級2',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 2'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 2',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級2'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33205,7 +33215,8 @@ const zone_info_data = {
       'en': 'AAC Cruiserweight M3',
       'fr': 'Poids lourds-légers CCA - match 3',
       'ja': '至天の座アルカディア：クルーザー級3',
-      'ko': '아르카디아 선수권: 크루저급 3'
+      'ko': '아르카디아 선수권: 크루저급 3',
+      'tc': '阿卡狄亞登天鬥技場 次重量級3'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33221,7 +33232,8 @@ const zone_info_data = {
       'en': 'AAC Cruiserweight M3 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 3 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級3',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 3'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 3',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級3'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33237,7 +33249,8 @@ const zone_info_data = {
       'en': 'AAC Cruiserweight M4',
       'fr': 'Poids lourds-légers CCA - match 4',
       'ja': '至天の座アルカディア：クルーザー級4',
-      'ko': '아르카디아 선수권: 크루저급 4'
+      'ko': '아르카디아 선수권: 크루저급 4',
+      'tc': '阿卡狄亞登天鬥技場 次重量級4'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33253,7 +33266,8 @@ const zone_info_data = {
       'en': 'AAC Cruiserweight M4 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 4 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級4',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 4'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 4',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級4'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33269,7 +33283,8 @@ const zone_info_data = {
       'en': 'The Underkeep',
       'fr': 'La Gardienne de l\'Immémorial',
       'ja': '王城旧跡 アンダーキープ',
-      'ko': '언더킵'
+      'ko': '언더킵',
+      'tc': '王城遺跡永護塔底'
     },
     'offsetX': 122,
     'offsetY': -273,
@@ -33302,7 +33317,8 @@ const zone_info_data = {
       'en': 'Recollection',
       'fr': 'Le Sanctuaire du Serment',
       'ja': 'ゼレニア討滅戦',
-      'ko': '젤레니아 토벌전'
+      'ko': '젤레니아 토벌전',
+      'tc': '澤蓮尼亞殲滅戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33318,7 +33334,8 @@ const zone_info_data = {
       'en': 'Recollection (Extreme)',
       'fr': 'Le Sanctuaire du Serment (extrême)',
       'ja': '極ゼレニア討滅戦',
-      'ko': '극 젤레니아 토벌전'
+      'ko': '극 젤레니아 토벌전',
+      'tc': '極 澤蓮尼亞殲滅戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -33999,6 +34016,22 @@ const zone_info_data = {
     'sizeFactor': 200,
     'weatherRate': 37
   },
+  1329: {
+    'contentType': 7,
+    'exVersion': 5,
+    'name': {
+      'cn': '绅士与硬汉',
+      'de': 'Hartgesotten',
+      'en': 'Clotted Crime',
+      'fr': 'Les deux durs à cuire',
+      'ja': 'つわものふたり',
+      'ko': '나란히 선 두 사람'
+    },
+    'offsetX': -100,
+    'offsetY': -100,
+    'sizeFactor': 400,
+    'weatherRate': 0
+  },
   1330: {
     'contentType': 2,
     'exVersion': 0,
@@ -34065,6 +34098,22 @@ const zone_info_data = {
     'sizeFactor': 200,
     'weatherRate': 27
   },
+  1346: {
+    'contentType': 38,
+    'exVersion': 5,
+    'name': {
+      'cn': '蜃景幻界新月岛 北征之章',
+      'de': 'Das nördliche Kreszentia',
+      'en': 'The Occult Crescent: North Horn',
+      'fr': 'Île de Lunule septentrionale',
+      'ja': '蜃気楼の島 クレセントアイル：北征編',
+      'ko': '초승달 섬: 북부편'
+    },
+    'offsetX': 0,
+    'offsetY': 0,
+    'sizeFactor': 100,
+    'weatherRate': 168
+  },
   1357: {
     'contentType': 6,
     'exVersion': 0,
@@ -34095,6 +34144,22 @@ const zone_info_data = {
     'offsetX': -100,
     'offsetY': -100,
     'sizeFactor': 400,
+    'weatherRate': 0
+  },
+  1359: {
+    'contentType': 19,
+    'exVersion': 0,
+    'name': {
+      'cn': '魔光键影',
+      'de': 'Tastenschläger',
+      'en': 'Keybound Brawler',
+      'fr': 'Frappe Fatale',
+      'ja': 'キーバウンド・ブロウラー',
+      'ko': '마법자판 난타전'
+    },
+    'offsetX': 0,
+    'offsetY': 0,
+    'sizeFactor': 100,
     'weatherRate': 0
   },
   1361: {

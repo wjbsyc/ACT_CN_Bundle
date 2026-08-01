@@ -5455,7 +5455,7 @@ if (typeof document !== 'undefined') {
 /* harmony export */   "Ns": () => (/* binding */ Directions),
 /* harmony export */   "ZP": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* unused harmony exports allJobs, tankJobs, healerJobs, meleeDpsJobs, rangedDpsJobs, casterDpsJobs, dpsJobs, craftingJobs, gatheringJobs, limitedJobs */
+/* unused harmony exports allJobs, tankJobs, healerJobs, meleeDpsJobs, rangedDpsJobs, casterDpsJobs, dpsJobs, craftingJobs, gatheringJobs, limitedJobs, getSortDirectionsClockwiseFunction, getSortPointsClockwiseFunction */
 /* harmony import */ var _netregexes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(622);
 /* harmony import */ var _outputs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(81);
 /* harmony import */ var _overlay_plugin_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(959);
@@ -5590,14 +5590,14 @@ const output8Dir = ['dirN', 'dirNE', 'dirE', 'dirSE', 'dirS', 'dirSW', 'dirW', '
 const output16Dir = ['dirN', 'dirNNE', 'dirNE', 'dirENE', 'dirE', 'dirESE', 'dirSE', 'dirSSE', 'dirS', 'dirSSW', 'dirSW', 'dirWSW', 'dirW', 'dirWNW', 'dirNW', 'dirNNW'];
 const outputCardinalDir = ['dirN', 'dirE', 'dirS', 'dirW'];
 const outputIntercardDir = ['dirNE', 'dirSE', 'dirSW', 'dirNW'];
+const getDirectionIndex = n => {
+  const index = output16Dir.indexOf(n);
+  // Values outside of output16Dir (i.e. 'unknown') sort last
+  if (index < 0) return output16Dir.length;
+  return index;
+};
 const compareDirectionOutput = (a, b) => {
-  const getIndex = n => {
-    const index = output16Dir.indexOf(n);
-    // Values outside of output16Dir (i.e. 'unknown') sort last
-    if (index < 0) return output16Dir.length;
-    return index;
-  };
-  return getIndex(a) - getIndex(b);
+  return getDirectionIndex(a) - getDirectionIndex(b);
 };
 const outputStrings16Dir = {
   dirN: _outputs__WEBPACK_IMPORTED_MODULE_1__/* ["default"].dirN */ .Z.dirN,
@@ -5672,6 +5672,11 @@ const xyTo4DirIntercardNum = (x, y, centerX, centerY) => {
   y = y - centerY;
   return Math.round(2 - 2 * (Math.PI / 4 + Math.atan2(x, y)) / Math.PI) % 4;
 };
+const xyToHeading = (x, y, centerX, centerY) => {
+  x = x - centerX;
+  y = y - centerY;
+  return Math.atan2(x, y);
+};
 const hdgTo16DirNum = heading => {
   // N = 0, NNE = 1, ..., NNW = 15
   return (Math.round(8 - 8 * heading / Math.PI) % 16 + 16) % 16;
@@ -5684,6 +5689,9 @@ const hdgTo4DirNum = heading => {
   // N = 0, E = 1, S = 2, W = 3
   return (Math.round(2 - heading * 2 / Math.PI) % 4 + 4) % 4;
 };
+const outputFrom16DirNum = dirNum => {
+  return output16Dir[dirNum] ?? 'unknown';
+};
 const outputFrom8DirNum = dirNum => {
   return output8Dir[dirNum] ?? 'unknown';
 };
@@ -5692,6 +5700,63 @@ const outputFromCardinalNum = dirNum => {
 };
 const outputFromIntercardNum = dirNum => {
   return outputIntercardDir[dirNum] ?? 'unknown';
+};
+/**
+ * Get a function to pass to Array.sort to sort an array of DirectionOutput entries
+ *
+ * @example
+ * const dirs: DirectionOutputCardinal[] = ['dirN', 'dirW'];
+ *
+ * dirs.sort(getSortDirectionsClockwiseFunction('dirE'));
+ *
+ * // `dirs` should equal `['dirW', 'dirN']`
+ *
+ * @param from The DirectionOutput to treat as the start point for sort comparison
+ * @returns A function to pass to the Array.sort function
+ */
+const getSortDirectionsClockwiseFunction = from => {
+  // Default to dirN
+  let offset = 0;
+  if (from !== undefined && from !== 'unknown') offset = getDirectionIndex(from);
+  const count = output16Dir.length;
+  return (left, right) => {
+    if (left === 'unknown' || right === 'unknown') {
+      return left === right ? 0 : left === 'unknown' ? 1 : -1;
+    }
+    const rightIndex = (count + getDirectionIndex(right) - offset) % count;
+    const leftIndex = (count + getDirectionIndex(left) - offset) % count;
+    return leftIndex - rightIndex;
+  };
+};
+/**
+ * Get a function to pass to Array.sort to sort an array of objects with `x` and `y` properties
+ *
+ * @example
+ * const points = [{ x: 101, y: 101 }, { x: 99, y: 99 }];
+ *
+ * points.sort(getSortPointsClockwiseFunction({x: 100, y: 100}, {x: 99, y: 101}));
+ *
+ * // `points` should now equal `[{ x: 99, y: 99 }, { x: 101, y: 101 }]`
+ *
+ * @param center The x/y point to treat as the center to calculate headings from
+ * @param reference The heading or x/y point to treat as the start point for sort comparison
+ * @returns A function to pass to the Array.sort function
+ */
+const getSortPointsClockwiseFunction = (center, reference = Math.PI // Default to north
+) => {
+  // Convert point to heading if needed
+  const offset = typeof reference === 'object' ? xyToHeading(reference.x, reference.y, center.x, center.y) : reference;
+  const twoPI = Math.PI * 2;
+  return (left, right) => {
+    // Get our base headings for the two points
+    const rightHeading = xyToHeading(right.x, right.y, center.x, center.y);
+    const leftHeading = xyToHeading(left.x, left.y, center.x, center.y);
+
+    // Adjust by reference offset
+    const rightHeadingOffset = (twoPI + (offset - rightHeading)) % twoPI;
+    const leftHeadingOffset = (twoPI + (offset - leftHeading)) % twoPI;
+    return leftHeadingOffset - rightHeadingOffset;
+  };
 };
 const Directions = {
   output8Dir: output8Dir,
@@ -5707,11 +5772,14 @@ const Directions = {
   xyTo16DirNum: xyTo16DirNum,
   xyTo8DirNum: xyTo8DirNum,
   xyTo4DirNum: xyTo4DirNum,
+  xyToHeading: xyToHeading,
   hdgTo16DirNum: hdgTo16DirNum,
   hdgTo8DirNum: hdgTo8DirNum,
   hdgTo4DirNum: hdgTo4DirNum,
+  outputFrom16DirNum: outputFrom16DirNum,
   outputFrom8DirNum: outputFrom8DirNum,
   outputFromCardinalNum: outputFromCardinalNum,
+  outputFromIntercardNum: outputFromIntercardNum,
   combatantStatePosTo8Dir: (combatant, centerX, centerY) => {
     return xyTo8DirNum(combatant.PosX, combatant.PosY, centerX, centerY);
   },
@@ -5745,6 +5813,10 @@ const Directions = {
     const heading = parseFloat(combatant.heading);
     const dirNum = hdgTo8DirNum(heading);
     return outputFrom8DirNum(dirNum);
+  },
+  xyTo16DirOutput: (x, y, centerX, centerY) => {
+    const dirNum = xyTo16DirNum(x, y, centerX, centerY);
+    return outputFrom16DirNum(dirNum);
   },
   xyTo8DirOutput: (x, y, centerX, centerY) => {
     const dirNum = xyTo8DirNum(x, y, centerX, centerY);
@@ -5975,6 +6047,7 @@ const data = {
   'ChocoboRaceTutorial': 417,
   'CinderDrift': 897,
   'CinderDriftExtreme': 912,
+  'ClottedCrime': 1329,
   'CoerthasCentralHighlands': 155,
   'CoerthasWesternHighlands': 397,
   'ComingClean': 860,
@@ -6124,6 +6197,7 @@ const data = {
   'InterdimensionalRift': 690,
   'ItsProbablyATrap': 665,
   'JeunoTheFirstWalk': 1248,
+  'KeyboundBrawler': 1359,
   'Kholusia': 814,
   'Kozamauka': 1188,
   'KtisisHyperboreia': 974,
@@ -6391,6 +6465,7 @@ const data = {
   'TheNavelExtreme': 296,
   'TheNavelHard': 293,
   'TheNavelUnreal': 953,
+  'TheOccultCrescentNorthHorn': 1346,
   'TheOccultCrescentSouthHorn': 1252,
   'TheOmegaProtocolUltimate': 1122,
   'TheOrbonneMonastery': 826,
@@ -16519,7 +16594,7 @@ const data = {
       'fr': 'Flammes primordiales',
       'ja': '炎影の旅路',
       'ko': '염영의 여로',
-      'tc': '縱使前路獄火焰毒'
+      'tc': '焰影燼途'
     },
     'offsetX': 0,
     'offsetY': 0,
@@ -17444,7 +17519,8 @@ const data = {
       'en': 'Futures Rewritten (Ultimate)',
       'fr': 'Avenirs réécrits (fatal)',
       'ja': '絶もうひとつの未来',
-      'ko': '절 또 하나의 미래'
+      'ko': '절 또 하나의 미래',
+      'tc': '絕 光暗未來殲滅戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17476,7 +17552,8 @@ const data = {
       'en': 'The Cloud of Darkness (Chaotic)',
       'fr': 'La Tour de Ténèbres (chaotique)',
       'ja': '滅暗闇の雲激闘戦',
-      'ko': '멸 어둠의 구름 격투전'
+      'ko': '멸 어둠의 구름 격투전',
+      'tc': '滅 黑暗之雲激鬥戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17560,7 +17637,8 @@ const data = {
       'en': 'Bar the Passage',
       'fr': 'Pour s\'affranchir de la tyrannie, tout s\'appelle vertu',
       'ja': '決戦、ゾーゴー永結橋',
-      'ko': '결전, 조고 영결교'
+      'ko': '결전, 조고 영결교',
+      'tc': '決戰！佐戈永結橋'
     },
     'offsetX': 0,
     'offsetY': 0,
@@ -17609,7 +17687,8 @@ const data = {
       'en': 'AAC Cruiserweight M1',
       'fr': 'Poids lourds-légers CCA - match 1',
       'ja': '至天の座アルカディア：クルーザー級1',
-      'ko': '아르카디아 선수권: 크루저급 1'
+      'ko': '아르카디아 선수권: 크루저급 1',
+      'tc': '阿卡狄亞登天鬥技場 次重量級1'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17625,7 +17704,8 @@ const data = {
       'en': 'AAC Cruiserweight M1 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 1 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級1',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 1'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 1',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級1'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17641,7 +17721,8 @@ const data = {
       'en': 'AAC Cruiserweight M2',
       'fr': 'Poids lourds-légers CCA - match 2',
       'ja': '至天の座アルカディア：クルーザー級2',
-      'ko': '아르카디아 선수권: 크루저급 2'
+      'ko': '아르카디아 선수권: 크루저급 2',
+      'tc': '阿卡狄亞登天鬥技場 次重量級2'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17657,7 +17738,8 @@ const data = {
       'en': 'AAC Cruiserweight M2 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 2 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級2',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 2'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 2',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級2'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17673,7 +17755,8 @@ const data = {
       'en': 'AAC Cruiserweight M3',
       'fr': 'Poids lourds-légers CCA - match 3',
       'ja': '至天の座アルカディア：クルーザー級3',
-      'ko': '아르카디아 선수권: 크루저급 3'
+      'ko': '아르카디아 선수권: 크루저급 3',
+      'tc': '阿卡狄亞登天鬥技場 次重量級3'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17689,7 +17772,8 @@ const data = {
       'en': 'AAC Cruiserweight M3 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 3 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級3',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 3'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 3',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級3'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17705,7 +17789,8 @@ const data = {
       'en': 'AAC Cruiserweight M4',
       'fr': 'Poids lourds-légers CCA - match 4',
       'ja': '至天の座アルカディア：クルーザー級4',
-      'ko': '아르카디아 선수권: 크루저급 4'
+      'ko': '아르카디아 선수권: 크루저급 4',
+      'tc': '阿卡狄亞登天鬥技場 次重量級4'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17721,7 +17806,8 @@ const data = {
       'en': 'AAC Cruiserweight M4 (Savage)',
       'fr': 'Poids lourds-légers CCA - match 4 (sadique)',
       'ja': '至天の座アルカディア零式：クルーザー級4',
-      'ko': '아르카디아 선수권: 크루저급(영웅) 4'
+      'ko': '아르카디아 선수권: 크루저급(영웅) 4',
+      'tc': '阿卡狄亞零式登天鬥技場 次重量級4'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17737,7 +17823,8 @@ const data = {
       'en': 'The Underkeep',
       'fr': 'La Gardienne de l\'Immémorial',
       'ja': '王城旧跡 アンダーキープ',
-      'ko': '언더킵'
+      'ko': '언더킵',
+      'tc': '王城遺跡永護塔底'
     },
     'offsetX': 122,
     'offsetY': -273,
@@ -17770,7 +17857,8 @@ const data = {
       'en': 'Recollection',
       'fr': 'Le Sanctuaire du Serment',
       'ja': 'ゼレニア討滅戦',
-      'ko': '젤레니아 토벌전'
+      'ko': '젤레니아 토벌전',
+      'tc': '澤蓮尼亞殲滅戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -17786,7 +17874,8 @@ const data = {
       'en': 'Recollection (Extreme)',
       'fr': 'Le Sanctuaire du Serment (extrême)',
       'ja': '極ゼレニア討滅戦',
-      'ko': '극 젤레니아 토벌전'
+      'ko': '극 젤레니아 토벌전',
+      'tc': '極 澤蓮尼亞殲滅戰'
     },
     'offsetX': -100,
     'offsetY': -100,
@@ -18467,6 +18556,22 @@ const data = {
     'sizeFactor': 200,
     'weatherRate': 37
   },
+  1329: {
+    'contentType': 7,
+    'exVersion': 5,
+    'name': {
+      'cn': '绅士与硬汉',
+      'de': 'Hartgesotten',
+      'en': 'Clotted Crime',
+      'fr': 'Les deux durs à cuire',
+      'ja': 'つわものふたり',
+      'ko': '나란히 선 두 사람'
+    },
+    'offsetX': -100,
+    'offsetY': -100,
+    'sizeFactor': 400,
+    'weatherRate': 0
+  },
   1330: {
     'contentType': 2,
     'exVersion': 0,
@@ -18533,6 +18638,22 @@ const data = {
     'sizeFactor': 200,
     'weatherRate': 27
   },
+  1346: {
+    'contentType': 38,
+    'exVersion': 5,
+    'name': {
+      'cn': '蜃景幻界新月岛 北征之章',
+      'de': 'Das nördliche Kreszentia',
+      'en': 'The Occult Crescent: North Horn',
+      'fr': 'Île de Lunule septentrionale',
+      'ja': '蜃気楼の島 クレセントアイル：北征編',
+      'ko': '초승달 섬: 북부편'
+    },
+    'offsetX': 0,
+    'offsetY': 0,
+    'sizeFactor': 100,
+    'weatherRate': 168
+  },
   1357: {
     'contentType': 6,
     'exVersion': 0,
@@ -18563,6 +18684,22 @@ const data = {
     'offsetX': -100,
     'offsetY': -100,
     'sizeFactor': 400,
+    'weatherRate': 0
+  },
+  1359: {
+    'contentType': 19,
+    'exVersion': 0,
+    'name': {
+      'cn': '魔光键影',
+      'de': 'Tastenschläger',
+      'en': 'Keybound Brawler',
+      'fr': 'Frappe Fatale',
+      'ja': 'キーバウンド・ブロウラー',
+      'ko': '마법자판 난타전'
+    },
+    'offsetX': 0,
+    'offsetY': 0,
+    'sizeFactor': 100,
     'weatherRate': 0
   },
   1361: {
@@ -41402,6 +41539,11 @@ class Bars {
 const data = {
   '2': 'E88',
   '4': 'E8A',
+  '1Correction': '1396',
+  '2Correction': '1397',
+  '3Correction': '1398',
+  '4Correction': '1399',
+  '5Correction': '139A',
   'ABitBerserk': '905',
   'AMansBestFriend': '16E',
   'Abandon': '2DA',
@@ -41411,6 +41553,7 @@ const data = {
   'Abandonment_286': '286',
   'Abandonment_58A': '58A',
   'AbdomenTear': 'BE9',
+  'AboutFace_1417': '1417',
   'AboutFace_1449': '1449',
   'AboutFace_50E': '50E',
   'AboutFace_7A7': '7A7',
@@ -41598,13 +41741,15 @@ const data = {
   'AstralCloak': '6B0',
   'AstralEffect': '8BE',
   'AstralEssence': '6AE',
+  'AstralEye': '1446',
   'AstralFireIi_AE': 'AE',
   'AstralFireIi_C8D': 'C8D',
   'AstralFireIii_AF': 'AF',
   'AstralFireIii_D35': 'D35',
   'AstralFire_AD': 'AD',
   'AstralFire_C8C': 'C8C',
-  'AstralRealignment': '18E',
+  'AstralRealignment_1445': '1445',
+  'AstralRealignment_18E': '18E',
   'AstralTilt': 'DF9',
   'AstralWarmth': 'C90',
   'AstralbrightSoul': 'DFC',
@@ -41842,6 +41987,8 @@ const data = {
   'BloomingGold': 'D84',
   'BloomingWelt': 'D9B',
   'BlownAway': '6D2',
+  'BlueNoiseEasterly': '13BE',
+  'BlueNoiseWesterly': '13BF',
   'BluePaint': '5BC',
   'Bluefire': '24F',
   'BluntResistanceDown_23D': '23D',
@@ -42217,6 +42364,8 @@ const data = {
   'CrownOfTheGorgon': 'D18',
   'CrumblingBulwark': '64F',
   'Cryomania': '1076',
+  'CrypticCommunications_14E4': '14E4',
+  'CrypticCommunications_1560': '1560',
   'CrystalBurden': 'EE2',
   'CrystalCourier': 'E78',
   'CrystalVeil': '142',
@@ -42399,6 +42548,7 @@ const data = {
   'Diabrosis': '1182',
   'Diamondback': '6BA',
   'DifferentialDiagnosis': 'A30',
+  'DigThreeGraves': '140F',
   'Digesting': '285',
   'DigestiveEnzymes': '3BD',
   'DigestiveFluid': '431',
@@ -42517,6 +42667,7 @@ const data = {
   'DragonForce': '9C4',
   'DragonKick': '62',
   'DragonsFlight': 'F05',
+  'DrainTouch': '14CE',
   'DrainedFortitude': '813',
   'DrainedPower': '812',
   'Drainstrikes': '44',
@@ -42549,6 +42700,7 @@ const data = {
   'DrowningCounter': '3B9',
   'Drubbed': '5EF',
   'DrunkWithPower': 'E0B',
+  'Dualcast_153E': '153E',
   'Dualcast_4E1': '4E1',
   'Dualcast_562': '562',
   'Dualcast_571': '571',
@@ -42570,12 +42722,14 @@ const data = {
   'EarthResonance': 'C63',
   'EarthborneEnd': '1127',
   'EarthenAccord': '30A',
+  'EarthenWall': '14C8',
   'EarthenWard': '137',
   'EarthlyDominance': '4C8',
   'EarthsReply': '51F',
   'EarthsResolve': '49C',
   'EarthsRumination': 'F01',
   'EastWindOfChange': '105D',
+  'EasterlyReprise': '151B',
   'EasterlyWinds': '1516',
   'EatFromTheHand': '164',
   'EchoOfTheFallen': 'CDA',
@@ -42590,6 +42744,7 @@ const data = {
   'ElectricalCharge': 'F8B',
   'ElectricalCondenser': 'F9F',
   'Electrified': '8B9',
+  'ElectrifiedGentleman': '12E2',
   'Electroconductivity': '200',
   'Electrocution_10F': '10F',
   'Electrocution_1198': '1198',
@@ -42617,6 +42772,7 @@ const data = {
   'ElementalHarmony': '633',
   'ElementalResistanceDown': 'AF1',
   'ElementalStar': '10DD',
+  'ElementaryDeficiency': '1421',
   'Elevated': '54E',
   'ElusiveJump': 'C89',
   'ElusiveJumpTarget': 'AC5',
@@ -42677,6 +42833,8 @@ const data = {
   'Enshielded': '76D',
   'Enshrouded_A21': 'A21',
   'Enshrouded_B2F': 'B2F',
+  'EnsorcelledAeroIii': '14FE',
+  'EnsorcelledStoneIii': '14FF',
   'Enstone': 'CF',
   'EntangledFlames': 'AC7',
   'Enthunder_9FD': '9FD',
@@ -42689,7 +42847,8 @@ const data = {
   'EpPenalty': '946',
   'EpicEcho': 'AAE',
   'EpicHero': '1060',
-  'EpicVillain': '1061',
+  'EpicVillain_1061': '1061',
+  'EpicVillain_1518': '1518',
   'Epicycle': '10EA',
   'Equilibrium': 'A79',
   'ErraticBlaster': '23E',
@@ -42792,7 +42951,8 @@ const data = {
   'FatedBrand': '10C6',
   'FatedBurnMark': '1045',
   'FatedHero': '1062',
-  'FatedVillain': '1063',
+  'FatedVillain_1063': '1063',
+  'FatedVillain_1519': '1519',
   'Fathom': '48E',
   'Fearless': '6D3',
   'FeatherField': '421',
@@ -42808,6 +42968,7 @@ const data = {
   'FetterWard': '7BF',
   'Fetters_11E2': '11E2',
   'Fetters_124': '124',
+  'Fetters_14E5': '14E5',
   'Fetters_1F8': '1F8',
   'Fetters_1FE': '1FE',
   'Fetters_29B': '29B',
@@ -42904,6 +43065,7 @@ const data = {
   'FireResistanceUp_5ED': '5ED',
   'FireResonance': 'C62',
   'FireToad': '1FF',
+  'FireWeakness': '14CA',
   'FirebirdTrance': 'C9D',
   'FiresRumination_10CD': '10CD',
   'FiresRumination_F03': 'F03',
@@ -42915,9 +43077,11 @@ const data = {
   'FirstChakra': '319',
   'FirstFlame': 'CC8',
   'FirstInLine': 'BBC',
+  'FirstStrike': '14C3',
   'FirstmindsFocus': 'C6A',
   'FishEyes': '2FA',
   'FishersIntuition': '238',
+  'FissionChamber': '12E1',
   'FistsOfEarth_68': '68',
   'FistsOfEarth_7D6': '7D6',
   'FistsOfFire_67': '67',
@@ -42996,6 +43160,7 @@ const data = {
   'Forte': '10E0',
   'FortifiedRecuperation': '10B0',
   'ForwardBearing': 'B13',
+  'ForwardMarch_1416': '1416',
   'ForwardMarch_1448': '1448',
   'ForwardMarch_50D': '50D',
   'ForwardMarch_7A6': '7A6',
@@ -43146,7 +43311,8 @@ const data = {
   'GraceOfLight': '8D6',
   'GradualPetrification_54F': '54F',
   'GradualPetrification_65C': '65C',
-  'GradualZombification': '415',
+  'GradualZombification_13C3': '13C3',
+  'GradualZombification_415': '415',
   'GrandImpactReady': 'F25',
   'GravitationalAnomaly_EBA': 'EBA',
   'GravitationalAnomaly_EE6': 'EE6',
@@ -43159,6 +43325,8 @@ const data = {
   'GreatStrides': 'FE',
   'GreaterReachReady': '1155',
   'GreatestCurse': 'EF1',
+  'GreenNoiseEasterly': '13BC',
+  'GreenNoiseWesterly': '13BD',
   'Greenwrath': '144',
   'GrimhuntersVenom': 'E41',
   'GrimskinsVenom': 'E42',
@@ -43169,6 +43337,8 @@ const data = {
   'Grounded': '588',
   'GroupOriented': '698',
   'GrowingConception': 'D0E',
+  'GrowingDread': '1410',
+  'GrowingPanic': '1411',
   'Growing_17F': '17F',
   'Growing_186': '186',
   'Grudge': '625',
@@ -43187,6 +43357,7 @@ const data = {
   'GuidedMissileKyriosIncoming_DA7': 'DA7',
   'GuidedMissileKyriosIncoming_DA8': 'DA8',
   'GuidedMissileKyriosIncoming_DA9': 'DA9',
+  'GuiltyAsCharged': '13B8',
   'Guise': 'A13',
   'Gullstorm': 'A08',
   'Gungnir': '141',
@@ -43201,6 +43372,7 @@ const data = {
   'HallowedGround_516': '516',
   'HallowedGround_52': '52',
   'HammerTime': 'E60',
+  'HardBoiled': '12E3',
   'HardMarked': '2B6',
   'HardWorker': '11CB',
   'Hardcore': 'BB2',
@@ -43456,12 +43628,14 @@ const data = {
   'IceSpikes_6B8': '6B8',
   'IceSpikes_9E0': '9E0',
   'IceSpikes_C6': 'C6',
+  'IceWeakness': '14CB',
   'Icebitten': '1D1',
   'IceboundBuffoonery': '115B',
   'IdealHost': 'F41',
   'IdenticalCast': '70C',
   'IdenticalGig': '70D',
   'IfritsFavor': 'AA4',
+  'Image': '1309',
   'ImbuedSaber': '949',
   'Immaterialized': '55D',
   'ImmortalConception': 'D10',
@@ -43475,6 +43649,7 @@ const data = {
   'ImpactImminent': 'F2A',
   'Impactful': '557',
   'Impassioned': 'EAF',
+  'ImpassionedInputs': '14DE',
   'ImperfectionAlpha': 'D02',
   'ImperfectionBeta': 'D03',
   'ImperfectionGamma': 'D04',
@@ -43497,7 +43672,8 @@ const data = {
   'InTheSpotlight': '1177',
   'InTheWeeds': '1214',
   'InTraining': '1057',
-  'Incapacitated': 'B08',
+  'Incapacitated_1520': '1520',
+  'Incapacitated_B08': 'B08',
   'IncapacitatingSoulSnare': 'DDD',
   'IncendiaryBurns': '9C3',
   'IncenseL': '679',
@@ -43560,6 +43736,7 @@ const data = {
   'Invigoration': '263',
   'Invincibility_113A': '113A',
   'Invincibility_11BB': '11BB',
+  'Invincibility_130B': '130B',
   'Invincibility_145': '145',
   'Invincibility_18A': '18A',
   'Invincibility_211': '211',
@@ -43637,6 +43814,7 @@ const data = {
   'Lamed': '279',
   'LamentOfTheClose': '112C',
   'LamentOfTheDistant': '112D',
+  'Lance': '14C7',
   'LanceCharge_748': '748',
   'LanceCharge_CBA': 'CBA',
   'LandWaker': '35F',
@@ -43692,6 +43870,7 @@ const data = {
   'LegendaryResolve': '596',
   'LegsOfTheSpider': '3B2',
   'Lethargy': '10ED',
+  'Letterlocked': '14E3',
   'LeveilleurDosisIii': 'A5A',
   'Levinskin': '788',
   'Levitate': 'F86',
@@ -43727,6 +43906,7 @@ const data = {
   'LightVision': '14DF',
   'Lightheaded_8CA': '8CA',
   'Lightheaded_9C5': '9C5',
+  'LightingUp': '14C2',
   'LightningAspected': 'B03',
   'LightningChain': '435',
   'LightningCharge': '146',
@@ -43746,6 +43926,7 @@ const data = {
   'LightningResistanceUp': '20B',
   'LightningRod': 'A0E',
   'LightningShot': '958',
+  'LightningWeakness': '14CC',
   'LightsAccord': 'DE1',
   'LightsDesign': '1040',
   'LightsDiscord': 'DE3',
@@ -43799,7 +43980,6 @@ const data = {
   'LostProtect': '91D',
   'LostProtectIi': 'A01',
   'LostRampage': '9FF',
-  'LostReflect': '921',
   'LostRendArmor': '989',
   'LostShell': '91E',
   'LostShellIi': 'A02',
@@ -44138,10 +44318,13 @@ const data = {
   'Obfuscated_452': '452',
   'Oblatio': 'F11',
   'Oblation': 'A7A',
+  'OccultBlink': '14C4',
   'OccultMageMasher': '10A3',
+  'OccultMightyGuard': '14C9',
   'OccultQuick': '10A4',
   'OccultSprint': '10B4',
   'OccultSwift': '10A5',
+  'OccultToad': '14C5',
   'OccultUnicorn': '1093',
   'Odder': '60A',
   'OdderIncarnation_E11': 'E11',
@@ -44198,6 +44381,7 @@ const data = {
   'OversampledWaveCannonLoading_D7C': 'D7C',
   'OversampledWaveCannonLoading_D7D': 'D7D',
   'Owlet': 'DAE',
+  'Pacification_1444': '1444',
   'Pacification_26C': '26C',
   'Pacification_6': '6',
   'Pacification_D5': 'D5',
@@ -44260,11 +44444,14 @@ const data = {
   'PhantomAim': '1090',
   'PhantomBard': '110B',
   'PhantomBerserker': '1107',
+  'PhantomBlackMage': '14D2',
+  'PhantomBlueMage': '14D5',
   'PhantomCannoneer': '110E',
   'PhantomChemist': '110F',
   'PhantomDancer': '12C5',
   'PhantomDart': '7C2',
   'PhantomDoom': '10B1',
+  'PhantomDragoon': '14D3',
   'PhantomEdge': '9B8',
   'PhantomFlurry': '9C6',
   'PhantomFreelancer': '1092',
@@ -44277,12 +44464,17 @@ const data = {
   'PhantomMastery': '1082',
   'PhantomMonk': '1108',
   'PhantomMysticKnight': '12C3',
+  'PhantomNecromancer': '14D7',
+  'PhantomNinja': '14D0',
   'PhantomOracle': '1110',
   'PhantomRanger': '1109',
+  'PhantomRedMage': '14D6',
   'PhantomRejuvenation': '10B2',
   'PhantomSamurai': '110A',
+  'PhantomSummoner': '14D4',
   'PhantomThief': '1111',
   'PhantomTimeMage': '110D',
+  'PhantomWhiteMage': '14D1',
   'PhilosophersCarrot': 'AF6',
   'Philosophia': 'F3A',
   'Phlebotomize': '77',
@@ -44345,6 +44537,8 @@ const data = {
   'PoisonResistanceDownIi': 'F5F',
   'PoisonResistanceUp': '280',
   'Poison_12': '12',
+  'Poison_1531': '1531',
+  'Poison_155D': '155D',
   'Poison_22F': '22F',
   'Poison_230': '230',
   'Poison_2AE': '2AE',
@@ -44562,8 +44756,9 @@ const data = {
   'RedrawnDomain': '1105',
   'ReducedImmunity': '143',
   'ReducedRates': '16C',
-  'Reflect': '206',
   'ReflectL': '671',
+  'Reflect_206': '206',
+  'Reflect_921': '921',
   'Reforged_6EF': '6EF',
   'Reforged_6F1': '6F1',
   'RefreshL': '673',
@@ -44760,6 +44955,10 @@ const data = {
   'ScouringWaters': '765',
   'ScreamOfTheFallen': 'CDB',
   'Scrutiny': '2F5',
+  'SealOfTheBell': '159C',
+  'SealOfTheBlade': '159D',
+  'SealOfTheBow': '159E',
+  'SealOfTheHarp': '159F',
   'SealSweetener': '19E',
   'SealedDoton': 'C7D',
   'SealedForkedRaiju': 'C7B',
@@ -44973,6 +45172,7 @@ const data = {
   'Sludge_C00': 'C00',
   'Smackdown': '814',
   'SmileyFace': 'ACB',
+  'Smoke': '14CF',
   'SmokeScreen': '315',
   'SmotheringWaters': '73D',
   'Smudge_1011': '1011',
@@ -45181,6 +45381,7 @@ const data = {
   'Stun_111A': '111A',
   'Stun_1151': '1151',
   'Stun_13B3': '13B3',
+  'Stun_1523': '1523',
   'Stun_2': '2',
   'Stun_53F': '53F',
   'Stun_5E9': '5E9',
@@ -45668,6 +45869,7 @@ const data = {
   'Vril': '50A',
   'VulnerabilityDown_1154': '1154',
   'VulnerabilityDown_135B': '135B',
+  'VulnerabilityDown_14C6': '14C6',
   'VulnerabilityDown_155B': '155B',
   'VulnerabilityDown_15E': '15E',
   'VulnerabilityDown_196': '196',
@@ -45742,6 +45944,7 @@ const data = {
   'WellDoneSteak': '11DD',
   'WellFed': '30',
   'WestWindOfChange': '105E',
+  'WesterlyReprise': '151C',
   'WesterlyWinds': '1517',
   'WetPlate': '264',
   'Whaleback': '2CF',
@@ -45778,6 +45981,7 @@ const data = {
   'WindResistanceDown_37E': '37E',
   'WindResistanceUp': '20A',
   'WindResonance': '7D7',
+  'WindWeakness': '14CD',
   'Windbite': '81',
   'WindborneEnd': '1128',
   'Windburn_10D': '10D',
@@ -45851,6 +46055,7 @@ const data = {
   'ZanshinReady_F0F': 'F0F',
   'ZeshoMeppoReady': '10D1',
   'Zoe': 'A33',
+  'ZombieProof': '1412',
   'Zombification_173': '173',
   'Zombification_901': '901',
   '[1]': 'F96',
